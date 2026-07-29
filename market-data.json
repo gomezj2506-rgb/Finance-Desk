@@ -1,82 +1,167 @@
 {
-  "updated_utc": "2026-07-29T15:30:00Z",
-  "updated_label": "Jul 29, 2026 \u00b7 11:30 AM ET (seed)",
-  "source": "seed snapshot \u2014 replaced on first Action run",
+  "updated_utc": "2026-07-29T18:05:30.722Z",
+  "updated_label": "Jul 29, 2026, 2:05 PM ET",
+  "session": "close",
+  "source": "Finnhub",
   "indices": [
     {
       "sym": "SPY",
       "name": "S&P 500",
-      "price": null,
-      "change": 0,
-      "pct": -0.8
+      "price": 739.19,
+      "change": -1.67,
+      "pct": -0.2254
     },
     {
       "sym": "QQQ",
       "name": "Nasdaq 100",
-      "price": null,
-      "change": 0,
-      "pct": -1.0
+      "price": 674.38,
+      "change": -1.11,
+      "pct": -0.1643
     },
     {
       "sym": "DIA",
       "name": "Dow Jones",
-      "price": null,
-      "change": 0,
-      "pct": -1.6
+      "price": 520.8,
+      "change": -6.09,
+      "pct": -1.1558
     },
     {
       "sym": "IWM",
       "name": "Russell 2000",
-      "price": null,
-      "change": 0,
-      "pct": -0.4
+      "price": 292.59,
+      "change": -0.78,
+      "pct": -0.2659
     }
   ],
-  "sectors": [],
+  "sectors": [
+    {
+      "sym": "XLK",
+      "name": "Technology",
+      "price": 170.41,
+      "change": -0.68,
+      "pct": -0.3975
+    },
+    {
+      "sym": "SMH",
+      "name": "Semiconductors",
+      "price": 519.03,
+      "change": -10.57,
+      "pct": -1.9958
+    },
+    {
+      "sym": "XLC",
+      "name": "Comm Svcs",
+      "price": 110.36,
+      "change": 0.69,
+      "pct": 0.6292
+    },
+    {
+      "sym": "XLY",
+      "name": "Cons Disc",
+      "price": 113.18,
+      "change": 0.7,
+      "pct": 0.6223
+    },
+    {
+      "sym": "XLP",
+      "name": "Staples",
+      "price": 87.5,
+      "change": 0.44,
+      "pct": 0.5054
+    },
+    {
+      "sym": "XLV",
+      "name": "Health Care",
+      "price": 167.08,
+      "change": -0.18,
+      "pct": -0.1076
+    },
+    {
+      "sym": "XLF",
+      "name": "Financials",
+      "price": 57.19,
+      "change": -0.41,
+      "pct": -0.7118
+    },
+    {
+      "sym": "XLI",
+      "name": "Industrials",
+      "price": 179.01,
+      "change": -3.48,
+      "pct": -1.907
+    },
+    {
+      "sym": "XLE",
+      "name": "Energy",
+      "price": 58.65,
+      "change": 1.08,
+      "pct": 1.876
+    },
+    {
+      "sym": "XLU",
+      "name": "Utilities",
+      "price": 45.15,
+      "change": -0.37,
+      "pct": -0.8128
+    },
+    {
+      "sym": "XLB",
+      "name": "Materials",
+      "price": 51.99,
+      "change": -0.35,
+      "pct": -0.6687
+    },
+    {
+      "sym": "XLRE",
+      "name": "Real Estate",
+      "price": 46,
+      "change": -0.01,
+      "pct": -0.0217
+    }
+  ],
   "holdings": [
     {
       "sym": "INTC",
       "name": "Intel",
-      "price": null,
-      "change": 0,
-      "pct": -5.9
+      "price": 85.27,
+      "change": -1.03,
+      "pct": -1.1935
     },
     {
       "sym": "NVDA",
       "name": "Nvidia",
-      "price": null,
-      "change": 0,
-      "pct": -1.1
+      "price": 193.45,
+      "change": -3.56,
+      "pct": -1.807
     },
     {
       "sym": "GOOGL",
       "name": "Alphabet",
-      "price": null,
-      "change": 0,
-      "pct": -0.6
+      "price": 339.96,
+      "change": 6.25,
+      "pct": 1.8729
     },
     {
       "sym": "URA",
       "name": "Uranium ETF",
-      "price": null,
-      "change": 0,
-      "pct": 0.4
+      "price": 38.4,
+      "change": -0.55,
+      "pct": -1.4121
     },
     {
       "sym": "VOO",
       "name": "S&P 500 ETF",
-      "price": null,
-      "change": 0,
-      "pct": -0.8
+      "price": 679.57,
+      "change": -1.39,
+      "pct": -0.2041
     }
   ],
   "oil": {
     "sym": "USO",
     "name": "Oil (USO)",
-    "price": null,
-    "change": 0,
-    "pct": 6.9
+    "price": 129.05,
+    "change": 8.56,
+    "pct": 7.1043
   },
-  "narrative": "Seed snapshot. Your two scheduled runs \u2014 pre-market (~8 AM ET) and close (~5 PM ET) \u2014 fill this in live. Trigger one from the Actions tab to see it switch modes.",
-  "session": "close"
+  "narrative": "At the close — Energy led (+1.9%); Semiconductors lagged (-2.0%). Semis soft at -2.0%, broad tech -0.4%. Your book: INTC -1.2%, NVDA -1.8%."
 }
