@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Desk — Finance Fluency Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#05070A; --panel:#0B0F14; --raised:#12181F;
+    --line-dk:#1E2833; --line-lt:#1E2833;
+    --paper:#0B0F14; --paper-2:#0E141A;
+    --tx-dk:#DDE6E1; --tx-dk-mut:#7E8C86;
+    --tx-lt:#DDE6E1; --tx-lt-mut:#7E8C86;
+    --bid:#22B36A; --bid-br:#39D983;    /* GREEN = up / done / progress */
+    --ask:#F0474D;                       /* RED = down / attention / to-do */
+    --gold:#F5A623;                      /* AMBER = terminal accent */
+    --up:#22B36A; --down:#F0474D; --amber:#F5A623;
+    --scheme-bid:#F0474D; --scheme-ask:#4AA3E0; /* his DOM: red=bid, blue=ask */
+    --radius:9px;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0; color:var(--tx-dk);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+    background-color:var(--ink);
+    background-image:
+      linear-gradient(rgba(34,179,106,.020) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,179,106,.020) 1px, transparent 1px),
+      radial-gradient(900px 500px at 82% -6%, rgba(245,166,35,.045), transparent 60%),
+      radial-gradient(760px 460px at 4% 2%, rgba(34,179,106,.04), transparent 55%);
+    background-size:44px 44px, 44px 44px, 100% 100%, 100% 100%;
+    background-attachment:fixed;
+  }
+  a{color:var(--bid-br); text-decoration:none}
+  a:hover{text-decoration:underline}
+  :focus-visible{outline:2px solid var(--bid-br); outline-offset:2px; border-radius:4px}
+
+  /* ---------- Layout shell ---------- */
+  .shell{display:grid; grid-template-columns:264px 1fr; max-width:var(--maxw); margin:0 auto; gap:0}
+  @media(max-width:900px){ .shell{grid-template-columns:1fr} }
+
+  /* ---------- Sidebar: DOM ladder nav ---------- */
+  .rail{
+    position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto;
+    border-right:1px solid var(--line-dk); padding:26px 18px 40px;
+    background:linear-gradient(180deg,var(--ink),#0A1220);
+  }
+  @media(max-width:900px){
+    .rail{position:static; height:auto; border-right:none; border-bottom:1px solid var(--line-dk)}
+  }
+  .brandmark{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.15rem; letter-spacing:-.01em; display:flex; align-items:center; gap:9px; margin-bottom:4px}
+  .brandmark .dot{width:9px;height:9px;background:var(--gold);border-radius:2px;box-shadow:0 0 10px 1px rgba(245,166,35,.6)}
+  .brand-sub{font-family:'IBM Plex Mono',monospace; font-size:.66rem; text-transform:uppercase; letter-spacing:.22em; color:var(--tx-dk-mut); margin-bottom:22px}
+
+  .ladder{list-style:none; margin:0; padding:0; border-top:1px solid var(--line-dk)}
+  .ladder li{border-bottom:1px solid var(--line-dk)}
+  .ladder a{
+    display:grid; grid-template-columns:34px 1fr auto; align-items:center; gap:10px;
+    padding:9px 6px; color:var(--tx-dk-mut); font-size:.83rem; font-weight:500;
+    text-decoration:none; transition:background .15s,color .15s;
+  }
+  .ladder a:hover{background:var(--raised); color:var(--tx-dk); text-decoration:none}
+  .ladder a.active{color:var(--tx-dk); background:linear-gradient(90deg,rgba(43,127,184,.22),transparent)}
+  .ladder a.active .lvl{color:var(--bid-br); border-color:var(--bid)}
+  .lvl{font-family:'IBM Plex Mono',monospace; font-size:.72rem; text-align:center; color:var(--tx-dk-mut); border:1px solid var(--line-dk); border-radius:4px; padding:2px 0}
+  .ladder a .depth{font-family:'IBM Plex Mono',monospace; font-size:.66rem; color:var(--bid-br); opacity:.85}
+
+  .legend{margin-top:22px; font-family:'IBM Plex Mono',monospace; font-size:.64rem; color:var(--tx-dk-mut); line-height:1.9}
+  .legend .k{display:inline-block; width:9px;height:9px;border-radius:2px;margin-right:6px;vertical-align:middle}
+  .legend .bid{background:var(--bid)} .legend .ask{background:var(--ask)}
+
+  /* ---------- Main ---------- */
+  main{min-width:0}
+  .wrap{padding:0 30px}
+  @media(max-width:560px){.wrap{padding:0 18px}}
+  section{scroll-margin-top:20px}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:64px 30px 40px; border-bottom:1px solid var(--line-dk)}
+  @media(max-width:560px){.hero{padding:44px 18px 30px}}
+  .eyebrow{font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:18px}
+  .hero h1{
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(2.1rem,5vw,3.5rem);
+    line-height:1.02; letter-spacing:-.02em; margin:0 0 18px; color:#fff; max-width:15ch;
+  }
+  .hero p.lead{font-size:1.08rem; color:var(--tx-dk-mut); max-width:56ch; margin:0 0 30px}
+  .hero p.lead strong{color:var(--tx-dk); font-weight:600}
+
+  .tape{
+    border:1px solid var(--line-dk); border-radius:var(--radius); background:var(--panel);
+    overflow:hidden; white-space:nowrap; margin-bottom:30px; position:relative;
+  }
+  .tape::before{content:"LIVE TERMS"; position:absolute; left:0;top:0;bottom:0; display:flex; align-items:center; padding:0 12px; font-family:'IBM Plex Mono',monospace; font-size:.6rem; letter-spacing:.16em; color:var(--ink); background:var(--gold); z-index:2}
+  .tape-track{display:inline-flex; gap:34px; padding:10px 20px 10px 108px; font-family:'IBM Plex Mono',monospace; font-size:.8rem; color:var(--tx-dk-mut); animation:scroll 34s linear infinite}
+  .tape-track span b{color:var(--bid-br); font-weight:500}
+  @keyframes scroll{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.tape-track{animation:none}}
+
+  .readout{display:flex; flex-wrap:wrap; gap:26px; align-items:center}
+  .prog-shell{flex:1 1 260px; min-width:220px}
+  .prog-top{display:flex; justify-content:space-between; align-items:baseline; font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:var(--tx-dk-mut); margin-bottom:7px}
+  .prog-top b{color:var(--bid-br); font-size:.95rem}
+  .bar{height:10px; background:var(--raised); border-radius:6px; overflow:hidden; border:1px solid var(--line-dk)}
+  .bar > i{display:block; height:100%; width:0%; background:linear-gradient(90deg,var(--bid),var(--bid-br)); transition:width .4s ease}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; background:var(--bid); color:#fff;
+    font-weight:600; font-size:.92rem; padding:11px 20px; border-radius:8px; border:0; cursor:pointer;
+  }
+  .btn:hover{background:var(--bid-br); text-decoration:none}
+
+  /* ---------- Section chrome ---------- */
+  .sec-head{display:flex; align-items:baseline; gap:14px; margin:52px 0 22px; padding-top:8px}
+  .sec-num{font-family:'IBM Plex Mono',monospace; font-size:.8rem; color:var(--ask); border:1px solid var(--line-dk); border-radius:5px; padding:3px 8px; flex:none}
+  .sec-head h2{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(1.4rem,3vw,1.9rem); letter-spacing:-.01em; margin:0; color:#fff}
+  .sec-intro{color:var(--tx-dk-mut); max-width:64ch; margin:-8px 0 26px}
+
+  /* From-the-desk mentor note */
+  .desknote{
+    border-left:3px solid var(--gold); background:rgba(201,162,75,.06);
+    padding:14px 18px; border-radius:0 8px 8px 0; margin:22px 0; font-size:.95rem; color:var(--tx-dk);
+  }
+  .desknote .tag{font-family:'IBM Plex Mono',monospace; font-size:.64rem; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:5px}
+
+  /* method table */
+  .method{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin:22px 0}
+  .m-card{background:var(--panel); border:1px solid var(--line-dk); border-radius:var(--radius); padding:18px}
+  .m-card h4{font-family:'Space Grotesk',sans-serif; margin:0 0 6px; font-size:1rem; color:#fff}
+  .m-card .num{font-family:'IBM Plex Mono',monospace; font-size:.7rem; color:var(--bid-br); display:block; margin-bottom:10px}
+  .m-card p{margin:0; font-size:.88rem; color:var(--tx-dk-mut)}
+
+  .desk-flow{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin:20px 0}
+  .flow{background:var(--raised); border:1px solid var(--line-dk); border-radius:var(--radius); padding:16px}
+  .flow .d{font-family:'IBM Plex Mono',monospace; font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:8px}
+  .flow h5{font-family:'Space Grotesk',sans-serif; margin:0 0 5px; font-size:.98rem; color:#fff}
+  .flow p{margin:0; font-size:.83rem; color:var(--tx-dk-mut)}
+
+  /* resource lists */
+  .res-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin:8px 0 10px}
+  .res{background:var(--panel); border:1px solid var(--line-dk); border-radius:var(--radius); padding:18px}
+  .res h4{font-family:'Space Grotesk',sans-serif; margin:0 0 12px; font-size:1rem; color:#fff; display:flex; align-items:center; gap:8px}
+  .res h4 .pin{width:7px;height:7px;background:var(--bid);border-radius:50%}
+  .res ul{list-style:none; margin:0; padding:0}
+  .res li{padding:7px 0; border-top:1px solid var(--line-dk); font-size:.9rem}
+  .res li:first-child{border-top:0}
+  .res .who{color:var(--tx-dk-mut); font-size:.8rem}
+
+  /* ---------- Week accordions ---------- */
+  .weeks{display:flex; flex-direction:column; gap:12px; margin-top:8px}
+  details.week{background:var(--paper); color:var(--tx-lt); border:1px solid var(--line-lt); border-radius:var(--radius); overflow:hidden}
+  details.week[open]{box-shadow:0 10px 30px -18px rgba(0,0,0,.6)}
+  summary.wk-sum{list-style:none; cursor:pointer; display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:16px; padding:18px 20px}
+  summary.wk-sum::-webkit-details-marker{display:none}
+  .wk-lvl{font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:.78rem; color:#fff; background:var(--ink); border-radius:6px; padding:8px 11px; text-align:center; min-width:74px}
+  .wk-lvl small{display:block; font-weight:400; font-size:.6rem; color:var(--tx-dk-mut); letter-spacing:.08em}
+  .wk-title{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:1.12rem; color:var(--tx-lt)}
+  .wk-title span{display:block; font-family:'Inter',sans-serif; font-weight:400; font-size:.82rem; color:var(--tx-lt-mut); margin-top:2px}
+  .wk-depth{display:flex; align-items:center; gap:10px}
+  .wk-depth .mini{width:70px; height:7px; background:var(--line-lt); border-radius:4px; overflow:hidden}
+  .wk-depth .mini > i{display:block;height:100%;width:0;background:var(--bid);transition:width .3s}
+  .wk-depth .pct{font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:var(--tx-lt-mut); min-width:34px; text-align:right}
+  .chev{transition:transform .2s; color:var(--tx-lt-mut)}
+  details.week[open] .chev{transform:rotate(180deg)}
+
+  .wk-body{padding:4px 20px 22px; border-top:1px solid var(--line-lt)}
+  .block{margin:20px 0 0}
+  .block .lbl{font-family:'IBM Plex Mono',monospace; font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:var(--bid); margin-bottom:8px; display:flex; align-items:center; gap:8px}
+  .task{display:flex; gap:11px; align-items:flex-start; padding:9px 0}
+  .task + .task{border-top:1px dashed var(--line-lt)}
+  .task input{appearance:none; -webkit-appearance:none; flex:none; width:20px;height:20px; border:1.5px solid var(--ask); border-radius:5px; margin-top:2px; cursor:pointer; position:relative; transition:.15s}
+  .task input:checked{background:var(--bid); border-color:var(--bid)}
+  .task input:checked::after{content:"✓"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; font-size:.8rem; font-weight:700}
+  .task .t-txt{font-size:.92rem}
+  .task .t-txt a{color:var(--bid)}
+  .task input:checked ~ .t-txt{color:var(--tx-lt-mut); text-decoration:line-through; text-decoration-color:var(--tx-lt-mut)}
+
+  table.vocab{width:100%; border-collapse:collapse; margin:10px 0 4px; font-size:.88rem}
+  table.vocab th{font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; text-align:left; color:var(--tx-lt-mut); padding:8px 10px; border-bottom:2px solid var(--line-lt)}
+  table.vocab td{padding:9px 10px; border-bottom:1px solid var(--line-lt); vertical-align:top}
+  table.vocab td:first-child{font-weight:600; font-family:'Space Grotesk',sans-serif; white-space:nowrap}
+  table.vocab td.applied{color:var(--bid)}
+  .client{background:var(--ink); color:var(--tx-dk); border-radius:8px; padding:14px 16px; margin-top:16px; font-size:.9rem; display:flex; gap:11px; align-items:flex-start}
+  .client .cm{font-family:'IBM Plex Mono',monospace; font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ask); flex:none; padding-top:3px}
+
+  /* generic light card for maintenance/glossary/etc */
+  .card-dk{background:var(--panel); border:1px solid var(--line-dk); border-radius:var(--radius); padding:22px; margin:8px 0}
+  .rot{width:100%; border-collapse:collapse; font-size:.9rem}
+  .rot th,.rot td{text-align:left; padding:10px 12px; border-bottom:1px solid var(--line-dk)}
+  .rot th{font-family:'IBM Plex Mono',monospace; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--tx-dk-mut)}
+  .rot td:first-child{font-family:'IBM Plex Mono',monospace; color:var(--bid-br); white-space:nowrap}
+
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+  .chip{font-family:'IBM Plex Mono',monospace; font-size:.74rem; padding:5px 10px; border:1px solid var(--line-dk); border-radius:20px; color:var(--tx-dk-mut); background:var(--raised)}
+  .chip.new{color:var(--bid-br); border-color:rgba(43,127,184,.5)}
+
+  .steps{counter-reset:s; list-style:none; padding:0; margin:10px 0 0}
+  .steps li{counter-increment:s; position:relative; padding:12px 0 12px 44px; border-bottom:1px solid var(--line-dk)}
+  .steps li::before{content:counter(s); position:absolute; left:0; top:11px; width:28px;height:28px; background:var(--ask); color:#fff; border-radius:7px; font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:.85rem; display:flex; align-items:center; justify-content:center}
+  .steps li b{color:#fff}
+
+  .watch-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px; margin-top:8px}
+  .film{background:var(--panel); border:1px solid var(--line-dk); border-radius:var(--radius); padding:16px}
+  .film h4{font-family:'Space Grotesk',sans-serif; margin:0 0 3px; font-size:1rem; color:#fff}
+  .film .yr{font-family:'IBM Plex Mono',monospace; font-size:.68rem; color:var(--gold); margin-bottom:8px}
+  .film p{margin:0; font-size:.84rem; color:var(--tx-dk-mut)}
+
+  .elective{display:grid; grid-template-columns:auto 1fr; gap:14px; padding:13px 0; border-bottom:1px solid var(--line-dk); align-items:baseline}
+  .elective code{font-family:'IBM Plex Mono',monospace; font-size:.78rem; color:var(--bid-br); background:var(--raised); padding:4px 8px; border-radius:5px; white-space:nowrap}
+  .elective p{margin:0; font-size:.88rem; color:var(--tx-dk-mut)}
+  .elective p b{color:var(--tx-dk)}
+
+  /* ---------- Formula Desk ---------- */
+  .fmod{margin:26px 0}
+  .fmod-h{display:flex; align-items:baseline; gap:12px; margin-bottom:4px}
+  .fmod-h .mtag{font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:var(--gold); border:1px solid var(--line-dk); border-radius:5px; padding:2px 8px; flex:none}
+  .fmod-h h3{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:1.15rem; color:#fff; margin:0}
+  .fmod > p.sub{color:var(--tx-dk-mut); font-size:.9rem; margin:2px 0 14px}
+  .fpanel{background:var(--paper); color:var(--tx-lt); border:1px solid var(--line-lt); border-radius:var(--radius); padding:18px 20px; margin:12px 0}
+  .fpanel h4{font-family:'Space Grotesk',sans-serif; font-size:1.05rem; margin:0 0 10px; color:var(--tx-lt)}
+  .eq{font-family:'IBM Plex Mono',monospace; font-size:1rem; background:var(--ink); color:#EAF2FA; padding:12px 16px; border-radius:8px; margin:4px 0 14px; overflow-x:auto; letter-spacing:.02em}
+  .eq b{color:var(--bid-br); font-weight:500}
+  .say{display:grid; grid-template-columns:auto 1fr; gap:10px; margin:6px 0; font-size:.9rem; align-items:baseline}
+  .say .k{font-family:'IBM Plex Mono',monospace; font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; color:var(--bid); white-space:nowrap; padding-top:2px}
+  .say .v{color:var(--tx-lt)}
+  .say .v em{color:var(--tx-lt-mut); font-style:normal}
+  .worked{background:var(--raised); border-left:3px solid var(--bid); border-radius:0 8px 8px 0; padding:12px 15px; margin:14px 0; font-size:.88rem}
+  .worked .wk-lbl{font-family:'IBM Plex Mono',monospace; font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; color:var(--bid); display:block; margin-bottom:6px}
+  .worked code{font-family:'IBM Plex Mono',monospace; background:var(--ink); padding:1px 5px; border-radius:4px; font-size:.85rem}
+  details.prob{border:1px solid var(--line-lt); border-radius:8px; margin:8px 0; background:var(--ink)}
+  details.prob > summary{cursor:pointer; list-style:none; padding:11px 15px; font-size:.88rem; font-weight:500; color:var(--tx-lt); display:flex; justify-content:space-between; align-items:center; gap:10px}
+  details.prob > summary::-webkit-details-marker{display:none}
+  details.prob > summary::after{content:"reveal"; font-family:'IBM Plex Mono',monospace; font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; color:#fff; background:var(--ask); padding:3px 8px; border-radius:5px; flex:none}
+  details.prob[open] > summary::after{content:"answer"; background:var(--bid)}
+  details.prob .ans{padding:0 15px 14px; font-size:.86rem; color:var(--tx-lt-mut); border-top:1px dashed var(--line-lt); margin-top:2px; padding-top:12px}
+  details.prob .ans code{font-family:'IBM Plex Mono',monospace; background:var(--raised); padding:1px 5px; border-radius:4px}
+  .prob-tag{font-family:'IBM Plex Mono',monospace; font-size:.6rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ask); margin:16px 0 4px}
+
+  footer{border-top:1px solid var(--line-dk); margin-top:60px; padding:30px; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:var(--tx-dk-mut)}
+  .reset{background:none;border:1px solid var(--line-dk);color:var(--tx-dk-mut);font-family:'IBM Plex Mono',monospace;font-size:.68rem;padding:6px 12px;border-radius:6px;cursor:pointer;margin-top:14px}
+  .reset:hover{border-color:var(--ask); color:var(--ask)}
+
+  /* ---- deepened weekly lesson elements ---- */
+  .learn{background:var(--panel);color:var(--tx-lt);border:1px solid var(--line-lt);border-radius:9px;padding:16px 18px;margin:14px 0}
+  .learn .baby{background:var(--raised);border-left:3px solid var(--gold);border-radius:0 7px 7px 0;padding:11px 14px;margin:0 0 12px;font-size:.92rem}
+  .learn .baby b{color:var(--tx-lt);font-family:'Space Grotesk',sans-serif}
+  .learn p{margin:0 0 11px;font-size:.94rem;line-height:1.62}
+  .learn p:last-child{margin-bottom:0}
+  .learn strong{color:var(--tx-lt)}
+  .learn em{color:var(--bid);font-style:normal;font-weight:500}
+  .learn h5{font-family:'Space Grotesk',sans-serif;font-size:1rem;margin:16px 0 8px;color:var(--tx-lt)}
+  .learn h5:first-child{margin-top:0}
+  .learn code{font-family:'IBM Plex Mono',monospace;background:var(--ink);border:1px solid var(--line-lt);padding:1px 5px;border-radius:4px;font-size:.85rem}
+  .lex{background:#080B0F;border-left:3px solid var(--bid);border-radius:0 7px 7px 0;padding:11px 14px;margin:12px 0;font-size:.9rem}
+  .lex .xl{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--bid);display:block;margin-bottom:5px}
+  .apply-blk{background:var(--raised);border:1px solid var(--line-dk);border-left:3px solid var(--gold);border-radius:0 9px 9px 0;padding:14px 16px;margin:14px 0}
+  .apply-blk .al{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:9px}
+  .apply-blk .task{padding:7px 0}
+  .apply-blk .task + .task{border-top:1px dashed var(--line-dk)}
+  .apply-blk .task .t-txt{font-size:.9rem;color:var(--tx-dk)}
+  .apply-blk .task input:checked ~ .t-txt{color:var(--tx-dk-mut)}
+  .xref{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--bid-br);border:1px solid var(--line-dk);border-radius:5px;padding:2px 8px;margin-top:4px}
+  .xref:hover{border-color:var(--bid);text-decoration:none}
+  .wk-time{font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tx-lt-mut);margin:2px 0 0}
+  details.week .wk-body .lbl.learn-lbl{color:var(--gold)}
+
+  /* ---- formula self-test drill ---- */
+  .drill{background:var(--panel); border:1px solid var(--bid); border-radius:var(--radius); overflow:hidden; margin:18px 0 30px}
+  .drill-h{display:flex; justify-content:space-between; align-items:center; padding:13px 18px; border-bottom:1px solid var(--line-dk); background:rgba(214,82,70,.07)}
+  .drill-h .t{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:1rem; color:#fff}
+  .drill-h .sc{font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:var(--tx-dk-mut)}
+  .drill-body{padding:20px 18px}
+  .drill-mod{font-family:'IBM Plex Mono',monospace; font-size:.64rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:8px}
+  .drill-q{font-family:'Space Grotesk',sans-serif; font-size:1.15rem; color:#fff; margin-bottom:6px; line-height:1.3}
+  .drill-sub{font-size:.88rem; color:var(--tx-dk-mut); margin-bottom:16px}
+  .drill-reveal{background:var(--ink); border:1px solid var(--line-dk); border-radius:8px; padding:14px 16px; margin:14px 0; display:none}
+  .drill-reveal.show{display:block}
+  .drill-reveal .eq{margin:0 0 10px}
+  .drill-reveal .rl{font-family:'IBM Plex Mono',monospace; font-size:.6rem; letter-spacing:.12em; text-transform:uppercase; color:var(--bid-br); display:block; margin-bottom:6px}
+  .drill-reveal p{margin:0; font-size:.9rem; color:var(--tx-dk)}
+  .drill-btns{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+  .db{font-family:'Space Grotesk',sans-serif; font-weight:500; font-size:.86rem; padding:10px 18px; border-radius:8px; border:1px solid var(--line-dk); background:var(--raised); color:var(--tx-dk); cursor:pointer; transition:.14s}
+  .db:hover{border-color:var(--tx-dk-mut)}
+  .db.primary{background:var(--gold); color:#07090c; border-color:var(--gold)}
+  .db.primary:hover{background:#ffbf47; border-color:#ffbf47; color:#07090c}
+  .db.got{border-color:var(--bid); color:var(--bid-br)}
+  .db.got:hover{background:rgba(43,127,184,.12)}
+  .db.miss{border-color:var(--ask); color:var(--ask)}
+  .db.miss:hover{background:rgba(214,82,70,.1)}
+  .drill-prog{display:flex; gap:4px; margin-top:16px; flex-wrap:wrap}
+  .drill-prog i{width:20px; height:5px; border-radius:3px; background:var(--line-dk)}
+  .drill-prog i.hit{background:var(--bid)}
+  .drill-prog i.missed{background:var(--ask)}
+  .drill-done{text-align:center; padding:10px 0}
+  .drill-done .big{font-family:'Space Grotesk',sans-serif; font-size:2rem; font-weight:700; color:#fff}
+  .drill-done .lbl2{font-family:'IBM Plex Mono',monospace; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--tx-dk-mut); margin-top:4px}
+
+  /* ================= MARKET TAPE BOARD ================= */
+  .market{margin:0 0 40px}
+  .mkt-frame{border:1px solid var(--line-dk); border-radius:var(--radius); background:linear-gradient(180deg,var(--panel),#070A0E); overflow:hidden; box-shadow:0 24px 60px -34px rgba(0,0,0,.9), inset 0 0 0 1px rgba(34,179,106,.03)}
+  .mkt-head{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:11px 16px; border-bottom:1px solid var(--line-dk); background:rgba(34,179,106,.03)}
+  .mkt-head .l{display:flex; align-items:center; gap:11px; font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--tx-dk)}
+  .mkt-head .live{display:inline-flex; align-items:center; gap:7px; color:var(--amber)}
+  .mkt-head .live .b{width:7px;height:7px;border-radius:50%;background:var(--amber); box-shadow:0 0 9px 1px var(--amber); animation:blink 2s steps(1) infinite}
+  @keyframes blink{0%,60%{opacity:1}61%,100%{opacity:.25}}
+  .mkt-head .stamp{font-family:'IBM Plex Mono',monospace; font-size:.66rem; letter-spacing:.08em; color:var(--tx-dk-mut)}
+
+  /* scrolling ticker */
+  .ticker{overflow:hidden; border-bottom:1px solid var(--line-dk); background:#060A0E; position:relative}
+  .ticker::before,.ticker::after{content:""; position:absolute; top:0; bottom:0; width:52px; z-index:2; pointer-events:none}
+  .ticker::before{left:0; background:linear-gradient(90deg,#060A0E,transparent)}
+  .ticker::after{right:0; background:linear-gradient(270deg,#060A0E,transparent)}
+  .ticker-track{display:inline-flex; white-space:nowrap; animation:scroll-tape 42s linear infinite; will-change:transform}
+  .ticker:hover .ticker-track{animation-play-state:paused}
+  @keyframes scroll-tape{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .tk-item{display:inline-flex; align-items:baseline; gap:8px; padding:10px 18px; border-right:1px solid var(--line-dk); font-family:'IBM Plex Mono',monospace; font-size:.8rem}
+  .tk-item .sym{color:var(--tx-dk); font-weight:600; letter-spacing:.04em}
+  .tk-item .px{color:var(--tx-dk-mut)}
+  .tk-item .chg{font-weight:600}
+  .tk-item .chg.up{color:var(--up)} .tk-item .chg.dn{color:var(--down)} .tk-item .chg.fl{color:var(--amber)}
+  .tk-item .arw{font-size:.7rem}
+
+  /* index cards */
+  .idx-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; background:var(--line-dk)}
+  .idx-card{background:var(--panel); padding:14px 16px}
+  .idx-card .nm{font-family:'IBM Plex Mono',monospace; font-size:.64rem; letter-spacing:.12em; text-transform:uppercase; color:var(--tx-dk-mut)}
+  .idx-card .lv{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.5rem; margin:5px 0 2px; letter-spacing:-.01em; font-variant-numeric:tabular-nums}
+  .idx-card .mv{font-family:'IBM Plex Mono',monospace; font-size:.76rem; font-weight:600; display:flex; align-items:center; gap:6px; flex-wrap:wrap}
+  .idx-card .mv .bps{font-weight:400; opacity:.7}
+  .up{color:var(--up)} .dn{color:var(--down)}
+  .idx-card.up .lv{color:#eafff4} .idx-card .lv{color:var(--tx-dk)}
+  .idx-card .spark{height:3px; margin-top:9px; border-radius:2px; background:linear-gradient(90deg,transparent,currentColor); opacity:.5}
+
+  /* what moved the tape */
+  .tape-recap{padding:20px 18px 8px}
+  .tape-recap h3{font-family:'Space Grotesk',sans-serif; font-size:1.05rem; color:var(--tx-dk); margin:0 0 4px}
+  .tape-recap .rsub{font-size:.85rem; color:var(--tx-dk-mut); margin:0 0 18px}
+  .session{display:grid; grid-template-columns:96px 1fr; gap:16px; padding:14px 0; border-top:1px solid var(--line-dk)}
+  .session:first-of-type{border-top:none}
+  .session .when{font-family:'IBM Plex Mono',monospace}
+  .session .when .d{font-size:.82rem; color:var(--tx-dk); font-weight:600}
+  .session .when .dd{font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:var(--tx-dk-mut); margin-top:2px}
+  .session .when .idxmv{font-size:.68rem; margin-top:8px; font-weight:600}
+  .session .body .tags{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:7px}
+  .session .body .tag{font-family:'IBM Plex Mono',monospace; font-size:.58rem; letter-spacing:.1em; text-transform:uppercase; padding:2px 7px; border-radius:4px; border:1px solid var(--line-dk); color:var(--tx-dk-mut)}
+  .session .body .tag.macro{color:var(--amber); border-color:rgba(245,166,35,.4)}
+  .session .body .tag.earn{color:var(--up); border-color:rgba(34,179,106,.4)}
+  .session .body .tag.chips{color:var(--down); border-color:rgba(240,71,77,.4)}
+  .session .body .tag.geo{color:#c98bff; border-color:rgba(201,139,255,.35)}
+  .session .body p{margin:0; font-size:.92rem; line-height:1.55; color:var(--tx-dk)}
+  .session .body p b{color:#fff}
+  .session .body .yours{margin-top:7px; font-size:.83rem; color:var(--amber); font-family:'IBM Plex Mono',monospace}
+  .mkt-foot{padding:12px 18px; border-top:1px solid var(--line-dk); font-family:'IBM Plex Mono',monospace; font-size:.68rem; color:var(--tx-dk-mut); line-height:1.7; background:#060A0E}
+  .mkt-foot b{color:var(--tx-dk)}
+  .cursor{display:inline-block;width:8px;height:1em;background:var(--up);vertical-align:-2px;margin-left:3px;animation:blink 1.1s steps(1) infinite}
+  .today-strip{display:grid; grid-template-columns:88px 1fr; border-bottom:1px solid var(--line-dk); background:linear-gradient(90deg,rgba(240,71,77,.06),transparent)}
+  .today-strip .ts-lbl{display:flex; flex-direction:column; justify-content:center; padding:0 14px; border-right:1px solid var(--line-dk); font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:.9rem; color:var(--amber); letter-spacing:-.01em}
+  .today-strip .ts-lbl span{font-family:'IBM Plex Mono',monospace; font-weight:400; font-size:.56rem; letter-spacing:.1em; text-transform:uppercase; color:var(--tx-dk-mut)}
+  .ts-cells{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+  .ts-cell{padding:12px 16px; border-right:1px solid var(--line-dk); display:flex; flex-direction:column; gap:2px}
+  .ts-cell .n{font-family:'IBM Plex Mono',monospace; font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:var(--tx-dk-mut)}
+  .ts-cell .v{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.15rem; font-variant-numeric:tabular-nums}
+  .ts-cell .b{font-family:'IBM Plex Mono',monospace; font-size:.66rem; color:var(--tx-dk-mut)}
+  @media(max-width:640px){ .today-strip{grid-template-columns:1fr} .today-strip .ts-lbl{flex-direction:row; gap:8px; border-right:none; border-bottom:1px solid var(--line-dk); padding:8px 14px} }
+
+  /* live status pill */
+  .mkt-head .live.islive{color:var(--up)}
+  .mkt-head .live.islive .b{background:var(--up); box-shadow:0 0 9px 1px var(--up)}
+  /* sector heatmap */
+  .sector-wrap{padding:18px 18px 6px; border-top:1px solid var(--line-dk)}
+  .sector-wrap h3{font-family:'Space Grotesk',sans-serif; font-size:1.05rem; color:var(--tx-dk); margin:0 0 3px}
+  .sector-wrap .ssub{font-size:.85rem; color:var(--tx-dk-mut); margin:0 0 14px}
+  .sector-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr)); gap:6px}
+  .sec-tile{border:1px solid var(--line-dk); border-radius:7px; padding:11px 12px; position:relative; overflow:hidden}
+  .sec-tile .snm{font-family:'IBM Plex Mono',monospace; font-size:.6rem; letter-spacing:.08em; text-transform:uppercase; color:var(--tx-dk); position:relative; z-index:1}
+  .sec-tile .spct{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.25rem; margin-top:4px; position:relative; z-index:1; font-variant-numeric:tabular-nums}
+  .sec-tile .sbps{font-family:'IBM Plex Mono',monospace; font-size:.6rem; color:var(--tx-dk-mut); position:relative; z-index:1}
+  .auto-narr{margin:14px 0 2px; padding:12px 14px; border-radius:8px; border:1px solid var(--line-dk); background:var(--raised); font-size:.9rem; color:var(--tx-dk); line-height:1.55}
+  .auto-narr .al{font-family:'IBM Plex Mono',monospace; font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; color:var(--amber); display:block; margin-bottom:5px}
+  @media(max-width:640px){ .session{grid-template-columns:1fr; gap:8px} }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- ================= SIDEBAR : DOM LADDER ================= -->
+  <nav class="rail" aria-label="Section navigation">
+    <div class="brandmark"><span class="dot"></span> THE DESK</div>
+    <div class="brand-sub">Finance Fluency Terminal</div>
+    <ul class="ladder" id="rail">
+      <li><a href="#market"><span class="lvl">◐</span><span>Market Tape</span><span class="depth"></span></a></li>
+      <li><a href="#start"><span class="lvl">00</span><span>Orientation</span><span class="depth"></span></a></li>
+      <li><a href="#method"><span class="lvl">01</span><span>The Method</span><span class="depth"></span></a></li>
+      <li><a href="#library"><span class="lvl">02</span><span>Resource Library</span><span class="depth"></span></a></li>
+      <li><a href="#w1"><span class="lvl">W1</span><span>Trading Floor Basics</span><span class="depth" data-depth="w1"></span></a></li>
+      <li><a href="#w2"><span class="lvl">W2</span><span>Company Report Card</span><span class="depth" data-depth="w2"></span></a></li>
+      <li><a href="#w3"><span class="lvl">W3</span><span>The Trading Desk</span><span class="depth" data-depth="w3"></span></a></li>
+      <li><a href="#w4"><span class="lvl">W4</span><span>The Macro Desk</span><span class="depth" data-depth="w4"></span></a></li>
+      <li><a href="#w5"><span class="lvl">W5</span><span>Valuation + Diversification</span><span class="depth" data-depth="w5"></span></a></li>
+      <li><a href="#formula"><span class="lvl">&Sigma;</span><span>Formula Desk</span><span class="depth"></span></a></li>
+      <li><a href="#research"><span class="lvl">R</span><span>Research Desk</span><span class="depth"></span></a></li>
+      <li><a href="#portfolio"><span class="lvl">P</span><span>Portfolio Desk</span><span class="depth"></span></a></li>
+      <li><a href="#retire"><span class="lvl">$</span><span>Retirement Desk</span><span class="depth"></span></a></li>
+      <li><a href="#maintain"><span class="lvl">03</span><span>School-Year Rhythm</span><span class="depth"></span></a></li>
+      <li><a href="#glossary"><span class="lvl">04</span><span>Master Glossary</span><span class="depth"></span></a></li>
+      <li><a href="#backup"><span class="lvl">05</span><span>Quiz Backup Plan</span><span class="depth"></span></a></li>
+      <li><a href="#culture"><span class="lvl">06</span><span>The Watch List</span><span class="depth"></span></a></li>
+      <li><a href="#bridge"><span class="lvl">07</span><span>Bridge to Stillman</span><span class="depth"></span></a></li>
+    </ul>
+    <div class="legend">
+      <div><span class="k bid"></span> GREEN — logged &amp; retained</div>
+      <div><span class="k ask"></span> RED — open, awaiting you</div>
+      <div style="margin-top:8px;opacity:.7">progress fills the ladder as you go</div>
+    </div>
+  </nav>
+
+  <!-- ================= MAIN ================= -->
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="start">
+      <div class="eyebrow">A self-guided analyst training program</div>
+      <h1>Learn the language spoken on the desk.</h1>
+      <p class="lead">Not a playlist with a glossary stapled on. A structured floor rotation that turns finance vocabulary into fluency by tying every term to <strong>your own book</strong> — INTC, NVDA, GOOGL, URA, and the NQ tape you already read. Built to run before the fall internship, then sustain through the school year.</p>
+
+      <div class="tape" aria-hidden="true">
+        <div class="tape-track">
+          <span><b>STOCK</b> ownership slice</span><span><b>BOND</b> a loan with interest</span><span><b>EPS</b> profit per share</span><span><b>FCF</b> real cash left over</span><span><b>DOM</b> depth of market</span><span><b>ETF</b> a basket in one ticker</span><span><b>YIELD CURVE</b> rates by tenor</span><span><b>DCF</b> future cash, today's dollars</span><span><b>MOAT</b> what guards the business</span><span><b>CARRY</b> borrow cheap, invest richer</span>
+          <span><b>STOCK</b> ownership slice</span><span><b>BOND</b> a loan with interest</span><span><b>EPS</b> profit per share</span><span><b>FCF</b> real cash left over</span><span><b>DOM</b> depth of market</span><span><b>ETF</b> a basket in one ticker</span><span><b>YIELD CURVE</b> rates by tenor</span><span><b>DCF</b> future cash, today's dollars</span><span><b>MOAT</b> what guards the business</span><span><b>CARRY</b> borrow cheap, invest richer</span>
+        </div>
+      </div>
+
+      <div class="readout">
+        <div class="prog-shell">
+          <div class="prog-top"><span>DESK PROGRESS</span><span><b id="pct">0%</b> · <span id="cnt">0 / 0</span> reps</span></div>
+          <div class="bar"><i id="barfill"></i></div>
+        </div>
+        <a href="#w1" class="btn">Start Week 1 →</a>
+      </div>
+    </section>
+
+    <!-- ================= MARKET TAPE BOARD ================= -->
+    <section class="market" id="market">
+      <div class="mkt-frame">
+        <div class="mkt-head">
+          <div class="l"><span class="live" id="mkt-status"><span class="b"></span>SNAPSHOT</span> · Market Tape</div>
+          <div class="stamp" id="mkt-stamp">AS OF WED&nbsp;JUL&nbsp;29&nbsp;2026 · ~11:30 ET</div>
+        </div>
+
+        <!-- scrolling ticker (JS-rendered) -->
+        <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker-track"></div></div>
+
+        <!-- TODAY: index moves in points + bps (JS overwrites #ts-cells when live data loads) -->
+        <div class="today-strip">
+          <div class="ts-lbl" id="ts-lbl">Today<br><span>intraday · approx</span></div>
+          <div class="ts-cells" id="ts-cells">
+            <div class="ts-cell"><span class="n">Dow</span><span class="v dn">−819 pts</span><span class="b">−1.6% · −160 bps</span></div>
+            <div class="ts-cell"><span class="n">S&amp;P 500</span><span class="v dn">≈ −59 pts</span><span class="b">−0.8% · −80 bps</span></div>
+            <div class="ts-cell"><span class="n">Nasdaq</span><span class="v dn">≈ −249 pts</span><span class="b">−1.0% · −100 bps</span></div>
+            <div class="ts-cell"><span class="n">WTI crude</span><span class="v up">+$5.80</span><span class="b">+6.9% · to $89.88</span></div>
+          </div>
+        </div>
+
+        <!-- index cards (JS overwrites #idx-grid when live data loads) -->
+        <div class="idx-grid" id="idx-grid">
+          <div class="idx-card"><div class="nm">S&amp;P 500</div><div class="lv">7,428.78</div><div class="mv up">▲ +0.21% <span class="bps">(+21 bps)</span></div><div class="spark up"></div></div>
+          <div class="idx-card"><div class="nm">Nasdaq Comp</div><div class="lv">24,876.91</div><div class="mv dn">▼ −0.22% <span class="bps">(−22 bps)</span></div><div class="spark dn"></div></div>
+          <div class="idx-card"><div class="nm">Dow Jones</div><div class="lv">52,747.32</div><div class="mv up">▲ +1.03% <span class="bps">(+103 bps)</span></div><div class="spark up"></div></div>
+          <div class="idx-card"><div class="nm">Nasdaq 100</div><div class="lv">—</div><div class="mv dn">▼ −1.0% <span class="bps">(−100 bps)</span></div><div class="spark dn"></div></div>
+          <div class="idx-card"><div class="nm">Russell 2000</div><div class="lv">—</div><div class="mv up">▲ +0.19% <span class="bps">(+19 bps)</span></div><div class="spark up"></div></div>
+        </div>
+
+        <!-- SECTOR HEATMAP (JS-rendered from #sector-grid) -->
+        <div class="sector-wrap">
+          <h3>Sector heatmap</h3>
+          <p class="ssub">The whole market at a glance — every S&amp;P sector, ranked best to worst. This is where you <em>see</em> "tech is red" instead of guessing it.</p>
+          <div class="sector-grid" id="sector-grid">
+            <div class="sec-tile" style="border-color:rgba(240,71,77,.5)"><div class="snm">Technology</div><div class="spct dn">−2.3%</div><div class="sbps">−230 bps</div></div>
+            <div class="sec-tile" style="border-color:rgba(240,71,77,.6)"><div class="snm">Semis (SMH)</div><div class="spct dn">−3.1%</div><div class="sbps">−310 bps</div></div>
+            <div class="sec-tile"><div class="snm">Comm Svcs</div><div class="spct dn">−0.6%</div><div class="sbps">−60 bps</div></div>
+            <div class="sec-tile"><div class="snm">Cons Disc</div><div class="spct up">+0.3%</div><div class="sbps">+30 bps</div></div>
+            <div class="sec-tile"><div class="snm">Financials</div><div class="spct up">+0.7%</div><div class="sbps">+70 bps</div></div>
+            <div class="sec-tile"><div class="snm">Industrials</div><div class="spct up">+0.9%</div><div class="sbps">+90 bps</div></div>
+            <div class="sec-tile"><div class="snm">Staples</div><div class="spct up">+1.2%</div><div class="sbps">+120 bps</div></div>
+            <div class="sec-tile" style="border-color:rgba(34,179,106,.5)"><div class="snm">Energy</div><div class="spct up">+1.8%</div><div class="sbps">+180 bps</div></div>
+          </div>
+          <div class="auto-narr" id="auto-narrative"><span class="al">Auto-read from the numbers</span>Once live: this line is written automatically from the day's data — which sector led, which lagged, and where your semis sit. Right now it's showing the seed snapshot.</div>
+        </div>
+
+        <!-- what moved the tape (human analysis — ask Claude to refresh) -->
+        <div class="tape-recap">
+          <h3>What moved the tape<span class="cursor"></span></h3>
+          <p class="rsub">The <em>why</em> behind the moves — macro, earnings, and flows. The prices above update themselves; this narrative is the analyst read (ask me to refresh it).</p>
+
+          <div class="session">
+            <div class="when"><div class="d">Last 2 wks</div><div class="dd">the big story</div><div class="idxmv dn">Tech / semis red</div></div>
+            <div class="body">
+              <div class="tags"><span class="tag chips">China</span><span class="tag chips">AI capex</span></div>
+              <p><b>Your instinct is right — China entering the fab race is a real driver.</b> Two forces compounded: (1) reports of a Chinese chip-making breakthrough plus CXMT's blockbuster Shanghai IPO stoked fears that China is closing the manufacturing gap, hitting the whole semi complex; (2) a growing worry that Big Tech's enormous <b>AI capital spending</b> is "circular financing" that may not pay off. Together they turned tech from leader to laggard for two straight weeks.</p>
+              <div class="yours">→ your book: INTC and NVDA sit right at the center of both fears — which is exactly why they've been red.</div>
+            </div>
+          </div>
+
+          <div class="session">
+            <div class="when"><div class="d">Jul 28–29</div><div class="dd">this week</div></div>
+            <div class="body">
+              <div class="tags"><span class="tag earn">Earnings</span><span class="tag macro">Fed</span><span class="tag geo">Iran / oil</span></div>
+              <p>Rotation <b>out of chips into blue chips</b> — Sherwin-Williams +8%, Coca-Cola +5%, IBM +5% on earnings beats — even as Micron −8.8%, AMD −8.1%, Intel −5.9% extended the chip rout. Then oil spiked (WTI +6.9%) on Iran escalation, and stocks slid ahead of the <b>Fed decision</b>, with Microsoft and Meta earnings testing patience for AI spend.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mkt-foot" id="mkt-foot">
+          <b>SNAPSHOT — not yet wired to live data.</b> These are real prints as of Jul 29 2026. Follow the setup guide to connect the GitHub auto-updater, and this board will refresh itself every trading day.<br>
+          Reading this each morning <b>is</b> your Week-4 Tier-1 monitor habit — indices, sectors, oil, and the one story moving your book.
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+
+      <!-- SECTION 1 : METHOD -->
+      <section id="method">
+        <div class="sec-head"><span class="sec-num">01</span><h2>How this program works</h2></div>
+        <p class="sec-intro">Four retention principles, backed by how memory actually forms — and each one is built into the daily routine, not just named once.</p>
+
+        <div class="method">
+          <div class="m-card"><span class="num">PRINCIPLE 01</span><h4>Active recall</h4><p>Pulling a term from memory beats re-reading it. Every Friday you explain a concept back — that retrieval is the rep that sticks.</p></div>
+          <div class="m-card"><span class="num">PRINCIPLE 02</span><h4>Spaced repetition</h4><p>Terms fade without revisiting. Each one resurfaces at Week 1, Week 3, and final review — then again during the school year.</p></div>
+          <div class="m-card"><span class="num">PRINCIPLE 03</span><h4>Interleaving</h4><p>Quizzes mix new terms with old ones instead of testing topics in isolation. Harder in the moment, far stronger long-term.</p></div>
+          <div class="m-card"><span class="num">PRINCIPLE 04</span><h4>Dual coding</h4><p>Plain words + a video + a real application to your portfolio. Three encodings of one idea, so it has three ways back to you.</p></div>
+        </div>
+
+        <div class="desknote"><span class="tag">From the desk</span>The junior analysts who last aren't the ones who memorize the most — they're the ones who can explain a position to a client who knows nothing. That's why this program ends every week with you teaching, not me. If you can't say it simply, you don't own it yet.</div>
+
+        <h3 style="font-family:'Space Grotesk';color:#fff;font-size:1.1rem;margin:30px 0 4px">Your day at the desk</h3>
+        <div class="desk-flow">
+          <div class="flow"><div class="d">Mon</div><h5>🔔 Morning Briefing</h5><p>Market &amp; macro news — the first 15 minutes of a floor day.</p></div>
+          <div class="flow"><div class="d">Wed</div><h5>📊 Deep Dive</h5><p>One company or concept, studied properly — like building a thesis.</p></div>
+          <div class="flow"><div class="d">Fri</div><h5>💼 Client Meeting</h5><p>You explain a concept back in plain English. The active-recall rep.</p></div>
+          <div class="flow"><div class="d">Fri</div><h5>🧠 Quiz</h5><p>Interleaved — this week's terms mixed with prior weeks', cold.</p></div>
+        </div>
+      </section>
+
+      <!-- SECTION 2 : LIBRARY -->
+      <section id="library">
+        <div class="sec-head"><span class="sec-num">02</span><h2>Resource library</h2></div>
+        <p class="sec-intro">Every channel, playlist, and podcast in one place — verified links, so you're never hunting mid-treadmill.</p>
+
+        <div class="res-grid">
+          <div class="res">
+            <h4><span class="pin"></span>Core channels</h4>
+            <ul>
+              <li><a href="https://www.youtube.com/@ThePlainBagel" target="_blank" rel="noopener">The Plain Bagel</a><div class="who">Richard Coffin, CFA — clean beginner explainers</div></li>
+              <li><a href="https://www.youtube.com/channel/UCLvnJL8htRR1T9cbSccaoVw" target="_blank" rel="noopener">Aswath Damodaran</a><div class="who">NYU Stern — the "Dean of Valuation," real lectures</div></li>
+              <li><a href="https://www.youtube.com/@PBoyle" target="_blank" rel="noopener">Patrick Boyle</a><div class="who">Hedge fund manager &amp; professor — markets &amp; structure</div></li>
+            </ul>
+          </div>
+          <div class="res">
+            <h4><span class="pin"></span>Playlists</h4>
+            <ul>
+              <li><a href="https://www.youtube.com/playlist?list=PLD18sR-9Y-XHGlrT_3aKElcyzz9eTDGsy" target="_blank" rel="noopener">Plain Bagel — Basics</a><div class="who">Ground-floor concepts, short episodes</div></li>
+              <li><a href="https://www.youtube.com/playlist?list=PLeBox1GIuOW_7LAvk-Iz-Vm5luPJhu6_H" target="_blank" rel="noopener">Damodaran — Valuation series</a><div class="who">25 sessions, 12–20 min each</div></li>
+            </ul>
+          </div>
+          <div class="res">
+            <h4><span class="pin"></span>Podcasts</h4>
+            <ul>
+              <li><b>Odd Lots</b> (Bloomberg)<div class="who">Macro &amp; cross-asset — search Spotify / Apple</div></li>
+              <li><b>Animal Spirits</b><div class="who">Casual market commentary — search Spotify / Apple</div></li>
+              <li><a href="https://open.spotify.com/show/7uhrWlDvxzy9hLoW0EYf0b" target="_blank" rel="noopener">Patrick Boyle On Finance</a><div class="who">Quant finance &amp; history</div></li>
+            </ul>
+          </div>
+          <div class="res">
+            <h4><span class="pin"></span>Reading</h4>
+            <ul>
+              <li><b>The Wall Street Journal</b><div class="who">Skim headlines daily — terms in the wild</div></li>
+              <li><b>Investopedia</b><div class="who">Fastest lookup for any term on the spot</div></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== THE SPRINT (weeks) ===== -->
+      <div class="sec-head" style="margin-top:56px"><span class="sec-num">▶</span><h2>Phase 0 — The pre-school sprint</h2></div>
+      <p class="sec-intro">July 27 → Aug 24. Each week is now a real lesson — roughly 2–4 hours spread across the week, not a 30-minute skim. Open a week, read <b>Understand it</b> first, then watch, then do the <b>Do it on your book</b> drill, then explain it back. The ladder fills as you check off each rep.</p>
+
+      <div class="weeks">
+
+        <!-- WEEK 1 -->
+        <details class="week" id="w1" open>
+          <summary class="wk-sum">
+            <span class="wk-lvl">W1<small>JUL 27</small></span>
+            <span class="wk-title">Trading Floor Basics<span>Stocks, bonds, markets, indices</span></span>
+            <span class="wk-depth"><span class="mini"><i data-fill="w1"></i></span><span class="pct" data-pct="w1">0%</span><span class="chev">▾</span></span>
+          </summary>
+          <div class="wk-body">
+            <p class="wk-time">≈ 2–3 hrs across the week · watch → read → apply → explain back</p>
+
+            <div class="block">
+              <div class="lbl learn-lbl">📖 Understand it — before you watch anything</div>
+              <div class="learn">
+                <div class="baby"><b>Toddler version.</b> A <em>stock</em> is a tiny slice of owning a company — own a slice of Intel and you own a sliver of its factories and its profits. A <em>bond</em> is the opposite: you lend a company money and they pay you back with a little extra. The <em>market</em> is a giant flea market where people trade those slices and loans, and an <em>index</em> is just many companies bundled into one number.</div>
+                <p>Now the real version, because "slice of a company" hides the thing that actually matters for picking stocks. When you own equity, you're a <strong>residual claimant</strong>: you get whatever's left <em>after</em> everyone else — employees, suppliers, lenders — gets paid. That's why stocks swing more than bonds. If the company does great, all that leftover is yours (unlimited upside). If it fails, the lenders get the scraps and you can get zero. Bonds sit ahead of you in line, so they're steadier but capped.</p>
+                <p>This one idea — <em>who gets paid first</em> — quietly runs through everything later: why a bond is "safer," why a struggling company's stock can go to zero while the business keeps running, why lenders care about different things than you do.</p>
+                <div class="lex"><span class="xl">On your book</span>You own INTC, NVDA, GOOGL, URA as <b>equity</b> — residual slices. If Intel's foundry bet pays off, that upside is yours. If it doesn't, bondholders are paid before you see a cent. That asymmetry is exactly why you demand a higher return from stocks than from a Treasury.</div>
+              </div>
+            </div>
+
+            <div class="block">
+              <div class="lbl">🔔 Morning Briefing — what investing even is</div>
+              <label class="task"><input type="checkbox" data-wk="w1"><span class="t-txt">Watch: The Plain Bagel, “The Fundamentals | Why Is Investing Important?” — <a href="https://www.youtube.com/watch?v=I81xqr8HzBE" target="_blank" rel="noopener">open ↗</a></span></label>
+            </div>
+            <div class="block">
+              <div class="lbl">📊 Deep Dive — how wealth is actually built</div>
+              <label class="task"><input type="checkbox" data-wk="w1"><span class="t-txt">Watch: The Plain Bagel, “This Is How You Build Wealth” — <a href="https://www.youtube.com/watch?v=ShAjJ2MYp9c" target="_blank" rel="noopener">open ↗</a></span></label>
+              <label class="task"><input type="checkbox" data-wk="w1"><span class="t-txt">Read: Investopedia “Stocks” and “Bonds” basics pages — notice the terms in the wild.</span></label>
+            </div>
+
+            <table class="vocab">
+              <tr><th>Term</th><th>In plain English</th><th>On your book</th></tr>
+              <tr><td>Equity / Stock</td><td>A residual slice of a company — paid last, unlimited upside</td><td class="applied">Your INTC / NVDA / GOOGL / URA slices</td></tr>
+              <tr><td>Bond</td><td>A loan you make — paid before equity, steadier, capped</td><td class="applied">The “safe cousin” — you own nothing, they owe you</td></tr>
+              <tr><td>Primary vs secondary</td><td>New issue (money to the company) vs trading it after</td><td class="applied">Buying INTC on Schwab is secondary — Intel gets nothing</td></tr>
+              <tr><td>Liquidity</td><td>How fast you can sell without moving the price</td><td class="applied">Why your NQ fills are clean at 10am, ugly at 3am</td></tr>
+              <tr><td>Index</td><td>Many companies bundled as one number</td><td class="applied">S&amp;P 500 = 500 companies; VOO tracks it</td></tr>
+            </table>
+
+            <div class="apply-blk">
+              <span class="al">🛠 Do it on your book</span>
+              <label class="task"><input type="checkbox" data-wk="w1"><span class="t-txt">Open Schwab. For each holding (INTC, NVDA, GOOGL, URA), say out loud what owning a slice actually entitles you to.</span></label>
+              <label class="task"><input type="checkbox" data-wk="w1"><span class="t-txt">Find each one’s bid–ask spread and rank them most-to-least liquid. Which would be hardest to exit in a panic?</span></label>
+            </div>
+
+            <div class="client"><span class="cm">Client mtg</span><label class="task" style="padding:0"><input type="checkbox" data-wk="w1"><span class="t-txt">Explain to Claude why <em>owning</em> INTC is different from <em>lending</em> Intel money via a bond — using the “who gets paid first” idea, no notes.</span></label></div>
+          </div>
+        </details>
+
+        <!-- WEEK 2 -->
+        <details class="week" id="w2">
+          <summary class="wk-sum">
+            <span class="wk-lvl">W2<small>AUG 03</small></span>
+            <span class="wk-title">The Company Report Card<span>Statements → picking stocks from real numbers</span></span>
+            <span class="wk-depth"><span class="mini"><i data-fill="w2"></i></span><span class="pct" data-pct="w2">0%</span><span class="chev">▾</span></span>
+          </summary>
+          <div class="wk-body">
+            <p class="wk-time">≈ 3–4 hrs · this is the backbone of stock-picking — go slow</p>
+
+            <div class="block">
+              <div class="lbl learn-lbl">📖 Understand it — reading a company the way an analyst does</div>
+              <div class="learn">
+                <div class="baby"><b>Toddler version.</b> Every company has three report cards. One shows money in vs money out this year (<em>income statement</em>). One is a snapshot of everything it owns vs everything it owes (<em>balance sheet</em>). One tracks where the actual cash moved (<em>cash flow statement</em>). The trick nobody tells you: a company can look profitable on paper and still be running out of cash.</div>
+                <h5>Why this is the whole game for picking stocks</h5>
+                <p>You asked to learn how to <strong>pick stocks using financial statements</strong> — this week is exactly that. The three statements are <em>linked</em>: profit from the income statement flows into equity on the balance sheet and sits at the top of the cash-flow statement. Trace one dollar through all three and you can do most of what a first-year analyst does.</p>
+                <p>The single most important reflex: <em>profit is an opinion, cash is a fact.</em> Accounting lets a company record a sale before the cash arrives (an <strong>accrual</strong>). So when net income is rising but cash isn't, something's off — usually customers who haven't paid. That gap is the number-one early warning sign in equity research.</p>
+                <h5>The lines that actually decide a pick</h5>
+                <p>You don't need every line. You need: <strong>revenue</strong> (is it growing?), <strong>gross &amp; operating margin</strong> (does it keep money as it grows?), <strong>free cash flow</strong> = operating cash − capital spending (the real cash you're buying), and <strong>debt on the balance sheet</strong> (can it survive a bad year?).</p>
+                <div class="lex"><span class="xl">Worked — INTC vs NVDA in one glance</span>Nvidia’s gross margin runs far above Intel’s. Why? Nvidia is <b>fabless</b> — it designs chips and rents TSMC’s factories. Intel <b>owns</b> its fabs, so their depreciation lands in cost of goods and crushes the margin. Same “semiconductor” label, two completely different businesses — and you can only see it by reading the statements. That’s the skill.</div>
+                <div class="lex"><span class="xl">The catch to remember</span>Intel’s free cash flow is suppressed right now by fab CapEx. The <em>entire</em> bull case is that today’s CapEx converts into tomorrow’s FCF. That’s a testable claim you read off the cash-flow statement — not a vibe. <a class="xref" href="#research">→ Research Desk: the 8-step pick</a></div>
+              </div>
+            </div>
+
+            <div class="block">
+              <div class="lbl">🔔 Morning Briefing — “profitable on paper” ≠ “has cash”</div>
+              <label class="task"><input type="checkbox" data-wk="w2"><span class="t-txt">Watch: Damodaran, “Valuation in Four Lessons” (Talks at Google) — <a href="https://www.youtube.com/watch?v=Z5chrxMuBoo" target="_blank" rel="noopener">open ↗</a></span></label>
+            </div>
+            <div class="block">
+              <div class="lbl">📊 Deep Dive — read a real filing</div>
+              <label class="task"><input type="checkbox" data-wk="w2"><span class="t-txt">Watch: Damodaran, “Session 1: Introduction to Valuation” — <a href="https://www.youtube.com/watch?v=znmQ7oMiQrM" target="_blank" rel="noopener">open ↗</a></span></label>
+              <label class="task"><input type="checkbox" data-wk="w2"><span class="t-txt">Pull Intel’s latest 10-Q on <a href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener">SEC EDGAR ↗</a> — the primary source, not a summary.</span></label>
+            </div>
+
+            <table class="vocab">
+              <tr><th>Term</th><th>In plain English</th><th>On your book</th></tr>
+              <tr><td>Revenue</td><td>Total money in the door</td><td class="applied">Intel’s top line — beat at $13.58B vs $12.36B expected</td></tr>
+              <tr><td>Gross / Operating margin</td><td>Cents kept after making the product / after running the business</td><td class="applied">NVDA’s margin ≫ INTC’s — fabless vs owning fabs</td></tr>
+              <tr><td>Free Cash Flow</td><td>Operating cash − CapEx: the real cash left over</td><td class="applied">What funds — or fails to fund — Intel’s foundry buildout</td></tr>
+              <tr><td>EPS</td><td>Profit sliced per share</td><td class="applied">The number that moves INTC on earnings day</td></tr>
+              <tr><td>Accrual accounting</td><td>Booking a sale before the cash lands</td><td class="applied">Where the “profit but no cash” trap hides</td></tr>
+              <tr><td>Balance-sheet debt</td><td>What the company owes</td><td class="applied">Intel’s buildout is partly debt-funded — raises the stakes</td></tr>
+            </table>
+
+            <div class="apply-blk">
+              <span class="al">🛠 Do it on your book — your first tear sheet</span>
+              <label class="task"><input type="checkbox" data-wk="w2"><span class="t-txt">From Intel’s 10-Q: find revenue, gross profit, operating income, net income. Compute each margin.</span></label>
+              <label class="task"><input type="checkbox" data-wk="w2"><span class="t-txt">Find operating cash flow and CapEx. Compute free cash flow. Explain the gap between FCF and net income in one sentence.</span></label>
+              <label class="task"><input type="checkbox" data-wk="w2"><span class="t-txt">Do the same four margins for NVDA, put them side by side, and write what the difference says about the two business models. <a class="xref" href="#formula">→ Formula Desk: ratios</a></span></label>
+            </div>
+
+            <div class="client"><span class="cm">Client mtg</span><label class="task" style="padding:0"><input type="checkbox" data-wk="w2"><span class="t-txt">Walk Claude through why a profitable company can still run out of cash — using a real mechanism (receivables, inventory, or CapEx).</span></label></div>
+          </div>
+        </details>
+
+        <!-- WEEK 3 -->
+        <details class="week" id="w3">
+          <summary class="wk-sum">
+            <span class="wk-lvl">W3<small>AUG 10</small></span>
+            <span class="wk-title">The Trading Desk<span>Orders, ETFs, futures + reading a chart to time an entry</span></span>
+            <span class="wk-depth"><span class="mini"><i data-fill="w3"></i></span><span class="pct" data-pct="w3">0%</span><span class="chev">▾</span></span>
+          </summary>
+          <div class="wk-body">
+            <p class="wk-time">≈ 3 hrs · mechanics + your first real technical-analysis lesson</p>
+
+            <div class="block">
+              <div class="lbl learn-lbl">📖 Understand it — fundamentals pick the stock, technicals pick the moment</div>
+              <div class="learn">
+                <div class="baby"><b>Toddler version.</b> A <em>market order</em> says “any price, right now.” A <em>limit order</em> says “only my price, I’ll wait.” The <em>DOM</em> is the live stack of everyone’s waiting orders. An <em>ETF</em> is a basket you buy like one stock. A <em>future</em> is a contract to buy or sell later at a price set now — your NQ.</div>
+                <h5>The distinction that makes technical analysis useful</h5>
+                <p>You asked to judge fair price using <strong>both technical and fundamental analysis</strong>. Here’s how they actually fit together: fundamentals (Weeks 2 &amp; 5) tell you <em>what</em> to buy and roughly <em>what it’s worth</em>. Technicals tell you <em>when</em> to pull the trigger on something you’ve already decided is fairly priced. They’re not rivals — pros let fundamentals pick the stock and technicals pick the entry.</p>
+                <h5>The chart structure worth knowing (for an investor, not a scalper)</h5>
+                <p><strong>Support / resistance</strong> — price levels where buyers or sellers have repeatedly stepped in. A fair-valued stock sitting at support is a better entry than the same stock mid-air. <strong>Trend</strong> — don’t buy a “cheap” stock that’s in a strong downtrend; you’re catching a falling knife. <strong>Moving averages</strong> — the 200-day is the crude line between a long-term bull and bear regime. <strong>Volume</strong> — a breakout on heavy volume is real; on thin volume it’s suspect.</p>
+                <div class="lex"><span class="xl">You already have the instinct</span>Your DOM/footprint reading — with your inverted <em style="color:var(--ask)">red = bid</em>, <em style="color:#4AA3E0">blue = ask</em> scheme — is technical analysis at the finest timeframe. <b>Institutional accumulation</b> (big size trading at a level with no price progress) is the same signal a chart shows as support. The instinct transfers straight up to timing an investment entry.</div>
+                <div class="lex"><span class="xl">The honest limit</span>Technicals can’t tell you a stock is <em>worth</em> $70 — only that $52 is a level where buyers showed up before. Treat a chart pattern as a reason to own a business you can’t value and you’ll lose money on great-looking setups. Value first, time second. <a class="xref" href="#research">→ Research Desk</a></div>
+              </div>
+            </div>
+
+            <div class="block">
+              <div class="lbl">🔔 Morning Briefing — how an order becomes a trade</div>
+              <label class="task"><input type="checkbox" data-wk="w3"><span class="t-txt">Watch any 2 Patrick Boyle videos on market structure / order types — <a href="https://www.youtube.com/@PBoyle" target="_blank" rel="noopener">channel ↗</a></span></label>
+            </div>
+            <div class="block">
+              <div class="lbl">📊 Deep Dive — chart structure &amp; what a price means</div>
+              <label class="task"><input type="checkbox" data-wk="w3"><span class="t-txt">Watch: Damodaran, “Valuation 101: Every Number Tells a Story” — <a href="https://www.youtube.com/watch?v=RUJ-OvRicEM" target="_blank" rel="noopener">open ↗</a></span></label>
+              <label class="task"><input type="checkbox" data-wk="w3"><span class="t-txt">Search “support and resistance” and “moving averages explained” on The Plain Bagel or Patrick Boyle.</span></label>
+            </div>
+
+            <table class="vocab">
+              <tr><th>Term</th><th>In plain English</th><th>On your tape / book</th></tr>
+              <tr><td>Market / Limit order</td><td>“Any price now” vs “my price, I’ll wait”</td><td class="applied">Instant INTC buy vs a resting NQ entry</td></tr>
+              <tr><td>DOM / order book</td><td>Live stack of waiting orders by price</td><td class="applied">Your inverted red = bid / blue = ask footprint</td></tr>
+              <tr><td>Support / resistance</td><td>Levels where buyers/sellers keep stepping in</td><td class="applied">Where to time an entry on a fair-valued name</td></tr>
+              <tr><td>Moving average (200-day)</td><td>Smoothed average price = the trend line</td><td class="applied">Bull vs bear regime at a glance</td></tr>
+              <tr><td>ETF</td><td>A basket you buy like one stock</td><td class="applied">VOO in your Roth</td></tr>
+              <tr><td>Futures</td><td>Contract to buy/sell later at a set price</td><td class="applied">Your NQ contracts</td></tr>
+            </table>
+
+            <div class="apply-blk">
+              <span class="al">🛠 Do it on your book</span>
+              <label class="task"><input type="checkbox" data-wk="w3"><span class="t-txt">Pull a 1-year chart of INTC. Mark the obvious support and resistance levels and the 200-day moving average.</span></label>
+              <label class="task"><input type="checkbox" data-wk="w3"><span class="t-txt">Ask: if I decided Intel was fairly valued, is <em>now</em> a good entry by the chart — at support, or mid-air? Where would my stop go?</span></label>
+            </div>
+
+            <div class="client"><span class="cm">Client mtg</span><label class="task" style="padding:0"><input type="checkbox" data-wk="w3"><span class="t-txt">Explain to Claude how you’d combine a fundamental “it’s cheap” call with a technical “good entry” call — the full workflow, in order.</span></label></div>
+          </div>
+        </details>
+
+        <!-- WEEK 4 -->
+        <details class="week" id="w4">
+          <summary class="wk-sum">
+            <span class="wk-lvl">W4<small>AUG 17</small></span>
+            <span class="wk-title">The Macro Desk<span>The Fed, rates, inflation — and how they set every price</span></span>
+            <span class="wk-depth"><span class="mini"><i data-fill="w4"></i></span><span class="pct" data-pct="w4">0%</span><span class="chev">▾</span></span>
+          </summary>
+          <div class="wk-body">
+            <p class="wk-time">≈ 2–3 hrs · the weather system every stock trades inside</p>
+
+            <div class="block">
+              <div class="lbl learn-lbl">📖 Understand it — why macro decides your discount rate</div>
+              <div class="learn">
+                <div class="baby"><b>Toddler version.</b> The <em>Federal Reserve</em> is the economy’s thermostat — it raises rates to cool things down, cuts them to warm things up. <em>Inflation</em> is prices rising so your money buys less. The <em>yield curve</em> plots interest rates across time; when it flips upside-down, it’s historically warned of recession.</div>
+                <h5>The link that matters for picking stocks</h5>
+                <p>Macro doesn’t predict individual stocks — it sets the <strong>discount rate</strong> that everything is priced against. Here’s the chain, and it’s the bridge to your valuation work: the Fed sets the risk-free rate → that feeds the required return on every stock → that’s the rate you discount future cash flows by → which sets fair value. Raise rates, and every future dollar is worth less today, so prices fall. <em>Macro isn’t a separate subject — it’s an input to valuation.</em></p>
+                <p>This is why a rate hike hits <strong>growth</strong> stocks (NVDA) harder than <strong>value</strong> stocks. Growth stocks are “long-duration” — most of their value sits in far-future cash flows, which get discounted hardest when rates rise. A steady-earnings value name feels it far less.</p>
+                <div class="lex"><span class="xl">Reinforcing your earlier work</span>You’ve already gone deep on the yen carry trade, credit spreads (HYG), the MOVE index, and cross-asset confirmation stacks. This week formalizes the vocabulary so you can say it fluently in a room. Build a <b>Tier-1 monitor</b>: 5 indicators you glance at every trading morning. <a class="xref" href="https://fred.stlouisfed.org" target="_blank" rel="noopener">→ FRED</a></div>
+              </div>
+            </div>
+
+            <div class="block">
+              <div class="lbl">🔔 Morning Briefing — the Fed as the economy’s thermostat</div>
+              <label class="task"><input type="checkbox" data-wk="w4"><span class="t-txt">Listen: Odd Lots — pick 2 recent episodes (Spotify / Apple).</span></label>
+            </div>
+            <div class="block">
+              <div class="lbl">📊 Deep Dive — the yield curve &amp; rate cycles</div>
+              <label class="task"><input type="checkbox" data-wk="w4"><span class="t-txt">Watch: search “yield curve” / “quantitative easing” on The Plain Bagel — <a href="https://www.youtube.com/@ThePlainBagel" target="_blank" rel="noopener">channel ↗</a></span></label>
+              <label class="task"><input type="checkbox" data-wk="w4"><span class="t-txt">Open <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener">FRED ↗</a>: chart CPI year-over-year, the fed funds rate, and the 10-year yield on one screen.</span></label>
+            </div>
+
+            <table class="vocab">
+              <tr><th>Term</th><th>In plain English</th><th>Why it matters to you</th></tr>
+              <tr><td>Federal Reserve</td><td>The economy’s thermostat</td><td class="applied">Sets the risk-free rate under every valuation</td></tr>
+              <tr><td>Risk-free rate</td><td>What a “safe” government bond pays</td><td class="applied">The floor your discount rate is built on</td></tr>
+              <tr><td>Yield Curve</td><td>Return vs how long you lend</td><td class="applied">Inverted = recession warning, with a long lag</td></tr>
+              <tr><td>Inflation (CPI vs core)</td><td>Prices up; core strips food &amp; energy noise</td><td class="applied">What the Fed actually reacts to</td></tr>
+              <tr><td>Growth vs value duration</td><td>Where a stock’s value sits in time</td><td class="applied">Why a hike hits NVDA harder than a value name</td></tr>
+              <tr><td>Credit spreads</td><td>Extra yield risky borrowers pay</td><td class="applied">HYG — your early-warning gauge, reinforced</td></tr>
+            </table>
+
+            <div class="apply-blk">
+              <span class="al">🛠 Do it on your book — build your Tier-1 monitor</span>
+              <label class="task"><input type="checkbox" data-wk="w4"><span class="t-txt">Pick 5 indicators you’ll check every trading morning (e.g. 10Y yield, fed funds odds on CME FedWatch, HY spread, VIX, DXY). Write them with source links.</span></label>
+              <label class="task"><input type="checkbox" data-wk="w4"><span class="t-txt">Check CME FedWatch for the market-implied odds of the next Fed move, and write one line on what that implies for the discount rate you’d use on a stock.</span></label>
+            </div>
+
+            <div class="client"><span class="cm">Client mtg</span><label class="task" style="padding:0"><input type="checkbox" data-wk="w4"><span class="t-txt">Explain why a rate hike can hit NVDA (growth) harder than a value stock — using the word “duration” and the discount-rate chain.</span></label></div>
+          </div>
+        </details>
+
+        <!-- WEEK 5 -->
+        <details class="week" id="w5">
+          <summary class="wk-sum">
+            <span class="wk-lvl">W5<small>AUG 24</small></span>
+            <span class="wk-title">Valuation + Diversification<span>Fair price, projecting returns, building the book</span></span>
+            <span class="wk-depth"><span class="mini"><i data-fill="w5"></i></span><span class="pct" data-pct="w5">0%</span><span class="chev">▾</span></span>
+          </summary>
+          <div class="wk-body">
+            <p class="wk-time">≈ 4 hrs · the payoff week — everything comes together here</p>
+
+            <div class="block">
+              <div class="lbl learn-lbl">📖 Understand it — is the price fair, and what will it return?</div>
+              <div class="learn">
+                <div class="baby"><b>Toddler version.</b> <em>Valuation</em> is your best guess at what a company is truly worth, separate from today’s price. A <em>DCF</em> figures that out by adding up all the cash the business will make in the future, translated into today’s dollars. If your worth-estimate is above the price, it might be cheap.</div>
+                <h5>Determining a fair price (fundamental side)</h5>
+                <p>Two tools. <strong>Multiples</strong> are the fast screen: a P/E of 20 means you pay $20 per $1 of earnings — cheap or rich only <em>relative to peers and its own history</em>. A high P/E isn’t “expensive,” it’s the market pricing in growth; your job is to judge if that growth is real. <strong>DCF</strong> is the full answer: project free cash flow, discount it at the rate you built from macro (Week 4) and cost of capital, and you get a fair value per share to compare against the price.</p>
+                <h5>Projecting what you’ll get back over a year-count</h5>
+                <p>You asked how to tell <strong>how much a stock will give you over a certain number of years</strong>. That’s the same time-value machine, run forward. A holding growing at rate <code>r</code> for <code>n</code> years multiplies by <code>(1 + r)ⁿ</code>.</p>
+                <div class="lex"><span class="xl">Worked — projecting VOO</span>Say VOO returns ~7%/yr (a common long-run stock estimate). $10,000 in 10 years: <code>10,000 × 1.07¹⁰ = $19,672</code> — nearly double. In 20 years: <code>10,000 × 1.07²⁰ = $38,697</code>. In 30: <code>≈ $76,000</code>. The extra decades do the heavy lifting — that’s why starting now is the real edge. <a class="xref" href="#formula">→ Formula Desk: FV / TVM</a></div>
+                <div class="lex"><span class="xl">The honest caveat</span>That’s an <em>expected average</em>, not a promise — real years swing wildly around it. Never quote a projection as a guarantee. The math shows the <em>shape</em> of compounding, not a certainty.</div>
+                <h5>Diversification — how your picks fit together</h5>
+                <p>Picking good stocks isn’t enough; how they move <em>together</em> is a separate skill. The lever is <strong>correlation</strong> — ten stocks that all move together is one bet in ten costumes. Three of your four single names (INTC, NVDA, GOOGL) are tech, and two are the <em>same</em> sub-industry (semis). That’s <strong>concentration</strong> — fine as a deliberate bet, dangerous by accident. URA is your genuine diversifier; VOO is your broad ballast. <a class="xref" href="#portfolio">→ Portfolio Desk: your book, PM-style</a></p>
+              </div>
+            </div>
+
+            <div class="block">
+              <div class="lbl">🔔 Morning Briefing — what a buy-side analyst does all day</div>
+              <label class="task"><input type="checkbox" data-wk="w5"><span class="t-txt">Watch: search “day in the life buy-side analyst” on YouTube.</span></label>
+            </div>
+            <div class="block">
+              <div class="lbl">📊 Deep Dive — valuation &amp; DCF, the core tool</div>
+              <label class="task"><input type="checkbox" data-wk="w5"><span class="t-txt">Watch: the DCF sessions in Damodaran’s Valuation playlist — <a href="https://www.youtube.com/playlist?list=PLeBox1GIuOW_7LAvk-Iz-Vm5luPJhu6_H" target="_blank" rel="noopener">open ↗</a></span></label>
+            </div>
+
+            <table class="vocab">
+              <tr><th>Term</th><th>In plain English</th><th>On your path</th></tr>
+              <tr><td>Valuation</td><td>Best guess at true worth vs price</td><td class="applied">Is INTC worth what it trades at?</td></tr>
+              <tr><td>P/E &amp; multiples</td><td>Dollars paid per dollar earned</td><td class="applied">The fast cheap/rich screen vs peers</td></tr>
+              <tr><td>DCF</td><td>Future cash, in today’s dollars</td><td class="applied">The full fair-value tool</td></tr>
+              <tr><td>Compounding / FV</td><td>(1 + r)ⁿ — growth over a year-count</td><td class="applied">Projecting VOO’s value in 10 / 20 / 30 yrs</td></tr>
+              <tr><td>Diversification / correlation</td><td>Holding things driven by different forces</td><td class="applied">Your tech concentration + URA as the diversifier</td></tr>
+              <tr><td>Economic Moat</td><td>What guards a company from rivals</td><td class="applied">Intel’s US-manufacturing moat</td></tr>
+            </table>
+
+            <div class="apply-blk">
+              <span class="al">🛠 Do it on your book — the payoff drills</span>
+              <label class="task"><input type="checkbox" data-wk="w5"><span class="t-txt">Project one holding forward: pick a reasonable annual return and compute its value in 5, 10, and 20 years with (1 + r)ⁿ.</span></label>
+              <label class="task"><input type="checkbox" data-wk="w5"><span class="t-txt">Look up INTC’s P/E vs a peer (TSMC or AMD). Cheaper or richer — and can you name why?</span></label>
+              <label class="task"><input type="checkbox" data-wk="w5"><span class="t-txt">Map your whole book into buckets (tech, semis, energy, broad). Name your single biggest concentration and decide if it’s on purpose. <a class="xref" href="#portfolio">→ Portfolio Desk</a></span></label>
+            </div>
+
+            <div class="client"><span class="cm">Cumulative</span><label class="task" style="padding:0"><input type="checkbox" data-wk="w5"><span class="t-txt">Client meeting + interleaved quiz on all terms from Weeks 1–4 — cold, no notes. Then defend one fair-value call out loud in 90 seconds.</span></label></div>
+          </div>
+        </details>
+
+      </div><!-- /weeks -->
+
+      <!-- FORMULA DESK -->
+      <section id="formula">
+        <div class="sec-head"><span class="sec-num">&Sigma;</span><h2>The Formula Desk</h2></div>
+        <p class="sec-intro">Rebuilt to match your <b>FINC&nbsp;300</b> syllabus (Ross &amp; Westerfield, <em>Fundamentals of Corporate Finance</em>) module-for-module — all 12 modules, in the order your course taught them. The reason they didn't stick before is they were taught as strings to memorize. Here every formula is a <em>sentence first</em> — understand the sentence and the equation writes itself — with a worked example and click-to-reveal practice. Then the drill below forces recall, which is the part that actually builds memory.</p>
+
+        <div class="desknote"><span class="tag">Why this works when cramming didn't</span>Reading a formula doesn't create memory — <em>retrieving</em> it does. Every time you pull an equation out of your head before checking, you strengthen it. That's why this desk pairs meaning (so you can rebuild it) with the self-test drill (so you're forced to). Meaning + retrieval is the whole trick your course was missing.</div>
+
+        <!-- ===== SELF-TEST DRILL ===== -->
+        <div class="drill" id="drill">
+          <div class="drill-h">
+            <span class="t">🎯 Formula recall drill</span>
+            <span class="sc" id="drill-score">0 / 0</span>
+          </div>
+          <div class="drill-body" id="drill-body">
+            <!-- populated by JS -->
+          </div>
+        </div>
+
+        <!-- ===== MODULE 1 : INTRO TO CORPORATE FINANCE ===== -->
+        <div class="fmod">
+          <div class="fmod-h"><span class="mtag">Mod 1</span><h3>Introduction to Corporate Finance</h3></div>
+          <p class="sub">No heavy math yet — but two identities here are the foundation everything else stands on. Learn them as sentences.</p>
+
+          <div class="fpanel">
+            <h4>The Balance-Sheet Identity</h4>
+            <div class="eq">Assets = Liabilities + Shareholders' Equity</div>
+            <div class="say"><span class="k">Said as</span><span class="v">"Everything a company owns was paid for either by borrowing or by owners — so owned always equals owed-plus-owners."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">Equity is the <em>plug</em>: it's what's left for owners after debts. Rearranged, <code>Equity = Assets − Liabilities</code>. This is why shareholders are the residual claimants from Week 1.</span></div>
+            <div class="worked"><span class="wk-lbl">Worked</span>A firm owns <code>$500</code> in assets and owes <code>$300</code>: equity = <code>500 − 300 = $200</code>. If assets fall to $350, equity is wiped to $50 — the owners absorb the loss first.</div>
+            <details class="prob"><summary>Practice: assets $1.2M, equity $700K — what does it owe?</summary><div class="ans"><code>Liabilities = 1,200 − 700 = $500K</code>. The identity always balances by construction.</div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>The Goal of the Financial Manager</h4>
+            <div class="eq">Maximize the value of the existing owners' equity</div>
+            <div class="say"><span class="k">Said as</span><span class="v">"Every decision is judged by one question: does it make each current share worth more?"</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">Not "maximize profit" (which can be gamed short-term) and not "maximize size." Value per share is the yardstick — it's why NPV, not accounting profit, is the decision rule later.</span></div>
+          </div>
+        </div>
+
+        <!-- ===== MODULE 2 : STATEMENTS, TAXES, CASH FLOW ===== -->
+        <div class="fmod">
+          <div class="fmod-h"><span class="mtag">Mod 2</span><h3>Financial Statements, Taxes &amp; Cash Flow</h3></div>
+          <p class="sub">The bridge from accounting profit to real cash. This module is where "profit ≠ cash" becomes a formula, not a slogan.</p>
+
+          <div class="fpanel">
+            <h4>Operating Cash Flow (OCF)</h4>
+            <div class="eq">OCF = EBIT + Depreciation &minus; Taxes</div>
+            <div class="say"><span class="k">Said as</span><span class="v">"Operating profit, add back the non-cash depreciation charge, subtract the cash taxes actually paid."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">The cash the core business threw off this year. Depreciation is added back because it's an accounting expense, not a cash outflow.</span></div>
+            <div class="worked"><span class="wk-lbl">Worked</span>EBIT <code>$400</code>, depreciation <code>$100</code>, taxes <code>$84</code>: OCF = <code>400 + 100 − 84 = $416</code>.</div>
+            <details class="prob"><summary>Practice: EBIT $600, depreciation $150, taxes $120 — OCF?</summary><div class="ans"><code>600 + 150 − 120 = $630</code></div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>Cash Flow From Assets (the big one)</h4>
+            <div class="eq">CFFA = OCF &minus; Net Capital Spending &minus; Change in NWC</div>
+            <div class="say"><span class="k">Said as</span><span class="v">"Operating cash, minus what you spent on long-term assets, minus the cash tied up in day-to-day working capital."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">The actual free cash generated for investors (debt + equity holders). This is the grown-up version of the "free cash flow" from Week 2 — and the exact thing a DCF discounts.</span></div>
+            <div class="worked"><span class="wk-lbl">Worked</span>OCF <code>$416</code>, capital spending <code>$150</code>, ΔNWC <code>$40</code>: CFFA = <code>416 − 150 − 40 = $226</code>.</div>
+            <details class="prob"><summary>Practice: why subtract the change in net working capital?</summary><div class="ans">Because growth eats cash: you buy inventory and extend customer credit <em>before</em> you collect. That tied-up cash isn't available to investors, so it comes out. Rising NWC is the classic reason a "profitable" firm has no cash.</div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>Marginal vs. Average Tax Rate</h4>
+            <div class="eq">Average = Total Tax &divide; Taxable Income &nbsp;·&nbsp; Marginal = rate on the <b>next</b> dollar</div>
+            <div class="say"><span class="k">Tells you</span><span class="v">Decisions use the <em>marginal</em> rate — that's what a new project's extra income gets taxed at. The average rate just describes the past.</span></div>
+            <details class="prob"><summary>Practice: which rate matters for "should I take this project?"</summary><div class="ans">The <b>marginal</b> rate — the project adds income at the top, so it's taxed at the rate on the next dollar, not the blended average.</div></details>
+          </div>
+        </div>
+
+        <!-- ===== MODULE 3 : WORKING WITH STATEMENTS (RATIOS) ===== -->
+        <div class="fmod">
+          <div class="fmod-h"><span class="mtag">Mod 3</span><h3>Working With Financial Statements — Ratios</h3></div>
+          <p class="sub">These read the report card from Week 2. Tie each to a real INTC line and it sticks. Grouped the way the textbook groups them.</p>
+
+          <div class="fpanel">
+            <h4>Liquidity &amp; Solvency</h4>
+            <div class="eq">Current Ratio = Current Assets &divide; Current Liabilities</div>
+            <div class="say"><span class="k">Tells you</span><span class="v">Can it cover short-term bills? Above 1 = yes.</span></div>
+            <div class="eq" style="margin-top:14px">Quick Ratio = (Current Assets &minus; Inventory) &divide; Current Liabilities</div>
+            <div class="say"><span class="k">Tells you</span><span class="v">Same test, but strips inventory (the hardest current asset to turn into cash fast).</span></div>
+            <div class="eq" style="margin-top:14px">Debt-to-Equity = Total Debt &divide; Total Equity</div>
+            <div class="say"><span class="k">Tells you</span><span class="v">How leveraged the company is. Higher = riskier, magnifies both gains and losses.</span></div>
+            <details class="prob"><summary>Practice: current assets $600, inventory $200, current liabilities $250 — quick ratio?</summary><div class="ans"><code>(600 − 200) / 250 = 1.6</code>. It can cover short-term bills 1.6× even without selling any inventory.</div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>Profitability &amp; Market</h4>
+            <div class="eq">Profit Margin = Net Income &divide; Sales</div>
+            <div class="say"><span class="k">Tells you</span><span class="v">Cents of profit kept per dollar of revenue.</span></div>
+            <div class="eq" style="margin-top:14px">ROE = Net Income &divide; Shareholder Equity</div>
+            <div class="say"><span class="k">Tells you</span><span class="v">Profit squeezed from each dollar owners put in — a quality signal.</span></div>
+            <div class="eq" style="margin-top:14px">ROA = Net Income &divide; Total Assets</div>
+            <div class="say"><span class="k">Tells you</span><span class="v">Profit per dollar of <em>everything</em> the firm uses, debt-funded or not.</span></div>
+            <div class="eq" style="margin-top:14px">EPS = Net Income &divide; Shares · &nbsp; P/E = Price &divide; EPS</div>
+            <div class="say"><span class="k">Tells you</span><span class="v">EPS = profit per share; P/E = dollars paid per dollar earned. High P/E = pricier, or higher growth expected.</span></div>
+            <div class="worked"><span class="wk-lbl">Worked</span>Net income <code>$100</code>, equity <code>$800</code> → ROE = <code>12.5%</code>. Price <code>$40</code>, EPS <code>$2</code> → P/E = <code>20&times;</code>.</div>
+            <details class="prob"><summary>Practice: net income $250M, sales $2,000M — profit margin?</summary><div class="ans"><code>250 / 2000 = 12.5%</code> — keeps 12.5 cents of every sales dollar.</div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>The DuPont Identity (why ROE moves)</h4>
+            <div class="eq">ROE = Profit Margin &times; Asset Turnover &times; Equity Multiplier</div>
+            <div class="say"><span class="k">Said as</span><span class="v">"Return on equity breaks into three levers: how profitable, how efficiently assets make sales, and how much leverage."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">Whether a high ROE comes from real profitability or just from piling on debt (the equity multiplier). A favorite exam question.</span></div>
+            <details class="prob"><summary>Practice: which lever inflates ROE without making the business better?</summary><div class="ans">The <b>equity multiplier</b> (leverage). More debt raises ROE mechanically but also raises risk — so a high ROE built on leverage isn't the same as one built on margin.</div></details>
+          </div>
+        </div>
+
+        <!-- ===== MODULE 4 : TVM ===== -->
+        <div class="fmod">
+          <div class="fmod-h"><span class="mtag">Mod 4</span><h3>Introduction to Valuation — Time Value of Money</h3></div>
+          <p class="sub">The spine of the whole course. Every valuation formula later is just this idea repeated.</p>
+
+          <div class="fpanel">
+            <h4>Future Value</h4>
+            <div class="eq">FV = PV &times; (1 + <b>r</b>)<sup>n</sup></div>
+            <div class="say"><span class="k">Said as</span><span class="v">"Money today, grown forward at rate <em>r</em> for <em>n</em> years."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">What a sum you have now will be worth later.</span></div>
+            <div class="worked"><span class="wk-lbl">Worked</span>Put <code>$1,000</code> in at <code>6%</code> for <code>5</code> years: <code>1000 &times; 1.06⁵ = $1,338.23</code>.</div>
+            <details class="prob"><summary>Practice: $2,000 at 5% for 3 years — FV?</summary><div class="ans"><code>2000 &times; 1.05³ = $2,315.25</code></div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>Present Value</h4>
+            <div class="eq">PV = FV &divide; (1 + <b>r</b>)<sup>n</sup></div>
+            <div class="say"><span class="k">Said as</span><span class="v">"Future money, discounted back to what it's worth today."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">What a future payoff is worth in today's dollars — the core of every valuation.</span></div>
+            <div class="worked"><span class="wk-lbl">Worked</span><code>$1,338.23</code> in <code>5</code> years at <code>6%</code>: <code>1338.23 &divide; 1.06⁵ = $1,000</code>. (Same numbers, run backwards.)</div>
+            <details class="prob"><summary>Practice: $5,000 in 4 years, discount 8% — PV?</summary><div class="ans"><code>5000 &divide; 1.08⁴ = $3,675.15</code></div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>Solving for the Rate or the Time</h4>
+            <div class="eq"><b>r</b> = (FV &divide; PV)<sup>1/n</sup> &minus; 1 &nbsp;·&nbsp; n = ln(FV&divide;PV) &divide; ln(1+<b>r</b>)</div>
+            <div class="say"><span class="k">Said as</span><span class="v">"The same FV equation, rearranged to hunt for the missing piece — the return you earned, or how long it takes."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">Any TVM problem has four parts (PV, FV, r, n) — give three, solve the fourth. This is where students freeze; it's just algebra on the one equation.</span></div>
+            <div class="worked"><span class="wk-lbl">Worked</span>$1,000 grows to $1,500 in 4 years — what rate? <code>(1500/1000)^(1/4) − 1 = 1.5^0.25 − 1 = 10.67%</code>.</div>
+            <details class="prob"><summary>Practice: $2,000 → $4,000, how long at 9%? (Rule of 72 shortcut)</summary><div class="ans">Rule of 72: <code>72 / 9 ≈ 8 years</code> to double. Exact: <code>ln(2)/ln(1.09) = 8.04 yrs</code>.</div></details>
+          </div>
+        </div>
+
+        <!-- ===== MODULE 5 : DCF VALUATION ===== -->
+        <div class="fmod">
+          <div class="fmod-h"><span class="mtag">Mod 5</span><h3>Discounted Cash Flow Valuation</h3></div>
+          <p class="sub">Multiple cash flows at once — annuities, perpetuities, and the compounding-frequency traps that eat exam points.</p>
+
+          <div class="fpanel">
+            <h4>Present Value of a Perpetuity</h4>
+            <div class="eq">PV = C &divide; <b>r</b></div>
+            <div class="say"><span class="k">Said as</span><span class="v">"A fixed payment forever, divided by the rate."</span></div>
+            <div class="worked"><span class="wk-lbl">Worked</span><code>$50</code>/year forever at <code>5%</code>: <code>50 / 0.05 = $1,000</code>.</div>
+            <details class="prob"><summary>Practice: $200/year forever at 8% — PV?</summary><div class="ans"><code>200 / 0.08 = $2,500</code></div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>Growing Perpetuity</h4>
+            <div class="eq">PV = C&#8321; &divide; ( <b>r</b> &minus; <b>g</b> )</div>
+            <div class="say"><span class="k">Said as</span><span class="v">"A payment that grows forever, divided by how far your rate outruns the growth."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">This IS the Gordon Growth stock model (Module 7) and the DCF terminal value. Same formula, three names. <em>r</em> must exceed <em>g</em> or it breaks.</span></div>
+            <div class="worked"><span class="wk-lbl">Worked</span>$50 next year, growing 3% forever, at 8%: <code>50 / (0.08 − 0.03) = $1,000</code>.</div>
+            <details class="prob"><summary>Practice: what happens as g approaches r?</summary><div class="ans">The denominator shrinks toward zero, so PV explodes toward infinity. That's why terminal-growth assumptions above ~4% (long-run GDP) are a red flag.</div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>Present Value of an Annuity</h4>
+            <div class="eq">PV = C &times; [ 1 &minus; (1 + <b>r</b>)<sup>&minus;n</sup> ] &divide; <b>r</b></div>
+            <div class="say"><span class="k">Said as</span><span class="v">"A fixed payment for a set number of years, all discounted back and added up."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">What a loan, a lease, or a stream of bond coupons is worth today. The bracket is the "annuity factor."</span></div>
+            <div class="worked"><span class="wk-lbl">Worked</span><code>$100</code>/yr for <code>3</code> yrs at <code>10%</code>: factor <code>[1 − 1.10⁻³]/0.10 = 2.48685</code>, so <code>100 &times; 2.48685 = $248.69</code>.</div>
+            <details class="prob"><summary>Practice: $500/yr for 5 years at 6% — PV?</summary><div class="ans">Factor <code>[1 − 1.06⁻⁵]/0.06 = 4.21236</code> → <code>500 &times; 4.21236 = $2,106.18</code></div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>Effective Annual Rate (EAR) — the compounding trap</h4>
+            <div class="eq">EAR = (1 + APR &divide; m)<sup>m</sup> &minus; 1</div>
+            <div class="say"><span class="k">Said as</span><span class="v">"Take the stated annual rate, split it into m compounding chunks, and see what it truly earns once the interest compounds on itself."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">The <em>real</em> rate once compounding frequency is baked in. A 12% APR compounded monthly is not 12% — it's more. This is the single most common exam trick in this module.</span></div>
+            <div class="worked"><span class="wk-lbl">Worked</span>12% APR, compounded monthly (m=12): <code>(1 + 0.12/12)¹² − 1 = 1.01¹² − 1 = 12.68%</code>. The extra 0.68% is compounding.</div>
+            <details class="prob"><summary>Practice: 10% APR compounded quarterly — EAR?</summary><div class="ans"><code>(1 + 0.10/4)⁴ − 1 = 1.025⁴ − 1 = 10.38%</code></div></details>
+          </div>
+        </div>
+
+        <!-- ===== MODULE 6 : INTEREST RATES & BONDS ===== -->
+        <div class="fmod">
+          <div class="fmod-h"><span class="mtag">Mod 6</span><h3>Interest Rates &amp; Bond Valuation</h3></div>
+          <p class="sub">A bond is just Module 5 applied — an annuity of coupons plus a lump-sum face value.</p>
+
+          <div class="fpanel">
+            <h4>Bond Price</h4>
+            <div class="eq">Price = (coupons as an annuity) + (face value discounted back)</div>
+            <div class="say"><span class="k">Said as</span><span class="v">"Add up today's value of every coupon, plus today's value of the money back at the end."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">What a bond is worth when market rates differ from its coupon. <em>Rates up → price down</em>, always.</span></div>
+            <div class="worked"><span class="wk-lbl">Worked</span><code>$1,000</code> face, <code>5%</code> coupon (<code>$50</code>/yr), <code>3</code> yrs, market rate <code>6%</code>: coupons <code>50 &times; 2.67301 = 133.65</code> + face <code>1000 &divide; 1.06³ = 839.62</code> = <code>$973.27</code>. Below par because 6% &gt; 5%.</div>
+            <details class="prob"><summary>Practice: why did that bond trade below $1,000?</summary><div class="ans">The market wants 6% but the bond pays 5%. Price drops until the effective yield equals 6%. Coupon &lt; market rate → discount bond.</div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>Current Yield vs. Yield to Maturity</h4>
+            <div class="eq">Current Yield = Annual Coupon &divide; Price</div>
+            <div class="say"><span class="k">Tells you</span><span class="v">Just the coupon income relative to price — ignores the gain or loss as price pulls to par.</span></div>
+            <div class="eq" style="margin-top:14px">YTM = the single rate that makes the bond's PV equal its price</div>
+            <div class="say"><span class="k">Tells you</span><span class="v">The all-in return if you hold to maturity — coupons <em>plus</em> the pull to par. It's the bond's version of IRR.</span></div>
+            <details class="prob"><summary>Practice: a discount bond — is its YTM above or below its coupon rate?</summary><div class="ans"><b>Above.</b> You collect the coupon <em>and</em> the price gain as it rises to par, so total return exceeds the coupon rate.</div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>The Fisher Effect (real vs. nominal)</h4>
+            <div class="eq">(1 + Nominal) = (1 + Real) &times; (1 + Inflation)</div>
+            <div class="say"><span class="k">Said as</span><span class="v">"The rate you see already has inflation baked in; strip it out to find what you actually gained in buying power."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">Approximately, <code>Real ≈ Nominal − Inflation</code>. Ties straight to your macro Week 4 work on real yields.</span></div>
+            <details class="prob"><summary>Practice: nominal 7%, inflation 3% — approx real rate?</summary><div class="ans"><code>≈ 7% − 3% = 4%</code>. (Exact: <code>1.07/1.03 − 1 = 3.88%</code>.)</div></details>
+          </div>
+        </div>
+
+        <!-- ===== MODULE 7 : STOCK VALUATION ===== -->
+        <div class="fmod">
+          <div class="fmod-h"><span class="mtag">Mod 7</span><h3>Stock Valuation</h3></div>
+          <p class="sub">A stock is the PV of its future dividends. Three cases, depending on how the dividend grows.</p>
+
+          <div class="fpanel">
+            <h4>Constant Growth — Gordon Growth Model</h4>
+            <div class="eq">P&#8320; = D&#8321; &divide; ( <b>r</b> &minus; <b>g</b> )</div>
+            <div class="say"><span class="k">Said as</span><span class="v">"Next year's dividend, divided by how much your required return outpaces its growth."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">Fair price of a stock whose dividend grows at a steady <em>g</em> forever. Note: it's the growing-perpetuity from Module 5.</span></div>
+            <div class="worked"><span class="wk-lbl">Worked</span><code>D₁ = $2</code>, <code>r = 10%</code>, <code>g = 4%</code>: <code>2 / (0.10 − 0.04) = $33.33</code>.</div>
+            <details class="prob"><summary>Practice: D₁ = $3, r = 9%, g = 3% — fair price?</summary><div class="ans"><code>3 / (0.09 − 0.03) = $50.00</code></div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>Zero Growth &amp; the Required-Return Rearrange</h4>
+            <div class="eq">Zero growth: P&#8320; = D &divide; <b>r</b> &nbsp;·&nbsp; Rearranged: <b>r</b> = D&#8321;&divide;P&#8320; + <b>g</b></div>
+            <div class="say"><span class="k">Said as</span><span class="v">"A non-growing dividend is a plain perpetuity. And flipping Gordon around, your total return = dividend yield + growth."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">The rearrange is the exam favorite: <code>r = dividend yield + capital-gains yield (g)</code>. It splits a stock's return into income + growth.</span></div>
+            <details class="prob"><summary>Practice: D₁ = $2, price $40, g = 5% — required return?</summary><div class="ans"><code>r = 2/40 + 0.05 = 5% + 5% = 10%</code>. Half from dividend yield, half from growth.</div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>Non-Constant (Two-Stage) Growth</h4>
+            <div class="eq">Discount each early dividend by hand, then Gordon the rest as a terminal value</div>
+            <div class="say"><span class="k">Said as</span><span class="v">"For a company growing fast then settling down: value the fast years one by one, then treat the steady phase as a growing perpetuity and discount that lump back."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">How to value real growth stocks (NVDA-type) that can't grow 20% forever. This is the messy multi-step problem — the trap is forgetting to discount the terminal value back to today.</span></div>
+            <details class="prob"><summary>Practice: what's the #1 mistake on two-stage problems?</summary><div class="ans">Computing the terminal value with Gordon at year <em>t</em>, then forgetting it sits at year <em>t</em> — you must discount it back <em>t</em> more years to today. Half the class loses points right there.</div></details>
+          </div>
+        </div>
+
+        <!-- ===== MODULE 8 : NPV & INVESTMENT CRITERIA ===== -->
+        <div class="fmod">
+          <div class="fmod-h"><span class="mtag">Mod 8</span><h3>Net Present Value &amp; Investment Criteria</h3></div>
+          <p class="sub">"Should we do this project?" — five tools that answer it, NPV being the boss the others are judged against.</p>
+
+          <div class="fpanel">
+            <h4>Net Present Value (NPV) — the decision rule</h4>
+            <div class="eq">NPV = &Sigma; [ CF<sub>t</sub> &divide; (1 + <b>r</b>)<sup>t</sup> ] &minus; Initial Cost</div>
+            <div class="say"><span class="k">Said as</span><span class="v">"Add up the PV of every future cash flow, then subtract what you paid up front."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">Does the project create value? <em>NPV &gt; 0 → accept.</em> Overrides every other criterion when they disagree.</span></div>
+            <div class="worked"><span class="wk-lbl">Worked</span>Invest <code>$1,000</code>, get <code>$600</code>/yr for <code>2</code> yrs at <code>10%</code>: <code>600/1.1 + 600/1.21 − 1000 = 545.45 + 495.87 − 1000 = +$41.32</code> → accept.</div>
+            <details class="prob"><summary>Practice: invest $2,000, get $1,200/yr for 2 yrs at 8% — accept?</summary><div class="ans"><code>1200/1.08 + 1200/1.08² − 2000 = 1111.11 + 1028.81 − 2000 = +$139.92</code> → <b>accept</b>.</div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>IRR, Payback &amp; Discounted Payback</h4>
+            <div class="eq">IRR = the rate <b>r</b> that makes NPV = 0</div>
+            <div class="say"><span class="k">Tells you</span><span class="v">The project's built-in return. Accept if IRR &gt; required rate. Can mislead on weird cash-flow patterns — NPV wins ties.</span></div>
+            <div class="eq" style="margin-top:14px">Payback = years to recover the cost (undiscounted)</div>
+            <div class="say"><span class="k">Tells you</span><span class="v">How fast you're made whole. Simple, but ignores time value and everything after payback.</span></div>
+            <div class="eq" style="margin-top:14px">Discounted Payback = same, but on <em>discounted</em> cash flows</div>
+            <div class="say"><span class="k">Tells you</span><span class="v">Fixes payback's time-value blindness — but still ignores cash flows after the cutoff.</span></div>
+            <details class="prob"><summary>Practice: $1,000 cost, $500/yr — plain payback period?</summary><div class="ans"><code>1000 / 500 = 2 years</code>. Undiscounted — that's its weakness.</div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>Profitability Index (PI)</h4>
+            <div class="eq">PI = PV of Future Cash Flows &divide; Initial Cost</div>
+            <div class="say"><span class="k">Said as</span><span class="v">"Bang per buck — how much present value you get for each dollar invested."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">Accept if PI &gt; 1 (same signal as NPV &gt; 0). Useful when you're rationing limited capital across projects.</span></div>
+            <details class="prob"><summary>Practice: PV of inflows $1,150, cost $1,000 — PI, and accept?</summary><div class="ans"><code>1150 / 1000 = 1.15</code>. PI &gt; 1 → <b>accept</b>. You get $1.15 of value per $1 spent.</div></details>
+          </div>
+        </div>
+
+        <!-- ===== MODULE 9-1 : CAPITAL INVESTMENT DECISIONS ===== -->
+        <div class="fmod">
+          <div class="fmod-h"><span class="mtag">Mod 9&ndash;1</span><h3>Making Capital Investment Decisions</h3></div>
+          <p class="sub">Getting the project cash flows <em>right</em> before you discount them. The rules here are where most real errors hide.</p>
+
+          <div class="fpanel">
+            <h4>Project Operating Cash Flow</h4>
+            <div class="eq">OCF = (Sales &minus; Costs) &times; (1 &minus; T) + Depreciation &times; T</div>
+            <div class="say"><span class="k">Said as</span><span class="v">"After-tax operating profit, plus the tax saving the depreciation shields."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">The yearly cash a project throws off. The second term is the <em>depreciation tax shield</em> — depreciation isn't cash, but it lowers taxes, and that saving IS cash.</span></div>
+            <div class="worked"><span class="wk-lbl">Worked</span>Sales−costs <code>$500</code>, depreciation <code>$100</code>, tax <code>21%</code>: <code>500 × 0.79 + 100 × 0.21 = 395 + 21 = $416</code>.</div>
+            <details class="prob"><summary>Practice: what is the "depreciation tax shield" worth?</summary><div class="ans"><code>Depreciation × tax rate</code>. It's the cash you keep because depreciation reduced your tax bill — real money even though depreciation itself isn't a cash outflow.</div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>Which cash flows count — the three rules</h4>
+            <div class="say"><span class="k">Incremental only</span><span class="v">Count only cash flows that <em>change because of</em> the project. Everything else is irrelevant.</span></div>
+            <div class="say"><span class="k">Ignore sunk costs</span><span class="v">Money already spent (a past study, prior R&amp;D) is gone — never include it. The classic trap.</span></div>
+            <div class="say"><span class="k">Include opportunity cost</span><span class="v">If the project uses a building you could have rented out, the lost rent is a real cost of the project.</span></div>
+            <details class="prob"><summary>Practice: you spent $50K on research last year. Does it enter the NPV?</summary><div class="ans"><b>No — it's a sunk cost.</b> It's spent whether or not you proceed, so it's irrelevant to the go/no-go decision. Including it is the single most common capital-budgeting mistake.</div></details>
+          </div>
+        </div>
+
+        <!-- ===== MODULE 9-2 : CAPITAL MARKET HISTORY ===== -->
+        <div class="fmod">
+          <div class="fmod-h"><span class="mtag">Mod 9&ndash;2</span><h3>Lessons From Capital Market History</h3></div>
+          <p class="sub">The evidence base: what returns and risk have actually looked like, and how to measure them.</p>
+
+          <div class="fpanel">
+            <h4>Total Return &amp; the Risk Premium</h4>
+            <div class="eq">Total Return = (Dividend + Capital Gain) &divide; Beginning Price</div>
+            <div class="say"><span class="k">Tells you</span><span class="v">Your true return is income <em>plus</em> price change — never just the price move.</span></div>
+            <div class="eq" style="margin-top:14px">Risk Premium = Risky Return &minus; Risk-Free Return</div>
+            <div class="say"><span class="k">Tells you</span><span class="v">The extra pay for bearing risk. Historically stocks earned a big premium over T-bills — that's <em>why</em> you hold them.</span></div>
+            <div class="worked"><span class="wk-lbl">Worked</span>Buy at <code>$50</code>, get <code>$2</code> dividend, sell at <code>$55</code>: <code>(2 + 5)/50 = 14%</code> total return.</div>
+            <details class="prob"><summary>Practice: bought $100, $3 dividend, now $94 — total return?</summary><div class="ans"><code>(3 + (94−100))/100 = (3 − 6)/100 = −3%</code>. The dividend softened the price loss but you're still down.</div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>Variance &amp; Standard Deviation (measuring risk)</h4>
+            <div class="eq">Variance = average of (each return &minus; mean)<sup>2</sup> &nbsp;·&nbsp; Std Dev = &radic;Variance</div>
+            <div class="say"><span class="k">Said as</span><span class="v">"How far returns typically scatter around their average — squared to punish big misses, then square-rooted back to normal units."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">The standard measure of total risk (volatility). Bigger std dev = wilder swings. This is the σ under the Sharpe ratio and CAPM.</span></div>
+            <details class="prob"><summary>Practice: why square the deviations first?</summary><div class="ans">So positive and negative misses don't cancel out, and so big deviations count much more than small ones. The square root at the end returns the answer to the same units as the returns.</div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>Efficient Markets (the concept)</h4>
+            <div class="say"><span class="k">Tells you</span><span class="v">In an efficient market, prices already reflect available information, so you can't reliably beat it without more risk or better information. It's why the textbook leans toward low-cost index investing — and the honest backdrop to your own stock-picking.</span></div>
+          </div>
+        </div>
+
+        <!-- ===== MODULE 9-3 : RETURN, RISK, SML ===== -->
+        <div class="fmod">
+          <div class="fmod-h"><span class="mtag">Mod 9&ndash;3</span><h3>Return, Risk &amp; the Security Market Line</h3></div>
+          <p class="sub">Splitting risk into the part you're paid for and the part you're not — and pricing the part you are.</p>
+
+          <div class="fpanel">
+            <h4>Systematic vs. Unsystematic Risk</h4>
+            <div class="say"><span class="k">Systematic</span><span class="v">Market-wide risk (rates, recessions) — you <em>can't</em> diversify it away, so you're paid for bearing it. Measured by <b>beta</b>.</span></div>
+            <div class="say"><span class="k">Unsystematic</span><span class="v">Company-specific risk (a lawsuit, a bad CEO) — you <em>can</em> diversify it away, so the market pays you nothing for it.</span></div>
+            <div class="say"><span class="k">The principle</span><span class="v">Only systematic risk earns a return. This is the theoretical backbone of the whole Portfolio Desk — diversification kills the unpaid risk.</span></div>
+            <details class="prob"><summary>Practice: your book is 3 semis + URA. Which risk are you loaded with?</summary><div class="ans">Concentrated <b>unsystematic</b> (industry-specific) risk you could diversify away — plus market-wide systematic risk you can't. URA reduces the first.</div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>Beta &amp; the CAPM / Security Market Line</h4>
+            <div class="eq">E(R) = R<sub>f</sub> + &beta; &times; ( R<sub>m</sub> &minus; R<sub>f</sub> )</div>
+            <div class="say"><span class="k">Said as</span><span class="v">"The risk-free rate, plus extra pay for how much market risk (β) you take on."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">The return investors should demand for a stock's risk. β &gt; 1 = swingier than the market. The SML is just this equation drawn as a line.</span></div>
+            <div class="worked"><span class="wk-lbl">Worked</span>Rf <code>4%</code>, beta <code>1.3</code>, market premium <code>6%</code>: <code>4% + 1.3 × 6% = 11.8%</code>.</div>
+            <details class="prob"><summary>Practice: Rf = 3%, β = 0.8, Rm = 9% — expected return?</summary><div class="ans"><code>3% + 0.8 × (9% − 3%) = 3% + 4.8% = 7.8%</code>. Beta below 1 → below the market's return.</div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>Portfolio Return &amp; Beta</h4>
+            <div class="eq">Portfolio Return / Beta = weighted average of the pieces</div>
+            <div class="say"><span class="k">Said as</span><span class="v">"A portfolio's return and its beta are just each holding's number times its weight, added up."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">How your whole book behaves. (Note: portfolio <em>variance</em> is NOT a simple weighted average — that's where diversification's benefit hides.)</span></div>
+            <details class="prob"><summary>Practice: 60% in β=1.4, 40% in β=0.9 — portfolio beta?</summary><div class="ans"><code>0.6 × 1.4 + 0.4 × 0.9 = 0.84 + 0.36 = 1.20</code>. The book is 20% swingier than the market.</div></details>
+          </div>
+        </div>
+
+        <!-- ===== MODULE 9-4 : COST OF CAPITAL ===== -->
+        <div class="fmod">
+          <div class="fmod-h"><span class="mtag">Mod 9&ndash;4</span><h3>Cost of Capital</h3></div>
+          <p class="sub">Where the discount rate <em>r</em> you've used all course actually comes from — the hurdle every project and valuation must clear.</p>
+
+          <div class="fpanel">
+            <h4>Cost of Equity — two ways</h4>
+            <div class="eq">CAPM: R<sub>e</sub> = R<sub>f</sub> + &beta;(R<sub>m</sub> − R<sub>f</sub>) &nbsp;·&nbsp; Dividend model: R<sub>e</sub> = D&#8321;&divide;P&#8320; + <b>g</b></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">What shareholders demand. Two independent routes to the same number — the exam often asks for both and a comparison.</span></div>
+            <details class="prob"><summary>Practice: D₁ = $2, price $40, growth 6% — cost of equity by the dividend model?</summary><div class="ans"><code>2/40 + 0.06 = 5% + 6% = 11%</code></div></details>
+          </div>
+
+          <div class="fpanel">
+            <h4>WACC — Weighted Average Cost of Capital</h4>
+            <div class="eq">WACC = (E&frasl;V)&middot;R<sub>e</sub> + (D&frasl;V)&middot;R<sub>d</sub>&middot;(1 &minus; T<sub>c</sub>)</div>
+            <div class="say"><span class="k">Said as</span><span class="v">"Blend the cost of equity and the after-tax cost of debt, weighted by how much of each the firm uses."</span></div>
+            <div class="say"><span class="k">Tells you</span><span class="v">The firm's overall financing cost — the discount rate <em>r</em> for NPV and DCF. Debt is cheaper because interest is tax-deductible (that's the <code>1 − T<sub>c</sub></code>).</span></div>
+            <div class="worked"><span class="wk-lbl">Worked</span>70% equity at 11.8%, 30% debt at 6%, tax 21%: <code>0.7 × 11.8 + 0.3 × 6 × 0.79 = 8.26 + 1.42 = 9.68%</code>.</div>
+            <details class="prob"><summary>Practice: why is the debt piece multiplied by (1 − Tc)?</summary><div class="ans">Interest is tax-deductible, so debt's true cost is lower than its stated rate. At 21% tax, a 6% debt cost is really <code>6% × 0.79 = 4.74%</code> after tax.</div></details>
+          </div>
+        </div>
+
+        <div class="desknote"><span class="tag">How to drill these</span>Read a formula's <em>sentence</em>, cover the equation, and rebuild it from the meaning. Do the practice cold before revealing. Then run the recall drill at the top of this desk until you're clearing it without notes — that forced retrieval is what makes them stick for the exam, not re-reading. The equations you can rebuild from meaning are the ones that survive.</div>
+      </section>
+
+      <!-- RESEARCH DESK -->
+      <section id="research">
+        <div class="sec-head"><span class="sec-num">R</span><h2>The Research Desk</h2></div>
+        <p class="sec-intro">How an analyst or PM actually decides to own a stock — or pass on it. The output of all this work is one thing: a <em>thesis</em> you could defend out loud, plus the honest case against it.</p>
+
+        <div class="desknote"><span class="tag">From the desk</span>Amateurs collect reasons to buy. Professionals build the <em>bear case</em> first — the reasons they're wrong — and only buy if the bull case still wins. A thesis without a written "what would make me sell" isn't a thesis; it's a hope.</div>
+
+        <div class="fpanel">
+          <h4>The process, in order</h4>
+          <table class="vocab">
+            <tr><th>Step</th><th>The question you're answering</th><th>Where to look</th></tr>
+            <tr><td>1 · Screen</td><td>Is this even worth my time?</td><td class="applied">Screeners, news, a sector you know (semis, for you)</td></tr>
+            <tr><td>2 · The business</td><td>How does it actually make money?</td><td class="applied">10-K "Business" section, investor deck</td></tr>
+            <tr><td>3 · The moat</td><td>What stops competitors from taking it?</td><td class="applied">Margins over time, market share (your INTC work)</td></tr>
+            <tr><td>4 · The numbers</td><td>Growing? Profitable? Drowning in debt?</td><td class="applied">Revenue, FCF, margins, balance sheet</td></tr>
+            <tr><td>5 · Valuation</td><td>Is it cheap or expensive vs. worth?</td><td class="applied">P/E, DCF (your Formula Desk)</td></tr>
+            <tr><td>6 · The thesis</td><td>Why own it? What must go right?</td><td class="applied">3 things that have to be true</td></tr>
+            <tr><td>7 · The bear case</td><td>Why might I be wrong?</td><td class="applied">Pre-mortem: what breaks it</td></tr>
+            <tr><td>8 · Size &amp; sell rule</td><td>How much, and when do I exit?</td><td class="applied">Position size + sell triggers, set in advance</td></tr>
+          </table>
+        </div>
+
+        <div class="fpanel">
+          <h4>The one-page thesis template — worked on INTC</h4>
+          <div class="worked"><span class="wk-lbl">Bull case — what must be true</span>1) The foundry (IDM 2.0) strategy wins real external customers. 2) US-based manufacturing becomes a durable moat as chip supply chains re-shore. 3) Margins recover as new fabs reach scale.</div>
+          <div class="worked" style="border-left-color:var(--ask)"><span class="wk-lbl" style="color:var(--ask)">Bear case — what breaks it</span>1) Foundry keeps burning cash without landing marquee clients. 2) A competitor (TSMC) stays generations ahead on process. 3) Fab buildout balloons in cost and drags FCF for years.</div>
+          <div class="say"><span class="k">Sell rule</span><span class="v">Decide <em>now</em>, not in the moment: e.g. "I exit if foundry revenue stalls two years running" or "if the moat thesis is disproven." Written in advance = immune to panic.</span></div>
+          <details class="prob"><summary>Why write the bear case before buying?</summary><div class="ans">Because once you own something, your brain starts defending it — you filter out bad news. Writing the bear case first, while you're still neutral, is the only time you'll do it honestly. It also gives you your sell triggers for free: the thesis is dead when the bear case comes true.</div></details>
+        </div>
+
+        <div class="fpanel">
+          <h4>"Should I pick it?" — the honest filter</h4>
+          <div class="say"><span class="k">Pass if</span><span class="v"><em>You can't explain how it makes money in two sentences.</em> If the business is a black box to you, valuation is guesswork.</span></div>
+          <div class="say"><span class="k">Pass if</span><span class="v"><em>The whole case rests on one thing going perfectly.</em> Fragile theses break.</span></div>
+          <div class="say"><span class="k">Pass if</span><span class="v"><em>It's a great company but a rich price.</em> A wonderful business bought too expensive is still a bad investment. Price and quality are separate questions.</span></div>
+          <div class="say"><span class="k">Consider if</span><span class="v">Strong business + durable moat + reasonable price + a catalyst you can name + a risk you can live with.</span></div>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO DESK -->
+      <section id="portfolio">
+        <div class="sec-head"><span class="sec-num">P</span><h2>The Portfolio Desk</h2></div>
+        <p class="sec-intro">Picking good stocks isn't enough — how they fit <em>together</em> is a separate skill. This is diversification, read through your actual book.</p>
+
+        <div class="fpanel">
+          <h4>What diversification actually does</h4>
+          <div class="say"><span class="k">The point</span><span class="v">It kills <em>company-specific</em> risk (one firm blows up) — not <em>market</em> risk (everything falls together). You can diversify away the first, never fully the second.</span></div>
+          <div class="say"><span class="k">The lever</span><span class="v"><b>Correlation.</b> Holding ten stocks that all move together isn't diversified — it's one bet in ten costumes. Real diversification means holding things driven by <em>different</em> forces.</span></div>
+          <div class="desknote" style="margin:14px 0 0"><span class="tag">The only free lunch</span>Diversification is often called the one free lunch in finance: it lowers risk without necessarily lowering expected return. That's why it's the first tool, not the last.</div>
+        </div>
+
+        <div class="fpanel">
+          <h4>Your book, seen the way a PM would see it</h4>
+          <table class="vocab">
+            <tr><th>Holding</th><th>What drives it</th><th>Bucket</th></tr>
+            <tr><td>INTC</td><td>Semiconductors, US foundry</td><td class="applied">Tech / Semis</td></tr>
+            <tr><td>NVDA</td><td>AI chips, data center demand</td><td class="applied">Tech / Semis</td></tr>
+            <tr><td>GOOGL</td><td>Ad revenue, cloud, mega-cap tech</td><td class="applied">Tech</td></tr>
+            <tr><td>URA</td><td>Uranium miners, nuclear energy</td><td class="applied">Energy / Commodity</td></tr>
+            <tr><td>VOO (Roth)</td><td>The whole S&amp;P 500</td><td class="applied">Broad core</td></tr>
+          </table>
+          <div class="worked" style="border-left-color:var(--ask)"><span class="wk-lbl" style="color:var(--ask)">The read</span>Three of your four single names (INTC, NVDA, GOOGL) are tech, and two are the <em>same sub-industry</em> — semiconductors. They'll tend to rise and fall together. That's <b>concentration</b>: a great sector to be bullish on, but a lot of one bet. <b>URA is your genuine diversifier</b> — nuclear/uranium runs on a different clock than chips. And VOO in your Roth is your broad ballast.</div>
+          <div class="say"><span class="k">Not a sell call</span><span class="v">This isn't "dump your tech." Concentration is fine <em>if it's a deliberate bet you understand</em>. The mistake is being concentrated by accident. Now you're not.</span></div>
+        </div>
+
+        <div class="fpanel">
+          <h4>The levers you actually have</h4>
+          <div class="say"><span class="k">Sector</span><span class="v">Spread across industries that don't share one driver (tech + energy + healthcare + financials…).</span></div>
+          <div class="say"><span class="k">Asset class</span><span class="v">Stocks, bonds, real assets — they behave differently in different regimes.</span></div>
+          <div class="say"><span class="k">Geography</span><span class="v">US vs. international — one region's bad decade needn't be yours.</span></div>
+          <div class="say"><span class="k">Core + satellite</span><span class="v">A broad index (your VOO) as the diversified <em>core</em>; individual convictions (INTC, NVDA) as smaller <em>satellites</em> around it. Best of both — market return as a floor, room for your own bets on top.</span></div>
+        </div>
+
+        <div class="fpanel">
+          <h4>The honest correction: "minimize risk AND maximize growth"</h4>
+          <div class="say"><span class="k">The catch</span><span class="v">You can't fully do both at once — they trade off. Higher expected return comes <em>with</em> higher risk; that link is the deal, not a bug to engineer around.</span></div>
+          <div class="say"><span class="k">What you can do</span><span class="v">Maximize return <em>per unit of risk</em>. Diversification, low fees, and a long horizon get you closest to that frontier. That's the real goal — best return for a risk level you can stomach, not the impossible "all upside, no downside."</span></div>
+          <div class="say"><span class="k">Your two real levers</span><span class="v"><b>Time horizon</b> (decades → you can ride out crashes → more stocks) and <b>risk tolerance</b> (what you can hold without panic-selling). Set those honestly and the allocation follows.</span></div>
+        </div>
+      </section>
+
+      <!-- RETIREMENT DESK -->
+      <section id="retire">
+        <div class="sec-head"><span class="sec-num">$</span><h2>The Retirement &amp; Accounts Desk</h2></div>
+        <p class="sec-intro">Which account, why, and what goes inside it. This is where a few good decisions in your twenties compound into enormous differences later — the highest-leverage section in the whole hub.</p>
+
+        <div class="desknote" style="border-left-color:var(--ask); background:rgba(214,82,70,.06)"><span class="tag" style="color:var(--ask)">Read first — not financial advice</span>I'm not a licensed financial advisor, and nothing here is a personalized recommendation. This is the <em>framework</em> professionals use, so you can make your own informed call. Anything tied to your specific income and goals is worth confirming with a fee-only advisor or your own analysis.</div>
+
+        <div class="fpanel">
+          <h4>The account types (2026 figures)</h4>
+          <table class="vocab">
+            <tr><th>Account</th><th>Tax deal</th><th>2026 limit</th><th>Best for</th></tr>
+            <tr><td>Roth IRA</td><td>Pay tax now, grows &amp; withdraws tax-free</td><td class="applied">$7,500</td><td>Low bracket now (students, early career)</td></tr>
+            <tr><td>Traditional IRA</td><td>Deduct now, pay tax on withdrawal</td><td class="applied">$7,500</td><td>High bracket now, expect lower later</td></tr>
+            <tr><td>401(k)</td><td>Pre-tax now (Roth 401k option too)</td><td class="applied">$24,500</td><td>Anyone with an employer match</td></tr>
+            <tr><td>Taxable brokerage</td><td>No break; pay tax on gains &amp; dividends</td><td class="applied">No limit</td><td>Flexibility, active trading, goals before 59½</td></tr>
+          </table>
+          <div class="say"><span class="k">Roth income cap</span><span class="v">In 2026, direct Roth contributions phase out from <b>$153,000–$168,000</b> MAGI (single). Well above a student income — you're clear.</span></div>
+          <div class="say"><span class="k">Earned-income rule</span><span class="v">You can only contribute up to what you <em>earned</em>. Your TD Bank + internship wages are earned income; they qualify.</span></div>
+        </div>
+
+        <div class="fpanel">
+          <h4>Roth vs. Traditional — the one idea that decides it</h4>
+          <div class="say"><span class="k">The whole question</span><span class="v">Is your tax rate <em>lower now</em> or <em>lower in retirement</em>? Pay the tax whenever your rate is lower.</span></div>
+          <div class="worked"><span class="wk-lbl">Why Roth usually wins for you</span>As a student with part-time and internship income, your tax bracket is about as low as it will ever be. A Roth locks in <em>today's</em> low rate and lets decades of growth come out completely tax-free. If you'll likely earn far more later (an asset-management career), paying tax now is the bargain. <b>This is the standard reasoning for someone in your spot — and it matches the Roth you already opened at Schwab.</b></div>
+          <details class="prob"><summary>The compounding math, roughly</summary><div class="ans">$7,000 growing at ~7% for 40 years becomes north of <code>$100,000</code>. In a Roth, every dollar of that is yours tax-free. In a traditional account, the withdrawal is taxed at your <em>future</em> (likely higher) rate. Same growth, very different take-home. Time is the ingredient — which is why starting at your age is the real edge.</div></details>
+        </div>
+
+        <div class="fpanel">
+          <h4>Choosing ETFs — the criteria, not a tip sheet</h4>
+          <div class="say"><span class="k">Reframe</span><span class="v">"Minimize risk, maximize growth" isn't achievable as stated (see Portfolio Desk). The closest real version: <em>broad diversification + rock-bottom fees + long horizon.</em> That combination is what the evidence supports.</span></div>
+          <table class="vocab">
+            <tr><th>Criterion</th><th>What to want</th><th>Why</th></tr>
+            <tr><td>Expense ratio</td><td>As low as possible (broad index funds are often ~0.03%)</td><td class="applied">Fees compound against you for decades</td></tr>
+            <tr><td>Diversification</td><td>Broad (whole market) over narrow (one theme)</td><td class="applied">Kills single-company risk</td></tr>
+            <tr><td>Index vs active</td><td>Low-cost index, as the default</td><td class="applied">Most active funds trail their index net of fees</td></tr>
+            <tr><td>Overlap</td><td>Don't stack funds that hold the same things</td><td class="applied">Owning three tech-heavy funds isn't diversifying</td></tr>
+          </table>
+          <div class="say"><span class="k">Common building blocks</span><span class="v">Broad US (S&amp;P 500 / total market, e.g. your VOO), international (a total-international fund), and bonds added as your horizon shortens. These are the <em>categories</em> most long-term portfolios are built from — you choose the specific funds.</span></div>
+          <div class="worked" style="border-left-color:var(--ask)"><span class="wk-lbl" style="color:var(--ask)">Watch your overlap</span>You hold VOO (500 big US companies, already ~30% tech) in the Roth <em>and</em> INTC/NVDA/GOOGL directly. That's tech exposure stacked on tech exposure. Not wrong — but know you're doubling down, not diversifying, when you add another chip name.</div>
+        </div>
+
+        <div class="fpanel">
+          <h4>Asset location — what belongs in which account</h4>
+          <div class="say"><span class="k">Roth IRA</span><span class="v">Your <em>highest-growth</em>, long-hold assets. Growth here is never taxed, so it's the most valuable place for things you expect to compound hard over decades.</span></div>
+          <div class="say"><span class="k">Taxable brokerage</span><span class="v">Flexibility and access before 59½. Where your <em>active trading</em> lives — individual stock picks, your NQ futures. Just know the tax: gains held &gt;1 year get the lower long-term rate; under a year is taxed as ordinary income.</span></div>
+          <div class="say"><span class="k">The idea</span><span class="v">Same investment, different account = different after-tax outcome. Put the tax-inefficient, high-turnover stuff where it does least damage, and the big compounders where growth is shielded.</span></div>
+        </div>
+
+        <div class="fpanel">
+          <h4>The priority waterfall (a widely-used ordering)</h4>
+          <ol class="steps">
+            <li><b>401(k) up to any employer match</b> — an instant 100% return; never leave it on the table. (Applies once a job offers one.)</li>
+            <li><b>Max the Roth IRA</b> — $7,500 for 2026, in your low-bracket years. This is your sweet spot right now.</li>
+            <li><b>Back to the 401(k)</b> up to its higher limit, if you have one.</li>
+            <li><b>Taxable brokerage</b> — anything beyond that, plus money you might need before retirement, plus your active trading.</li>
+          </ol>
+          <div class="say"><span class="k">Your version today</span><span class="v">No employer 401(k) as a student, so in practice: fund the Roth first (you've started — VOO is a sound core), and use the taxable brokerage for your individual picks and NQ trading. As internship/career income arrives and a 401(k) match appears, slot it in at the top.</span></div>
+        </div>
+
+        <div class="desknote"><span class="tag">From the desk</span>Here's the part that matters most: the specific fund you pick matters far less than <em>starting early and contributing consistently.</em> A boring low-cost index fund, funded every month for forty years, beats a clever fund picked late almost every time. You already have the account and the core. The whole game now is consistency.</div>
+      </section>
+
+      <!-- SECTION 3 : MAINTENANCE -->
+      <section id="maintain">
+        <div class="sec-head"><span class="sec-num">03</span><h2>Phase 1 — the school-year rhythm</h2></div>
+        <p class="sec-intro">Once classes start on Aug 25, the goal shifts from <em>building</em> vocabulary to <em>keeping</em> it — while new terms arrive through coursework.</p>
+        <div class="card-dk">
+          <table class="rot">
+            <tr><th>Cadence</th><th>Rep</th></tr>
+            <tr><td>Daily · 10 min</td><td>Skim WSJ headlines — spot the terms in the wild, don’t deep-read everything.</td></tr>
+            <tr><td>Mon</td><td>One Odd Lots or Animal Spirits episode.</td></tr>
+            <tr><td>Wed</td><td>One Damodaran or Patrick Boyle video.</td></tr>
+            <tr><td>Fri</td><td>Client Meeting + interleaved quiz with Claude — 5 new terms + 2 resurfaced.</td></tr>
+            <tr><td>Monthly</td><td><b style="color:#fff">Live case study</b> — a real earnings report, Fed meeting, or market move, walked through in real time (the way you did Intel’s Q1). The single highest-value rep here.</td></tr>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 4 : GLOSSARY -->
+      <section id="glossary">
+        <div class="sec-head"><span class="sec-num">04</span><h2>Master glossary</h2></div>
+        <p class="sec-intro">Grows every week. Nothing is dropped; everything is revisited on the spacing schedule.</p>
+        <div class="card-dk">
+          <div style="font-family:'IBM Plex Mono';font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bid-br);margin-bottom:4px">New in this program</div>
+          <div class="chips">
+            <span class="chip new">stock</span><span class="chip new">bond</span><span class="chip new">market</span><span class="chip new">index</span><span class="chip new">revenue</span><span class="chip new">EPS</span><span class="chip new">balance sheet</span><span class="chip new">market order</span><span class="chip new">limit order</span><span class="chip new">DOM</span><span class="chip new">ETF</span><span class="chip new">futures</span><span class="chip new">Federal Reserve</span><span class="chip new">yield curve</span><span class="chip new">inflation</span><span class="chip new">asset management</span><span class="chip new">valuation</span><span class="chip new">DCF</span>
+          </div>
+          <div style="font-family:'IBM Plex Mono';font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tx-dk-mut);margin:22px 0 4px">Carried from your earlier sessions — folded into spaced repetition</div>
+          <div class="chips">
+            <span class="chip">carry trade</span><span class="chip">real yields</span><span class="chip">TIPS</span><span class="chip">MOVE index</span><span class="chip">COT reports</span><span class="chip">GEX</span><span class="chip">SOFR</span><span class="chip">financial conditions index</span><span class="chip">credit spreads</span><span class="chip">stagflation</span><span class="chip">risk-off</span><span class="chip">cross-asset correlation</span><span class="chip">foundry model</span><span class="chip">economic moat</span><span class="chip">utilization rate</span><span class="chip">Porter’s Five Forces</span><span class="chip">support / resistance</span><span class="chip">ascending channels</span><span class="chip">breakouts</span><span class="chip">confluence</span><span class="chip">institutional accumulation</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5 : BACKUP -->
+      <section id="backup">
+        <div class="sec-head"><span class="sec-num">05</span><h2>If a quiz goes badly</h2></div>
+        <p class="sec-intro">A rough quiz isn’t failure — it’s data pointing at exactly what to fix. Here’s the protocol.</p>
+        <ol class="steps">
+          <li><b>Diagnose the gap.</b> Word gap (forgot it exists), concept gap (can’t define it), or application gap (can’t use it)? Three problems, three fixes.</li>
+          <li><b>Keep it in rotation.</b> A missed term returns next week. Nothing gets dropped for being missed.</li>
+          <li><b>Switch the angle.</b> If one explanation didn’t land, the next re-teach comes from a different direction — usually tied to Intel or your NQ tape.</li>
+          <li><b>Slow down if a whole week slips.</b> That means the pace is too fast, not that you’re behind. Better to stretch a week than fake-learn a foundation term the later weeks build on.</li>
+        </ol>
+        <div class="desknote"><span class="tag">From the desk</span>No one on a real desk expects a first-year to price a book perfectly on day one. What they watch is whether you close your own gaps without being told twice. This section is that habit, made routine.</div>
+      </section>
+
+      <!-- SECTION 6 : CULTURE / WATCH LIST -->
+      <section id="culture">
+        <div class="sec-head"><span class="sec-num">06</span><h2>The watch list</h2></div>
+        <p class="sec-intro">Not textbooks — culture. These teach the <em>feel</em> and vocabulary of the industry through story. Watch for the language, not the plot.</p>
+        <div class="watch-grid">
+          <div class="film"><h4>Margin Call</h4><div class="yr">2011 · film</div><p>The most realistic desk dialogue on this list — risk, mark-to-market, and a trading floor in crisis. Best single watch for how people actually talk.</p></div>
+          <div class="film"><h4>The Big Short</h4><div class="yr">2015 · film</div><p>Makes CDOs, MBS, and shorting click through analogy. The celebrity cameos exist specifically to define the terms for you.</p></div>
+          <div class="film"><h4>Billions</h4><div class="yr">2016– · series</div><p>Hedge-fund culture and jargon, dramatized — but the terminology is accurate. Good ambient exposure over a long stretch.</p></div>
+        </div>
+      </section>
+
+      <!-- SECTION 7 : BRIDGE TO STILLMAN -->
+      <section id="bridge">
+        <div class="sec-head"><span class="sec-num">07</span><h2>Bridge to your Stillman electives</h2></div>
+        <p class="sec-intro">This sprint isn’t separate from your degree — it’s the on-ramp. Here’s how each week feeds the electives you’re targeting in the BFIN track.</p>
+        <div class="card-dk">
+          <div class="elective"><code>Algorithmic Trading</code><p>Week 3’s order-type and DOM vocabulary is the literal foundation. You’ll walk in already fluent in bid/ask, market vs. limit, and depth — <b>a near-perfect fit given your footprint-chart background.</b></p></div>
+          <div class="elective"><code>ML &amp; Financial Analytics</code><p>Week 2 (financial statements) and Week 5 (valuation / DCF) give you the fundamentals the models are trained to predict. Vocabulary first, models second.</p></div>
+          <div class="elective"><code>Futures / Options / Derivatives</code><p>Week 3 (futures) and Week 4 (rates, the curve) are the groundwork. Patrick Boyle’s derivatives content doubles as a preview of this course.</p></div>
+        </div>
+        <div class="desknote"><span class="tag">From the desk</span>You chose BFIN over the FinTech label deliberately — the transcript reads “Finance,” which every asset-management recruiter and the CFA track recognize on sight. This hub lets you pick up the technical edge FinTech would’ve given you, without spending a credit. Play it that way.</div>
+      </section>
+
+    </div><!-- /wrap -->
+
+    <footer>
+      THE DESK · a self-guided finance fluency program · built around your book, not a generic curriculum
+      <br><button class="reset" id="reset">↺ reset all progress</button>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var STORE = "the-desk-progress-v1";
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('input[type=checkbox][data-wk]'));
+
+  // ---- state (in-memory, synced to localStorage when available) ----
+  var state = {};
+  try { var raw = localStorage.getItem(STORE); if(raw) state = JSON.parse(raw)||{}; } catch(e){}
+
+  // assign stable ids by index
+  boxes.forEach(function(b,i){ b.dataset.id = "t"+i; if(state[b.dataset.id]) b.checked = true; });
+
+  function save(){ try{ localStorage.setItem(STORE, JSON.stringify(state)); }catch(e){} }
+
+  function counts(){
+    var byWk = {}, total=0, done=0;
+    boxes.forEach(function(b){
+      var w=b.dataset.wk;
+      byWk[w] = byWk[w] || {t:0,d:0};
+      byWk[w].t++; total++;
+      if(b.checked){ byWk[w].d++; done++; }
+    });
+    return {byWk:byWk, total:total, done:done};
+  }
+
+  function render(){
+    var c = counts();
+    var pct = c.total ? Math.round(c.done/c.total*100) : 0;
+    document.getElementById('pct').textContent = pct+"%";
+    document.getElementById('cnt').textContent = c.done+" / "+c.total;
+    document.getElementById('barfill').style.width = pct+"%";
+
+    ['w1','w2','w3','w4','w5'].forEach(function(w){
+      var o = c.byWk[w] || {t:0,d:0};
+      var p = o.t ? Math.round(o.d/o.t*100) : 0;
+      var fill = document.querySelector('[data-fill="'+w+'"]');
+      var lab  = document.querySelector('[data-pct="'+w+'"]');
+      var rail = document.querySelector('.depth[data-depth="'+w+'"]');
+      if(fill) fill.style.width = p+"%";
+      if(lab)  lab.textContent = p+"%";
+      if(rail) rail.textContent = p>0 ? p+"%" : "";
+    });
+  }
+
+  boxes.forEach(function(b){
+    b.addEventListener('change', function(){
+      if(b.checked) state[b.dataset.id]=1; else delete state[b.dataset.id];
+      save(); render();
+    });
+  });
+
+  document.getElementById('reset').addEventListener('click', function(){
+    state = {}; save();
+    boxes.forEach(function(b){ b.checked=false; });
+    render();
+  });
+
+  // ---- active section highlight in rail ----
+  var links = Array.prototype.slice.call(document.querySelectorAll('#rail a'));
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var targets = Object.keys(map).map(function(id){ return document.getElementById(id); }).filter(Boolean);
+
+  if('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          links.forEach(function(l){ l.classList.remove('active'); });
+          var a = map[en.target.id]; if(a) a.classList.add('active');
+        }
+      });
+    }, {rootMargin:"-45% 0px -50% 0px", threshold:0});
+    targets.forEach(function(t){ obs.observe(t); });
+  }
+
+  render();
+})();
+
+/* ===== FORMULA RECALL DRILL ===== */
+(function(){
+  "use strict";
+  var body = document.getElementById('drill-body');
+  if(!body) return;
+  var STORE = "the-desk-drill-v1";
+
+  // Each card: module tag, the prompt, and the reveal (equation + the "meaning" sentence)
+  var CARDS = [
+    {m:"Mod 1", q:"The balance-sheet identity", sub:"The foundation everything stands on.", eq:"Assets = Liabilities + Shareholders' Equity", note:"Owned = owed + owners. Equity is the leftover for owners."},
+    {m:"Mod 2", q:"Operating Cash Flow (OCF)", sub:"Profit → cash.", eq:"OCF = EBIT + Depreciation − Taxes", note:"Add back non-cash depreciation, subtract cash taxes."},
+    {m:"Mod 2", q:"Cash Flow From Assets", sub:"The real free cash to investors.", eq:"CFFA = OCF − Net Capital Spending − ΔNWC", note:"Operating cash, minus long-term investment, minus cash tied up in working capital."},
+    {m:"Mod 3", q:"Return on Equity (ROE)", sub:"Profit per owner-dollar.", eq:"ROE = Net Income ÷ Shareholder Equity", note:"How hard each dollar of owner capital works."},
+    {m:"Mod 3", q:"P/E ratio", sub:"Cheap or rich?", eq:"P/E = Price ÷ EPS", note:"Dollars paid per dollar earned. High = pricier or higher growth expected."},
+    {m:"Mod 3", q:"DuPont — the three ROE levers", sub:"Why ROE moves.", eq:"ROE = Profit Margin × Asset Turnover × Equity Multiplier", note:"Profitability × efficiency × leverage. High ROE from leverage isn't quality."},
+    {m:"Mod 4", q:"Future Value", sub:"Grow money forward.", eq:"FV = PV × (1 + r)ⁿ", note:"Money today, compounded forward at r for n years."},
+    {m:"Mod 4", q:"Present Value", sub:"Pull money back to today.", eq:"PV = FV ÷ (1 + r)ⁿ", note:"Future money discounted to today's dollars — the core of valuation."},
+    {m:"Mod 5", q:"Growing perpetuity", sub:"Also the stock model & DCF terminal value.", eq:"PV = C₁ ÷ (r − g)", note:"A forever-growing payment, over how far r outruns g. Needs r > g."},
+    {m:"Mod 5", q:"Present Value of an Annuity", sub:"Loans, leases, coupons.", eq:"PV = C × [1 − (1+r)⁻ⁿ] ÷ r", note:"A fixed payment for n years, all discounted and summed."},
+    {m:"Mod 5", q:"Effective Annual Rate (EAR)", sub:"The compounding trap.", eq:"EAR = (1 + APR÷m)^m − 1", note:"The true rate once you account for compounding m times a year."},
+    {m:"Mod 6", q:"Bond price", sub:"PV applied.", eq:"Price = PV of coupons (annuity) + PV of face value", note:"Coupons discounted back, plus the face value discounted back. Rates up → price down."},
+    {m:"Mod 6", q:"The Fisher effect", sub:"Real vs nominal.", eq:"(1 + Nominal) = (1 + Real)(1 + Inflation)", note:"Approximately, Real ≈ Nominal − Inflation."},
+    {m:"Mod 7", q:"Gordon Growth (stock value)", sub:"Constant-growth dividend.", eq:"P₀ = D₁ ÷ (r − g)", note:"Next dividend over how far required return outpaces growth."},
+    {m:"Mod 7", q:"Total return, split", sub:"The Gordon rearrange.", eq:"r = D₁÷P₀ + g", note:"Required return = dividend yield + growth (capital-gains yield)."},
+    {m:"Mod 8", q:"Net Present Value", sub:"The decision rule.", eq:"NPV = Σ [ CFₜ ÷ (1+r)ᵗ ] − Initial Cost", note:"PV of all future cash flows minus upfront cost. NPV > 0 → accept."},
+    {m:"Mod 8", q:"Profitability Index", sub:"Bang per buck.", eq:"PI = PV of future cash flows ÷ Initial Cost", note:"PI > 1 → accept (same signal as NPV > 0)."},
+    {m:"Mod 9-1", q:"Project OCF (tax-shield form)", sub:"Getting project cash right.", eq:"OCF = (Sales − Costs)(1 − T) + Depreciation × T", note:"After-tax operating profit plus the depreciation tax shield."},
+    {m:"Mod 9-2", q:"Total return on a stock", sub:"Income + price change.", eq:"Total Return = (Dividend + Capital Gain) ÷ Beginning Price", note:"Never just the price move — dividends count."},
+    {m:"Mod 9-3", q:"CAPM / Security Market Line", sub:"Price the risk.", eq:"E(R) = Rf + β(Rm − Rf)", note:"Risk-free rate plus pay for market risk (β). β>1 = swingier than market."},
+    {m:"Mod 9-3", q:"Portfolio beta", sub:"How the whole book behaves.", eq:"Portfolio β = weighted average of each holding's β", note:"Each beta times its weight, summed. (Variance is NOT a simple average.)"},
+    {m:"Mod 9-4", q:"WACC", sub:"Where the discount rate is born.", eq:"WACC = (E/V)·Re + (D/V)·Rd·(1 − Tc)", note:"Blend equity and after-tax debt costs by their weights."}
+  ];
+
+  var order=[], pos=0, hits=0, misses=0, revealed=false, results={};
+  try{ var raw=localStorage.getItem(STORE); if(raw){ var st=JSON.parse(raw); results=st.results||{}; } }catch(e){}
+
+  function persist(){ try{ localStorage.setItem(STORE, JSON.stringify({results:results})); }catch(e){} }
+
+  function shuffle(){
+    order = CARDS.map(function(_,i){return i;});
+    for(var i=order.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=order[i]; order[i]=order[j]; order[j]=t; }
+    pos=0; hits=0; misses=0; revealed=false;
+  }
+
+  function draw(){
+    var scoreEl=document.getElementById('drill-score');
+    if(pos>=order.length){
+      var pct = order.length ? Math.round(hits/order.length*100) : 0;
+      body.innerHTML =
+        '<div class="drill-done"><div class="big">'+pct+'%</div><div class="lbl2">'+hits+' recalled · '+misses+' to revisit</div></div>'+
+        '<div class="drill-btns" style="justify-content:center"><button class="db primary" id="drill-again">Run again</button>'+
+        (misses>0?'<button class="db miss" id="drill-missed">Drill only the '+misses+' I missed</button>':'')+'</div>';
+      document.getElementById('drill-again').onclick=function(){ shuffle(); draw(); };
+      var mb=document.getElementById('drill-missed');
+      if(mb) mb.onclick=function(){
+        var missedIdx = Object.keys(results).filter(function(k){return results[k]==='miss';}).map(Number);
+        if(missedIdx.length){ order=missedIdx.slice(); for(var i=order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=order[i];order[i]=order[j];order[j]=t;} pos=0;hits=0;misses=0;revealed=false; draw(); }
+      };
+      if(scoreEl) scoreEl.textContent = hits+' / '+order.length;
+      return;
+    }
+    var c = CARDS[order[pos]];
+    if(scoreEl) scoreEl.textContent = (hits+misses)+' / '+order.length;
+    var dots='';
+    for(var i=0;i<order.length;i++){
+      var cls = i<pos ? (results['seen'+order[i]]==='miss'?'missed':'hit') : '';
+      dots += '<i class="'+cls+'"></i>';
+    }
+    body.innerHTML =
+      '<div class="drill-mod">'+c.m+'</div>'+
+      '<div class="drill-q">'+c.q+'</div>'+
+      '<div class="drill-sub">'+c.sub+' — <b style="color:#fff">say the formula out loud, then reveal.</b></div>'+
+      '<div class="drill-reveal" id="drill-rev"><span class="rl">The formula</span><div class="eq">'+c.eq+'</div><span class="rl">The meaning</span><p>'+c.note+'</p></div>'+
+      '<div class="drill-btns" id="drill-btns"><button class="db primary" id="drill-show">Reveal answer</button></div>'+
+      '<div class="drill-prog">'+dots+'</div>';
+    document.getElementById('drill-show').onclick=function(){
+      document.getElementById('drill-rev').classList.add('show');
+      document.getElementById('drill-btns').innerHTML =
+        '<button class="db got" id="drill-hit">✓ Got it</button><button class="db miss" id="drill-no">✗ Missed it</button>';
+      document.getElementById('drill-hit').onclick=function(){ mark(true); };
+      document.getElementById('drill-no').onclick=function(){ mark(false); };
+    };
+  }
+
+  function mark(ok){
+    var idx=order[pos];
+    results['seen'+idx] = ok?'hit':'miss';
+    results[idx] = ok?'hit':'miss';
+    if(ok) hits++; else misses++;
+    persist();
+    pos++; revealed=false; draw();
+  }
+
+  shuffle();
+  draw();
+})();
+
+/* ===== MARKET BOARD: fetches market-data.json (auto-updated by GitHub Action) ===== */
+/* Falls back to the static seed values already in the HTML if the file isn't found
+   (e.g. when opened as a local file). Once hosted on GitHub Pages with the updater
+   running, this pulls fresh numbers on every page load. */
+(function(){
+  "use strict";
+  var track = document.getElementById('ticker-track');
+  if(!track) return;
+
+  // ---- fallback ticker data (used only if market-data.json can't be loaded) ----
+  var SEED = [
+    {s:"S&P 500",p:"7,428.78",c:"+0.21%",d:"up"},{s:"NASDAQ",p:"24,876.91",c:"−0.22%",d:"dn"},
+    {s:"DOW",p:"52,747.32",c:"+1.03%",d:"up"},{s:"WTI",p:"$89.88",c:"+6.9%",d:"up"},
+    {s:"INTC",p:"",c:"−5.9%",d:"dn"},{s:"NVDA",p:"",c:"−1.1%",d:"dn"},
+    {s:"MU",p:"",c:"−8.8%",d:"dn"},{s:"AMD",p:"",c:"−8.1%",d:"dn"},
+    {s:"XLK Tech",p:"",c:"−2.3%",d:"dn"},{s:"XLE Energy",p:"",c:"+1.8%",d:"up"}
+  ];
+  function arrow(d){ return d==='up'?'▲':d==='dn'?'▼':'＝'; }
+  function sign(n){ return (n>=0?'+':'−')+Math.abs(n).toFixed(2); }
+  function pctStr(n){ return (n>=0?'+':'−')+Math.abs(n).toFixed(2)+'%'; }
+  function bpsStr(n){ return (n>=0?'+':'−')+Math.round(Math.abs(n)*100)+' bps'; }
+  function dir(n){ return n>0.05?'up':n<-0.05?'dn':'fl'; }
+  function tkItem(x){
+    return '<span class="tk-item"><span class="sym">'+x.s+'</span>'+
+      (x.p?'<span class="px">'+x.p+'</span>':'')+
+      '<span class="chg '+x.d+'"><span class="arw">'+arrow(x.d)+'</span> '+x.c+'</span></span>';
+  }
+  function paintTicker(items){ var one=items.map(tkItem).join(''); track.innerHTML=one+one; }
+
+  // heatmap tint: green for +, red for −, intensity scales with magnitude
+  function tint(pct){
+    var mag=Math.min(Math.abs(pct)/3,1); // cap at 3%
+    var a=(0.10+mag*0.42).toFixed(3);
+    return pct>=0 ? 'rgba(34,179,106,'+a+')' : 'rgba(240,71,77,'+a+')';
+  }
+
+  function render(data){
+    var pre = (data.session === 'premarket');
+    // status pill → PRE-MARKET (amber) or CLOSE (green)
+    var st=document.getElementById('mkt-status');
+    if(st){
+      st.classList.add('islive');
+      if(pre){ st.classList.remove('islive'); st.innerHTML='<span class="b"></span>PRE-MARKET'; }
+      else { st.innerHTML='<span class="b"></span>CLOSE'; }
+    }
+    var stamp=document.getElementById('mkt-stamp');
+    if(stamp && data.updated_label){
+      stamp.textContent=(pre?'BEFORE OPEN · ':'AT CLOSE · ')+data.updated_label.toUpperCase();
+    }
+    // reframe the section subtitles per session
+    var ssub=document.querySelector('#market .sector-wrap .ssub');
+    if(ssub) ssub.innerHTML = pre
+      ? 'Where every S&amp;P sector stands <em>going into the open</em> — your map of what to watch today.'
+      : 'Where every S&amp;P sector <em>ended</em>, ranked best to worst — the day\u2019s scorecard at a glance.';
+    var rsub=document.querySelector('#market .tape-recap .rsub');
+    if(rsub) rsub.innerHTML = pre
+      ? 'The <em>why</em> to expect — setup, catalysts, and what could move your book today. Prices above auto-update; ask me for the deeper pre-market read.'
+      : 'The <em>why</em> behind where we closed — macro, earnings, and flows. Prices above auto-update; ask me for the deeper close read.';
+    var recapH=document.querySelector('#market .tape-recap h3');
+    if(recapH) recapH.innerHTML=(pre?'What to expect today':'Why we closed here')+'<span class="cursor"></span>';
+
+    var foot=document.getElementById('mkt-foot');
+    if(foot) foot.innerHTML='<b>'+(pre?'PRE-MARKET SETUP.':'CLOSING TAPE.')+'</b> Auto-updated by your GitHub Action from '+(data.source||'the market data API')+' — a pre-market run at ~8 AM ET and a close run at ~5 PM ET, no touch required.<br>Checking this before class <b>is</b> your Week-4 Tier-1 monitor habit — indices, sectors, oil, and the one story moving your book.';
+
+    // ticker: indices + holdings + oil
+    var tkItems=[];
+    (data.indices||[]).forEach(function(x){ tkItems.push({s:x.name,p:'',c:pctStr(x.pct),d:dir(x.pct)}); });
+    if(data.oil) tkItems.push({s:'WTI',p:data.oil.price?'$'+data.oil.price.toFixed(2):'',c:pctStr(data.oil.pct),d:dir(data.oil.pct)});
+    (data.holdings||[]).forEach(function(x){ tkItems.push({s:x.sym,p:x.price?'$'+x.price.toFixed(2):'',c:pctStr(x.pct),d:dir(x.pct)}); });
+    (data.sectors||[]).slice(0,4).forEach(function(x){ tkItems.push({s:x.sym,p:'',c:pctStr(x.pct),d:dir(x.pct)}); });
+    if(tkItems.length) paintTicker(tkItems);
+
+    // today strip (index moves as exact % + bps via tracking ETF)
+    var ts=document.getElementById('ts-cells');
+    var lbl=document.getElementById('ts-lbl');
+    if(ts && data.indices && data.indices.length){
+      if(lbl) lbl.innerHTML=(pre?'Pre-mkt':'At close')+'<br><span>via tracking ETF</span>';
+      ts.innerHTML=data.indices.map(function(x){
+        var d=dir(x.pct);
+        return '<div class="ts-cell"><span class="n">'+x.name+'</span>'+
+          '<span class="v '+d+'">'+bpsStr(x.pct)+'</span>'+
+          '<span class="b">'+pctStr(x.pct)+' · '+x.sym+'</span></div>';
+      }).join('');
+    }
+
+    // index cards
+    var ig=document.getElementById('idx-grid');
+    if(ig && data.indices){
+      ig.innerHTML=data.indices.map(function(x){
+        var d=dir(x.pct), ar=d==='up'?'▲':d==='dn'?'▼':'＝';
+        return '<div class="idx-card"><div class="nm">'+x.name+'</div>'+
+          '<div class="lv">'+(x.price?x.price.toFixed(2):'—')+'</div>'+
+          '<div class="mv '+d+'">'+ar+' '+pctStr(x.pct)+' <span class="bps">('+bpsStr(x.pct)+')</span></div>'+
+          '<div class="spark '+d+'"></div></div>';
+      }).join('');
+    }
+
+    // sector heatmap (sorted best → worst)
+    var sg=document.getElementById('sector-grid');
+    if(sg && data.sectors && data.sectors.length){
+      var sorted=data.sectors.slice().sort(function(a,b){return b.pct-a.pct;});
+      sg.innerHTML=sorted.map(function(x){
+        var d=dir(x.pct);
+        return '<div class="sec-tile" style="background:'+tint(x.pct)+'">'+
+          '<div class="snm">'+x.name+'</div>'+
+          '<div class="spct '+d+'">'+pctStr(x.pct)+'</div>'+
+          '<div class="sbps">'+bpsStr(x.pct)+'</div></div>';
+      }).join('');
+    }
+
+    // auto-narrative
+    var an=document.getElementById('auto-narrative');
+    if(an && data.narrative) an.innerHTML='<span class="al">Auto-read from the numbers</span>'+data.narrative;
+  }
+
+  // try to load the auto-updated file; if it fails, keep the static seed
+  paintTicker(SEED); // instant fallback so the ticker is never empty
+  fetch('market-data.json?t='+Date.now())
+    .then(function(r){ if(!r.ok) throw new Error('no data file'); return r.json(); })
+    .then(function(data){ render(data); })
+    .catch(function(){ /* offline / local file — seed values stay, that's fine */ });
+})();
+</script>
+</body>
+</html>
