@@ -1,167 +1,167 @@
 {
-  "updated_utc": "2026-07-31T22:15:58.458Z",
-  "updated_label": "Jul 31, 2026, 6:15 PM ET",
-  "session": "close",
+  "updated_utc": "2026-08-03T14:18:02.921Z",
+  "updated_label": "Aug 3, 2026, 10:18 AM ET",
+  "session": "premarket",
   "source": "Finnhub",
   "indices": [
     {
       "sym": "SPY",
       "name": "S&P 500",
-      "price": 747.03,
-      "change": 5.34,
-      "pct": 0.72
+      "price": 754.32,
+      "change": 7.29,
+      "pct": 0.9759
     },
     {
       "sym": "QQQ",
       "name": "Nasdaq 100",
-      "price": 687.99,
-      "change": 4.44,
-      "pct": 0.6496
+      "price": 692.99,
+      "change": 5,
+      "pct": 0.7268
     },
     {
       "sym": "DIA",
       "name": "Dow Jones",
-      "price": 524.32,
-      "change": 2.81,
-      "pct": 0.5388
+      "price": 531.31,
+      "change": 6.99,
+      "pct": 1.3332
     },
     {
       "sym": "IWM",
       "name": "Russell 2000",
-      "price": 291.2,
-      "change": -1.39,
-      "pct": -0.4751
+      "price": 295.61,
+      "change": 4.41,
+      "pct": 1.5144
     }
   ],
   "sectors": [
     {
       "sym": "XLK",
       "name": "Technology",
-      "price": 175.35,
-      "change": -0.38,
-      "pct": -0.2162
+      "price": 175.44,
+      "change": 0.09,
+      "pct": 0.0513
     },
     {
       "sym": "SMH",
       "name": "Semiconductors",
-      "price": 540.53,
-      "change": 1.63,
-      "pct": 0.3025
+      "price": 534.49,
+      "change": -6.04,
+      "pct": -1.1174
     },
     {
       "sym": "XLC",
       "name": "Comm Svcs",
-      "price": 108.24,
-      "change": 1.66,
-      "pct": 1.5575
+      "price": 111.53,
+      "change": 3.29,
+      "pct": 3.0395
     },
     {
       "sym": "XLY",
       "name": "Cons Disc",
-      "price": 116.09,
-      "change": 3.7,
-      "pct": 3.2921
+      "price": 118.44,
+      "change": 2.35,
+      "pct": 2.0243
     },
     {
       "sym": "XLP",
       "name": "Staples",
-      "price": 85.05,
-      "change": -0.42,
-      "pct": -0.4914
+      "price": 85.62,
+      "change": 0.57,
+      "pct": 0.6702
     },
     {
       "sym": "XLV",
       "name": "Health Care",
-      "price": 162.55,
-      "change": -0.97,
-      "pct": -0.5932
+      "price": 162.46,
+      "change": -0.09,
+      "pct": -0.0554
     },
     {
       "sym": "XLF",
       "name": "Financials",
-      "price": 56.94,
-      "change": -0.06,
-      "pct": -0.1053
+      "price": 57.48,
+      "change": 0.54,
+      "pct": 0.9484
     },
     {
       "sym": "XLI",
       "name": "Industrials",
-      "price": 179.84,
-      "change": 1.45,
-      "pct": 0.8128
+      "price": 182.26,
+      "change": 2.42,
+      "pct": 1.3456
     },
     {
       "sym": "XLE",
       "name": "Energy",
-      "price": 59.55,
-      "change": 0.59,
-      "pct": 1.0007
+      "price": 59,
+      "change": -0.55,
+      "pct": -0.9236
     },
     {
       "sym": "XLU",
       "name": "Utilities",
-      "price": 44.35,
-      "change": -0.31,
-      "pct": -0.6941
+      "price": 44.61,
+      "change": 0.26,
+      "pct": 0.5862
     },
     {
       "sym": "XLB",
       "name": "Materials",
-      "price": 50.43,
-      "change": -1.21,
-      "pct": -2.3431
+      "price": 50.78,
+      "change": 0.35,
+      "pct": 0.694
     },
     {
       "sym": "XLRE",
       "name": "Real Estate",
-      "price": 45.07,
-      "change": -0.23,
-      "pct": -0.5077
+      "price": 45.36,
+      "change": 0.29,
+      "pct": 0.6434
     }
   ],
   "holdings": [
     {
       "sym": "INTC",
       "name": "Intel",
-      "price": 90.2,
-      "change": -0.93,
-      "pct": -1.0205
+      "price": 88.01,
+      "change": -2.19,
+      "pct": -2.4279
     },
     {
       "sym": "NVDA",
       "name": "Nvidia",
-      "price": 200.75,
-      "change": 5.71,
-      "pct": 2.9276
+      "price": 204.66,
+      "change": 3.91,
+      "pct": 1.9477
     },
     {
       "sym": "GOOGL",
       "name": "Alphabet",
-      "price": 356.13,
-      "change": 22.47,
-      "pct": 6.7344
+      "price": 368.83,
+      "change": 12.7,
+      "pct": 3.5661
     },
     {
       "sym": "URA",
       "name": "Uranium ETF",
-      "price": 39.07,
-      "change": -0.65,
-      "pct": -1.6365
+      "price": 39.96,
+      "change": 0.89,
+      "pct": 2.278
     },
     {
       "sym": "VOO",
       "name": "S&P 500 ETF",
-      "price": 686.65,
-      "change": 4.86,
-      "pct": 0.7128
+      "price": 693.41,
+      "change": 6.76,
+      "pct": 0.9845
     }
   ],
   "oil": {
     "sym": "USO",
     "name": "Oil (USO)",
-    "price": 129.17,
-    "change": 1.69,
-    "pct": 1.3257
+    "price": 120.71,
+    "change": -8.46,
+    "pct": -6.5495
   },
-  "narrative": "At the close — Cons Disc led (+3.3%); Materials lagged (-2.3%). Semis firm at +0.3%, broad tech -0.2%. Your book: INTC -1.0%, NVDA +2.9%."
+  "narrative": "Heading into the open — latest prints have Comm Svcs firmest (+3.0%) and Semiconductors weakest (-1.1%). Semis soft at -1.1%, broad tech +0.1%. Your book: INTC -2.4%, NVDA +1.9%. Watch today: Health Care and Energy, plus any scheduled data or Fed headlines."
 }
