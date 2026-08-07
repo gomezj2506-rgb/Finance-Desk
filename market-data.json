@@ -1,103 +1,218 @@
 {
-  "updated_utc": "2026-07-29T15:30:00Z",
-  "updated_label": "Jul 29, 2026 \u00b7 11:30 AM ET (seed)",
-  "source": "seed snapshot \u2014 replaced on first Action run",
+  "updated_utc": "2026-08-07T21:59:46.293Z",
+  "updated_label": "Aug 7, 2026, 5:59 PM ET",
+  "session": "close",
+  "source": "Finnhub",
   "indices": [
     {
       "sym": "SPY",
       "name": "S&P 500",
-      "price": null,
-      "change": 0,
-      "pct": -0.8
+      "price": 773.26,
+      "change": 4.7,
+      "pct": 0.6115
     },
     {
       "sym": "QQQ",
       "name": "Nasdaq 100",
-      "price": null,
-      "change": 0,
-      "pct": -1.0
+      "price": 723.03,
+      "change": 8.38,
+      "pct": 1.1726
     },
     {
       "sym": "DIA",
       "name": "Dow Jones",
-      "price": null,
-      "change": 0,
-      "pct": -1.6
+      "price": 539.62,
+      "change": 1.43,
+      "pct": 0.2657
     },
     {
       "sym": "IWM",
       "name": "Russell 2000",
-      "price": null,
-      "change": 0,
-      "pct": -0.4
+      "price": 301.56,
+      "change": 3.31,
+      "pct": 1.1098
     }
   ],
-  "sectors": [],
+  "sectors": [
+    {
+      "sym": "XLK",
+      "name": "Technology",
+      "kind": "cyclical",
+      "price": 187.97,
+      "change": 2.64,
+      "pct": 1.4245
+    },
+    {
+      "sym": "SMH",
+      "name": "Semiconductors",
+      "kind": "cyclical",
+      "price": 582.7,
+      "change": 11.22,
+      "pct": 1.9633
+    },
+    {
+      "sym": "XLC",
+      "name": "Comm Svcs",
+      "kind": "cyclical",
+      "price": 111.25,
+      "change": 0.07,
+      "pct": 0.063
+    },
+    {
+      "sym": "XLY",
+      "name": "Cons Disc",
+      "kind": "cyclical",
+      "price": 119.86,
+      "change": 1.76,
+      "pct": 1.4903
+    },
+    {
+      "sym": "XLF",
+      "name": "Financials",
+      "kind": "cyclical",
+      "price": 57.6,
+      "change": -0.21,
+      "pct": -0.3633
+    },
+    {
+      "sym": "XLI",
+      "name": "Industrials",
+      "kind": "cyclical",
+      "price": 185.18,
+      "change": 0.42,
+      "pct": 0.2273
+    },
+    {
+      "sym": "XLB",
+      "name": "Materials",
+      "kind": "cyclical",
+      "price": 52.86,
+      "change": 0.69,
+      "pct": 1.3226
+    },
+    {
+      "sym": "XLE",
+      "name": "Energy",
+      "kind": "cyclical",
+      "price": 57.5,
+      "change": -0.66,
+      "pct": -1.1348
+    },
+    {
+      "sym": "XLV",
+      "name": "Health Care",
+      "kind": "defensive",
+      "price": 165.68,
+      "change": 1.23,
+      "pct": 0.7479
+    },
+    {
+      "sym": "XLP",
+      "name": "Staples",
+      "kind": "defensive",
+      "price": 85.12,
+      "change": 0.01,
+      "pct": 0.0117
+    },
+    {
+      "sym": "XLU",
+      "name": "Utilities",
+      "kind": "defensive",
+      "price": 43.61,
+      "change": 0.23,
+      "pct": 0.5302
+    },
+    {
+      "sym": "XLRE",
+      "name": "Real Estate",
+      "kind": "defensive",
+      "price": 44.98,
+      "change": 0.17,
+      "pct": 0.3794
+    }
+  ],
   "holdings": [
     {
       "sym": "INTC",
       "name": "Intel",
-      "price": null,
-      "change": 0,
-      "pct": -5.9
+      "price": 101.65,
+      "change": 1.84,
+      "pct": 1.8435
     },
     {
       "sym": "NVDA",
       "name": "Nvidia",
-      "price": null,
-      "change": 0,
-      "pct": -1.1
+      "price": 223.96,
+      "change": 4.97,
+      "pct": 2.2695
     },
     {
       "sym": "GOOGL",
       "name": "Alphabet",
-      "price": null,
-      "change": 0,
-      "pct": -0.6
+      "price": 354.3,
+      "change": -3.45,
+      "pct": -0.9644
     },
     {
       "sym": "URA",
       "name": "Uranium ETF",
-      "price": null,
-      "change": 0,
-      "pct": 0.4
+      "price": 44.91,
+      "change": 1.71,
+      "pct": 3.9583
     },
     {
       "sym": "VOO",
       "name": "S&P 500 ETF",
-      "price": null,
-      "change": 0,
-      "pct": -0.8
+      "price": 710.71,
+      "change": 4.31,
+      "pct": 0.6101
     }
   ],
   "oil": {
     "sym": "USO",
     "name": "Oil (USO)",
-    "price": null,
-    "change": 0,
-    "pct": 6.9
+    "price": 117.98,
+    "change": -0.89,
+    "pct": -0.7487
   },
-  "narrative": "Seed snapshot. Your two scheduled runs \u2014 pre-market (~8 AM ET) and close (~5 PM ET) \u2014 fill this in live. Trigger one from the Actions tab to see it switch modes.",
-  "session": "close",
+  "narrative": "Risk-on tone. S&P closed +0.6%, 9/12 sectors higher. Semiconductors led (+2.0%); Energy lagged (-1.1%). Your book: semis (SMH) +2.0%, INTC +1.8%, NVDA +2.3%.",
   "brief": {
-    "asof": "Jul 29, 2026 \u00b7 11:30 AM ET (seed)",
+    "asof": "Aug 7, 2026, 5:59 PM ET",
     "session": "close",
-    "picture": "Risk-off tone the last two weeks \u2014 the S&P is soft and tech/semis have led the market lower while defensives hold up.",
-    "rotation": "Money has leaned out of high-growth tech toward blue chips and defensives \u2014 a cautious tilt.",
-    "book": "Your book: semis are the epicenter, INTC and NVDA right where the pressure is.",
-    "week": "Weekly trend fills in automatically once your Action logs a few close runs.",
-    "watch": "Ahead: watch CPI/PPI, jobs, and FOMC, plus megacap tech earnings \u2014 the swing factors for your semis.",
+    "picture": "Risk-on tone. S&P closed +0.6%, 9/12 sectors higher. Semiconductors led (+2.0%); Energy lagged (-1.1%).",
+    "rotation": "No clear defensive/cyclical rotation — cyclicals +0.6% vs defensives +0.4%, roughly balanced.",
+    "book": "Your book: semis (SMH) +2.0%, INTC +1.8%, NVDA +2.3%.",
+    "week": "Weekly trend builds as history accumulates — a few more close runs and this line fills in.",
+    "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
-        "headline": "Chip stocks slide as China ramps domestic fab capacity",
-        "source": "seed",
-        "url": "",
+        "headline": "‘SaaSpocalypse’ debate intensifies as software stocks swing wildly",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/08/07/saaspocalypse-debate-intensifies-as-software-stocks-swing-wildly.html",
         "tag": "Market"
       },
       {
-        "headline": "Intel pressured by foundry competition fears",
-        "source": "seed",
-        "url": "",
+        "headline": "Saudi Arabia, Turkey, Pakistan pledge mutual defence as Middle East turmoil escalates - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNU2lUV2RTOWpHY1ZMeHh4SVNOUnV4TXZNQjZoa2ZXSmg1SnNGX2lGOEJUdy0taTQyNmJaRzNKdHdNUEQtYzhsOFROeEhHWk11LUlKTy13VmE0dlJuSHpveG1xSTBjNTZZOXJrWGNyU1NSbUpraEFHdTBjNHowdWluRUU5a0lsY3NuY1FmMDViMVJMMkN4VzVydm9aeng4eWxDV1lkVFBwWTNTVzFTaTJJcWxoUFdBTE9zZUx1U0VNYnlQTFNQd18yYg?oc=5",
+        "tag": "Market"
+      },
+      {
+        "headline": "Dollar drops as weak US jobs data pushes out Fed hike expectations - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPOUNvR1pacXVtTWI3eUROeE54TXVYY3JEU1FNSFA4YlBaVFp6MDFXY0tFaFpqSFBfM2R2WTJQVDVtNG5RN3ozQkZLTTZpTGN5aDMzUE9uUVAyanZWN0VWcnVzWlF1aDh6Y0k2dlY4WWpsMFRMdFNoRW81Y1M2WW9qNTlPSWZVZGFnRVh1eEVTTXhWSlhOQkgyRFJfUm5nMGtGaHRUbnlITTRidldKOFg3ZEg5NnRLR3dj?oc=5",
+        "tag": "Market"
+      },
+      {
+        "headline": "SoftBank Stock Drops 6.1% as AI Funding Pressure Intensifies",
+        "source": "Yahoo",
+        "url": "https://finnhub.io/api/news?id=cbbc87bc8f9da5340f5ba05ce023679edf1f221d8455573c0624335436ba4d90",
+        "tag": "Your book"
+      },
+      {
+        "headline": "Nvidia Faces New Pressure From U.S. Government",
+        "source": "Yahoo",
+        "url": "https://finnhub.io/api/news?id=a8dd001fa7bb111253999c4c6ae39e618ce9d380cb4757de2e33efedfc865dbd",
         "tag": "Your book"
       }
     ]
