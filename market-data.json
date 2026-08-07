@@ -1,6 +1,6 @@
 {
-  "updated_utc": "2026-08-07T22:01:28.668Z",
-  "updated_label": "Aug 7, 2026, 6:01 PM ET",
+  "updated_utc": "2026-08-07T22:09:13.960Z",
+  "updated_label": "Aug 7, 2026, 6:09 PM ET",
   "session": "close",
   "source": "Finnhub",
   "indices": [
@@ -177,7 +177,7 @@
   },
   "narrative": "Risk-on tone. S&P closed +0.6%, 9/12 sectors higher. Semiconductors led (+2.0%); Energy lagged (-1.1%). Your book: semis (SMH) +2.0%, INTC +1.8%, NVDA +2.3%.",
   "brief": {
-    "asof": "Aug 7, 2026, 6:01 PM ET",
+    "asof": "Aug 7, 2026, 6:09 PM ET",
     "session": "close",
     "picture": "Risk-on tone. S&P closed +0.6%, 9/12 sectors higher. Semiconductors led (+2.0%); Energy lagged (-1.1%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals +0.6% vs defensives +0.4%, roughly balanced.",
@@ -185,6 +185,12 @@
     "week": "Weekly trend builds as history accumulates — a few more close runs and this line fills in.",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
+      {
+        "headline": "US Senate passes Russia sanctions championed by Graham; US House next - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQb0pzeU9VRmJkMDBtRWM3MFhyR3JKTENJeDVfb3pNNHpycXViQnF6LWpveDVmZlotcWVrV0M3cTV4Q1hyTUlPcnRwaDFqRW5fWE5BdlFSYVd4NnZ5MWU2X241OU1QVzZkREh5MjVVMFBlY0k3RDgtM2RDUEFWNVVwUlJ4RFo4OHpGanRuclQ1WXV0bmVZX1MtRUZWak5ERjJ1Y0FLQlR3SlBtS2VyM0EyWUlJQVRJdw?oc=5",
+        "tag": "Market"
+      },
       {
         "headline": "‘SaaSpocalypse’ debate intensifies as software stocks swing wildly",
         "source": "CNBC",
@@ -195,12 +201,6 @@
         "headline": "Saudi Arabia, Turkey, Pakistan pledge mutual defence as Middle East turmoil escalates - Reuters",
         "source": "Reuters",
         "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNU2lUV2RTOWpHY1ZMeHh4SVNOUnV4TXZNQjZoa2ZXSmg1SnNGX2lGOEJUdy0taTQyNmJaRzNKdHdNUEQtYzhsOFROeEhHWk11LUlKTy13VmE0dlJuSHpveG1xSTBjNTZZOXJrWGNyU1NSbUpraEFHdTBjNHowdWluRUU5a0lsY3NuY1FmMDViMVJMMkN4VzVydm9aeng4eWxDV1lkVFBwWTNTVzFTaTJJcWxoUFdBTE9zZUx1U0VNYnlQTFNQd18yYg?oc=5",
-        "tag": "Market"
-      },
-      {
-        "headline": "Dollar drops as weak US jobs data pushes out Fed hike expectations - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPOUNvR1pacXVtTWI3eUROeE54TXVYY3JEU1FNSFA4YlBaVFp6MDFXY0tFaFpqSFBfM2R2WTJQVDVtNG5RN3ozQkZLTTZpTGN5aDMzUE9uUVAyanZWN0VWcnVzWlF1aDh6Y0k2dlY4WWpsMFRMdFNoRW81Y1M2WW9qNTlPSWZVZGFnRVh1eEVTTXhWSlhOQkgyRFJfUm5nMGtGaHRUbnlITTRidldKOFg3ZEg5NnRLR3dj?oc=5",
         "tag": "Market"
       },
       {
