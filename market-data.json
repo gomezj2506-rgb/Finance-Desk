@@ -1,7 +1,7 @@
 {
-  "updated_utc": "2026-08-07T01:02:28.702Z",
-  "updated_label": "Aug 6, 2026, 9:02 PM ET",
-  "session": "close",
+  "updated_utc": "2026-08-07T12:41:38.185Z",
+  "updated_label": "Aug 7, 2026, 8:41 AM ET",
+  "session": "premarket",
   "source": "Finnhub",
   "indices": [
     {
@@ -163,5 +163,5 @@
     "change": 3.99,
     "pct": 3.4732
   },
-  "narrative": "At the close — Energy led (+1.5%); Materials lagged (-0.9%). Semis firm at +0.3%, broad tech -0.3%. Your book: INTC -1.2%, NVDA -0.1%."
+  "narrative": "Heading into the open — latest prints have Energy firmest (+1.5%) and Materials weakest (-0.9%). Semis firm at +0.3%, broad tech -0.3%. Your book: INTC -1.2%, NVDA -0.1%. Watch today: Staples and Technology, plus any scheduled data or Fed headlines."
 }
