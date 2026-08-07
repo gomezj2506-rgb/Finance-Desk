@@ -1,0 +1,105 @@
+{
+  "updated_utc": "2026-07-29T15:30:00Z",
+  "updated_label": "Jul 29, 2026 \u00b7 11:30 AM ET (seed)",
+  "source": "seed snapshot \u2014 replaced on first Action run",
+  "indices": [
+    {
+      "sym": "SPY",
+      "name": "S&P 500",
+      "price": null,
+      "change": 0,
+      "pct": -0.8
+    },
+    {
+      "sym": "QQQ",
+      "name": "Nasdaq 100",
+      "price": null,
+      "change": 0,
+      "pct": -1.0
+    },
+    {
+      "sym": "DIA",
+      "name": "Dow Jones",
+      "price": null,
+      "change": 0,
+      "pct": -1.6
+    },
+    {
+      "sym": "IWM",
+      "name": "Russell 2000",
+      "price": null,
+      "change": 0,
+      "pct": -0.4
+    }
+  ],
+  "sectors": [],
+  "holdings": [
+    {
+      "sym": "INTC",
+      "name": "Intel",
+      "price": null,
+      "change": 0,
+      "pct": -5.9
+    },
+    {
+      "sym": "NVDA",
+      "name": "Nvidia",
+      "price": null,
+      "change": 0,
+      "pct": -1.1
+    },
+    {
+      "sym": "GOOGL",
+      "name": "Alphabet",
+      "price": null,
+      "change": 0,
+      "pct": -0.6
+    },
+    {
+      "sym": "URA",
+      "name": "Uranium ETF",
+      "price": null,
+      "change": 0,
+      "pct": 0.4
+    },
+    {
+      "sym": "VOO",
+      "name": "S&P 500 ETF",
+      "price": null,
+      "change": 0,
+      "pct": -0.8
+    }
+  ],
+  "oil": {
+    "sym": "USO",
+    "name": "Oil (USO)",
+    "price": null,
+    "change": 0,
+    "pct": 6.9
+  },
+  "narrative": "Seed snapshot. Your two scheduled runs \u2014 pre-market (~8 AM ET) and close (~5 PM ET) \u2014 fill this in live. Trigger one from the Actions tab to see it switch modes.",
+  "session": "close",
+  "brief": {
+    "asof": "Jul 29, 2026 \u00b7 11:30 AM ET (seed)",
+    "session": "close",
+    "picture": "Risk-off tone the last two weeks \u2014 the S&P is soft and tech/semis have led the market lower while defensives hold up.",
+    "rotation": "Money has leaned out of high-growth tech toward blue chips and defensives \u2014 a cautious tilt.",
+    "book": "Your book: semis are the epicenter, INTC and NVDA right where the pressure is.",
+    "week": "Weekly trend fills in automatically once your Action logs a few close runs.",
+    "watch": "Ahead: watch CPI/PPI, jobs, and FOMC, plus megacap tech earnings \u2014 the swing factors for your semis.",
+    "headlines": [
+      {
+        "headline": "Chip stocks slide as China ramps domestic fab capacity",
+        "source": "seed",
+        "url": "",
+        "tag": "Market"
+      },
+      {
+        "headline": "Intel pressured by foundry competition fears",
+        "source": "seed",
+        "url": "",
+        "tag": "Your book"
+      }
+    ]
+  }
+}
