@@ -1,6 +1,6 @@
 {
-  "updated_utc": "2026-08-07T21:59:46.293Z",
-  "updated_label": "Aug 7, 2026, 5:59 PM ET",
+  "updated_utc": "2026-08-07T22:01:28.668Z",
+  "updated_label": "Aug 7, 2026, 6:01 PM ET",
   "session": "close",
   "source": "Finnhub",
   "indices": [
@@ -177,7 +177,7 @@
   },
   "narrative": "Risk-on tone. S&P closed +0.6%, 9/12 sectors higher. Semiconductors led (+2.0%); Energy lagged (-1.1%). Your book: semis (SMH) +2.0%, INTC +1.8%, NVDA +2.3%.",
   "brief": {
-    "asof": "Aug 7, 2026, 5:59 PM ET",
+    "asof": "Aug 7, 2026, 6:01 PM ET",
     "session": "close",
     "picture": "Risk-on tone. S&P closed +0.6%, 9/12 sectors higher. Semiconductors led (+2.0%); Energy lagged (-1.1%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals +0.6% vs defensives +0.4%, roughly balanced.",
