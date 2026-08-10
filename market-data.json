@@ -1,7 +1,7 @@
 {
-  "updated_utc": "2026-08-07T22:09:13.960Z",
-  "updated_label": "Aug 7, 2026, 6:09 PM ET",
-  "session": "close",
+  "updated_utc": "2026-08-10T12:44:49.741Z",
+  "updated_label": "Aug 10, 2026, 8:44 AM ET",
+  "session": "premarket",
   "source": "Finnhub",
   "indices": [
     {
@@ -175,44 +175,44 @@
     "change": -0.89,
     "pct": -0.7487
   },
-  "narrative": "Risk-on tone. S&P closed +0.6%, 9/12 sectors higher. Semiconductors led (+2.0%); Energy lagged (-1.1%). Your book: semis (SMH) +2.0%, INTC +1.8%, NVDA +2.3%.",
+  "narrative": "Risk-on setup. S&P pre-market +0.6%, 9/12 sectors higher. Semiconductors led (+2.0%); Energy lagged (-1.1%). Your book: semis (SMH) +2.0%, INTC +1.8%, NVDA +2.3%.",
   "brief": {
-    "asof": "Aug 7, 2026, 6:09 PM ET",
-    "session": "close",
-    "picture": "Risk-on tone. S&P closed +0.6%, 9/12 sectors higher. Semiconductors led (+2.0%); Energy lagged (-1.1%).",
+    "asof": "Aug 10, 2026, 8:44 AM ET",
+    "session": "premarket",
+    "picture": "Risk-on setup. S&P pre-market +0.6%, 9/12 sectors higher. Semiconductors led (+2.0%); Energy lagged (-1.1%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals +0.6% vs defensives +0.4%, roughly balanced.",
     "book": "Your book: semis (SMH) +2.0%, INTC +1.8%, NVDA +2.3%.",
     "week": "Weekly trend builds as history accumulates — a few more close runs and this line fills in.",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
-        "headline": "US Senate passes Russia sanctions championed by Graham; US House next - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQb0pzeU9VRmJkMDBtRWM3MFhyR3JKTENJeDVfb3pNNHpycXViQnF6LWpveDVmZlotcWVrV0M3cTV4Q1hyTUlPcnRwaDFqRW5fWE5BdlFSYVd4NnZ5MWU2X241OU1QVzZkREh5MjVVMFBlY0k3RDgtM2RDUEFWNVVwUlJ4RFo4OHpGanRuclQ1WXV0bmVZX1MtRUZWak5ERjJ1Y0FLQlR3SlBtS2VyM0EyWUlJQVRJdw?oc=5",
-        "tag": "Market"
-      },
-      {
-        "headline": "‘SaaSpocalypse’ debate intensifies as software stocks swing wildly",
+        "headline": "Santoli: Stocks return to their winning ways. But was July's brief pain enough to satisfy the market gods?",
         "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/08/07/saaspocalypse-debate-intensifies-as-software-stocks-swing-wildly.html",
+        "url": "https://www.cnbc.com/2026/08/10/santoli-stocks-return-to-their-winning-ways-but-was-julys-brief-pain-enough-to-satisfy-the-market-gods.html",
         "tag": "Market"
       },
       {
-        "headline": "Saudi Arabia, Turkey, Pakistan pledge mutual defence as Middle East turmoil escalates - Reuters",
+        "headline": "Iran says no reason to fear Pakistan-Turkey-Saudi security pact - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNU2lUV2RTOWpHY1ZMeHh4SVNOUnV4TXZNQjZoa2ZXSmg1SnNGX2lGOEJUdy0taTQyNmJaRzNKdHdNUEQtYzhsOFROeEhHWk11LUlKTy13VmE0dlJuSHpveG1xSTBjNTZZOXJrWGNyU1NSbUpraEFHdTBjNHowdWluRUU5a0lsY3NuY1FmMDViMVJMMkN4VzVydm9aeng4eWxDV1lkVFBwWTNTVzFTaTJJcWxoUFdBTE9zZUx1U0VNYnlQTFNQd18yYg?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNT0ZKNWFNbV9WOEFpMnZYa3NkbzBGWUNiVnVsMlJtT1IzRDliNHJIM0g0eUZ0N2lNcWxSSEd5QVV4QW1pZFRCSTQ5WndIdGtVRTFMcmYxUVVVZzVQazFQRy1vNG5Vd1hhbG9ObG14SnJnbl94VDJLZnJ6dmN4ZUJKTXRiTFBrTkdkN0FyWkFua3FhR3B6aHN5Z05ETmpNUkxLTlViUm4xdGtINktfUDk2UmRUOGtqdw?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "SoftBank Stock Drops 6.1% as AI Funding Pressure Intensifies",
+        "headline": "Mohsen Rezaei appointed as secretary of Iran's top security body - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOX01YNGdkRGZ6S1FUOFNoaHVnTGRjSFJISXI1QTVqVDFfMzI0bTBhZFhrcDJRNTkzcmh0YmpjN1RMQzZqak5GSldnMXVMMnpkTTRoMWZQQ01tLUFhLUpzT1NPWDNSQzZGZmZHVnR3ZXZGbThMNHpVdFZkSjZOd21EUE96TWI0czAyUkVGR0dJZFlsZDVaNEkxbWVvNmlyb19nZTlEOEVoa1VaMzI3MDNGWA?oc=5",
+        "tag": "Market"
+      },
+      {
+        "headline": "Intel Announces Proposed $15 Billion Common Stock Offering",
         "source": "Yahoo",
-        "url": "https://finnhub.io/api/news?id=cbbc87bc8f9da5340f5ba05ce023679edf1f221d8455573c0624335436ba4d90",
+        "url": "https://finnhub.io/api/news?id=3497b4d8ae91ef07c331d62113a90fa5f810ad1cb77fb3fce3093035b64a341b",
         "tag": "Your book"
       },
       {
-        "headline": "Nvidia Faces New Pressure From U.S. Government",
+        "headline": "Peter Beck's Rocket Lab Fell 30% in a Month While Revenue Grew 63%",
         "source": "Yahoo",
-        "url": "https://finnhub.io/api/news?id=a8dd001fa7bb111253999c4c6ae39e618ce9d380cb4757de2e33efedfc865dbd",
+        "url": "https://finnhub.io/api/news?id=511ee12fc559875a463f826632b56e801b25bdb971af1f43bc742d0a67a0fcf7",
         "tag": "Your book"
       }
     ]
