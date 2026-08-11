@@ -1,7 +1,7 @@
 {
-  "updated_utc": "2026-08-10T21:56:39.496Z",
-  "updated_label": "Aug 10, 2026, 5:56 PM ET",
-  "session": "close",
+  "updated_utc": "2026-08-11T12:41:30.437Z",
+  "updated_label": "Aug 11, 2026, 8:41 AM ET",
+  "session": "premarket",
   "source": "Finnhub",
   "indices": [
     {
@@ -175,44 +175,44 @@
     "change": 7.94,
     "pct": 6.73
   },
-  "narrative": "Risk-on tone. S&P closed -0.0%, 5/12 sectors higher. Energy led (+4.7%); Semiconductors lagged (-2.3%). Your book: semis (SMH) -2.3%, INTC -4.1%, NVDA -2.9%.",
+  "narrative": "Risk-on setup. S&P pre-market -0.0%, 5/12 sectors higher. Energy led (+4.7%); Semiconductors lagged (-2.3%). Your book: semis (SMH) -2.3%, INTC -4.1%, NVDA -2.9%.",
   "brief": {
-    "asof": "Aug 10, 2026, 5:56 PM ET",
-    "session": "close",
-    "picture": "Risk-on tone. S&P closed -0.0%, 5/12 sectors higher. Energy led (+4.7%); Semiconductors lagged (-2.3%).",
+    "asof": "Aug 11, 2026, 8:41 AM ET",
+    "session": "premarket",
+    "picture": "Risk-on setup. S&P pre-market -0.0%, 5/12 sectors higher. Energy led (+4.7%); Semiconductors lagged (-2.3%).",
     "rotation": "Money leaned toward cyclicals (Tech/Financials/Industrials/Energy avg +0.3%) over defensives (-0.2%) — a risk-on, growth-seeking tilt.",
     "book": "Your book: semis (SMH) -2.3%, INTC -4.1%, NVDA -2.9%.",
     "week": "Past 2 sessions: Technology closed lower in 1 of 2 (+0.5% cumulative), semis -0.3%. On the week, Energy leads (+3.5%) and Real Estate trails (-0.9%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
-        "headline": "Wall Street ends down as expectations of Hormuz deal fade - Reuters",
+        "headline": "UKMTO reports incident involving container ship and military forces in Gulf of Oman - reuters.com",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNZ1dvZ2c1V0lTdG9JSjJSTkR1eFdqSUFMZkZhLVNHWVppM2lMUEluay12RmYxaHozajVfaDZLOTlaMGk5eHpJbTNScmhEbkFwUmMtdWc2ZWh1eEtJSlRGUGJqdFhEdlp4UFJqQm1JQWNqNV9RNUhneDdnSDFzRGVvZHQ0YmpyeElzS1VwMGtmeGI2NzZja09Sd1BITm1IUHVYdDc4djlFQQ?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQdjRhcUpmUml0dmpfNkN5U2IxYjZTa3ZVcTNlNzdTV3ZZb0ZWWGFpSjFFb0ppdmNYNkVpUThTUTlmRHpIVFhOMjdEV2FkcUZkTHpKcDE5SWVYLVhwVm9Pb0k4Y1pMSjJycW54TG5rOUl5QUt1cldselUwSnNsZnRCY0JMZ2ZhUlZabS1ucUc3bjRIR0UwVGRfcldJTXVDSHgtMHRWdnZESThGRzBjMWdmbkhmSjQwckwzb285VmRXRUpGcktLLXc?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "Meta's latest model advances Zuckerberg's vision for personal AI assistants",
+        "headline": "Wall St futures muted as US-Iran impasse lifts oil prices - reuters.com",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNVjkzU2JZemo3b1RFMlU3SU1qeTE0NEY0eHBaakpscDY4blhsX3c5VFdFUmxkWVk2Yk9ab040Z1dRbEN4SDMwQU9fSnFrWUN2SkZHNzZqOFRJc0FXWUNOZTFRTnRvX0hqRTFfMGdBMnh2S2lPMjlqZ01kSFNyT0dqLVZMNDBZcm13a01lQWdScHVhSUFXQ215cjJGWXg2T180?oc=5",
+        "tag": "Market"
+      },
+      {
+        "headline": "Wall Street just endorsed Jensen Huang's 'big concept' for AI. What now?",
         "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/08/10/metas-latest-model-advances-zuckerbergs-vision-for-personal-ai-assistants.html",
+        "url": "https://www.cnbc.com/2026/08/11/wall-street-endorsed-jensen-huangs-big-concept-for-ai-what-now.html",
         "tag": "Market"
       },
       {
-        "headline": "Who is Iran's Mohsen Rezaei, the hardliner appointed to key security role? - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxORnBEVG1SUHZxZmRmdkNDQzUwSnFRTEF2SVFBWUF6SmZlTDZlb0tGa1V1dE5OZFFGVU5EQXhHd0QteldVRkhySVprMVd2TFh5aFA5S2thQjFKX1hsajBlSHBTM2tFNkRuVmpTR3ExSUVQcEcyVExxNVpRZVkwZnBFT1hpV01BcDc5anBpZmF3MHkwd05UZ3BWWTR5TTlaQXdFSkNsX19IMzl3UTZMVmx5RFhsRjdJNHRfMmc?oc=5",
-        "tag": "Market"
-      },
-      {
-        "headline": "Why Intel Stock Is Falling Today",
+        "headline": "Why Intel Is Increasing Its  Stock Offering to $20 Billion",
         "source": "Yahoo",
-        "url": "https://finnhub.io/api/news?id=f972092a1b77f0cd2bfe5b5170710c55a58416ba900037237abd062de7380d33",
+        "url": "https://finnhub.io/api/news?id=cc3e9a957ec2390155fa739eefbc9e828aa31b53ed3f2e4c76dca4ccfd216c26",
         "tag": "Your book"
       },
       {
-        "headline": "Sector Update: Tech Stocks Decline Late Afternoon",
+        "headline": "Got $200 per Month? This ETF Could Turn It Into $455,865 With Minimal Effort on Your Part.",
         "source": "Yahoo",
-        "url": "https://finnhub.io/api/news?id=726dec967f312df0761d5640414c3e0682e72dc874c0b75fb09674733cba9848",
+        "url": "https://finnhub.io/api/news?id=067ce25bcd54c989024e92b4738c929564c5e2cdb826f3a7a8eb374d1a5706b9",
         "tag": "Your book"
       }
     ]
