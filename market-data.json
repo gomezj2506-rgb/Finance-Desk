@@ -1,7 +1,7 @@
 {
-  "updated_utc": "2026-08-11T22:03:06.361Z",
-  "updated_label": "Aug 11, 2026, 6:03 PM ET",
-  "session": "close",
+  "updated_utc": "2026-08-12T12:44:23.868Z",
+  "updated_label": "Aug 12, 2026, 8:44 AM ET",
+  "session": "premarket",
   "source": "Finnhub",
   "indices": [
     {
@@ -175,45 +175,33 @@
     "change": 1.69,
     "pct": 1.3421
   },
-  "narrative": "Risk-off tone. S&P closed -0.3%, 5/12 sectors higher. Energy led (+1.2%); Real Estate lagged (-0.7%). Your book: semis (SMH) +0.6%, INTC +0.2%, NVDA -0.0%.",
+  "narrative": "Risk-off setup. S&P pre-market -0.3%, 5/12 sectors higher. Energy led (+1.2%); Real Estate lagged (-0.7%). Your book: semis (SMH) +0.6%, INTC +0.2%, NVDA -0.0%.",
   "brief": {
-    "asof": "Aug 11, 2026, 6:03 PM ET",
-    "session": "close",
-    "picture": "Risk-off tone. S&P closed -0.3%, 5/12 sectors higher. Energy led (+1.2%); Real Estate lagged (-0.7%).",
+    "asof": "Aug 12, 2026, 8:44 AM ET",
+    "session": "premarket",
+    "picture": "Risk-off setup. S&P pre-market -0.3%, 5/12 sectors higher. Energy led (+1.2%); Real Estate lagged (-0.7%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals +0.2% vs defensives -0.0%, roughly balanced.",
     "book": "Your book: semis (SMH) +0.6%, INTC +0.2%, NVDA -0.0%.",
     "week": "Past 3 sessions: Technology closed lower in 2 of 3 (+0.4% cumulative), semis +0.3%. On the week, Energy leads (+4.8%) and Real Estate trails (-1.6%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
-        "headline": "Wall Street ends down as US-Iran peace optimism fades - Reuters",
+        "headline": "Iran, US not discussing ceasefire extension, senior Iranian official says - reuters.com",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNVjkzU2JZemo3b1RFMlU3SU1qeTE0NEY0eHBaakpscDY4blhsX3c5VFdFUmxkWVk2Yk9ab040Z1dRbEN4SDMwQU9fSnFrWUN2SkZHNzZqOFRJc0FXWUNOZTFRTnRvX0hqRTFfMGdBMnh2S2lPMjlqZ01kSFNyT0dqLVZMNDBZcm13a01lQWdScHVhSUFXQ215cjJGWXg2T180?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPdVZJNElycHhPbXBfZXNaRzVIUXFMU2hTTE1xRi1jdjBzZHQyMUNhTHVvbXg4aWowUHpqM29PT1E0Tm5haUNRSFJEUFVScGllVU54blNSRzdXUEN0RmNZV0FWclFOMHk0QWxTbjRsOXZPX3RVQXh1OThyU2V0X215R01zRzNDX2taWmc3YWtlcTZ1X0hGbmdUQ19tV1k5SmZEdHlFblBWZUtkUmxlcnc3cWc1ZmVKdWtzN09pUVJxaHFqcFVf?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "We're lifting our price target on Cardinal Health after issuing rosy profit guidance",
+        "headline": "China’s answer to Boeing and Airbus makes first international flight — could COMAC challenge the aviation duopoly?",
         "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/08/11/were-lifting-our-price-target-on-cardinal-health-after-issuing-rosy-profit-guidance-.html",
+        "url": "https://www.cnbc.com/2026/08/12/china-comac-boeing-airbus.html",
         "tag": "Market"
       },
       {
-        "headline": "Oil continues climb with doubts about potential US-Iran deal; stocks retreat - Reuters",
+        "headline": "Wall St futures tick up heading into July inflation data - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPRnpVTlc5WDU3ZUFOMTJjSFRLNGFCWUItblV4clc0UnVXUi05VVBaRkFleHpsdWtmcl9YZDRtN3BkaDhqUy1PTWx1aDhjalNDc09RNGh5eDFYN2FnTGxraUlhRWtFUnl0UTJrbV82Yi1CaFEyNmNwaHlvQVdobElUNEZVaw?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPYklxZWxQWEI4bU5nVHpWUVJkQWo4YmQ5ZWpfTXNWWHBjNlE0d09NNEdtbWMtQldtbndIMzNBU1Z3TldjNEF5YUoxMHJSdHlXak50XzBMYlh4dHh2OWxVckViSjVxYUFCVlBvcnQ4Vk9vLVF0MWhGR3BidXQzOGItYUVjbnNYSk1pdS1XeTZqUGtaVTZzcDRkR1N1V0xkN0o5STBZ?oc=5",
         "tag": "Market"
-      },
-      {
-        "headline": "Explore the S&P500 index on Tuesday and find out which stocks are the most active in today's session.",
-        "source": "ChartMill",
-        "url": "https://finnhub.io/api/news?id=1ddba27a45baea40c7ae79dcb7980b09554fc2ee56597eaef14ffecf9cf9dc26",
-        "tag": "Your book"
-      },
-      {
-        "headline": "Explore the S&P500 index on Tuesday and find out which stocks are the most active in today's session.",
-        "source": "ChartMill",
-        "url": "https://finnhub.io/api/news?id=1ddba27a45baea40c7ae79dcb7980b09554fc2ee56597eaef14ffecf9cf9dc26",
-        "tag": "Your book"
       }
     ]
   }
