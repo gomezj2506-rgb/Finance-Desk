@@ -1,7 +1,7 @@
 {
-  "updated_utc": "2026-08-12T22:00:32.219Z",
-  "updated_label": "Aug 12, 2026, 6:00 PM ET",
-  "session": "close",
+  "updated_utc": "2026-08-13T12:45:23.712Z",
+  "updated_label": "Aug 13, 2026, 8:45 AM ET",
+  "session": "premarket",
   "source": "Finnhub",
   "indices": [
     {
@@ -175,44 +175,44 @@
     "change": -0.31,
     "pct": -0.2429
   },
-  "narrative": "Risk-on tone. S&P closed +0.3%, 9/12 sectors higher. Semiconductors led (+2.1%); Materials lagged (-1.2%). Your book: semis (SMH) +2.1%, INTC +3.3%, NVDA +3.0%.",
+  "narrative": "Risk-on setup. S&P pre-market +0.3%, 9/12 sectors higher. Semiconductors led (+2.1%); Materials lagged (-1.2%). Your book: semis (SMH) +2.1%, INTC +3.3%, NVDA +3.0%.",
   "brief": {
-    "asof": "Aug 12, 2026, 6:00 PM ET",
-    "session": "close",
-    "picture": "Risk-on tone. S&P closed +0.3%, 9/12 sectors higher. Semiconductors led (+2.1%); Materials lagged (-1.2%).",
+    "asof": "Aug 13, 2026, 8:45 AM ET",
+    "session": "premarket",
+    "picture": "Risk-on setup. S&P pre-market +0.3%, 9/12 sectors higher. Semiconductors led (+2.1%); Materials lagged (-1.2%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg +0.5%) over cyclicals (+0.1%) — a cautious, risk-off tilt.",
     "book": "Your book: semis (SMH) +2.1%, INTC +3.3%, NVDA +3.0%.",
     "week": "Past 4 sessions: Technology closed lower in 2 of 4 (+1.9% cumulative), semis +2.4%. On the week, Energy leads (+4.9%) and Comm Svcs trails (-0.8%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
-        "headline": "Wall Street ends down as US-Iran peace optimism fades - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNVjkzU2JZemo3b1RFMlU3SU1qeTE0NEY0eHBaakpscDY4blhsX3c5VFdFUmxkWVk2Yk9ab040Z1dRbEN4SDMwQU9fSnFrWUN2SkZHNzZqOFRJc0FXWUNOZTFRTnRvX0hqRTFfMGdBMnh2S2lPMjlqZ01kSFNyT0dqLVZMNDBZcm13a01lQWdScHVhSUFXQ215cjJGWXg2T180?oc=5",
+        "headline": "Goat herding hedge: How Susquehanna and Kalshi are helping this company offset a change in California law",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/08/13/how-a-california-goat-herding-company-is-hedging-against-risk-of-higher-wages.html",
         "tag": "Market"
       },
       {
-        "headline": "Air Canada reinstates annual forecast, signals fuel price volatility remains a risk - Reuters",
+        "headline": "The US says more oil is leaving the Middle East, but is it really? - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPN2luYkU4ZEFpMEJIREFqb3RSaV9xWExzMTFZa2pDVERyRDlLSzVrc1RBWVlLblBhQkRfWUMxUUk4bnpGZkF5NGt5V2RNZ0hMWFp3akVUNXFyRnQyc1gwUUZ2eTV3WlFLeFNOZ08zTTJoRHlzSHE0Mmk3QkRsei11TmhyYVRQSl9nMlB1QmNna2MzcUxSZDdn?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOcFpiaHV1WkZPRDd0NDNsalc3RURUajFQYWtJdVE1LU4tQTZBWmhDWGl3RnE0bGVfcjk5TzNsNkVoNFQxbXIwa1paaGRnSnFlY1VoaE1uSUQ0RmNxR3h3cmwxdGcyMjhwWC1ncE04OHJSWGFtOVF1bnRCbWlSam01MkdldGFsaVpIcGxnTVFSQ3pUb0FLZ0JaZlJsUHp6NFN6b0tjck4zUDc3QnZBVDk0YTRLU3cycHoydjBRUERR?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "Assad ruled Syria with iron fist before defeat in civil war - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQTzB2V3ZJekJ0UWdad1JNUlVycGJDb3hyZ01QcGdDQW1na2J2alhGajJESlV0VE1NelBTR1dpUzNRQXBzRkF2OEVMVDhwMXFoTTJJV2xCclhTWFRFSjBhZE5CbmJOU054S0ZVX01pUFZQWlMxTUp1YXlaWU1xVU52TmhTNFo4N3Q2VWd4Tzh2T2dBYnR4RHpEeURwV0JEN3M?oc=5",
+        "headline": "The Iran war risks bringing the G7's fastest-growing economy to a halt",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/08/13/iran-war-g7s-fastest-growing-economy.html",
         "tag": "Market"
       },
       {
-        "headline": "Which S&P500 stocks are the most active on Wednesday?",
-        "source": "ChartMill",
-        "url": "https://finnhub.io/api/news?id=89440173c0d17d0687c2c2d7bfb0f562b83c3f2aa5af7ba97e4b1195b6f44021",
+        "headline": "Elon Musk’s New Texas Facility Will be 36 Times Bigger Than the Empire State Building. Here’s Everything We Know So Far.",
+        "source": "Yahoo",
+        "url": "https://finnhub.io/api/news?id=0842a1e5ac1ebbf9696ce2d2f1cea955bbd61bb51188d64d449a8e7ef20509b6",
         "tag": "Your book"
       },
       {
-        "headline": "Wednesday's session: top gainers and losers in the dow jones index",
-        "source": "ChartMill",
-        "url": "https://finnhub.io/api/news?id=78e6af217bf3b8ef504efd01eebe1e228efe4df12fa1c3ac18a373b2e6fb651e",
+        "headline": "Why Sandisk Stock Keeps Falling?",
+        "source": "Yahoo",
+        "url": "https://finnhub.io/api/news?id=68addcc5b448b446f8c3047c5fadd06103429a908d652b85a67a5cab25e79e36",
         "tag": "Your book"
       }
     ]
