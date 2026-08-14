@@ -9,9 +9,9 @@ name: Update market data
 on:
   # run automatically on a schedule (times are in UTC)
   schedule:
-    # ~8:00 AM ET  = 12:00 UTC — the PRE-MARKET "what to expect" run
+    # ~8:00 AM ET = 12:00 UTC — the PRE-MARKET "what to expect" run
     - cron: '0 12 * * 1-5'
-    # ~5:15 PM ET  = 21:15 UTC — the CLOSE "where we ended" run
+    # ~5:15 PM ET = 21:15 UTC — the CLOSE "where we ended" run
     - cron: '15 21 * * 1-5'
   # also let you trigger it by hand from the Actions tab (handy for testing)
   workflow_dispatch:
@@ -20,6 +20,14 @@ on:
 permissions:
   contents: write
 
+# Only one run of this workflow at a time. If you hit "Run workflow" while the
+# scheduled run is still going, the second one waits its turn instead of racing
+# it to the push. cancel-in-progress is false because we want both runs to
+# finish — we just don't want them pushing at the same moment.
+concurrency:
+  group: update-market
+  cancel-in-progress: false
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
@@ -27,6 +35,10 @@ jobs:
       # 1. grab your repo's code
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # full history so the fetch/reset dance below can't trip over a
+          # shallow clone
+          fetch-depth: 0
 
       # 2. set up Node (v20 has fetch built in)
       - name: Set up Node
@@ -41,14 +53,55 @@ jobs:
         run: node fetch-market.js
 
       # 4. commit the updated file only if it actually changed
+      #
+      # The tricky part: between the Checkout above and the push below, someone
+      # else (you, from your laptop) may have pushed to main. Git then rejects
+      # our push as "not a fast-forward" — that's the (fetch first) error.
+      #
+      # The fix: stash our two generated files outside the repo, hard-reset onto
+      # whatever main looks like *right now*, drop our files back on top, and
+      # commit that. Our data is always the last word on these two files, and
+      # a merge conflict is impossible because we never merge — we rebuild.
+      # If we lose the race again, we just loop and redo it.
       - name: Commit updated data
         run: |
-          git config user.name  "market-bot"
+          set -euo pipefail
+
+          git config user.name "market-bot"
           git config user.email "actions@github.com"
-          git add market-data.json market-history.json
-          if git diff --staged --quiet; then
+
+          if git diff --quiet -- market-data.json market-history.json; then
             echo "No change in market data."
-          else
-            git commit -m "Auto-update market data ($(date -u +%Y-%m-%d))"
-            git push
+            exit 0
           fi
+
+          # park the freshly generated files outside the work tree
+          mkdir -p "$RUNNER_TEMP/market"
+          cp market-data.json market-history.json "$RUNNER_TEMP/market/"
+
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git reset --hard origin/main
+
+            cp "$RUNNER_TEMP/market/market-data.json" \
+               "$RUNNER_TEMP/market/market-history.json" .
+            git add market-data.json market-history.json
+
+            if git diff --staged --quiet; then
+              echo "Remote already has this data — nothing to push."
+              exit 0
+            fi
+
+            git commit -m "Auto-update market data ($(date -u +%Y-%m-%d))"
+
+            if git push origin HEAD:main; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
+
+            echo "Push rejected on attempt $attempt — main moved. Retrying."
+            sleep $(( attempt * 3 ))
+          done
+
+          echo "::error::Could not push market data after 5 attempts."
+          exit 1
