@@ -1,5 +1,5 @@
 /*
- * fetch-market.js  (Tier 1: data + news + weekly brief)
+ * fetch-market.js (Tier 1: data + news + weekly brief)
  * -----------------------------------------------------
  * Runs in a GitHub Action, twice a day. It:
  *   1. pulls quotes (indices, sectors, your holdings, oil) from Finnhub
@@ -26,9 +26,15 @@ const INDICES = [
   { sym: 'SPY', name: 'S&P 500' }, { sym: 'QQQ', name: 'Nasdaq 100' },
   { sym: 'DIA', name: 'Dow Jones' }, { sym: 'IWM', name: 'Russell 2000' },
 ];
+
+// NOTE ON `theme`: there are exactly 11 GICS sectors, and SMH is not one of
+// them — it's a sub-industry slice that sits *inside* Technology. Leaving it in
+// the breadth math both inflated the denominator (7/12 instead of 7/11) and
+// double-counted tech weakness. It stays in the heatmap because it's the single
+// most relevant line for your book; it just no longer votes on breadth.
 const SECTORS = [
   { sym: 'XLK', name: 'Technology', kind: 'cyclical' },
-  { sym: 'SMH', name: 'Semiconductors', kind: 'cyclical' },
+  { sym: 'SMH', name: 'Semiconductors', kind: 'cyclical', theme: true },
   { sym: 'XLC', name: 'Comm Svcs', kind: 'cyclical' },
   { sym: 'XLY', name: 'Cons Disc', kind: 'cyclical' },
   { sym: 'XLF', name: 'Financials', kind: 'cyclical' },
@@ -74,27 +80,43 @@ async function pull(list) {
 }
 
 // ---- news -----------------------------------------------------------------
-function cleanHeadlines(arr, n) {
-  const seen = new Set(); const out = [];
+
+// Some Finnhub items carry an API endpoint as their `url` instead of a real
+// article link (https://finnhub.io/api/news?id=...). Those render as a headline
+// you can click straight into a wall of JSON, so they're skipped.
+function isReadableArticle(url) {
+  if (!url || !/^https?:\/\//i.test(url)) return false;
+  if (/finnhub\.io\/api\//i.test(url)) return false;
+  return true;
+}
+
+// `seen` is passed in from the caller so dedup works ACROSS calls, not just
+// within one. Previously each companyNews() call had its own Set, so when INTC
+// and NVDA both surfaced the same wire story it printed twice.
+function cleanHeadlines(arr, n, seen = new Set()) {
+  const out = [];
   for (const a of (arr || [])) {
-    if (!a || !a.headline || seen.has(a.headline)) continue;
-    seen.add(a.headline);
-    out.push({ headline: a.headline, source: a.source || '', url: a.url || '' });
+    if (!a || !a.headline) continue;
+    const key = a.headline.trim().toLowerCase();
+    if (seen.has(key)) continue;
+    if (!isReadableArticle(a.url)) continue;
+    seen.add(key);
+    out.push({ headline: a.headline, source: a.source || '', url: a.url });
     if (out.length >= n) break;
   }
   return out;
 }
-async function marketNews() {
+async function marketNews(seen) {
   const d = await getJSON(`${BASE}/news?category=general&token=${API_KEY}`);
   if (!Array.isArray(d)) return [];
-  return cleanHeadlines(d, 4);
+  return cleanHeadlines(d, 4, seen);
 }
-async function companyNews(sym) {
+async function companyNews(sym, seen) {
   const to = new Date().toISOString().slice(0, 10);
   const from = new Date(Date.now() - 4 * 864e5).toISOString().slice(0, 10);
   const d = await getJSON(`${BASE}/company-news?symbol=${sym}&from=${from}&to=${to}&token=${API_KEY}`);
   if (!Array.isArray(d)) return [];
-  return cleanHeadlines(d, 1);
+  return cleanHeadlines(d, 1, seen);
 }
 async function econCalendar() {
   // often premium-gated; try, and skip quietly if unavailable
@@ -118,43 +140,66 @@ function loadHistory() {
 }
 function saveHistory(hist) { fs.writeFileSync(HIST_FILE, JSON.stringify(hist, null, 2)); }
 
-// weekly stats for a sector symbol from history (last up-to-5 closes)
+// Weekly stats for a sector symbol from history (last up-to-5 closes).
+//
+// This used to SUM the daily percentages. That's the approximation everyone
+// reaches for, and it drifts: five +2% days is +10.4% compounded, not +10%.
+// On a site that teaches valuation, the returns math should be the real thing.
 function weekStats(hist, sym) {
   const days = hist.slice(-5).map(h => (h.sectors || {})[sym]).filter(v => typeof v === 'number');
   if (!days.length) return null;
-  const cumul = days.reduce((a, b) => a + b, 0);
+  const growth = days.reduce((acc, d) => acc * (1 + d / 100), 1);
+  const cumul = (growth - 1) * 100;
   const redCount = days.filter(v => v < 0).length;
   return { sessions: days.length, cumul, redCount };
 }
 
 // ---- the brief builder (data-true, no invented causation) -----------------
 function buildBrief(session, label, indices, sectors, holdings, hist, mktNews, coNews, econ) {
-  const green = sectors.filter(s => s.pct > 0.05);
-  const red = sectors.filter(s => s.pct < -0.05);
-  const sorted = [...sectors].sort((a, b) => b.pct - a.pct);
+  // breadth, rotation and leadership are judged on the 11 real sectors only
+  const real = sectors.filter(s => !s.theme);
+  const green = real.filter(s => s.pct > 0.05);
+  const red = real.filter(s => s.pct < -0.05);
+  const sorted = [...real].sort((a, b) => b.pct - a.pct);
   const leaders = sorted.slice(0, 2);
   const laggards = sorted.slice(-2).reverse();
   const spx = indices.find(i => i.sym === 'SPY');
+  const iwm = indices.find(i => i.sym === 'IWM');
   const avg = (arr) => arr.length ? arr.reduce((a, b) => a + b.pct, 0) / arr.length : 0;
-  const cyc = avg(sectors.filter(s => s.kind === 'cyclical'));
-  const def = avg(sectors.filter(s => s.kind === 'defensive'));
+  const cyc = avg(real.filter(s => s.kind === 'cyclical'));
+  const def = avg(real.filter(s => s.kind === 'defensive'));
 
   // 1) big picture — a TONE score combining index direction + rotation + breadth
+  //
+  // The old thresholds let a single quiet tick decide the whole label: a -0.2%
+  // S&P day scored -1 and printed "Risk-off" even with 7 sectors green, small
+  // caps up and rotation flat. Two changes: the S&P has to actually move
+  // (±0.25%) to vote, and it now takes TWO agreeing signals to earn a
+  // directional label. Small caps get a vote too — they're a cleaner read on
+  // risk appetite than the megacap-dominated S&P.
   let score = 0;
-  if (spx) { if (spx.pct > 0.1) score++; else if (spx.pct < -0.1) score--; }
+  if (spx) { if (spx.pct > 0.25) score++; else if (spx.pct < -0.25) score--; }
+  if (iwm) { if (iwm.pct > 0.4) score++; else if (iwm.pct < -0.4) score--; }
   if (cyc - def > 0.3) score++; else if (def - cyc > 0.3) score--;
   if (green.length >= 8) score++; else if (red.length >= 8) score--;
-  const toneLabel = score >= 1 ? 'Risk-on' : score <= -1 ? 'Risk-off' : 'Mixed';
+
+  let toneLabel = score >= 2 ? 'Risk-on' : score <= -2 ? 'Risk-off' : 'Mixed';
   const word = session === 'premarket' ? 'setup' : 'tone';
   const verb = session === 'premarket' ? 'indicated' : 'closed';
+
   // note the divergence when breadth and the index disagree — a genuinely useful read
   let divergence = '';
   if (spx && spx.pct < -0.1 && green.length >= 7) divergence = ' — positive breadth masked by megacap weakness';
   else if (spx && spx.pct > 0.1 && red.length >= 7) divergence = ' — index held up by megacaps despite weak breadth';
+
+  // If the index and breadth are pulling opposite ways, that IS the mixed case.
+  // Saying "Risk-off tone — positive breadth" in one sentence argues with itself.
+  if (divergence) toneLabel = 'Mixed';
+
   const picture =
     `${toneLabel} ${word}${divergence}. ` +
     (spx ? `S&P ${session === 'premarket' ? 'pre-market' : verb} ${fmt(spx.pct)}, ` : '') +
-    `${green.length}/${sectors.length} sectors higher. ` +
+    `${green.length}/${real.length} sectors higher. ` +
     `${leaders[0].name} led (${fmt(leaders[0].pct)}); ${laggards[0].name} lagged (${fmt(laggards[0].pct)}).`;
 
   // 2) rotation — defensive vs cyclical tilt
@@ -177,8 +222,9 @@ function buildBrief(session, label, indices, sectors, holdings, hist, mktNews, c
   if (techW && techW.sessions >= 2) {
     week = `Past ${techW.sessions} sessions: Technology closed lower in ${techW.redCount} of ${techW.sessions} (${fmt(techW.cumul)} cumulative)` +
       (semiW ? `, semis ${fmt(semiW.cumul)}` : '') + `. `;
-    // weekly sector leader/laggard from cumulative history
-    const cumBySector = SECTORS.map(s => ({ name: s.name, c: (weekStats(hist, s.sym) || {}).cumul }))
+    // weekly sector leader/laggard from cumulative history (real sectors only)
+    const cumBySector = SECTORS.filter(s => !s.theme)
+      .map(s => ({ name: s.name, c: (weekStats(hist, s.sym) || {}).cumul }))
       .filter(x => typeof x.c === 'number').sort((a, b) => b.c - a.c);
     if (cumBySector.length >= 2) {
       week += `On the week, ${cumBySector[0].name} leads (${fmt(cumBySector[0].c)}) and ${cumBySector[cumBySector.length - 1].name} trails (${fmt(cumBySector[cumBySector.length - 1].c)}).`;
@@ -202,7 +248,6 @@ function buildBrief(session, label, indices, sectors, holdings, hist, mktNews, c
 
   return { asof: label, session, picture, rotation, book, week, watch, headlines };
 }
-const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
 // ---- main -----------------------------------------------------------------
 (async () => {
@@ -212,9 +257,14 @@ const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
   const holdings = await pull(HOLDINGS);
   const oil = (await pull([OIL]))[0] || null;
 
-  const mktNews = await marketNews(); await sleep(220);
+  // one shared dedup set across every news call in this run
+  const seenHeadlines = new Set();
+  const mktNews = await marketNews(seenHeadlines); await sleep(220);
   const coNews = [];
-  for (const sym of ['INTC', 'NVDA']) { coNews.push(...await companyNews(sym)); await sleep(220); }
+  for (const sym of ['INTC', 'NVDA']) {
+    coNews.push(...await companyNews(sym, seenHeadlines));
+    await sleep(220);
+  }
   const econ = await econCalendar();
 
   const now = new Date();
@@ -223,14 +273,23 @@ const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
   const label = now.toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York' }) + ' ET';
 
   // history: on CLOSE runs, append today's sector snapshot (keep last 10)
+  //
+  // Guarded on etHour >= 16 (the actual 4pm bell), not just "not morning".
+  // Hitting "Run workflow" at lunch used to write a half-day move into the
+  // weekly history as though it were a close, quietly skewing every weekly
+  // number on the board.
   let hist = loadHistory();
-  if (session === 'close' && sectors.length) {
+  const isTrueClose = session === 'close' && etHour >= 16;
+  if (isTrueClose && sectors.length) {
     const secMap = {}; sectors.forEach(s => { secMap[s.sym] = Number(s.pct); });
-    const today = now.toISOString().slice(0, 10);
-    hist = hist.filter(h => h.date !== today);          // avoid dup if re-run same day
+    // date in ET, so a late-evening UTC rollover can't file a close under tomorrow
+    const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(now);
+    hist = hist.filter(h => h.date !== today); // avoid dup if re-run same day
     hist.push({ date: today, sectors: secMap });
     hist = hist.slice(-10);
     saveHistory(hist);
+  } else if (session === 'close') {
+    console.log(`Midday run (${etHour}:00 ET) — not recording to weekly history.`);
   }
 
   const brief = buildBrief(session, label, indices, sectors, holdings, hist, mktNews, coNews, econ);
