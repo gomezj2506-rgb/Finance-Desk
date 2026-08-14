@@ -93,16 +93,35 @@ function isReadableArticle(url) {
 // `seen` is passed in from the caller so dedup works ACROSS calls, not just
 // within one. Previously each companyNews() call had its own Set, so when INTC
 // and NVDA both surfaced the same wire story it printed twice.
-function cleanHeadlines(arr, n, seen = new Set()) {
+//
+// `allowUnlinked`: linked headlines always win. But if we can't fill the quota
+// with real article links, it's better to show the headline with no link than
+// to show nothing — an unreadable story you know about beats a story you don't.
+// Used for your holdings, where Finnhub's free tier often returns wire items
+// (ChartMill and friends) whose only "url" points back into its own API.
+// index.html already renders url:'' as plain text instead of an <a>, so a
+// linkless headline degrades cleanly with no front-end change.
+function cleanHeadlines(arr, n, seen = new Set(), allowUnlinked = false) {
   const out = [];
+  const unlinked = [];
   for (const a of (arr || [])) {
     if (!a || !a.headline) continue;
     const key = a.headline.trim().toLowerCase();
     if (seen.has(key)) continue;
-    if (!isReadableArticle(a.url)) continue;
+    if (!isReadableArticle(a.url)) {
+      if (allowUnlinked) unlinked.push({ headline: a.headline, source: a.source || '', key });
+      continue;
+    }
     seen.add(key);
     out.push({ headline: a.headline, source: a.source || '', url: a.url });
     if (out.length >= n) break;
+  }
+  // top up from the linkless pile only if real links came up short
+  for (const u of unlinked) {
+    if (out.length >= n) break;
+    if (seen.has(u.key)) continue;
+    seen.add(u.key);
+    out.push({ headline: u.headline, source: u.source, url: '' });
   }
   return out;
 }
@@ -116,7 +135,8 @@ async function companyNews(sym, seen) {
   const from = new Date(Date.now() - 4 * 864e5).toISOString().slice(0, 10);
   const d = await getJSON(`${BASE}/company-news?symbol=${sym}&from=${from}&to=${to}&token=${API_KEY}`);
   if (!Array.isArray(d)) return [];
-  return cleanHeadlines(d, 1, seen);
+  // allowUnlinked: your book's news matters more than its clickability
+  return cleanHeadlines(d, 1, seen, true);
 }
 async function econCalendar() {
   // often premium-gated; try, and skip quietly if unavailable
