@@ -401,6 +401,23 @@
   .analyst-note p{margin:0 0 8px; font-size:.9rem; line-height:1.55; color:var(--tx-dk)}
   .analyst-note p:last-child{margin-bottom:0}
   .analyst-note b{color:#fff}
+
+  /* self-check rubric under recall reps */
+  .selfcheck{margin-top:10px; border:1px solid var(--line-dk); border-radius:8px; overflow:hidden; background:var(--panel)}
+  .selfcheck summary{cursor:pointer; list-style:none; padding:9px 13px; font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.06em; color:var(--bid-br); background:rgba(34,179,106,.06); user-select:none}
+  .selfcheck summary::-webkit-details-marker{display:none}
+  .selfcheck summary:hover{color:var(--up)}
+  .selfcheck[open] summary{border-bottom:1px solid var(--line-dk)}
+  .sc-body{padding:13px 15px}
+  .sc-l{font-family:'IBM Plex Mono',monospace; font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; color:var(--amber); display:block; margin-bottom:8px}
+  .sc-rubric ul{margin:0 0 14px; padding:0; list-style:none; display:flex; flex-direction:column; gap:6px}
+  .sc-rubric li{position:relative; padding-left:24px; font-size:.9rem; line-height:1.45; color:var(--tx-dk)}
+  .sc-rubric li::before{content:"✓"; position:absolute; left:0; top:0; color:var(--up); font-weight:700}
+  .sc-rubric li b{color:#fff}
+  .sc-model{border-top:1px dashed var(--line-dk); padding-top:12px}
+  .sc-model .sc-l{color:var(--bid-br)}
+  .sc-model p{margin:0; font-size:.9rem; line-height:1.6; color:var(--tx-dk); font-style:italic}
+  .sc-model p b{color:#fff; font-style:normal}
   @media(max-width:640px){ .session{grid-template-columns:1fr; gap:8px} }
 </style>
 </head>
@@ -654,7 +671,19 @@
               <label class="task"><input type="checkbox" data-wk="w1"><span class="t-txt">Find each one’s bid–ask spread and rank them most-to-least liquid. Which would be hardest to exit in a panic?</span></label>
             </div>
 
-            <div class="client"><span class="cm">Client mtg</span><label class="task" style="padding:0"><input type="checkbox" data-wk="w1"><span class="t-txt">Explain to Claude why <em>owning</em> INTC is different from <em>lending</em> Intel money via a bond — using the “who gets paid first” idea, no notes.</span></label></div>
+            <div class="client"><span class="cm">Client mtg</span><label class="task" style="padding:0"><input type="checkbox" data-wk="w1"><span class="t-txt">Explain why <em>owning</em> INTC is different from <em>lending</em> Intel money via a bond — using the “who gets paid first” idea. Say it out loud, then check yourself ↓</span></label></div>
+            <details class="selfcheck"><summary>✓ Check yourself — reveal the model answer</summary>
+              <div class="sc-body">
+                <div class="sc-rubric"><span class="sc-l">Your answer should hit</span><ul>
+                  <li>Owning = <b>equity = residual claimant</b> — you're <b>last in line</b> in the capital structure</li>
+                  <li>Payout order in bankruptcy: <b>secured lenders → bondholders → preferred → common equity</b></li>
+                  <li>Equity can go to <b>zero</b>; a bond has a <b>contractual</b> right to coupons + principal at maturity</li>
+                  <li>Dividends are <b>optional</b> (Intel suspended its in 2025); a coupon is an <b>obligation</b></li>
+                  <li>The tradeoff: equity = <b>uncapped upside</b> for last-in-line risk; bond = <b>capped upside</b> for first-in-line safety</li>
+                </ul></div>
+                <div class="sc-model"><span class="sc-l">Model answer</span><p>Owning Intel means holding <b>equity</b> — I'm a residual claimant, last in the capital structure, so in a bankruptcy I only get what's left after lenders and bondholders are paid, which could be zero. In exchange, my upside is uncapped. Lending to Intel via a bond puts me higher in line with a contractual right to (usually semi-annual) coupons and principal at maturity, so it's safer — but my upside is capped at those payments. And notably, Intel suspended its dividend in 2025, so right now an equity holder's entire return rides on the stock price and the foundry thesis, not income.</p></div>
+              </div>
+            </details>
           </div>
         </details>
 
@@ -709,7 +738,18 @@
               <label class="task"><input type="checkbox" data-wk="w2"><span class="t-txt">Do the same four margins for NVDA, put them side by side, and write what the difference says about the two business models. <a class="xref" href="#formula">→ Formula Desk: ratios</a></span></label>
             </div>
 
-            <div class="client"><span class="cm">Client mtg</span><label class="task" style="padding:0"><input type="checkbox" data-wk="w2"><span class="t-txt">Walk Claude through why a profitable company can still run out of cash — using a real mechanism (receivables, inventory, or CapEx).</span></label></div>
+            <div class="client"><span class="cm">Client mtg</span><label class="task" style="padding:0"><input type="checkbox" data-wk="w2"><span class="t-txt">Walk through why a profitable company can still run out of cash — using a real mechanism (receivables, inventory, or CapEx). Say it, then check yourself ↓</span></label></div>
+            <details class="selfcheck"><summary>✓ Check yourself — reveal the model answer</summary>
+              <div class="sc-body">
+                <div class="sc-rubric"><span class="sc-l">Your answer should hit</span><ul>
+                  <li><b>Profit ≠ cash</b> — accrual accounting books a sale when earned, not when cash lands</li>
+                  <li>Name a real mechanism: <b>receivables</b> (sold but not paid yet), <b>inventory</b> (cash locked in unsold goods), or <b>CapEx</b> (big cash out now, expensed slowly via depreciation)</li>
+                  <li><b>Growth eats cash</b> — rising sales tie up more in working capital before you collect</li>
+                  <li>The tell: <b>net income rising while operating cash flow / FCF isn't</b></li>
+                </ul></div>
+                <div class="sc-model"><span class="sc-l">Model answer</span><p>Because profit is an accounting opinion and cash is a fact. Under accrual accounting a company records revenue when it makes the sale, not when the cash arrives — so if customers buy on credit, net income rises but the cash is stuck in <b>accounts receivable</b>. Same with <b>inventory</b>: cash goes out to build product that hasn't sold. And <b>CapEx</b> — like Intel's fabs — is a huge cash outflow now that only hits the income statement slowly as depreciation. So a growing, "profitable" firm can be cash-negative because growth ties cash up faster than profit releases it. The tell is net income climbing while free cash flow lags.</p></div>
+              </div>
+            </details>
           </div>
         </details>
 
@@ -762,7 +802,19 @@
               <label class="task"><input type="checkbox" data-wk="w3"><span class="t-txt">Ask: if I decided Intel was fairly valued, is <em>now</em> a good entry by the chart — at support, or mid-air? Where would my stop go?</span></label>
             </div>
 
-            <div class="client"><span class="cm">Client mtg</span><label class="task" style="padding:0"><input type="checkbox" data-wk="w3"><span class="t-txt">Explain to Claude how you’d combine a fundamental “it’s cheap” call with a technical “good entry” call — the full workflow, in order.</span></label></div>
+            <div class="client"><span class="cm">Client mtg</span><label class="task" style="padding:0"><input type="checkbox" data-wk="w3"><span class="t-txt">Explain how you'd combine a fundamental “it's cheap” call with a technical “good entry” call — the full workflow, in order. Say it, then check yourself ↓</span></label></div>
+            <details class="selfcheck"><summary>✓ Check yourself — reveal the model answer</summary>
+              <div class="sc-body">
+                <div class="sc-rubric"><span class="sc-l">Your answer should hit</span><ul>
+                  <li><b>Fundamentals first</b> — decide WHAT to buy and rough fair value (cheap vs intrinsic worth)</li>
+                  <li><b>Technicals second</b> — decide WHEN: time the entry, don't pick the stock</li>
+                  <li>Right order matters: <b>value first, then time</b> — never let a chart talk you into a bad business</li>
+                  <li>Good entry = at/near <b>support</b>, with the <b>trend</b>, not mid-air; don't catch a falling knife (cheap + downtrend = wait)</li>
+                  <li>Define an <b>invalidation / stop</b> before entering</li>
+                </ul></div>
+                <div class="sc-model"><span class="sc-l">Model answer</span><p>Fundamentals and technicals answer different questions, so I use them in order. First, <b>fundamentals decide what and whether</b>: I value the business and ask if it's cheap relative to intrinsic worth. Only once it clears that do I switch to <b>technicals to time the entry</b> — I want to buy near a support level, ideally with the trend, not mid-air after a big run. If it's cheap but in a strong downtrend, I wait rather than catch a falling knife. And I set my invalidation — where the thesis or the level is wrong — before I enter. Value picks the stock; the chart picks the moment.</p></div>
+              </div>
+            </details>
           </div>
         </details>
 
@@ -813,7 +865,18 @@
               <label class="task"><input type="checkbox" data-wk="w4"><span class="t-txt">Check CME FedWatch for the market-implied odds of the next Fed move, and write one line on what that implies for the discount rate you’d use on a stock.</span></label>
             </div>
 
-            <div class="client"><span class="cm">Client mtg</span><label class="task" style="padding:0"><input type="checkbox" data-wk="w4"><span class="t-txt">Explain why a rate hike can hit NVDA (growth) harder than a value stock — using the word “duration” and the discount-rate chain.</span></label></div>
+            <div class="client"><span class="cm">Client mtg</span><label class="task" style="padding:0"><input type="checkbox" data-wk="w4"><span class="t-txt">Explain why a rate hike can hit NVDA (growth) harder than a value stock — using the word “duration” and the discount-rate chain. Say it, then check yourself ↓</span></label></div>
+            <details class="selfcheck"><summary>✓ Check yourself — reveal the model answer</summary>
+              <div class="sc-body">
+                <div class="sc-rubric"><span class="sc-l">Your answer should hit</span><ul>
+                  <li>The <b>discount-rate chain</b>: Fed hikes → risk-free rate up → required return up → discount rate up → PV of future cash flows down</li>
+                  <li><b>Duration</b>: growth stocks are <b>long-duration</b> — most of their value sits in <b>far-future</b> cash flows</li>
+                  <li>A higher discount rate <b>punishes far-future cash flows hardest</b>, so growth falls more</li>
+                  <li>Value stocks lean on <b>near-term</b> cash flows → less rate-sensitive</li>
+                </ul></div>
+                <div class="sc-model"><span class="sc-l">Model answer</span><p>It runs through the discount-rate chain. When the Fed hikes, the risk-free rate rises, which lifts the required return I use to discount a stock's future cash flows — and a higher discount rate lowers the present value of those cash flows. The key is <b>duration</b>: a growth name like NVDA is long-duration, meaning most of its value is in cash flows far out in the future. Discounting hits far-future dollars the hardest, so a higher rate cuts a growth stock's value more. A value stock's worth sits in near-term cash flows, which barely move when the rate changes — so it's far less rate-sensitive.</p></div>
+              </div>
+            </details>
           </div>
         </details>
 
@@ -868,7 +931,19 @@
               <label class="task"><input type="checkbox" data-wk="w5"><span class="t-txt">Map your whole book into buckets (tech, semis, energy, broad). Name your single biggest concentration and decide if it’s on purpose. <a class="xref" href="#portfolio">→ Portfolio Desk</a></span></label>
             </div>
 
-            <div class="client"><span class="cm">Cumulative</span><label class="task" style="padding:0"><input type="checkbox" data-wk="w5"><span class="t-txt">Client meeting + interleaved quiz on all terms from Weeks 1–4 — cold, no notes. Then defend one fair-value call out loud in 90 seconds.</span></label></div>
+            <div class="client"><span class="cm">Cumulative</span><label class="task" style="padding:0"><input type="checkbox" data-wk="w5"><span class="t-txt">Cumulative recall on all terms from Weeks 1–4 — cold, no notes. Then defend one fair-value call out loud in 90 seconds. Check yourself ↓</span></label></div>
+            <details class="selfcheck"><summary>✓ Check yourself — reveal the fair-value defense rubric</summary>
+              <div class="sc-body">
+                <div class="sc-rubric"><span class="sc-l">A complete 90-second fair-value defense hits</span><ul>
+                  <li><b>Method</b>: multiples (P/E vs peers &amp; its own history) <b>or</b> DCF (project FCF, discount at a rate built from macro + WACC)</li>
+                  <li><b>The number</b>: state your fair value and <b>compare it to the current price</b> — cheap, rich, or fair</li>
+                  <li><b>The key assumption</b> your call hinges on (growth rate, margin, discount rate) — and how sensitive the answer is to it</li>
+                  <li><b>The invalidation</b>: what would prove you wrong</li>
+                  <li><b>Position fit</b>: how it sits in your book — concentration / diversification (your tech-heavy tilt, URA as the diversifier)</li>
+                </ul></div>
+                <div class="sc-model"><span class="sc-l">Model shape (using INTC)</span><p>"I value Intel two ways. On multiples, its P/E is [X] vs TSMC/AMD at [Y], so it screens [cheap/rich] — but that's low-conviction because earnings are depressed by fab spend. So I lean on a DCF: I project free cash flow assuming the foundry buildout converts CapEx into FCF by [year], discount at roughly my WACC, and get a fair value of about $[Z] versus the current $[price]. The whole call hinges on the <b>foundry-ramp assumption</b> — if IDM 2.0 slips, the thesis breaks, and that's my invalidation. Given it's already a big semis position alongside NVDA, I'd size it as a deliberate concentrated bet, not an accident."</p></div>
+              </div>
+            </details>
           </div>
         </details>
 
