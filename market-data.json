@@ -1,7 +1,7 @@
 {
-  "updated_utc": "2026-08-13T22:01:04.494Z",
-  "updated_label": "Aug 13, 2026, 6:01 PM ET",
-  "session": "close",
+  "updated_utc": "2026-08-14T12:41:40.268Z",
+  "updated_label": "Aug 14, 2026, 8:41 AM ET",
+  "session": "premarket",
   "source": "Finnhub",
   "indices": [
     {
@@ -175,44 +175,44 @@
     "change": -2.27,
     "pct": -1.7832
   },
-  "narrative": "Risk-on tone. S&P closed +0.7%, 8/12 sectors higher. Comm Svcs led (+2.1%); Materials lagged (-0.5%). Your book: semis (SMH) +0.7%, INTC +3.6%, NVDA +0.5%.",
+  "narrative": "Risk-on setup. S&P pre-market +0.7%, 8/12 sectors higher. Comm Svcs led (+2.1%); Materials lagged (-0.5%). Your book: semis (SMH) +0.7%, INTC +3.6%, NVDA +0.5%.",
   "brief": {
-    "asof": "Aug 13, 2026, 6:01 PM ET",
-    "session": "close",
-    "picture": "Risk-on tone. S&P closed +0.7%, 8/12 sectors higher. Comm Svcs led (+2.1%); Materials lagged (-0.5%).",
+    "asof": "Aug 14, 2026, 8:41 AM ET",
+    "session": "premarket",
+    "picture": "Risk-on setup. S&P pre-market +0.7%, 8/12 sectors higher. Comm Svcs led (+2.1%); Materials lagged (-0.5%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals +0.5% vs defensives +0.7%, roughly balanced.",
     "book": "Your book: semis (SMH) +0.7%, INTC +3.6%, NVDA +0.5%.",
     "week": "Past 5 sessions: Technology closed lower in 2 of 5 (+2.9% cumulative), semis +3.1%. On the week, Energy leads (+5.0%) and Materials trails (+0.3%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
-        "headline": "NEWSLETTER: Trump reckons with a war that won’t leave him alone - Reuters",
+        "headline": "Oil set for weekly gains after US threatens indefinite blockade of Iran - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNOFFaUWV6X2Y0Z1ZyZnlDaHlOUG5rSnFzdDFSVGx2SzluWVVJYlFlRFdMXzQzQkV4UERITFhfaEdQdmdCVS1tUmJWWFlYdnF6dk5IcXdPdERjVzZtQV9na3dtR2VxYkc2LWtHOFdlVl9LcEQyUHRPdWhuM2drMnpQV1BCTURwYUE1d0VMV2QzaW1PWms5V2pwUg?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxON2pvV0t4T25LdUVjOHpBU2tzN1RER1ZRQWF3cGZ3aEVZUm1JRXJXSk5xdWxaV3VEbEFMWHAtUkZ6MlpKX0VVRWlmNklKaUM3R3hER1o2WkEydXl0ZzZiS3NpNVNVdm80ck55SktBekVZbG1SaDdVdTJJOWJuUDMyV0RLNlJ5QkpYNUxGVjFQUHNQTWg1bVlJT3RXcXkyNkEwcUFtSGhLOXpWUno0LThMelpqWWRoQW8?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "US could not verify Israeli warnings of Iran plots against Trump, sources say - Reuters",
+        "headline": "US warns Iran it will step up economic pressure; two more ships attacked in Hormuz - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQSnhVZVpUNm9PZUM5Z3VkNWp1NVJNdmdYcTZDblZhWURVRnhKLWtNTTVUeHpaNE5wN2M0cGU1WFBycHhGT2h4T2taMTR0NUduWkRCczBUMTVwaldHY0lNVzB6QkZMMHg4dUM3ekkwaWJWME9NSHlWSUl6R0pXYk92V3BZM1NNVnRNNVRFR1hhVXU2blhNTEdKeWh6c3pGUVNSS09XTDgwNkxtMmVSU1lnQVZob2FldllGeWVMRUZ1NkRnNEs5WUE?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNcUdkcXFHNHlWMzdKeGE0QzFWU2FRNTl4aHYxMk5VNEU1REROam1XMW5hQnVPMlVCOHV5Y1k5X2N6eEx1UlpJOExJVFlXQzU5bWE1LXE1ZndpQUtpeFpVb2FoWUhlODVPWUVxeTNwcjNXQXRzMFloclJMNFBqNDJiUmFjam1kODNyQ1BvYU90dmptbG1mLWd6enN6dDZRb2JiRFg2TGdNSzJaM1g1c2xPd0lqTFBSblp6RGFKWktyVkI3dEVRMmJqNDdfLUc?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "Cramer: How words of wisdom from Gene Hackman help me make peace with investing mistakes",
+        "headline": "Treasury yields rise as U.S. threatens Iran with more economic sanctions",
         "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/08/13/cramer-how-words-of-wisdom-from-gene-hackman-help-me-make-peace-with-investing-mistakes.html",
+        "url": "https://www.cnbc.com/2026/08/14/treasury-yields-us-iran-economic-sanctions.html",
         "tag": "Market"
       },
       {
-        "headline": "Intel Stock Jumps as Bank of America Sees Bigger CPU Market",
+        "headline": "The Bull Market Is Almost Back for Chip Stocks",
         "source": "Yahoo",
-        "url": "https://finnhub.io/api/news?id=956eaff712938785b1bf441f8d4a23fd997ec4649ae35ca48ae3658aff488df6",
+        "url": "https://finnhub.io/api/news?id=440c3cea64045e87ceffe228cbf5e06d724e0a50a10de76f99a741252b5169eb",
         "tag": "Your book"
       },
       {
-        "headline": "Why Pan American Silver Stock Was Tumbling Today",
+        "headline": "The next AI winners may look nothing like Nvidia or Micron: One Big Investment Idea",
         "source": "Yahoo",
-        "url": "https://finnhub.io/api/news?id=e788098df21cbbc12e9311901459adbde63381096872bb8810fb2c731c3ebf44",
+        "url": "https://finnhub.io/api/news?id=5958f486c0c7755211c6c6308a6d1f60c1b65de72ee3d5c5f19164d67a5c1552",
         "tag": "Your book"
       }
     ]
