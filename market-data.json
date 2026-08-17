@@ -1,7 +1,7 @@
 {
-  "updated_utc": "2026-08-14T23:28:24.405Z",
-  "updated_label": "Aug 14, 2026, 7:28 PM ET",
-  "session": "close",
+  "updated_utc": "2026-08-17T12:22:51.597Z",
+  "updated_label": "Aug 17, 2026, 8:22 AM ET",
+  "session": "premarket",
   "source": "Finnhub",
   "indices": [
     {
@@ -176,43 +176,43 @@
     "change": 1.57,
     "pct": 1.2557
   },
-  "narrative": "Mixed tone — positive breadth masked by megacap weakness. S&P closed -0.2%, 7/11 sectors higher. Energy led (+1.4%); Health Care lagged (-0.6%). Your book: semis (SMH) -0.2%, INTC -2.0%, NVDA -0.1%.",
+  "narrative": "Mixed setup — positive breadth masked by megacap weakness. S&P pre-market -0.2%, 7/11 sectors higher. Energy led (+1.4%); Health Care lagged (-0.6%). Your book: semis (SMH) -0.2%, INTC -2.0%, NVDA -0.1%.",
   "brief": {
-    "asof": "Aug 14, 2026, 7:28 PM ET",
-    "session": "close",
-    "picture": "Mixed tone — positive breadth masked by megacap weakness. S&P closed -0.2%, 7/11 sectors higher. Energy led (+1.4%); Health Care lagged (-0.6%).",
+    "asof": "Aug 17, 2026, 8:22 AM ET",
+    "session": "premarket",
+    "picture": "Mixed setup — positive breadth masked by megacap weakness. S&P pre-market -0.2%, 7/11 sectors higher. Energy led (+1.4%); Health Care lagged (-0.6%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals +0.3% vs defensives +0.1%, roughly balanced.",
     "book": "Your book: semis (SMH) -0.2%, INTC -2.0%, NVDA -0.1%.",
     "week": "Past 5 sessions: Technology closed lower in 3 of 5 (+1.1% cumulative), semis +0.9%. On the week, Energy leads (+7.7%) and Cons Disc trails (-1.4%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
-        "headline": "Hormuz traffic slows further after US threatens more economic pressure on Iran - reuters.com",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNcUdkcXFHNHlWMzdKeGE0QzFWU2FRNTl4aHYxMk5VNEU1REROam1XMW5hQnVPMlVCOHV5Y1k5X2N6eEx1UlpJOExJVFlXQzU5bWE1LXE1ZndpQUtpeFpVb2FoWUhlODVPWUVxeTNwcjNXQXRzMFloclJMNFBqNDJiUmFjam1kODNyQ1BvYU90dmptbG1mLWd6enN6dDZRb2JiRFg2TGdNSzJaM1g1c2xPd0lqTFBSblp6RGFKWktyVkI3dEVRMmJqNDdfLUc?oc=5",
+        "headline": "Santoli: Earnings bonanza that lifted market to record may not be all that it appears to be",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/08/17/santoli-earnings-bonanza-that-lifted-market-to-record-may-not-be-all-that-it-appears-to-be.html",
         "tag": "Market"
       },
       {
-        "headline": "Trump urges Americans to accept higher gas prices as he escalates Iran rhetoric - reuters.com",
+        "headline": "Iran says two French embassy employees barred from returning - reuters.com",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOeUM3ajNSZS1FUnR1alRkTEx5QjBoNW1TSi1haWxKcmVLUlRlTWhTNVZJaVJGNkMtVVphd0xTbUtGbFRFUW5MZmh1MExTUmdZQmxpRGNMRkhaeExUemtveEFLQ0cydmJhT2JpNFY3TDVLUGlTekY0RHZJVE5EOEItMml3SlAwTlNLY2pkdUp1bjdSNTdmVGY3Vk1OdVgtOWFpRGlORHZ4NXQyVlc1NEFTWTZoSEtwN3R1UlE?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOWkZkRXBDZ3pPWVFROGdBUVlseGpmSEpONkJ2MEdvQjFjajdMYmtLSVNOc1ZjeHg0WGZwNWZpM3ZjV1A2S2FNeHFrZTlRUFRKZGo4SUdwNDBoMUs3UEhwZTMxMzNXRDJEeEdzd0NTTVRaZF9JZFItWUduXzlsMEptODRYR2hFdVRKaDk1Sm83NFFMaTI0SFo5d3ExOTNIZ1M2TGsxWEdtRHRCdFB0eWc?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "Oil climbs over $1 on tanker attacks, no progrees on peace - reuters.com",
+        "headline": "Drones target office of Iraqi Kurdistan's PM, no casualties reported - reuters.com",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxON2pvV0t4T25LdUVjOHpBU2tzN1RER1ZRQWF3cGZ3aEVZUm1JRXJXSk5xdWxaV3VEbEFMWHAtUkZ6MlpKX0VVRWlmNklKaUM3R3hER1o2WkEydXl0ZzZiS3NpNVNVdm80ck55SktBekVZbG1SaDdVdTJJOWJuUDMyV0RLNlJ5QkpYNUxGVjFQUHNQTWg1bVlJT3RXcXkyNkEwcUFtSGhLOXpWUno0LThMelpqWWRoQW8?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQX1RqUHdlLUdxNkQweWdveHJybEs3OWpDaTFNRUhpWDFsSGd1V1hub0QzaTdNSlA3Sm1oX1I3NmEzNDdXRWx6UHZxUTJ0c0dmd1hUSzFfSnBraG5WVUQ5Y0RvLWlXUnY1Wi1OWnRQdFhISExZWWYyN2N0UUhJdWlMZzE3LUZXMTJrTFUtcmhIZkFmaU9YZGJONkN4NG9WSTByREhvVkpheWE1S2REbVBNcVNvNmNNQzhjVG9qcHRheG9NcnM?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "Friday's session: most active stock in the S&P500 index",
-        "source": "ChartMill",
+        "headline": "Consumer Tech (Aug 10-14): Trump Faces Federal Lawsuits, Apple & Alibaba To Create AI Model For China & More",
+        "source": "Benzinga",
         "url": "",
         "tag": "Your book"
       },
       {
-        "headline": "Third Point Dissolves Share Stake In NVIDIA",
-        "source": "Benzinga",
+        "headline": "FTXL: The \"Situational Awareness Trade\" Still Favors AI-Enabling Chips",
+        "source": "SeekingAlpha",
         "url": "",
         "tag": "Your book"
       }
