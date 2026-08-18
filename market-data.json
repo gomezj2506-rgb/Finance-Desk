@@ -1,7 +1,7 @@
 {
-  "updated_utc": "2026-08-17T21:38:32.583Z",
-  "updated_label": "Aug 17, 2026, 5:38 PM ET",
-  "session": "close",
+  "updated_utc": "2026-08-18T12:24:48.216Z",
+  "updated_label": "Aug 18, 2026, 8:24 AM ET",
+  "session": "premarket",
   "source": "Finnhub",
   "indices": [
     {
@@ -176,43 +176,43 @@
     "change": 3.69,
     "pct": 2.9147
   },
-  "narrative": "Risk-off tone. S&P closed -0.5%, 2/11 sectors higher. Energy led (+1.1%); Comm Svcs lagged (-1.9%). Your book: semis (SMH) +1.1%, INTC +1.0%, NVDA -0.1%.",
+  "narrative": "Risk-off setup. S&P pre-market -0.5%, 2/11 sectors higher. Energy led (+1.1%); Comm Svcs lagged (-1.9%). Your book: semis (SMH) +1.1%, INTC +1.0%, NVDA -0.1%.",
   "brief": {
-    "asof": "Aug 17, 2026, 5:38 PM ET",
-    "session": "close",
-    "picture": "Risk-off tone. S&P closed -0.5%, 2/11 sectors higher. Energy led (+1.1%); Comm Svcs lagged (-1.9%).",
+    "asof": "Aug 18, 2026, 8:24 AM ET",
+    "session": "premarket",
+    "picture": "Risk-off setup. S&P pre-market -0.5%, 2/11 sectors higher. Energy led (+1.1%); Comm Svcs lagged (-1.9%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals -0.5% vs defensives -0.8%, roughly balanced.",
     "book": "Your book: semis (SMH) +1.1%, INTC +1.0%, NVDA -0.1%.",
     "week": "Past 5 sessions: Technology closed lower in 2 of 5 (+2.1% cumulative), semis +4.3%. On the week, Energy leads (+4.0%) and Cons Disc trails (-2.4%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
-        "headline": "Pictures of the Day | August 17, 2026 - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9uVlZfdV8wakFJdkFCV0hYR1BmWWlvTF9vaDNpSlUyVE9uWWtyWlZ5dzltemVWQmdkeXp6YXVIcDE0LXJoeTNaTlBPbTg4RHl4RmdoUTNWb0xHUG1CSGRrV2RQNkY0SmhHaHJ5cldpYmxnS2YtUVVITFVjVHk?oc=5",
+        "headline": "Prediction markets entrant Novig posts more than $125 million in trading volume during its first week",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/08/18/novig-posts-more-than-125-million-in-trading-volume-in-its-first-week.html",
         "tag": "Market"
       },
       {
-        "headline": "China surprises oil markets again with a return to stockpiling in July - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOOWM3eVRJMFNmUjRab1RyZFVmQU12ZUVkbDVIUnpRQ2o3WnhSWlJ2RHhFWXE5bDM0WDFydXd1X3haSFQ5WUFVa1lrcFZGVTlUUjREY0NGNHZ3YWxEWDlxQjdIN3F5QTdPVEk5OURMbW9QQ2d2cDJxSVBYZVpoMU9yUU84Y0JkNFZ6anZ1d0FGaHpmek40WUJKTWxpeVZId2tnc0FxNXlLRmZWQmdLZG43SXdHUlBHc2F3MmlSZEpDVnRaRjRUb1hjWnhvOA?oc=5",
+        "headline": "Sea Ray parent Brunswick bets on AI navigation and new revenue streams to help stalling boat sales",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/08/18/sea-ray-parent-brunswick-ai-recurring-revenue-boat-sales.html",
         "tag": "Market"
       },
       {
-        "headline": "Trump says Iran won't make deal he thinks is needed, threatens to bomb Oman - Reuters",
+        "headline": "Hormuz Strait to remain shut until U.S. meets interim deal conditions, Iran says - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQZ3Rmc3puMlE0OGNHd3RFY2dEM3EzbkdKR3pxal9tVm1lWFliOE9Yc1NlVXN6aEx3SXJCSkVWVENjbjBJMWlXLThJdDE3NzF5aTRMbXJYdDNqRkRtYmlRUVhDcW02My04NWR1MXVianVOdDIwZXdsNGJ5a21walB1UjMxV2YyTGpfMFMzdHNZLW1YRjRaZENWZDE5akdRcFVibWlYcV9aTTM4UQ?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOSENtbzRKbGs1djM0OE56Z0w0ODhCSVBFdHBXeTFqUGo2dzVPZ25GQkhGUTNXQTFtY0tNNDFrTnlSN2ZtQ282M2pSbWZrMncwUGFOcEtyaTB6TXNLNDR4Y0gtMEloYUU2S185bVBjeEpnYTBEUF9peWhzeEV0NVR5TVU3d3psNnc2VHdzYTJ5ZlhUM3dVbXh0SlFQZmhUQl9wbzQ4WG5ETXp4UjZyeWRmV2FyekpaYTFiZ0djY1E5LTY0aXI4WjZn?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "These S&P500 stocks are the most active in today's session",
+        "headline": "Iran Risk and Oil Above $90 Snap the Rally as Memory Chips Do the Heavy Lifting and Reddit Wobbles Into the S&P 500",
         "source": "ChartMill",
         "url": "",
         "tag": "Your book"
       },
       {
-        "headline": "Discover which dow jones stocks are making waves on Monday.",
-        "source": "ChartMill",
+        "headline": "Goldman Sachs: Nvidia Exposure Is Attractive, But Valuation Warrants Caution (Rating Downgrade)",
+        "source": "SeekingAlpha",
         "url": "",
         "tag": "Your book"
       }
