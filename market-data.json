@@ -1,7 +1,7 @@
 {
-  "updated_utc": "2026-08-18T21:36:21.202Z",
-  "updated_label": "Aug 18, 2026, 5:36 PM ET",
-  "session": "close",
+  "updated_utc": "2026-08-19T12:24:29.775Z",
+  "updated_label": "Aug 19, 2026, 8:24 AM ET",
+  "session": "premarket",
   "source": "Finnhub",
   "indices": [
     {
@@ -176,42 +176,42 @@
     "change": 0.37,
     "pct": 0.284
   },
-  "narrative": "Risk-off tone. S&P closed -0.7%, 4/11 sectors higher. Energy led (+1.8%); Technology lagged (-2.5%). Your book: semis (SMH) -4.1%, INTC -6.6%, NVDA -2.3%.",
+  "narrative": "Risk-off setup. S&P pre-market -0.7%, 4/11 sectors higher. Energy led (+1.8%); Technology lagged (-2.5%). Your book: semis (SMH) -4.1%, INTC -6.6%, NVDA -2.3%.",
   "brief": {
-    "asof": "Aug 18, 2026, 5:36 PM ET",
-    "session": "close",
-    "picture": "Risk-off tone. S&P closed -0.7%, 4/11 sectors higher. Energy led (+1.8%); Technology lagged (-2.5%).",
+    "asof": "Aug 19, 2026, 8:24 AM ET",
+    "session": "premarket",
+    "picture": "Risk-off setup. S&P pre-market -0.7%, 4/11 sectors higher. Energy led (+1.8%); Technology lagged (-2.5%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg +0.5%) over cyclicals (-0.5%) — a cautious, risk-off tilt.",
     "book": "Your book: semis (SMH) -4.1%, INTC -6.6%, NVDA -2.3%.",
     "week": "Past 5 sessions: Technology closed lower in 2 of 5 (-0.3% cumulative), semis -0.6%. On the week, Energy leads (+4.5%) and Materials trails (-2.7%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
-        "headline": "UAE says two missiles detected earlier were launched from Iran - Reuters",
+        "headline": "Britain's energy price cap to hit three-year high in October, Cornwall Insight says - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOaVFKQ0k0Vk10ckR0U1JfNHlsLW9nWUtrc09mMUx4UzFzRHJsVk4zYkJQT2NFNHVoVTRyYjE3OTJOcXVtcHFoWGRpQndUTXFnQjFKVGZQM1ZRTkpEeVVPZlF4ZXUydnRUckVmOHU2SEtXU000ZVFhVE8teGhQZFFPbnVFX3dBM1pNa0oxbnFoTmF2bUM3MjFj?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOTUkzcjBJVHphRWJDcFhBSjFzaVZoS0VpblpPRzNLT0VrajJPZUoyZXFBa1JQV25Va3ZEODhIbVp0bU5zb2RDLUN5MlI2TjRkX0FkaFV4aGlLNTBRQl9JSDNoMF9GNnZFYWk5X08xMUtnLVFjN3l2UktNQjQ5eWJwVGVVbU9lUGpKNHJZd1p0TU1DT0o2eDlVVlU2cGNwdlc1X3loc3NmTVZTeUh5N1pjR3liajFlVEN6c1RTckhaVkFwWF95THY5WkpB?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "Dollar range-bound as markets price dovish Fed response - Reuters",
+        "headline": "Turkey slams Israel's 'untenable' claims after strikes on Syrian base - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQclBwalB5bkFIQVRLaXc3bHdrSFEteXF1NllCaTVjU08zRnlNckhhSzlvT3lOQ1FpNTZhQzh1VFVBVjJzaVc3Wkd4WXhVcURZV1BtUGttNEdRUS1RNkxQYU1jNHptUGgtMEhaVGNQdkRLTVl4bnNTeDJHMG9pYkV0dld0OXVDT0ZERHV1eGM0WGw1VVlEeFVIWElYNFlCRUtBd1ItU2tCcXNheWs?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPeTdCNlA1LTNVZ0ttZ2VXTGJLVnR5YjBnUnZMNFVWVzc5cUJEcHdxekdHLXBzcDNLUnp1TUx4N3J6SzJQQ0pOTEtSRFVWOTJpZC1xZEd4QTA1TkpEaG1mOXdTM2pQWU5kV3FqWTM3SlJUZEYyb180ZWxMRHlSZlVveDMtWkNJMTFwMWs0VTB6R1M1aHhNRVAzdXc2V29oOVBBRV8wM2FmWnE4OTNJVWpWU3E0Z0VBcnQ4?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "US working on deconfliction mechanism among Turkey, Israel and Syria, US envoy says - Reuters",
+        "headline": "South Korea minister says Trump appears to be pressuring Seoul over Iran, investment - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQVlZuUXBialdJbERhTVMyN3NRUkxUY251V1g4c3RDS0EyUnNEVWhNcGVFTFNETFZRLTJFcUpWaEdwS0NuQ1FTck1mNURabzBNbnMtNV9RRDQzQ1d2RHlHUHFlNWdPUFlselFNSElSVmJ1ZklSUlUyaGdCbVEwMTE3YnlzMG0yUkQyNWJZSHpHVFgwZlhkTHlDaUxNMGlzQ1VVM01WaTRSVDNLZjJJT2Z3WkttVW5RZFM0R3h2M0tDSklkZGhoSkhJ?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQTVZrYXM5NGpibkZyR1hqU0JpVWV4S084VkR4UGhsUDItUlpodjhuSl90NkJXdXBSc3NEcFZ2QzVIZFpoLXpDNWliT014aW9IbnNOd2o4eWUyZ2gyOFU4bHhSam1uczNnMVRrdlhHcVBKZDNqdWk2eTBJUkdWcjdSZEJfZ0pwQ0YzVk9vbmU2RFdOOTdQVE53WDNyOFUzend2Z01CaHBGaVFWc2hrSWxPdXMzV3Zfa083S2poUTI4b3hhM3FtVURfWXRsTmp5cFNY?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "Curious about the most active S&P500 stocks in today's session?",
+        "headline": "Wall Street Sinks as 30-Year Yield Hits 19-Year High, Chip Names Crumble",
         "source": "ChartMill",
         "url": "",
         "tag": "Your book"
       },
       {
-        "headline": "Explore the top gainers and losers within the dow jones index in today's session.",
+        "headline": "NVIDIA (NASDAQ:NVDA) Qualifies as an Affordable Growth Pick",
         "source": "ChartMill",
         "url": "",
         "tag": "Your book"
