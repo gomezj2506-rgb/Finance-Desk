@@ -1,7 +1,7 @@
 {
-  "updated_utc": "2026-08-19T21:38:16.102Z",
-  "updated_label": "Aug 19, 2026, 5:38 PM ET",
-  "session": "close",
+  "updated_utc": "2026-08-20T12:27:02.006Z",
+  "updated_label": "Aug 20, 2026, 8:27 AM ET",
+  "session": "premarket",
   "source": "Finnhub",
   "indices": [
     {
@@ -176,43 +176,43 @@
     "change": 0.25,
     "pct": 0.1913
   },
-  "narrative": "Mixed tone. S&P closed +0.2%, 6/11 sectors higher. Health Care led (+3.5%); Technology lagged (-1.1%). Your book: semis (SMH) -1.6%, INTC -4.0%, NVDA -1.0%.",
+  "narrative": "Mixed setup. S&P pre-market +0.2%, 6/11 sectors higher. Health Care led (+3.5%); Technology lagged (-1.1%). Your book: semis (SMH) -1.6%, INTC -4.0%, NVDA -1.0%.",
   "brief": {
-    "asof": "Aug 19, 2026, 5:38 PM ET",
-    "session": "close",
-    "picture": "Mixed tone. S&P closed +0.2%, 6/11 sectors higher. Health Care led (+3.5%); Technology lagged (-1.1%).",
+    "asof": "Aug 20, 2026, 8:27 AM ET",
+    "session": "premarket",
+    "picture": "Mixed setup. S&P pre-market +0.2%, 6/11 sectors higher. Health Care led (+3.5%); Technology lagged (-1.1%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg +1.4%) over cyclicals (+0.2%) — a cautious, risk-off tilt.",
     "book": "Your book: semis (SMH) -1.6%, INTC -4.0%, NVDA -1.0%.",
     "week": "Past 5 sessions: Technology closed lower in 3 of 5 (-2.8% cumulative), semis -4.1%. On the week, Health Care leads (+4.3%) and Technology trails (-2.8%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
-        "headline": "Wall St rises as yields ease, Moderna lifts healthcare stocks - Reuters",
+        "headline": "Harry and Meghan: Their life together in photos - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQNnFzX1pZYUZsd0lHWkM3SGVWNE9NRkFvRVdmQ1JIcVJMeXBKenVjQnJLVlFOTnpSVTU2VW95Y2ZUNUdaTnNqd0ItNGpUVktVMkFjR29JTExtc1NUV3lKYkw3MGRDWFozRmlJM0lIdW0xd3daMHZPTVVwZzV3d1ZZTGkybTBPYlZ6czhMVDNtY29pRE5SM2hvejNyZFFLUnRRSXMzTmhYTjBjTTBCejc5N1dxakdsSXBVSzZNRFV6cw?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNemU0alhTVF8wYVhBNFUzbWN6TFhEU21UdTA1MHpEYkxrOE5jQ3d6OUNySnpQMXdnanlXV2s4Y3NsVFlJU0d6QmhsS3Qtei1NMVcwUzRielE2cFIydnNVWkR3Y0U1aDdQNmhrZ3YzMDBYRFlMR0t5Y0pGZElFbUwwMElZbndyMVVNS19FdA?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "US warns Siemens devices can be hacked amid fears Iran is breaching water plants - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPWFBQNnUwclV2NHRhcFo3Yk5Bd1F6N1hrZzR2WTFsNUtFZWxPYXZGV2dEMmpJRG8tcDNnUGxpQkUtc0FXLWZvc2hhOWZxYll6OVQ3c1N6SHZSVndYLXI5SmtRb182RUdpeVctUVpES1I4amtHano3TnNzV2ZxTVBEZmh4aXpaOE03Z0NXYlg3SDk5a2d2VzBsLXRqVnBQRFVWMFdqR3Z1di1WMUo2ZmZuNlRHNHozbTNzdHhfLTZIQQ?oc=5",
-        "tag": "Market"
-      },
-      {
-        "headline": "Where we stand on Broadcom after Marvell muscles in on its key customer Google",
+        "headline": "ChatGPT for Teens makes vital safety strides, says expert. 'The real question is, does any of this work?'",
         "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/08/19/where-we-stand-on-broadcom-as-shares-dip-on-googles-deal-with-marvell.html",
+        "url": "https://www.cnbc.com/2026/08/20/chatgpt-for-teens-makes-safety-strides-but-do-they-work.html",
         "tag": "Market"
       },
       {
-        "headline": "What's going on in today's session: S&P500 most active stocks",
-        "source": "ChartMill",
+        "headline": "Workers can't agree if junior employees should use AI at work: CNBC survey",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/08/20/workers-cant-agree-if-junior-employees-should-use-ai-at-work-cnbc-survey.html",
+        "tag": "Market"
+      },
+      {
+        "headline": "Intel: Why I Am Not Buying The Dip",
+        "source": "SeekingAlpha",
         "url": "",
         "tag": "Your book"
       },
       {
-        "headline": "Which dow jones stocks are moving on Wednesday?",
-        "source": "ChartMill",
+        "headline": "Investing In The Building Blocks Of The Humanoid Revolution - Part 2 (The Brain)",
+        "source": "SeekingAlpha",
         "url": "",
         "tag": "Your book"
       }
