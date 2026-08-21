@@ -1,7 +1,7 @@
 {
-  "updated_utc": "2026-08-20T21:42:12.265Z",
-  "updated_label": "Aug 20, 2026, 5:42 PM ET",
-  "session": "close",
+  "updated_utc": "2026-08-21T12:26:09.056Z",
+  "updated_label": "Aug 21, 2026, 8:26 AM ET",
+  "session": "premarket",
   "source": "Finnhub",
   "indices": [
     {
@@ -21,9 +21,9 @@
     {
       "sym": "DIA",
       "name": "Dow Jones",
-      "price": 527.59,
-      "change": -6.68,
-      "pct": -1.2503
+      "price": 527.51,
+      "change": -6.76,
+      "pct": -1.2653
     },
     {
       "sym": "IWM",
@@ -176,32 +176,32 @@
     "change": 3.63,
     "pct": 2.7729
   },
-  "narrative": "Risk-off tone. S&P closed -0.8%, 2/11 sectors higher. Energy led (+0.3%); Health Care lagged (-1.9%). Your book: semis (SMH) +0.3%, INTC -0.7%, NVDA -0.3%.",
+  "narrative": "Risk-off setup. S&P pre-market -0.8%, 2/11 sectors higher. Energy led (+0.3%); Health Care lagged (-1.9%). Your book: semis (SMH) +0.3%, INTC -0.7%, NVDA -0.3%.",
   "brief": {
-    "asof": "Aug 20, 2026, 5:42 PM ET",
-    "session": "close",
-    "picture": "Risk-off tone. S&P closed -0.8%, 2/11 sectors higher. Energy led (+0.3%); Health Care lagged (-1.9%).",
+    "asof": "Aug 21, 2026, 8:26 AM ET",
+    "session": "premarket",
+    "picture": "Risk-off setup. S&P pre-market -0.8%, 2/11 sectors higher. Energy led (+0.3%); Health Care lagged (-1.9%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals -0.6% vs defensives -0.9%, roughly balanced.",
     "book": "Your book: semis (SMH) +0.3%, INTC -0.7%, NVDA -0.3%.",
     "week": "Past 5 sessions: Technology closed lower in 4 of 5 (-4.0% cumulative), semis -4.5%. On the week, Energy leads (+4.4%) and Technology trails (-4.0%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
-        "headline": "Harry and Meghan: Their life together in photos - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNemU0alhTVF8wYVhBNFUzbWN6TFhEU21UdTA1MHpEYkxrOE5jQ3d6OUNySnpQMXdnanlXV2s4Y3NsVFlJU0d6QmhsS3Qtei1NMVcwUzRielE2cFIydnNVWkR3Y0U1aDdQNmhrZ3YzMDBYRFlMR0t5Y0pGZElFbUwwMElZbndyMVVNS19FdA?oc=5",
-        "tag": "Market"
-      },
-      {
-        "headline": "The Los Angeles Lakers sold for $12.5 billion. Here’s what every NBA team is now worth",
+        "headline": "Gold rebounds as bond jitters, debt fears and weaker dollar revive bullion demand",
         "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/08/20/heres-how-the-los-angeles-lakers-12point5b-sale-impacts-the-value-of-all-30-nba-teams.html",
+        "url": "https://www.cnbc.com/2026/08/21/gold-prices-us-debt-dollar.html",
         "tag": "Market"
       },
       {
-        "headline": "Oil settles up more than 2% after Trump threatens countries supporting Iran - Reuters",
+        "headline": "Take Five: Six months of war - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOM1ZTcG5JRHQxeFFrOEd6Q0s4eWdFZGZwRmUyaFlPQkEwWEFLZ2xtLUJxMDFGRzZEZ1VEMjA5MjlMazgtZkJRM01FRXJ3Yk5wZUJSRW8yUEc5THM4VEZBd3V0LVhiRHBBWExnTElPMTRCX3d1ODhKR2lDdHVDVktTZS1BTUtuLXN2ZGRwUmpnNzhEdDJBZnp3cHExVndUYWlrenVEOXI0dVppdw?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNX0lPYzNQYzNFb2I1ZW91YXRCQWhCYWV2NGFkMWNtTV9KdUUtSWNOREVHOEJGY3R5THNITzY0d29lTTB3Tk5RQ1dGQ21nYk1oblczcGVua3RuemZLdm1BeXBETDEwN29rWEZGeG1VUy04ZUxGRDRWWEdKa1VLNS1nYzR1Y1VNSFVFcmJ3VQ?oc=5",
+        "tag": "Market"
+      },
+      {
+        "headline": "Oil set for second weekly gain as US ramps up pressure on Iran - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPbEh1QVJmcTNtSE1PMURxNmRBT3RIWHhVTmtwZDRiMk5yUzJtc2xuNHFlQXF1a3VJS3FQckxIY3Y2VjhFejlkNDZnLTY0R0prazZHb194Y19sRDdjUVJtNHlMT0lwSHRRcU5UM2VBTFZpVHBDZEl1OGFWbUkxX1pacWhMYUtFQ0pRbGVRYVNYcy1zSUNZVWtxNW4zczc0YVhZVkFWUHJwRWlFQl8zQUR3dFNIU1o?oc=5",
         "tag": "Market"
       },
       {
@@ -211,8 +211,8 @@
         "tag": "Your book"
       },
       {
-        "headline": "Which dow jones stocks are moving on Thursday?",
-        "source": "ChartMill",
+        "headline": "Nvidia: There Is No Plan B",
+        "source": "SeekingAlpha",
         "url": "",
         "tag": "Your book"
       }
