@@ -1,7 +1,7 @@
 {
-  "updated_utc": "2026-08-21T21:36:43.091Z",
-  "updated_label": "Aug 21, 2026, 5:36 PM ET",
-  "session": "close",
+  "updated_utc": "2026-08-24T12:27:37.212Z",
+  "updated_label": "Aug 24, 2026, 8:27 AM ET",
+  "session": "premarket",
   "source": "Finnhub",
   "indices": [
     {
@@ -176,42 +176,42 @@
     "change": 0.1,
     "pct": 0.0743
   },
-  "narrative": "Risk-on tone. S&P closed +0.4%, 8/11 sectors higher. Materials led (+2.1%); Utilities lagged (-2.3%). Your book: semis (SMH) -0.4%, INTC -2.2%, NVDA -1.0%.",
+  "narrative": "Risk-on setup. S&P pre-market +0.4%, 8/11 sectors higher. Materials led (+2.1%); Utilities lagged (-2.3%). Your book: semis (SMH) -0.4%, INTC -2.2%, NVDA -1.0%.",
   "brief": {
-    "asof": "Aug 21, 2026, 5:36 PM ET",
-    "session": "close",
-    "picture": "Risk-on tone. S&P closed +0.4%, 8/11 sectors higher. Materials led (+2.1%); Utilities lagged (-2.3%).",
+    "asof": "Aug 24, 2026, 8:27 AM ET",
+    "session": "premarket",
+    "picture": "Risk-on setup. S&P pre-market +0.4%, 8/11 sectors higher. Materials led (+2.1%); Utilities lagged (-2.3%).",
     "rotation": "Money leaned toward cyclicals (Tech/Financials/Industrials/Energy avg +0.7%) over defensives (-0.1%) — a risk-on, growth-seeking tilt.",
     "book": "Your book: semis (SMH) -0.4%, INTC -2.2%, NVDA -1.0%.",
     "week": "Past 5 sessions: Technology closed lower in 3 of 5 (-3.5% cumulative), semis -4.7%. On the week, Health Care leads (+4.3%) and Technology trails (-3.5%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
-        "headline": "Wall St rises on the day but falls for the week; bond yields and Iran in focus - Reuters",
+        "headline": "Trump Media CEO defends selling faster access to president's Truth Social posts, says more have signed up",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/08/24/trump-media-ceo-truth-api.html",
+        "tag": "Market"
+      },
+      {
+        "headline": "The Hormuz crude volume debate masks the real shortage of refined fuels - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQX2E3YkdBQXBjbW43VmpoeklMN0VYV0ZtV0xZeUNHQUx0aXAxLW16MjU5bWdkLVRxUzlpNGhWWEpCeUJDd3JYbTJkZE5KTll3R3JkZGJoamdUSnRPMmp1d21Tc2lUb3FVcldGcXBXamZZU0lqcEV1SDdwN09pOUl4cTM4WHBnWDVhNExtbzdkMXBYVTRmVjVXSjQyYjMyUXJt?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNdWt2QTd6U25aN2I3V1VZTmhVdVBPNTdYNUx5OXlNQWcxcFo4TEJwUEo3Z2R0MWRBRnVvT3FqMms2NURIQURVdWtZVlEtM1d3YlBEVDh4b0g1SmlFWVVGRDRJYVVvbUI5eFRGWmxDRXF6eWFVVXF5TktKWS11NFZhUkU4eVJNY2ljcThUQi1uZ21Zc0NhekVIMmxDcUhla0xPSFZlV0VlSTJJOTdQU1hXODZwMmxPM043dmV1SFdCSDRlZ3BNMXJLXw?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "Ray Dalio says Bessent move is sign that a debt crisis is getting closer; recommends gold and bitcoin",
+        "headline": "UPS is investing $2 billion in international, healthcare and supply chain businesses",
         "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/08/21/ray-dalio-bessent-debt-crisis-bitcoin-gold.html",
+        "url": "https://www.cnbc.com/2026/08/24/ups-global-logistics-investment.html",
         "tag": "Market"
       },
       {
-        "headline": "An overlooked AI winner names a new CFO — plus, Nvidia's key earnings loom",
-        "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/08/21/an-overlooked-ai-winner-taps-new-cfo-as-street-awaits-nvidia.html",
-        "tag": "Market"
-      },
-      {
-        "headline": "Which S&P500 stocks are the most active on Friday?",
-        "source": "ChartMill",
+        "headline": "Alibaba Launches Record $10 Billion Share Sale to Enter the AI Race",
+        "source": "Yahoo",
         "url": "",
         "tag": "Your book"
       },
       {
-        "headline": "Discover which dow jones stocks are making waves on Friday.",
+        "headline": "NVIDIA (NASDAQ:NVDA) Pairs High Growth Momentum with a Breakout Setup",
         "source": "ChartMill",
         "url": "",
         "tag": "Your book"
