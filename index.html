@@ -1772,32 +1772,38 @@
   }
 
   function render(data){
-    var pre = (data.session === 'premarket');
+    var sess = data.session || 'close';
+    var pre  = (sess === 'premarket' || sess === 'prior_close');
+    var live = (sess === 'intraday');
     // status pill → PRE-MARKET (amber) or CLOSE (green)
     var st=document.getElementById('mkt-status');
     if(st){
       st.classList.add('islive');
-      if(pre){ st.classList.remove('islive'); st.innerHTML='<span class="b"></span>PRE-MARKET'; }
-      else { st.innerHTML='<span class="b"></span>CLOSE'; }
+      if(pre){ st.classList.remove('islive'); st.innerHTML='<span class="b"></span>'+(data.status_pill||'LAST CLOSE'); }
+      else { st.innerHTML='<span class="b"></span>'+(data.status_pill||'CLOSE'); }
     }
     var stamp=document.getElementById('mkt-stamp');
     if(stamp && data.updated_label){
-      stamp.textContent=(pre?'BEFORE OPEN · ':'AT CLOSE · ')+data.updated_label.toUpperCase();
+      stamp.textContent=(data.stamp_prefix?data.stamp_prefix+' ':(pre?'LAST CLOSE · ':'AT CLOSE · '))+data.updated_label.toUpperCase()+(data.stale?' · STALE FEED':'');
     }
     // reframe the section subtitles per session
     var ssub=document.querySelector('#market .sector-wrap .ssub');
-    if(ssub) ssub.innerHTML = pre
-      ? 'Where every S&amp;P sector stands <em>going into the open</em> — your map of what to watch today.'
+    if(ssub) ssub.innerHTML = live
+      ? 'Where every S&amp;P sector stands <em>right now</em>, mid-session — what is actually moving today.'
+      : pre
+      ? 'Where every S&amp;P sector <em>ended last session</em> — this run fired before today&rsquo;s bell, so these are the prior close&rsquo;s numbers.'
       : 'Where every S&amp;P sector <em>ended</em>, ranked best to worst — the day\u2019s scorecard at a glance.';
     var rsub=document.querySelector('#market .tape-recap .rsub');
-    if(rsub) rsub.innerHTML = pre
-      ? 'The <em>why</em> to expect — setup, catalysts, and what could move your book today. Prices above auto-update; ask me for the deeper pre-market read.'
+    if(rsub) rsub.innerHTML = live
+      ? 'The <em>why</em> behind today&rsquo;s tape so far — what is leading, what is lagging, and what it means for your book. Refreshes every hour through the session.'
+      : pre
+      ? 'The <em>why</em> behind last session. Today&rsquo;s read fills in on the first run after the open.'
       : 'The <em>why</em> behind where we closed — macro, earnings, and flows. Prices above auto-update; ask me for the deeper close read.';
     var recapH=document.querySelector('#market .tape-recap h3');
-    if(recapH) recapH.innerHTML=(pre?'What to expect today':'Why we closed here')+'<span class="cursor"></span>';
+    if(recapH) recapH.innerHTML=(live?'Where today stands':pre?'Where we left off':'Why we closed here')+'<span class="cursor"></span>';
 
     var foot=document.getElementById('mkt-foot');
-    if(foot) foot.innerHTML='<b>'+(pre?'PRE-MARKET SETUP.':'CLOSING TAPE.')+'</b> Auto-updated by your GitHub Action from '+(data.source||'the market data API')+' — a pre-market run at ~8 AM ET and a close run at ~5 PM ET, no touch required.<br>Checking this before class <b>is</b> your Week-4 Tier-1 monitor habit — indices, sectors, oil, and the one story moving your book.';
+    if(foot) foot.innerHTML='<b>'+(live?'LIVE SESSION.':pre?'LAST CLOSE.':'CLOSING TAPE.')+'</b> Auto-updated by your GitHub Action from '+(data.source||'the market data API')+' — it refreshes every hour from the open through the close, no touch required.<br>Checking this before class <b>is</b> your Week-4 Tier-1 monitor habit — indices, sectors, oil, and the one story moving your book.';
 
     // ticker: indices + holdings + oil
     var tkItems=[];
@@ -1811,7 +1817,7 @@
     var ts=document.getElementById('ts-cells');
     var lbl=document.getElementById('ts-lbl');
     if(ts && data.indices && data.indices.length){
-      if(lbl) lbl.innerHTML=(pre?'Pre-mkt':'At close')+'<br><span>via tracking ETF</span>';
+      if(lbl) lbl.innerHTML=(live?'Now':pre?'Last close':'At close')+'<br><span>via tracking ETF</span>';
       ts.innerHTML=data.indices.map(function(x){
         var d=dir(x.pct);
         return '<div class="ts-cell"><span class="n">'+x.name+'</span>'+
