@@ -9,10 +9,30 @@ name: Update market data
 on:
   # run automatically on a schedule (times are in UTC)
   schedule:
-    # ~8:00 AM ET = 12:00 UTC — the PRE-MARKET "what to expect" run
-    - cron: '0 12 * * 1-5'
-    # ~5:15 PM ET = 21:15 UTC — the CLOSE "where we ended" run
-    - cron: '15 21 * * 1-5'
+    # WHY AN HOURLY SWEEP INSTEAD OF TWO FIXED RUNS
+    #
+    # The old schedule was 12:00 UTC ("8am ET pre-market") and 21:15 UTC
+    # ("5:15pm ET close"). Two things were wrong with it.
+    #
+    # 1. Finnhub's free /quote has no extended-hours data. At 8am ET it still
+    #    returns the PREVIOUS session's close, so the "pre-market" run was
+    #    publishing yesterday's numbers under today's date. That is what put
+    #    semis at -2.43% on a day SMH actually closed +1.65%.
+    # 2. Between the 8am run and the 5:15pm run the board sat frozen for nine
+    #    hours. Open it at 2pm and you were reading the morning's file.
+    #
+    # So: first run lands AFTER the bell (real, live numbers), and it refreshes
+    # every hour through the session.
+    #
+    # Cron here is UTC and does NOT follow US daylight saving. 13:45–21:45 UTC
+    # covers 9:45am–5:45pm ET in summer (EDT, UTC-4) and 8:45am–4:45pm ET in
+    # winter (EST, UTC-5) — the whole trading day in both regimes. Any run that
+    # lands outside market hours is not a problem: fetch-market.js reads the
+    # real ET clock and labels itself "LAST CLOSE" instead of pretending.
+    #
+    # Note: GitHub's scheduler is best-effort and often fires 5–20 minutes
+    # late when the shared runners are busy. That is normal and harmless here.
+    - cron: '45 13-21 * * 1-5'
   # also let you trigger it by hand from the Actions tab (handy for testing)
   workflow_dispatch:
 
