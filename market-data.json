@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-08-25T21:17:07.296Z",
-  "updated_label": "Aug 25, 2026, 5:17 PM ET",
+  "updated_utc": "2026-08-25T21:58:27.851Z",
+  "updated_label": "Aug 25, 2026, 5:58 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 77,
+  "quote_age_min": 118,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-on tone. S&P closed +0.3%, 6/11 sectors higher. Technology led (+0.9%); Energy lagged (-1.7%). Your book: semis (SMH) +1.6%, INTC +0.3%, NVDA +2.2%.",
   "brief": {
-    "asof": "Aug 25, 2026, 5:17 PM ET",
+    "asof": "Aug 25, 2026, 5:58 PM ET",
     "session": "close",
     "picture": "Risk-on tone. S&P closed +0.3%, 6/11 sectors higher. Technology led (+0.9%); Energy lagged (-1.7%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals -0.1% vs defensives -0.1%, roughly balanced.",
