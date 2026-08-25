@@ -1,7 +1,7 @@
 {
-  "updated_utc": "2026-08-24T21:42:32.582Z",
-  "updated_label": "Aug 24, 2026, 5:42 PM ET",
-  "session": "close",
+  "updated_utc": "2026-08-25T12:28:10.108Z",
+  "updated_label": "Aug 25, 2026, 8:28 AM ET",
+  "session": "premarket",
   "source": "Finnhub",
   "indices": [
     {
@@ -176,43 +176,43 @@
     "change": -2.43,
     "pct": -1.8048
   },
-  "narrative": "Mixed tone — positive breadth masked by megacap weakness. S&P closed -0.3%, 7/11 sectors higher. Staples led (+1.7%); Technology lagged (-1.8%). Your book: semis (SMH) -2.4%, INTC -3.1%, NVDA -2.9%.",
+  "narrative": "Mixed setup — positive breadth masked by megacap weakness. S&P pre-market -0.3%, 7/11 sectors higher. Staples led (+1.7%); Technology lagged (-1.8%). Your book: semis (SMH) -2.4%, INTC -3.1%, NVDA -2.9%.",
   "brief": {
-    "asof": "Aug 24, 2026, 5:42 PM ET",
-    "session": "close",
-    "picture": "Mixed tone — positive breadth masked by megacap weakness. S&P closed -0.3%, 7/11 sectors higher. Staples led (+1.7%); Technology lagged (-1.8%).",
+    "asof": "Aug 25, 2026, 8:28 AM ET",
+    "session": "premarket",
+    "picture": "Mixed setup — positive breadth masked by megacap weakness. S&P pre-market -0.3%, 7/11 sectors higher. Staples led (+1.7%); Technology lagged (-1.8%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg +0.8%) over cyclicals (-0.1%) — a cautious, risk-off tilt.",
     "book": "Your book: semis (SMH) -2.4%, INTC -3.1%, NVDA -2.9%.",
     "week": "Past 5 sessions: Technology closed lower in 4 of 5 (-5.4% cumulative), semis -8.0%. On the week, Health Care leads (+4.6%) and Technology trails (-5.4%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
-        "headline": "S&P 500, Nasdaq end down on tech stocks, investors weigh Iran moves - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQZmVCQWYzaWpzTVpmVFJPV0xRdEtUcXg0N2JKZHB5Z2JFZWpWRHFwS0Q3R2NtVHp1c29rem5scXhwa0FZMFZJNGtqM3ZCRlVOa1doNGNtWEcxVVZCYXFDSXlEbmJwODhKbG5Kdk15RDJpbDFleUFpWkdmbWEtMkhGWnF0U1FWWVpmSnp4aXp4UzlPc2hzaFNTWllwSm5UVWlpNWtWQlkzX1dqOHJNbkg5ag?oc=5",
-        "tag": "Market"
-      },
-      {
-        "headline": "Here's what the charts say about Nvidia's stock heading into earnings",
+        "headline": "OpenAI bans Russian ChatGPT accounts used in covert misinformation campaign",
         "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/08/24/heres-what-the-charts-say-about-nvidias-stock-heading-into-earnings.html",
+        "url": "https://www.cnbc.com/2026/08/25/openai-russia-chatgpt-influence-campaign.html",
         "tag": "Market"
       },
       {
-        "headline": "US removes Syria from terrorism sponsor list, lifting major investment obstacle - Reuters",
+        "headline": "Six months into Iran war, almost half of global oil flows from war zones - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxORlU2M1F3TVF0MDVWdXBQMUs3bTdBTTRnWHhRYU85b2IyU04tVTYySkFMVGhtNDBhQUZUdGRKQUNDRnFtRlRDRF9xZFlYaklWemxNNEo0WWNaZWpoQ1JuVWV5Rm94QzRKZzcyZVJIUGlzamtwRkVkcEdWeUxOZTVKZkRJRkJ1cTFwVElRUF9KN05zdEpRRjlKbTZJek40LUJaVzRubzFyRTJmZmM?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPV0VHRE5tclJ6Z1NRR0l2S3JOMURfLUFMY2hVMkZOUTNSdWJsS2pXejZFbkFOX3YyVE9GTDdscFlpWUVMY3hBRExLS0dVUk1qWEFuZC0yb09zYW5UYVF2NVc0c2Y0OExPMWdXSHVsMzNLcy1sRmEwTW5ON3gxY0h1MXF2MGRtRExBTllHdnF5NncwTzNGXzh1QUtWMjg2MTBCWWFYZHczYWt1R2pKZzF4NFUzRkN1dw?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "What's going on in today's session: S&P500 most active stocks",
-        "source": "ChartMill",
+        "headline": "United Airlines adds 2027 flights spanning Sardinia to Okinawa. Here's what it says about travel today",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/08/25/united-airlines-2027-international-routes.html",
+        "tag": "Market"
+      },
+      {
+        "headline": "Intel: Priced For Potential Of CPUs, Not For The Momentum Of The Foundry (Upgrade)",
+        "source": "SeekingAlpha",
         "url": "",
         "tag": "Your book"
       },
       {
-        "headline": "Exploring the top movers within the dow jones index during today's session.",
-        "source": "ChartMill",
+        "headline": "The Market Is Cheap: The AI Revolution Has Created Plenty Of Bargains",
+        "source": "SeekingAlpha",
         "url": "",
         "tag": "Your book"
       }
