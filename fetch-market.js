@@ -1,7 +1,7 @@
 /*
- * fetch-market.js (Tier 1: data + news + weekly brief)
+ * fetch-market.js  (Tier 1: data + news + weekly brief)
  * -----------------------------------------------------
- * Runs in a GitHub Action, twice a day. It:
+ * Runs in a GitHub Action on a schedule. It:
  *   1. pulls quotes (indices, sectors, your holdings, oil) from Finnhub
  *   2. pulls real market + company news headlines
  *   3. tries the economic calendar (skips quietly if the free tier blocks it)
@@ -11,6 +11,25 @@
  *
  * Every sentence in the brief is assembled from real numbers/headlines.
  * It never invents a causal "why" — that stays a labeled analyst note in the UI.
+ *
+ * ---------------------------------------------------------------------------
+ * THE PRE-MARKET BUG (fixed here)
+ * ---------------------------------------------------------------------------
+ * Finnhub's free /quote endpoint has NO extended-hours data. Before the 9:30
+ * bell it keeps returning the LAST REGULAR SESSION's numbers: `c` is still
+ * yesterday's close and `dp` is still yesterday's percent move.
+ *
+ * The old 8:00am ET run therefore pulled yesterday's result, and the board
+ * printed it under "BEFORE OPEN · <today> — where every sector stands going
+ * into the open." On 2026-08-25 that put semis at -2.43% on a day SMH
+ * actually closed +1.65%. The data was never live; the label just claimed it
+ * was.
+ *
+ * The fix has two halves:
+ *   - here: session is derived from the real ET clock and has three honest
+ *     states — prior_close / intraday / close — plus a quote-age check so a
+ *     stale feed announces itself instead of hiding.
+ *   - in the workflow: no run happens before the bell any more.
  *
  * Node 20+ (fetch built in). API key comes from the FINNHUB_API_KEY secret.
  */
@@ -33,18 +52,18 @@ const INDICES = [
 // double-counted tech weakness. It stays in the heatmap because it's the single
 // most relevant line for your book; it just no longer votes on breadth.
 const SECTORS = [
-  { sym: 'XLK', name: 'Technology', kind: 'cyclical' },
-  { sym: 'SMH', name: 'Semiconductors', kind: 'cyclical', theme: true },
-  { sym: 'XLC', name: 'Comm Svcs', kind: 'cyclical' },
-  { sym: 'XLY', name: 'Cons Disc', kind: 'cyclical' },
-  { sym: 'XLF', name: 'Financials', kind: 'cyclical' },
-  { sym: 'XLI', name: 'Industrials', kind: 'cyclical' },
-  { sym: 'XLB', name: 'Materials', kind: 'cyclical' },
-  { sym: 'XLE', name: 'Energy', kind: 'cyclical' },
-  { sym: 'XLV', name: 'Health Care', kind: 'defensive' },
-  { sym: 'XLP', name: 'Staples', kind: 'defensive' },
-  { sym: 'XLU', name: 'Utilities', kind: 'defensive' },
-  { sym: 'XLRE', name: 'Real Estate', kind: 'defensive' },
+  { sym: 'XLK',  name: 'Technology',     kind: 'cyclical' },
+  { sym: 'SMH',  name: 'Semiconductors', kind: 'cyclical', theme: true },
+  { sym: 'XLC',  name: 'Comm Svcs',      kind: 'cyclical' },
+  { sym: 'XLY',  name: 'Cons Disc',      kind: 'cyclical' },
+  { sym: 'XLF',  name: 'Financials',     kind: 'cyclical' },
+  { sym: 'XLI',  name: 'Industrials',    kind: 'cyclical' },
+  { sym: 'XLB',  name: 'Materials',      kind: 'cyclical' },
+  { sym: 'XLE',  name: 'Energy',         kind: 'cyclical' },
+  { sym: 'XLV',  name: 'Health Care',    kind: 'defensive' },
+  { sym: 'XLP',  name: 'Staples',        kind: 'defensive' },
+  { sym: 'XLU',  name: 'Utilities',      kind: 'defensive' },
+  { sym: 'XLRE', name: 'Real Estate',    kind: 'defensive' },
 ];
 const HOLDINGS = [
   { sym: 'INTC', name: 'Intel' }, { sym: 'NVDA', name: 'Nvidia' },
@@ -64,16 +83,20 @@ async function getJSON(url) {
     return await res.json();
   } catch (e) { return { _err: e.message }; }
 }
+
+// `ts` is Finnhub's own timestamp for the quote (epoch seconds). We carry it
+// through so the run can check how old its own data is — that single field is
+// what would have caught the pre-market bug on day one.
 async function quote(sym) {
   const q = await getJSON(`${BASE}/quote?symbol=${sym}&token=${API_KEY}`);
   if (!q || q._err || (q.c === 0 && q.pc === 0)) return null;
-  return { price: q.c, change: q.d, pct: q.dp };
+  return { price: q.c, change: q.d, pct: q.dp, ts: (q.t || null) };
 }
 async function pull(list) {
   const out = [];
   for (const item of list) {
     const q = await quote(item.sym);
-    if (q) out.push({ ...item, price: q.price, change: q.change, pct: q.pct });
+    if (q) out.push({ ...item, price: q.price, change: q.change, pct: q.pct, ts: q.ts });
     await sleep(220);
   }
   return out;
@@ -204,8 +227,14 @@ function buildBrief(session, label, indices, sectors, holdings, hist, mktNews, c
   if (green.length >= 8) score++; else if (red.length >= 8) score--;
 
   let toneLabel = score >= 2 ? 'Risk-on' : score <= -2 ? 'Risk-off' : 'Mixed';
-  const word = session === 'premarket' ? 'setup' : 'tone';
-  const verb = session === 'premarket' ? 'indicated' : 'closed';
+
+  // Three honest sessions, three honest tenses. The old code had exactly two
+  // and forced every morning run into the word "indicated" — which is how a
+  // day-old close got described as a pre-market indication.
+  const word = session === 'intraday' ? 'tape'
+             : session === 'prior_close' ? 'tone (last session)'
+             : 'tone';
+  const verb = session === 'intraday' ? 'trading' : 'closed';
 
   // note the divergence when breadth and the index disagree — a genuinely useful read
   let divergence = '';
@@ -218,7 +247,7 @@ function buildBrief(session, label, indices, sectors, holdings, hist, mktNews, c
 
   const picture =
     `${toneLabel} ${word}${divergence}. ` +
-    (spx ? `S&P ${session === 'premarket' ? 'pre-market' : verb} ${fmt(spx.pct)}, ` : '') +
+    (spx ? `S&P ${verb} ${fmt(spx.pct)}, ` : '') +
     `${green.length}/${real.length} sectors higher. ` +
     `${leaders[0].name} led (${fmt(leaders[0].pct)}); ${laggards[0].name} lagged (${fmt(laggards[0].pct)}).`;
 
@@ -288,19 +317,66 @@ function buildBrief(session, label, indices, sectors, holdings, hist, mktNews, c
   const econ = await econCalendar();
 
   const now = new Date();
-  const etHour = Number(new Intl.DateTimeFormat('en-US', { hour: 'numeric', hour12: false, timeZone: 'America/New_York' }).format(now));
-  const session = etHour < 12 ? 'premarket' : 'close';
-  const label = now.toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York' }) + ' ET';
+
+  // ---- SESSION: read the real ET clock, to the minute ---------------------
+  //
+  // The old line was `const session = etHour < 12 ? 'premarket' : 'close'`.
+  // Two problems. It only knew two states, and neither of them was true for a
+  // run that fired before the 9:30 bell — because Finnhub's free /quote has no
+  // extended-hours data, a pre-open run gets the PREVIOUS session's numbers.
+  // So "premarket" was a label pasted onto yesterday's close.
+  //
+  // Now the clock decides between three states that each describe what the
+  // numbers in this file actually ARE:
+  //   prior_close — ran before the bell; `c`/`dp` are the last session's
+  //   intraday    — ran between 9:30 and 16:00; live, partial, still moving
+  //   close       — ran after 16:00; final for the day
+  const etParts = new Intl.DateTimeFormat('en-US', {
+    hour: 'numeric', minute: '2-digit', hour12: false, timeZone: 'America/New_York',
+  }).formatToParts(now);
+  const etHour = Number(etParts.find(p => p.type === 'hour').value) % 24;
+  const etMin = Number(etParts.find(p => p.type === 'minute').value);
+  const etMins = etHour * 60 + etMin;
+
+  const OPEN_ET = 9 * 60 + 30;   // 09:30 ET
+  const CLOSE_ET = 16 * 60;      // 16:00 ET
+
+  const session = etMins < OPEN_ET ? 'prior_close'
+    : etMins < CLOSE_ET ? 'intraday'
+      : 'close';
+
+  const label = now.toLocaleString('en-US', {
+    month: 'short', day: 'numeric', year: 'numeric',
+    hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York',
+  }) + ' ET';
+
+  // ---- FRESHNESS CHECK ---------------------------------------------------
+  //
+  // Finnhub stamps every quote with `t`. If SPY's quote is hours old while we
+  // think we're mid-session, the feed is stale (holiday, halt, free-tier lag)
+  // and the board should say so rather than present old numbers as today's.
+  const spyTs = (indices.find(i => i.sym === 'SPY') || {}).ts;
+  const quoteAgeMin = spyTs ? Math.round((now.getTime() / 1000 - spyTs) / 60) : null;
+  const stale = session === 'intraday' && quoteAgeMin !== null && quoteAgeMin > 90;
+  if (stale) console.log(`WARNING: SPY quote is ${quoteAgeMin} min old during an intraday run — feed looks stale.`);
+
+  // Ready-made display strings so the front end doesn't have to re-derive the
+  // session logic (and can't drift out of sync with it again).
+  const stampPrefix = session === 'prior_close' ? 'LAST CLOSE ·'
+    : session === 'intraday' ? 'DURING SESSION ·'
+      : 'AT CLOSE ·';
+  const statusPill = session === 'prior_close' ? 'LAST CLOSE'
+    : session === 'intraday' ? 'LIVE'
+      : 'CLOSE';
 
   // history: on CLOSE runs, append today's sector snapshot (keep last 10)
   //
-  // Guarded on etHour >= 16 (the actual 4pm bell), not just "not morning".
-  // Hitting "Run workflow" at lunch used to write a half-day move into the
-  // weekly history as though it were a close, quietly skewing every weekly
-  // number on the board.
+  // `session === 'close'` now already means "after the 4pm bell" by
+  // construction, so the separate etHour guard the old version needed is gone.
+  // A midday manual run lands in 'intraday' and can no longer write a half-day
+  // move into the weekly history as though it were a close.
   let hist = loadHistory();
-  const isTrueClose = session === 'close' && etHour >= 16;
-  if (isTrueClose && sectors.length) {
+  if (session === 'close' && sectors.length) {
     const secMap = {}; sectors.forEach(s => { secMap[s.sym] = Number(s.pct); });
     // date in ET, so a late-evening UTC rollover can't file a close under tomorrow
     const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(now);
@@ -308,8 +384,8 @@ function buildBrief(session, label, indices, sectors, holdings, hist, mktNews, c
     hist.push({ date: today, sectors: secMap });
     hist = hist.slice(-10);
     saveHistory(hist);
-  } else if (session === 'close') {
-    console.log(`Midday run (${etHour}:00 ET) — not recording to weekly history.`);
+  } else {
+    console.log(`Session is "${session}" (${etHour}:${String(etMin).padStart(2, '0')} ET) — not recording to weekly history.`);
   }
 
   const brief = buildBrief(session, label, indices, sectors, holdings, hist, mktNews, coNews, econ);
@@ -318,6 +394,10 @@ function buildBrief(session, label, indices, sectors, holdings, hist, mktNews, c
     updated_utc: now.toISOString(),
     updated_label: label,
     session,
+    stamp_prefix: stampPrefix,
+    status_pill: statusPill,
+    quote_age_min: quoteAgeMin,
+    stale,
     source: 'Finnhub',
     indices, sectors, holdings, oil,
     // one-line summary kept for the small "auto-read" strip
@@ -327,5 +407,5 @@ function buildBrief(session, label, indices, sectors, holdings, hist, mktNews, c
   };
 
   fs.writeFileSync('market-data.json', JSON.stringify(data, null, 2));
-  console.log(`Wrote market-data.json [${session}] — ${indices.length} idx, ${sectors.length} sectors, ${holdings.length} holdings, ${brief.headlines.length} headlines, econ:${econ.length}.`);
+  console.log(`Wrote market-data.json [${session}] — ${indices.length} idx, ${sectors.length} sectors, ${holdings.length} holdings, ${brief.headlines.length} headlines, econ:${econ.length}, quote age ${quoteAgeMin}m.`);
 })();
