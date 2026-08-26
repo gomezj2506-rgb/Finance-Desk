@@ -1,6 +1,6 @@
 {
-  "updated_utc": "2026-08-26T14:24:04.551Z",
-  "updated_label": "Aug 26, 2026, 10:24 AM ET",
+  "updated_utc": "2026-08-26T16:04:29.385Z",
+  "updated_label": "Aug 26, 2026, 12:04 PM ET",
   "session": "intraday",
   "stamp_prefix": "DURING SESSION ·",
   "status_pill": "LIVE",
@@ -11,34 +11,34 @@
     {
       "sym": "SPY",
       "name": "S&P 500",
-      "price": 765.71,
-      "change": -0.2,
-      "pct": -0.0261,
-      "ts": 1787754208
+      "price": 765.04,
+      "change": -0.87,
+      "pct": -0.1136,
+      "ts": 1787760238
     },
     {
       "sym": "QQQ",
       "name": "Nasdaq 100",
-      "price": 709.34,
-      "change": -1.38,
-      "pct": -0.1942,
-      "ts": 1787754209
+      "price": 709.13,
+      "change": -1.59,
+      "pct": -0.2237,
+      "ts": 1787760240
     },
     {
       "sym": "DIA",
       "name": "Dow Jones",
-      "price": 534.49,
-      "change": -0.75,
-      "pct": -0.1401,
-      "ts": 1787754199
+      "price": 534.1,
+      "change": -1.14,
+      "pct": -0.213,
+      "ts": 1787760236
     },
     {
       "sym": "IWM",
       "name": "Russell 2000",
-      "price": 299.39,
-      "change": 0.16,
-      "pct": 0.0535,
-      "ts": 1787754209
+      "price": 298.63,
+      "change": -0.6,
+      "pct": -0.2005,
+      "ts": 1787760240
     }
   ],
   "sectors": [
@@ -46,172 +46,178 @@
       "sym": "XLK",
       "name": "Technology",
       "kind": "cyclical",
-      "price": 181.81,
-      "change": 0.07,
-      "pct": 0.0385,
-      "ts": 1787754206
+      "price": 182.06,
+      "change": 0.32,
+      "pct": 0.1761,
+      "ts": 1787760228
     },
     {
       "sym": "SMH",
       "name": "Semiconductors",
       "kind": "cyclical",
       "theme": true,
-      "price": 552.16,
-      "change": -3.66,
-      "pct": -0.6585,
-      "ts": 1787754209
+      "price": 553.46,
+      "change": -2.36,
+      "pct": -0.4246,
+      "ts": 1787760237
     },
     {
       "sym": "XLC",
       "name": "Comm Svcs",
       "kind": "cyclical",
-      "price": 112.7,
-      "change": -0.48,
-      "pct": -0.4241,
-      "ts": 1787754205
+      "price": 112.62,
+      "change": -0.56,
+      "pct": -0.4948,
+      "ts": 1787760239
     },
     {
       "sym": "XLY",
       "name": "Cons Disc",
       "kind": "cyclical",
-      "price": 117.61,
-      "change": -0.34,
-      "pct": -0.2883,
-      "ts": 1787754200
+      "price": 116.97,
+      "change": -0.98,
+      "pct": -0.8309,
+      "ts": 1787760236
     },
     {
       "sym": "XLF",
       "name": "Financials",
       "kind": "cyclical",
-      "price": 58.21,
-      "change": -0.1,
-      "pct": -0.1715,
-      "ts": 1787754207
+      "price": 58.33,
+      "change": 0.02,
+      "pct": 0.0343,
+      "ts": 1787760240
     },
     {
       "sym": "XLI",
       "name": "Industrials",
       "kind": "cyclical",
-      "price": 180.63,
-      "change": 2.23,
-      "pct": 1.25,
-      "ts": 1787754204
+      "price": 180.52,
+      "change": 2.12,
+      "pct": 1.1883,
+      "ts": 1787760240
     },
     {
       "sym": "XLB",
       "name": "Materials",
       "kind": "cyclical",
-      "price": 54.03,
-      "change": 0.45,
-      "pct": 0.8399,
-      "ts": 1787754209
+      "price": 53.83,
+      "change": 0.25,
+      "pct": 0.4666,
+      "ts": 1787760238
     },
     {
       "sym": "XLE",
       "name": "Energy",
       "kind": "cyclical",
-      "price": 62.71,
-      "change": 0.65,
-      "pct": 1.0474,
-      "ts": 1787754209
+      "price": 62.93,
+      "change": 0.87,
+      "pct": 1.4019,
+      "ts": 1787760240
     },
     {
       "sym": "XLV",
       "name": "Health Care",
       "kind": "defensive",
-      "price": 174.69,
-      "change": -0.6,
-      "pct": -0.3423,
-      "ts": 1787754187
+      "price": 173.6,
+      "change": -1.69,
+      "pct": -0.9641,
+      "ts": 1787760234
     },
     {
       "sym": "XLP",
       "name": "Staples",
       "kind": "defensive",
-      "price": 86.66,
-      "change": 0.14,
-      "pct": 0.1618,
-      "ts": 1787754200
+      "price": 86.48,
+      "change": -0.04,
+      "pct": -0.0462,
+      "ts": 1787760237
     },
     {
       "sym": "XLU",
       "name": "Utilities",
       "kind": "defensive",
-      "price": 43.66,
-      "change": 0.35,
-      "pct": 0.8081,
-      "ts": 1787754203
+      "price": 43.52,
+      "change": 0.21,
+      "pct": 0.4849,
+      "ts": 1787760236
     },
     {
       "sym": "XLRE",
       "name": "Real Estate",
       "kind": "defensive",
-      "price": 45.39,
-      "change": 0.03,
-      "pct": 0.0661,
-      "ts": 1787754207
+      "price": 45.26,
+      "change": -0.1,
+      "pct": -0.2205,
+      "ts": 1787760212
     }
   ],
   "holdings": [
     {
       "sym": "INTC",
       "name": "Intel",
-      "price": 85.84,
-      "change": -1.64,
-      "pct": -1.8747,
-      "ts": 1787754210
+      "price": 86.47,
+      "change": -1.01,
+      "pct": -1.1545,
+      "ts": 1787760240
     },
     {
       "sym": "NVDA",
       "name": "Nvidia",
-      "price": 210.8,
-      "change": -2.25,
-      "pct": -1.0561,
-      "ts": 1787754210
+      "price": 210.34,
+      "change": -2.71,
+      "pct": -1.272,
+      "ts": 1787760240
     },
     {
       "sym": "GOOGL",
       "name": "Alphabet",
-      "price": 341.93,
-      "change": -5.03,
-      "pct": -1.4497,
-      "ts": 1787754209
+      "price": 341.38,
+      "change": -5.58,
+      "pct": -1.6083,
+      "ts": 1787760240
     },
     {
       "sym": "URA",
       "name": "Uranium ETF",
-      "price": 48.68,
-      "change": 0.54,
-      "pct": 1.1217,
-      "ts": 1787754209
+      "price": 47.97,
+      "change": -0.17,
+      "pct": -0.3531,
+      "ts": 1787760230
     },
     {
       "sym": "VOO",
       "name": "S&P 500 ETF",
-      "price": 703.89,
-      "change": -0.13,
-      "pct": -0.0185,
-      "ts": 1787754207
+      "price": 703.27,
+      "change": -0.75,
+      "pct": -0.1065,
+      "ts": 1787760239
     }
   ],
   "oil": {
     "sym": "USO",
     "name": "Oil (USO)",
-    "price": 126.99,
-    "change": 0.84,
-    "pct": 0.6659,
-    "ts": 1787754208
+    "price": 128.81,
+    "change": 2.66,
+    "pct": 2.1086,
+    "ts": 1787760236
   },
-  "narrative": "Mixed tape. S&P trading -0.0%, 6/11 sectors higher. Industrials led (+1.3%); Comm Svcs lagged (-0.4%). Your book: semis (SMH) -0.7%, INTC -1.9%, NVDA -1.1%.",
+  "narrative": "Mixed tape. S&P trading -0.1%, 5/11 sectors higher. Energy led (+1.4%); Health Care lagged (-1.0%). Your book: semis (SMH) -0.4%, INTC -1.2%, NVDA -1.3%.",
   "brief": {
-    "asof": "Aug 26, 2026, 10:24 AM ET",
+    "asof": "Aug 26, 2026, 12:04 PM ET",
     "session": "intraday",
-    "picture": "Mixed tape. S&P trading -0.0%, 6/11 sectors higher. Industrials led (+1.3%); Comm Svcs lagged (-0.4%).",
-    "rotation": "No clear defensive/cyclical rotation — cyclicals +0.3% vs defensives +0.2%, roughly balanced.",
-    "book": "Your book: semis (SMH) -0.7%, INTC -1.9%, NVDA -1.1%.",
+    "picture": "Mixed tape. S&P trading -0.1%, 5/11 sectors higher. Energy led (+1.4%); Health Care lagged (-1.0%).",
+    "rotation": "Money leaned toward cyclicals (Tech/Financials/Industrials/Energy avg +0.3%) over defensives (-0.2%) — a risk-on, growth-seeking tilt.",
+    "book": "Your book: semis (SMH) -0.4%, INTC -1.2%, NVDA -1.3%.",
     "week": "Past 5 sessions: Technology closed lower in 3 of 5 (-2.1% cumulative), semis -2.4%. On the week, Materials leads (+3.5%) and Industrials trails (-2.8%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
+      {
+        "headline": "We're buying the dip — again — in a retailer not getting credit for addressing weak sales",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/08/26/were-buying-the-dip-again-in-a-retailer-not-getting-credit-for-addressing-weak-sales.html",
+        "tag": "Market"
+      },
       {
         "headline": "Jim Cramer's top 10 things to watch in the stock market Wednesday",
         "source": "CNBC",
@@ -219,25 +225,19 @@
         "tag": "Market"
       },
       {
-        "headline": "Medical device maker Boston Scientific is being hit by a cyberattack. The shares are falling",
-        "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/08/26/medical-device-maker-boston-scientific-is-being-hit-by-a-cyber-attack-the-shares-are-falling.html",
-        "tag": "Market"
-      },
-      {
-        "headline": "EXCLUSIVE: Hack of water sector supplier draws FBI scrutiny as Iran-linked cyber concerns grow - Reuters",
+        "headline": "Iran and Oman reach agreements on share of Hormuz and revenues, Revolutionary Guards say - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQY3VTcnZQcEJYNnZOWFBwd1Vwam15ZFltRThzM21BYVpZWjZWbDg2X05jdG9TQkRNR1hmZjQ4WFFXdzVmQ3FscGkwal9SdF9SVUNBTl9YNUtieW1acjg3WFBzOGJybzcwRUk1S0VxNGlqQk1vaG4yU2hHMmF3dnM0MkVSR2xNN1Rpc0VpMzdpcWFRM1pkWWowWVN3T2xBR3cyTGhhelRmOVJSeVl6WXBlMGNuaFA0cVpGcC1N?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPT29nb09ZMEJWQVF5ZmhscmZhYjJjSFRJaGZhbVQ0enRUYlItbXQta1BwS3dFa080YTN5ZWU2VUNDQXdZdXpPRWVPRmhQQ2RYMXdVUGdxbUpFNFFlU1F2WERIYmVFRGZoRUk2QTVVeGlsc1lLamI4QVpJbGtqSnJHcS1LbUFZaExtSTJUNGVRU28wd0dsQUNUR2dSNEN5WGtFNllGeVd6clVpVk50NWdpc0M5RzRnVC12STBJME1TaXpVWmdUU2Rr?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "Which S&P500 stocks are the most active on Tuesday?",
-        "source": "ChartMill",
+        "headline": "Trump's Solar Tariffs Could Spark The Next Intel-Style Government Deal: 2 Stocks To Watch",
+        "source": "Benzinga",
         "url": "",
         "tag": "Your book"
       },
       {
-        "headline": "SpaceX: Explosive Growth Still Can't Justify This Stock Price",
+        "headline": "ServiceNow: A Loaded Rocket On The AI Launch Pad",
         "source": "SeekingAlpha",
         "url": "",
         "tag": "Your book"
