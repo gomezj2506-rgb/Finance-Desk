@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-08-26T21:12:16.571Z",
-  "updated_label": "Aug 26, 2026, 5:12 PM ET",
+  "updated_utc": "2026-08-27T01:02:56.563Z",
+  "updated_label": "Aug 26, 2026, 9:02 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 72,
+  "quote_age_min": 303,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Mixed tone. S&P closed +0.0%, 5/11 sectors higher. Industrials led (+1.1%); Health Care lagged (-1.0%). Your book: semis (SMH) -0.0%, INTC +0.9%, NVDA -1.6%.",
   "brief": {
-    "asof": "Aug 26, 2026, 5:12 PM ET",
+    "asof": "Aug 26, 2026, 9:02 PM ET",
     "session": "close",
     "picture": "Mixed tone. S&P closed +0.0%, 5/11 sectors higher. Industrials led (+1.1%); Health Care lagged (-1.0%).",
     "rotation": "Money leaned toward cyclicals (Tech/Financials/Industrials/Energy avg +0.2%) over defensives (-0.4%) — a risk-on, growth-seeking tilt.",
@@ -219,15 +219,15 @@
         "tag": "Market"
       },
       {
-        "headline": "Micron elevates two executives. Plus, what the Meta settlement means for its top line",
-        "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/08/26/micron-elevates-two-executives-plus-what-the-meta-settlement-means-for-its-top-line.html",
+        "headline": "NEWSLETTER: Can US pressure stem cash flows to Iran? - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQRTU4bDAweWpxVjVSanl3VWdoMTQzQkRoRDdBam45NzdTbFRRU0hKZ3k1V2xYODZMZnNHdkdSaGpSNHFSSTJ5R3hoY0I5N3RydTFZdTZ0RmU2SWlwcFJ0bDduSFVtakQ0aUpJU0R2UGswejY4Vll6ZlM3d0VEZmFZVld4Y3p2SElPLV9IQ1d0ZHhLXzhj?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "How Dolly Parton inspired women in leadership: 'We all owe Dolly a debt'",
+        "headline": "Micron elevates two executives. Plus, what the Meta settlement means for its top line",
         "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/08/26/dolly-parton-women-leadership.html",
+        "url": "https://www.cnbc.com/2026/08/26/micron-elevates-two-executives-plus-what-the-meta-settlement-means-for-its-top-line.html",
         "tag": "Market"
       },
       {
