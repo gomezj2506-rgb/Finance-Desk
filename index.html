@@ -1785,6 +1785,30 @@
     var stamp=document.getElementById('mkt-stamp');
     if(stamp && data.updated_label){
       stamp.textContent=(data.stamp_prefix?data.stamp_prefix+' ':(pre?'LAST CLOSE · ':'AT CLOSE · '))+data.updated_label.toUpperCase()+(data.stale?' · STALE FEED':'');
+      // ---- FRESHNESS STAMP -------------------------------------------------
+      // GitHub's scheduler drops most scheduled firings, so this board can sit
+      // on days-old numbers without saying so. Never let that be invisible:
+      // state what moment the data is from, what moment you are reading it,
+      // and how far apart those are — on every single load.
+      (function(){
+        var tz='America/New_York';
+        var nice=function(d){ return d.toLocaleString('en-US',{weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZone:tz})+' ET'; };
+        var day=function(d){ return new Intl.DateTimeFormat('en-CA',{timeZone:tz}).format(d); };
+        var at=data.updated_utc?new Date(data.updated_utc):null;
+        var now=new Date();
+        var el=document.getElementById('mkt-fresh');
+        if(!el){ el=document.createElement('div'); el.id='mkt-fresh'; stamp.parentNode.insertBefore(el, stamp.nextSibling); }
+        el.style.cssText='margin:10px 0 2px;padding:8px 11px;border:1px solid;border-radius:4px;font:11px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.05em;';
+        if(!at){ el.style.borderColor='rgba(240,71,77,.6)'; el.style.color='#f0474d'; el.textContent='NO TIMESTAMP IN FEED'; return; }
+        var gap=Math.round((new Date(day(now))-new Date(day(at)))/864e5);
+        if(gap<=0){
+          el.style.borderColor='rgba(34,179,106,.45)'; el.style.color='#22b36a'; el.style.background='rgba(34,179,106,.06)';
+          el.textContent='\u25CF CURRENT \u2014 data generated '+nice(at)+'  \u00B7  you are reading this '+nice(now);
+        } else {
+          el.style.borderColor='rgba(240,71,77,.6)'; el.style.color='#f0474d'; el.style.background='rgba(240,71,77,.08)';
+          el.textContent='\u25B2 STALE \u2014 data generated '+nice(at)+', which is '+gap+' day'+(gap===1?'':'s')+' behind. You are reading this '+nice(now)+'. The updater has not run since.';
+        }
+      })();
     }
     // reframe the section subtitles per session
     var ssub=document.querySelector('#market .sector-wrap .ssub');
