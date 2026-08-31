@@ -1906,10 +1906,30 @@
     }
   }
 
-  // try to load the auto-updated file; if it fails, keep the static seed
+  // ---- WHERE THE NUMBERS COME FROM --------------------------------------
+  //
+  // LIVE first, committed file second.
+  //
+  // market-data.json is only ever as fresh as the last GitHub Action run, and
+  // GitHub drops most scheduled firings — between Aug 26 and Aug 31 it fired 8
+  // of ~36 times, which is how a Friday close ended up on screen on a Monday
+  // afternoon. A cron you cannot trust is the wrong tool for "always current".
+  //
+  // LIVE_URL is a Cloudflare Worker holding the Finnhub key that builds the
+  // same payload on demand — no schedule left to miss. If it is blank (not
+  // deployed yet) or unreachable, we fall back to the committed file, and the
+  // freshness stamp above says in red exactly how old that is.
+  var LIVE_URL = '';   // <-- paste the Worker URL here: https://<name>.<sub>.workers.dev
+
+  function loadFrom(url){
+    return fetch(url + (url.indexOf('?') > -1 ? '&' : '?') + 't=' + Date.now())
+      .then(function(r){ if(!r.ok) throw new Error('bad response from '+url); return r.json(); });
+  }
+
   paintTicker(SEED); // instant fallback so the ticker is never empty
-  fetch('market-data.json?t='+Date.now())
-    .then(function(r){ if(!r.ok) throw new Error('no data file'); return r.json(); })
+  (LIVE_URL
+      ? loadFrom(LIVE_URL).catch(function(){ return loadFrom('market-data.json'); })
+      : loadFrom('market-data.json'))
     .then(function(data){ render(data); })
     .catch(function(){ /* offline / local file — seed values stay, that's fine */ });
 })();
