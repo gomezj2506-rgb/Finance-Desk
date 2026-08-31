@@ -1919,7 +1919,7 @@
   // same payload on demand — no schedule left to miss. If it is blank (not
   // deployed yet) or unreachable, we fall back to the committed file, and the
   // freshness stamp above says in red exactly how old that is.
-  var LIVE_URL = '';   // <-- paste the Worker URL here: https://<name>.<sub>.workers.dev
+  var LIVE_URL = 'https://desk-quotes.gomezj2506.workers.dev';
 
   function loadFrom(url){
     return fetch(url + (url.indexOf('?') > -1 ? '&' : '?') + 't=' + Date.now())
