@@ -1,6 +1,6 @@
 {
-  "updated_utc": "2026-09-01T15:18:45.955Z",
-  "updated_label": "Sep 1, 2026, 11:18 AM ET",
+  "updated_utc": "2026-09-01T15:33:55.563Z",
+  "updated_label": "Sep 1, 2026, 11:33 AM ET",
   "session": "intraday",
   "stamp_prefix": "DURING SESSION ·",
   "status_pill": "LIVE",
@@ -11,34 +11,34 @@
     {
       "sym": "SPY",
       "name": "S&P 500",
-      "price": 763.09,
-      "change": -3.96,
-      "pct": -0.5163,
-      "ts": 1788275899
+      "price": 763.57,
+      "change": -3.48,
+      "pct": -0.4537,
+      "ts": 1788276814
     },
     {
       "sym": "QQQ",
       "name": "Nasdaq 100",
-      "price": 709.18,
-      "change": -7.58,
-      "pct": -1.0575,
-      "ts": 1788275899
+      "price": 710.26,
+      "change": -6.5,
+      "pct": -0.9069,
+      "ts": 1788276813
     },
     {
       "sym": "DIA",
       "name": "Dow Jones",
-      "price": 529.78,
-      "change": -1.79,
-      "pct": -0.3367,
-      "ts": 1788275890
+      "price": 529.51,
+      "change": -2.06,
+      "pct": -0.3875,
+      "ts": 1788276814
     },
     {
       "sym": "IWM",
       "name": "Russell 2000",
-      "price": 292.02,
-      "change": -1.91,
-      "pct": -0.6498,
-      "ts": 1788275899
+      "price": 291.99,
+      "change": -1.94,
+      "pct": -0.66,
+      "ts": 1788276814
     }
   ],
   "sectors": [
@@ -46,56 +46,56 @@
       "sym": "XLK",
       "name": "Technology",
       "kind": "cyclical",
-      "price": 183.8,
-      "change": -2.7,
-      "pct": -1.4477,
-      "ts": 1788275896
+      "price": 184.19,
+      "change": -2.31,
+      "pct": -1.2386,
+      "ts": 1788276813
     },
     {
       "sym": "SMH",
       "name": "Semiconductors",
       "kind": "cyclical",
       "theme": true,
-      "price": 545.1,
-      "change": -11.53,
-      "pct": -2.0714,
-      "ts": 1788275896
+      "price": 547.03,
+      "change": -9.6,
+      "pct": -1.7247,
+      "ts": 1788276814
     },
     {
       "sym": "XLC",
       "name": "Comm Svcs",
       "kind": "cyclical",
-      "price": 111.35,
-      "change": -0.11,
-      "pct": -0.0987,
-      "ts": 1788275896
+      "price": 111.28,
+      "change": -0.18,
+      "pct": -0.1615,
+      "ts": 1788276812
     },
     {
       "sym": "XLY",
       "name": "Cons Disc",
       "kind": "cyclical",
-      "price": 115.1,
-      "change": -1.49,
-      "pct": -1.278,
-      "ts": 1788275896
+      "price": 115.19,
+      "change": -1.4,
+      "pct": -1.2008,
+      "ts": 1788276810
     },
     {
       "sym": "XLF",
       "name": "Financials",
       "kind": "cyclical",
-      "price": 57.59,
-      "change": -0.12,
-      "pct": -0.2079,
-      "ts": 1788275898
+      "price": 57.54,
+      "change": -0.17,
+      "pct": -0.2946,
+      "ts": 1788276814
     },
     {
       "sym": "XLI",
       "name": "Industrials",
       "kind": "cyclical",
-      "price": 173.45,
-      "change": -1.68,
-      "pct": -0.9593,
-      "ts": 1788275897
+      "price": 173.18,
+      "change": -1.95,
+      "pct": -1.1135,
+      "ts": 1788276813
     },
     {
       "sym": "XLB",
@@ -104,111 +104,111 @@
       "price": 52.26,
       "change": -0.43,
       "pct": -0.8161,
-      "ts": 1788275895
+      "ts": 1788276808
     },
     {
       "sym": "XLE",
       "name": "Energy",
       "kind": "cyclical",
-      "price": 64.43,
-      "change": 0.47,
-      "pct": 0.7348,
-      "ts": 1788275899
+      "price": 64.48,
+      "change": 0.52,
+      "pct": 0.813,
+      "ts": 1788276814
     },
     {
       "sym": "XLV",
       "name": "Health Care",
       "kind": "defensive",
-      "price": 171.61,
-      "change": 1.07,
-      "pct": 0.6274,
-      "ts": 1788275898
+      "price": 171.77,
+      "change": 1.23,
+      "pct": 0.7212,
+      "ts": 1788276814
     },
     {
       "sym": "XLP",
       "name": "Staples",
       "kind": "defensive",
-      "price": 85.73,
-      "change": 0.75,
-      "pct": 0.8826,
-      "ts": 1788275898
+      "price": 85.8,
+      "change": 0.82,
+      "pct": 0.9649,
+      "ts": 1788276803
     },
     {
       "sym": "XLU",
       "name": "Utilities",
       "kind": "defensive",
-      "price": 42.54,
-      "change": 0.31,
-      "pct": 0.7341,
-      "ts": 1788275898
+      "price": 42.46,
+      "change": 0.23,
+      "pct": 0.5446,
+      "ts": 1788276813
     },
     {
       "sym": "XLRE",
       "name": "Real Estate",
       "kind": "defensive",
-      "price": 44.19,
-      "change": 0.08,
-      "pct": 0.1814,
-      "ts": 1788275884
+      "price": 44.26,
+      "change": 0.15,
+      "pct": 0.3401,
+      "ts": 1788276807
     }
   ],
   "holdings": [
     {
       "sym": "INTC",
       "name": "Intel",
-      "price": 88.68,
-      "change": -0.83,
-      "pct": -0.9273,
-      "ts": 1788275899
+      "price": 88.94,
+      "change": -0.57,
+      "pct": -0.6368,
+      "ts": 1788276814
     },
     {
       "sym": "NVDA",
       "name": "Nvidia",
-      "price": 218.13,
-      "change": -2.65,
-      "pct": -1.2003,
-      "ts": 1788275899
+      "price": 218.84,
+      "change": -1.94,
+      "pct": -0.8787,
+      "ts": 1788276814
     },
     {
       "sym": "GOOGL",
       "name": "Alphabet",
-      "price": 336.3,
-      "change": -3.05,
-      "pct": -0.8988,
-      "ts": 1788275898
+      "price": 336.03,
+      "change": -3.32,
+      "pct": -0.9783,
+      "ts": 1788276814
     },
     {
       "sym": "URA",
       "name": "Uranium ETF",
-      "price": 44.29,
-      "change": -1.22,
-      "pct": -2.6807,
-      "ts": 1788275896
+      "price": 44.34,
+      "change": -1.17,
+      "pct": -2.5709,
+      "ts": 1788276810
     },
     {
       "sym": "VOO",
       "name": "S&P 500 ETF",
-      "price": 701.47,
-      "change": -3.42,
-      "pct": -0.4852,
-      "ts": 1788275899
+      "price": 701.87,
+      "change": -3.02,
+      "pct": -0.4284,
+      "ts": 1788276809
     }
   ],
   "oil": {
     "sym": "USO",
     "name": "Oil (USO)",
-    "price": 136.57,
-    "change": 2.87,
-    "pct": 2.1466,
-    "ts": 1788275893
+    "price": 137.2,
+    "change": 3.5,
+    "pct": 2.6178,
+    "ts": 1788276813
   },
-  "narrative": "Risk-off tape. S&P trading -0.5%, 5/11 sectors higher. Staples led (+0.9%); Technology lagged (-1.4%). Your book: semis (SMH) -2.1%, INTC -0.9%, NVDA -1.2%.",
+  "narrative": "Risk-off tape. S&P trading -0.5%, 5/11 sectors higher. Staples led (+1.0%); Technology lagged (-1.2%). Your book: semis (SMH) -1.7%, INTC -0.6%, NVDA -0.9%.",
   "brief": {
-    "asof": "Sep 1, 2026, 11:18 AM ET",
+    "asof": "Sep 1, 2026, 11:33 AM ET",
     "session": "intraday",
-    "picture": "Risk-off tape. S&P trading -0.5%, 5/11 sectors higher. Staples led (+0.9%); Technology lagged (-1.4%).",
+    "picture": "Risk-off tape. S&P trading -0.5%, 5/11 sectors higher. Staples led (+1.0%); Technology lagged (-1.2%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg +0.6%) over cyclicals (-0.6%) — a cautious, risk-off tilt.",
-    "book": "Your book: semis (SMH) -2.1%, INTC -0.9%, NVDA -1.2%.",
+    "book": "Your book: semis (SMH) -1.7%, INTC -0.6%, NVDA -0.9%.",
     "week": "Past 5 sessions: Technology closed lower in 1 of 5 (+3.6% cumulative), semis +1.8%. On the week, Technology leads (+3.6%) and Staples trails (-2.8%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
