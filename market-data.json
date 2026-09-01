@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-08-31T23:52:45.968Z",
-  "updated_label": "Aug 31, 2026, 7:52 PM ET",
+  "updated_utc": "2026-09-01T00:36:10.654Z",
+  "updated_label": "Aug 31, 2026, 8:36 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 233,
+  "quote_age_min": 276,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-off tone. S&P closed -0.3%, 2/11 sectors higher. Energy led (+2.0%); Comm Svcs lagged (-1.4%). Your book: semis (SMH) +0.6%, INTC +0.0%, NVDA +1.5%.",
   "brief": {
-    "asof": "Aug 31, 2026, 7:52 PM ET",
+    "asof": "Aug 31, 2026, 8:36 PM ET",
     "session": "close",
     "picture": "Risk-off tone. S&P closed -0.3%, 2/11 sectors higher. Energy led (+2.0%); Comm Svcs lagged (-1.4%).",
     "rotation": "Money leaned toward cyclicals (Tech/Financials/Industrials/Energy avg -0.3%) over defensives (-0.7%) — a risk-on, growth-seeking tilt.",
@@ -237,8 +237,8 @@
         "tag": "Your book"
       },
       {
-        "headline": "Top dow jones movers in Monday's session",
-        "source": "ChartMill",
+        "headline": "Nvidia: AI Boom Times Still Ahead",
+        "source": "SeekingAlpha",
         "url": "",
         "tag": "Your book"
       }
