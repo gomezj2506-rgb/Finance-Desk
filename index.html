@@ -1927,11 +1927,29 @@
   }
 
   paintTicker(SEED); // instant fallback so the ticker is never empty
-  (LIVE_URL
-      ? loadFrom(LIVE_URL).catch(function(){ return loadFrom('market-data.json'); })
-      : loadFrom('market-data.json'))
-    .then(function(data){ render(data); })
-    .catch(function(){ /* offline / local file — seed values stay, that's fine */ });
+
+  // TWO-STAGE LOAD.
+  //
+  // market-data.json is a static file on GitHub Pages and comes back in
+  // milliseconds. The Worker has to sweep 22 symbols one at a time and takes
+  // ~8s on a cold cache. Waiting only on the Worker means staring at the
+  // built-in July placeholder for eight seconds — exactly the kind of
+  // stale-looking board this whole exercise was meant to kill.
+  //
+  // So paint the committed file the moment it lands, then upgrade to live data
+  // when the Worker answers. The freshness stamp is recomputed on every render,
+  // so it tells the truth at both stages: first the file's real age, then
+  // "CURRENT" once live data arrives.
+  var liveWon = false;
+  loadFrom('market-data.json')
+    .then(function(d){ if (!liveWon) render(d); })
+    .catch(function(){ /* seed stays — nothing worse than we started with */ });
+
+  if (LIVE_URL) {
+    loadFrom(LIVE_URL)
+      .then(function(d){ liveWon = true; render(d); })
+      .catch(function(){ /* the committed file already painted, or the seed did */ });
+  }
 })();
 </script>
 </body>
