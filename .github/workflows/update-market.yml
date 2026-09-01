@@ -1,57 +1,55 @@
 # .github/workflows/update-market.yml
 # ------------------------------------
-# Keeps market-data.json fresh through the trading day.
+# Records the daily CLOSE into market-history.json, and nothing else.
 #
 # ---------------------------------------------------------------------------
-# WHY THIS IS SHAPED SO ODDLY (read before "simplifying" it back to a cron)
+# WHY THIS IS NOW SO SMALL (it used to loop all day — read before expanding it)
 # ---------------------------------------------------------------------------
-# The obvious design is a cron every hour. We tried that. It does not work.
+# This workflow used to hold a runner for three hours and refresh every 15
+# minutes, because GitHub's scheduler could not be trusted to fire on time and
+# the board had no other source of live data.
 #
-# GitHub runs `schedule` events on a best-effort basis and drops them under
-# load. With nine crons a day, between Aug 26 and Aug 31 it delivered:
+# It has one now: a Cloudflare Worker (desk-quotes) that builds the same payload
+# on demand, so the page is current the moment you open it with no schedule
+# involved at all.
 #
-#     Wed Aug 26   5 of 9      Thu Aug 27   1 of 9
-#     Fri Aug 28   1 of 9      Mon Aug 31   0 of 9 (by mid-afternoon)
+# Keeping the loop after that was actively harmful. Both systems authenticate
+# with the SAME Finnhub key against the same free-tier limits. While the loop
+# was running, the Worker's pulls came back partial — 11 of 22 symbols, the rest
+# 429 — because the two were competing for one quota. Cancel the loop, wait two
+# minutes, and the Worker returned 22 of 22 with zero failures. That is the
+# whole reason this file shrank.
 #
-# and the ones that landed were 20 minutes to 3 hours late. That is how a
-# Friday close ended up on screen on a Monday afternoon. Asking GitHub for
-# MORE firings makes it worse, not better — a repo that schedules often gets
-# deprioritised harder.
+# So there is exactly one consumer during market hours: the Worker.
 #
-# So we stop asking GitHub to be a clock. We ask it to start a job — something
-# it manages roughly once a day — and then the job keeps its own time, holding
-# the runner and refreshing every 15 minutes off a real `sleep`. One firing
-# now covers a whole block of the day instead of one instant of it.
+# What is left here is the one job the Worker genuinely cannot do. The Worker is
+# stateless — it cannot accumulate a rolling history — so it reads
+# market-history.json, which something has to write once a day after the bell.
+# That job is a perfect fit for GitHub's unreliable scheduler, because it is not
+# time-critical: a close recorded at 8pm is still the right close.
 #
-# Public repo, so Actions minutes are free. The job is asleep ~97% of its life.
+# fetch-market.js only appends to history when it decides session === 'close'
+# (after 4:00pm ET by the real ET clock), so a stray early firing updates
+# market-data.json and correctly leaves the history alone.
 #
-# This is the belt. The braces is LIVE_URL in index.html: a Cloudflare Worker
-# that builds the same payload on demand, so the page is current on load with
-# no scheduled job involved at all. Once that is deployed this workflow matters
-# far less — its real remaining job is writing the daily close into
-# market-history.json for the weekly stats, and a close recorded late is still
-# the right close.
+# DO NOT add intraday crons back. If the board looks stale during the day, the
+# problem is the Worker, not this file — check desk-quotes and look at the
+# `diagnostics` block in its response.
 
 name: Update market data
 
 on:
   schedule:
-    # Start slots (UTC — cron does not follow US daylight saving).
-    # Staggered so the day still gets covered when the first one is dropped.
-    # If a later slot fires while an earlier loop is still running, the
-    # concurrency group queues it and it picks up where that one left off.
-    - cron: '35 13 * * 1-5'   #  9:35a EDT /  8:35a EST
-    - cron: '35 16 * * 1-5'   # 12:35p EDT / 11:35a EST
-    # Close catchers — a single write after the bell, in either DST regime.
-    - cron: '15 20 * * 1-5'   #  4:15p EDT
-    - cron: '15 21 * * 1-5'   #  4:15p EST  (5:15p EDT, harmless second pass)
+    # Cron is UTC and does not follow US daylight saving, so both slots exist to
+    # cover either regime. Whichever lands first records the close; the second
+    # is a harmless no-op because the data will not have changed.
+    - cron: '15 20 * * 1-5'   # 4:15p EDT
+    - cron: '15 21 * * 1-5'   # 4:15p EST  (5:15p EDT)
   workflow_dispatch:
 
 permissions:
   contents: write
 
-# Never two loops at once. Queued rather than cancelled, so a later start slot
-# chains on after the current block instead of being thrown away.
 concurrency:
   group: update-market
   cancel-in-progress: false
@@ -59,103 +57,67 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 200          # comfortably above the 3h self-imposed cap
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0          # full history so the reset dance below is safe
+          fetch-depth: 0        # full history so the reset dance below is safe
 
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Refresh on our own clock
+      - name: Record the close
         env:
           FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
         run: |
-          # Deliberately NOT `set -e`: one bad iteration (a Finnhub blip, a
-          # lost push race) must not kill the whole day's loop.
           set -uo pipefail
+          echo "Running at $(TZ=America/New_York date '+%Y-%m-%d %H:%M') ET"
 
           git config user.name "market-bot"
           git config user.email "actions@github.com"
 
-          SLEEP_S=900                 # refresh every 15 minutes
-          CLOSE_ET=$((16 * 60 + 5))   # stop at 4:05pm ET
-          HARD_STOP=$(( $(date +%s) + 3 * 3600 ))   # never hold a runner > 3h
+          if ! node fetch-market.js; then
+            echo "::error::fetch-market.js failed"
+            exit 1
+          fi
 
-          et_minutes() {
-            local h m
-            h=$(TZ=America/New_York date +%H)
-            m=$(TZ=America/New_York date +%M)
-            # 10# forces base 10 — "08" and "09" are invalid octal otherwise
-            echo $(( 10#$h * 60 + 10#$m ))
-          }
+          if git diff --quiet -- market-data.json market-history.json; then
+            echo "Nothing changed."
+            exit 0
+          fi
 
-          # Commit whatever fetch-market.js just wrote.
-          #
-          # Between our checkout and our push, main may have moved (another
-          # queued run, or you from your laptop). Rather than merge, we park our
-          # two generated files outside the tree, hard-reset onto main as it is
-          # right now, drop them back on top and commit that. Our data is always
-          # the last word on these two files, so a conflict is impossible.
-          publish() {
-            if git diff --quiet -- market-data.json market-history.json; then
-              echo "  no change to publish"
-              return 0
+          # main may have moved since checkout. Rather than merge, park our two
+          # generated files outside the tree, hard-reset onto main as it is right
+          # now, drop them back on top and commit that. Our data is always the
+          # last word on these two files, so a conflict is impossible.
+          mkdir -p "$RUNNER_TEMP/market"
+          cp market-data.json market-history.json "$RUNNER_TEMP/market/"
+
+          for attempt in 1 2 3 4 5; do
+            git fetch --quiet origin main
+            git reset --quiet --hard origin/main
+            cp "$RUNNER_TEMP/market/market-data.json" \
+               "$RUNNER_TEMP/market/market-history.json" .
+            git add market-data.json market-history.json
+
+            if git diff --staged --quiet; then
+              echo "Remote already has this data."
+              exit 0
             fi
-            mkdir -p "$RUNNER_TEMP/market"
-            cp market-data.json market-history.json "$RUNNER_TEMP/market/"
-            for attempt in 1 2 3 4 5; do
-              git fetch --quiet origin main
-              git reset --quiet --hard origin/main
-              cp "$RUNNER_TEMP/market/market-data.json" \
-                 "$RUNNER_TEMP/market/market-history.json" .
-              git add market-data.json market-history.json
-              if git diff --staged --quiet; then
-                echo "  remote already has this data"
-                return 0
-              fi
-              git commit --quiet -m "Auto-update market data ($(TZ=America/New_York date '+%Y-%m-%d %H:%M') ET)"
-              if git push --quiet origin HEAD:main; then
-                echo "  pushed (attempt $attempt)"
-                return 0
-              fi
-              echo "  push rejected on attempt $attempt — main moved, retrying"
-              sleep $(( attempt * 3 ))
-            done
-            echo "::warning::could not push market data after 5 attempts"
-            return 1
-          }
 
-          refresh() {
-            echo "[$(TZ=America/New_York date '+%H:%M') ET] refreshing"
-            if node fetch-market.js; then
-              publish
-            else
-              echo "::warning::fetch-market.js failed this pass — will try again next tick"
-            fi
-          }
+            git commit --quiet -m "Record close ($(TZ=America/New_York date '+%Y-%m-%d %H:%M') ET)"
 
-          # Always refresh once immediately, whatever time this fired. Even a
-          # single stray firing at a strange hour leaves the board better than
-          # it found it, and fetch-market.js labels the session honestly.
-          refresh
+            if git push --quiet origin HEAD:main; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
 
-          while : ; do
-            now_m=$(et_minutes)
-            if [ "$now_m" -ge "$CLOSE_ET" ]; then
-              echo "Past 4:05pm ET — close is recorded, exiting."
-              break
-            fi
-            if [ "$(date +%s)" -ge "$HARD_STOP" ]; then
-              echo "Hit the 3h cap — exiting so a later start slot can take over."
-              break
-            fi
-            sleep "$SLEEP_S"
-            refresh
+            echo "Push rejected on attempt $attempt — main moved, retrying."
+            sleep $(( attempt * 3 ))
           done
 
-          echo "Done at $(TZ=America/New_York date '+%Y-%m-%d %H:%M') ET."
+          echo "::error::Could not push after 5 attempts."
+          exit 1
