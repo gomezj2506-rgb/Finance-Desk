@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-09-02T22:40:21.577Z",
-  "updated_label": "Sep 2, 2026, 6:40 PM ET",
+  "updated_utc": "2026-09-02T23:17:22.841Z",
+  "updated_label": "Sep 2, 2026, 7:17 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 160,
+  "quote_age_min": 197,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-on tone. S&P closed +0.4%, 8/11 sectors higher. Materials led (+1.7%); Real Estate lagged (-0.7%). Your book: semis (SMH) +1.0%, INTC +1.2%, NVDA +3.2%.",
   "brief": {
-    "asof": "Sep 2, 2026, 6:40 PM ET",
+    "asof": "Sep 2, 2026, 7:17 PM ET",
     "session": "close",
     "picture": "Risk-on tone. S&P closed +0.4%, 8/11 sectors higher. Materials led (+1.7%); Real Estate lagged (-0.7%).",
     "rotation": "Money leaned toward cyclicals (Tech/Financials/Industrials/Energy avg +0.7%) over defensives (+0.2%) — a risk-on, growth-seeking tilt.",
@@ -212,6 +212,12 @@
     "week": "Past 5 sessions: Technology closed lower in 3 of 5 (+0.4% cumulative), semis -1.0%. On the week, Energy leads (+4.3%) and Industrials trails (-4.2%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
+      {
+        "headline": "Jim Cramer says investors aren't ditching tech — they just want cheaper stocks",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/09/02/cramer-says-investors-arent-ditching-tech-they-want-cheaper-stocks.html",
+        "tag": "Market"
+      },
       {
         "headline": "Wall St ends higher as stocks reclaim some shine - Reuters",
         "source": "Reuters",
@@ -222,12 +228,6 @@
         "headline": "Trump aides seek 'quiet' in Iran war but say attacks may intensify after November elections - Reuters",
         "source": "Reuters",
         "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNMDJDS3ZmaHY1S0hTTlJiUUVPQ081YTU5bWV3NmJJLTRTNDdNQUhKNWdFTXd4TzVVRkRiRXd6SV9xZ1hmbHVxMFVGOUhXMkJLTkdaN0VWa3g3aEZ1aWZDbnlNTkRoUk5zY2ltOW9PNVk1SlFJVU1mNzZFSE9GTGpGbmhwdW1sMFNuTFhwcTVmSlFUNUIwM3lOV3ZpQ0NCX3B2TmMwbXZB?oc=5",
-        "tag": "Market"
-      },
-      {
-        "headline": "NBA suspends Clippers owner Ballmer for one year in Kawhi Leonard salary cap probe",
-        "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/09/02/nba-suspends-clippers-ballmer-kawhi-leonard-salary-cap.html",
         "tag": "Market"
       },
       {
