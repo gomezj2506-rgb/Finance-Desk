@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-09-03T22:36:32.580Z",
-  "updated_label": "Sep 3, 2026, 6:36 PM ET",
+  "updated_utc": "2026-09-03T23:18:03.076Z",
+  "updated_label": "Sep 3, 2026, 7:18 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 157,
+  "quote_age_min": 198,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -52,25 +52,6 @@
       "ts": 1788465600
     },
     {
-      "sym": "SMH",
-      "name": "Semiconductors",
-      "kind": "cyclical",
-      "theme": true,
-      "price": 552.6,
-      "change": 2.12,
-      "pct": 0.3851,
-      "ts": 1788465600
-    },
-    {
-      "sym": "XLC",
-      "name": "Comm Svcs",
-      "kind": "cyclical",
-      "price": 113.38,
-      "change": 0.96,
-      "pct": 0.8539,
-      "ts": 1788465600
-    },
-    {
       "sym": "XLY",
       "name": "Cons Disc",
       "kind": "cyclical",
@@ -95,15 +76,6 @@
       "price": 174.56,
       "change": 1.78,
       "pct": 1.0302,
-      "ts": 1788465600
-    },
-    {
-      "sym": "XLB",
-      "name": "Materials",
-      "kind": "cyclical",
-      "price": 52.62,
-      "change": -0.33,
-      "pct": -0.6232,
       "ts": 1788465600
     },
     {
@@ -154,22 +126,6 @@
   ],
   "holdings": [
     {
-      "sym": "INTC",
-      "name": "Intel",
-      "price": 91.67,
-      "change": 1.62,
-      "pct": 1.799,
-      "ts": 1788465600
-    },
-    {
-      "sym": "NVDA",
-      "name": "Nvidia",
-      "price": 228.45,
-      "change": 4.04,
-      "pct": 1.8003,
-      "ts": 1788465600
-    },
-    {
       "sym": "GOOGL",
       "name": "Alphabet",
       "price": 342.48,
@@ -184,60 +140,21 @@
       "change": 1.38,
       "pct": 3.1137,
       "ts": 1788465600
-    },
-    {
-      "sym": "VOO",
-      "name": "S&P 500 ETF",
-      "price": 710.72,
-      "change": 7.31,
-      "pct": 1.0392,
-      "ts": 1788465600
     }
   ],
-  "oil": {
-    "sym": "USO",
-    "name": "Oil (USO)",
-    "price": 142.09,
-    "change": 0.94,
-    "pct": 0.666,
-    "ts": 1788465600
-  },
-  "narrative": "Risk-on tone. S&P closed +1.0%, 8/11 sectors higher. Financials led (+1.6%); Energy lagged (-0.7%). Your book: semis (SMH) +0.4%, INTC +1.8%, NVDA +1.8%.",
+  "oil": null,
+  "narrative": "Risk-on tone. S&P closed +1.0%, 7/9 sectors higher. Financials led (+1.6%); Energy lagged (-0.7%). Your book: .",
   "brief": {
-    "asof": "Sep 3, 2026, 6:36 PM ET",
+    "asof": "Sep 3, 2026, 7:18 PM ET",
     "session": "close",
-    "picture": "Risk-on tone. S&P closed +1.0%, 8/11 sectors higher. Financials led (+1.6%); Energy lagged (-0.7%).",
-    "rotation": "No clear defensive/cyclical rotation — cyclicals +0.7% vs defensives +0.5%, roughly balanced.",
-    "book": "Your book: semis (SMH) +0.4%, INTC +1.8%, NVDA +1.8%.",
-    "week": "Past 5 sessions: Technology closed lower in 3 of 5 (-1.4% cumulative), semis -3.6%. On the week, Energy leads (+3.7%) and Industrials trails (-2.4%).",
+    "picture": "Risk-on tone. S&P closed +1.0%, 7/9 sectors higher. Financials led (+1.6%); Energy lagged (-0.7%).",
+    "rotation": "Money leaned toward cyclicals (Tech/Financials/Industrials/Energy avg +0.9%) over defensives (+0.5%) — a risk-on, growth-seeking tilt.",
+    "book": "Your book: .",
+    "week": "Past 5 sessions: Technology closed lower in 3 of 5 (-1.4% cumulative), semis -3.9%. On the week, Energy leads (+3.7%) and Industrials trails (-2.4%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
-        "headline": "US diesel prices hit record high as conflicts intensify supply crunch - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOZHF2Z29UenJROHZ5YlJpTFBHM1pmWmdNaWROSnhyNlhDVVZmVGVXTkRaT1k4N1NBY1B1YUhDbmE2SGQ2TllTNExHWk9JT1JCWHRKQnVpZEx5SVVNZHdhc2tsbEEtWG01Ty1QUXpMSWdWR3NuQTVQaWNhLUViMXkzRl9WNk81bDdiVk5tb1hPeVBMczFGaWVmaTNzWEdYZ29P?oc=5",
-        "tag": "Market"
-      },
-      {
-        "headline": "Vance says Iran conflict is not a war, declines to offer timeline for end - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOVWVqMkRjNklKdUhYTF9BTE5GN1ctUG5zaGI0cVdEcW9ReEhYMmxJREpHX1o5RE5mS1VZMHAwTlBTTmZhWURSV3dMUkY1YjhBMjZEN2hvZWhYc1hiaTk1MFRacnpEVDVYWnRuTEVrVW8yZnRnTVUxcTV0UEd5NXRRVDlzTmM0NFA5b3o3Q3JPMFhHMGFJb3JVN05DTVZSbUZlNHlNVFdMTmhmajRfR25zZ05LblhOZjg?oc=5",
-        "tag": "Market"
-      },
-      {
-        "headline": "Vance: US probing airstrike that Iran says hit a wedding party - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQZGdyY0d2X01maFd2M2xxLVFCVEg2aUw4aGMwd3pzZHpOQWE2X1hXTG9OR0NMcmZnUDl1a00xRkRKMHhqRk9WYlcxZTBXbmZNZG9BLU0wWnJRRmFkYTlZd256cEZNOUo5YTN5b011OF9ZUWVWVEI0VTduM1FULWVzMnJCX1Jyb0xZTmlKOW5FWHhFR0dXUnBFZHdXY2t5SjZvcGpELWx0M3h5MzZPYlpYVVh0bw?oc=5",
-        "tag": "Market"
-      },
-      {
         "headline": "Nvidia’s $5 Billion Intel Bet Was Worth $30 Billion by June. Is the Partnership Still Mispriced?",
-        "source": "Yahoo",
-        "url": "",
-        "tag": "Your book"
-      },
-      {
-        "headline": "Dow Jones Futures: Stocks Jump On Fed's Waller; Tesla Cybercab Event Private, Jobs Report In Focus",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
