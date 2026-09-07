@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-09-07T22:52:11.694Z",
-  "updated_label": "Sep 7, 2026, 6:52 PM ET",
+  "updated_utc": "2026-09-07T23:28:22.650Z",
+  "updated_label": "Sep 7, 2026, 7:28 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 4492,
+  "quote_age_min": 4528,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-off tone. S&P closed -0.4%, 3/11 sectors higher. Technology led (+0.7%); Cons Disc lagged (-1.3%). Your book: semis (SMH) +2.6%, INTC +4.5%, NVDA +0.8%.",
   "brief": {
-    "asof": "Sep 7, 2026, 6:52 PM ET",
+    "asof": "Sep 7, 2026, 7:28 PM ET",
     "session": "close",
     "picture": "Risk-off tone. S&P closed -0.4%, 3/11 sectors higher. Technology led (+0.7%); Cons Disc lagged (-1.3%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals -0.5% vs defensives -0.6%, roughly balanced.",
@@ -212,12 +212,6 @@
     "week": "Past 5 sessions: Technology closed lower in 2 of 5 (+1.1% cumulative), semis +4.1%. On the week, Utilities leads (+2.1%) and Cons Disc trails (-2.8%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
-      {
-        "headline": "Iran warns US energy assets in Gulf are vulnerable after latest clashes - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQM292TDh2Uk9IeUlEeFNFY1UyeFM3OFZzd2w1S013bEtmVnhXYmdfT0ptV1ZfTlRTRXBLVzFZdmZ6T0d2cVdkZHAtbmhFTjlHUmJRQkRVZDhwMGJZZUM2MEpBS041SmhGcEhWZTlQemFBcjRaNkwyWkhhUlNFc1dNZEVyQ1R0YzFnRm5ZNHd3VU5NV01EeWZVZjJrUW5VWGF2X2R1U0xzSFEwbE9iY1E?oc=5",
-        "tag": "Market"
-      },
       {
         "headline": "Israeli clearance of Gaza rubble could destroy 'evidence', says UN expert - Reuters",
         "source": "Reuters",
@@ -228,6 +222,12 @@
         "headline": "UK's Burnham, Trump discuss working towards Ukraine-Russia ceasefire, Downing Street says - Reuters",
         "source": "Reuters",
         "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPWmxrUWIzN25kQzlJZVBjcy11SXlFeWJQZElmWi1ocVU1Qm94T2w3OXV4djNYd2JKTEE0QTFaeWVvQ2I4MmZZOEhwZVc2U1JmUEJTbXQ4SjdBb3lYNklqZDZJZ2s5MndibnlnMGw2YVJZWnB3R2MxWVNoWTlSSFlHNDFKdWd0STNGRFBselBtUDVrbGlsLUthbl9iQTFTMkFNYXhxUGJJWjJrT0oyNjFfRlJKNV9wWUE?oc=5",
+        "tag": "Market"
+      },
+      {
+        "headline": "Gulf equities mixed amid US-Iran flare-ups - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOdmdIRU5UbW8yRmxOUXhfR0trOVEtdHVrMC1Nc2N0OXVqcVhUbWtHc2hTVFZHd1NZNjVDdnF0VldrcXUwOHVQb2xxMXRRTVdBRjRHU252Ty1iR09JQi1QakZkV1hFVnd3WXBKNllJaWRoOUxYTW14dGhpaEM1WVpaeko2dmZVM1U5RG1fTGE4TzBCdlN3blQ0Vm5ISF9HOGl2eXdiOFg4REtmTHd0RXB2Z1pLZV9aSjc1eVE?oc=5",
         "tag": "Market"
       },
       {
