@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-09-08T22:42:20.022Z",
-  "updated_label": "Sep 8, 2026, 6:42 PM ET",
+  "updated_utc": "2026-09-08T23:22:00.767Z",
+  "updated_label": "Sep 8, 2026, 7:22 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 162,
+  "quote_age_min": 202,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-off tone. S&P closed -0.5%, 3/11 sectors higher. Energy led (+1.1%); Health Care lagged (-2.5%). Your book: semis (SMH) +1.2%, INTC +9.1%, NVDA -2.0%.",
   "brief": {
-    "asof": "Sep 8, 2026, 6:42 PM ET",
+    "asof": "Sep 8, 2026, 7:22 PM ET",
     "session": "close",
     "picture": "Risk-off tone. S&P closed -0.5%, 3/11 sectors higher. Energy led (+1.1%); Health Care lagged (-2.5%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals -0.4% vs defensives -0.6%, roughly balanced.",
@@ -212,6 +212,12 @@
     "week": "Past 5 sessions: Technology closed lower in 1 of 5 (+3.0% cumulative), semis +7.6%. On the week, Technology leads (+3.0%) and Health Care trails (-3.7%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
+      {
+        "headline": "Who are the Houthis, Iran’s allies in Yemen? - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQN212czZZNnNEYmF3UzlicUQwSG1haUt0SDZLd3pQeHJTWTVmWHZ6NjBFQ0FlYUxyLXU5ZmJiaGpMMHVONXJrcHM5SV9GZVJiY25xdkw0SVB6cElieWJfckgzTGhYOG5XYXFvcjlvWkhhaUU5a0l1TUotVkczc2FCRXkzNHRVaXZCNVcwd1A1dUUtSEY2RnZvTUc0ZmNMM2xTWHhHNmIzd21EbUY3?oc=5",
+        "tag": "Market"
+      },
       {
         "headline": "This alternative energy stock is more popular than SpaceX in the options pits. Here's why",
         "source": "CNBC",
@@ -222,12 +228,6 @@
         "headline": "Iran-backed Houthis attack four Saudi cities in expansion of Middle East war, 73 hurt - Reuters",
         "source": "Reuters",
         "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNT2RnNWprQ01ScjN2Q05RSHRWdmRqVzh2U01LUVVPVmhiRDVYNER3anQxQlNWV24wS3RZR2ZqS1FxNnFKWFRqSmlYbnQwSFk1eU5Cbnh1SVpxbTZCWUwtelFqbFV6LTNLVHZZbGRaYTVucy1VT1JwNDZPM3gydkZRU2VCWHFoVnpTVU9ILXlfRHpKMnBsT3RJOUlkejRzT1FJa25YekFnMVl6dUJnbERxeXo1UnpOZTVaQ281aFJrbjFEWmN3T2c?oc=5",
-        "tag": "Market"
-      },
-      {
-        "headline": "Wall Street slides, oil surges amid worries over inflation, Middle East - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE82VU5LOUdHSU5uLWxoeWs1bi16RTM3dUozczYtZXhPUF9RRFEtUVNTQmphRjloY2k5dkxodEZ1eTZnRjF4NU90clpNZGZJTnk1SEJXME44NDIxT1JNNW5rWW80VGlNbDJXNDdjMHN4YXd4eTRLb3RJLW5Ybw?oc=5",
         "tag": "Market"
       },
       {
