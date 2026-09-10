@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-09-10T22:36:42.015Z",
-  "updated_label": "Sep 10, 2026, 6:36 PM ET",
+  "updated_utc": "2026-09-10T23:07:57.838Z",
+  "updated_label": "Sep 10, 2026, 7:07 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 157,
+  "quote_age_min": 188,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-off tone. S&P closed -0.6%, 1/11 sectors higher. Comm Svcs led (+0.6%); Technology lagged (-1.4%). Your book: semis (SMH) -2.4%, INTC -5.6%, NVDA -2.4%.",
   "brief": {
-    "asof": "Sep 10, 2026, 6:36 PM ET",
+    "asof": "Sep 10, 2026, 7:07 PM ET",
     "session": "close",
     "picture": "Risk-off tone. S&P closed -0.6%, 1/11 sectors higher. Comm Svcs led (+0.6%); Technology lagged (-1.4%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals -0.6% vs defensives -0.6%, roughly balanced.",
@@ -212,6 +212,12 @@
     "week": "Past 5 sessions: Technology closed lower in 1 of 5 (+0.3% cumulative), semis +4.0%. On the week, Technology leads (+0.3%) and Health Care trails (-5.4%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
+      {
+        "headline": "Jim Cramer says this is the key force driving stocks right now",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/09/10/jim-cramer-key-force-driving-stocks-right-now.html",
+        "tag": "Market"
+      },
       {
         "headline": "US average diesel price crosses $6 a gallon for the first time, GasBuddy says - Reuters",
         "source": "Reuters",
@@ -222,12 +228,6 @@
         "headline": "US slaps new sanctions on networks aiding Iran's proxies in Middle East - Reuters",
         "source": "Reuters",
         "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQQ2p0aERlM3VXMFFWMkg4ZUtIejRIWDdUNUtlbnkwLWlyTWFBNGMyUzBUVnczaGdsNGIxcjJNT3BIekZrQXhOVEdwY0ZaQ0RZVmE2SW5RWTdLN1F6M01vbXZyMXF1OE9XbHphN1dnRWxwWmNyV2V2WDg3dGVOTDR3TXd5dDFwcEl6X2pxd05LRmc4d2NkUzFMS3piTFg1eWppdW8xNWNHd0VYZ3EwOFM4a19SMmNkeE9TZlE?oc=5",
-        "tag": "Market"
-      },
-      {
-        "headline": "Jim Cramer's least-favorite tech stock gets a new analyst endorsement — our take",
-        "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/09/10/cramers-least-favorite-tech-stock-gets-a-new-bullish-analyst-endorsement.html",
         "tag": "Market"
       },
       {
