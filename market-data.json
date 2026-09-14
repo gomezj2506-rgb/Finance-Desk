@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-09-14T23:09:25.034Z",
-  "updated_label": "Sep 14, 2026, 7:09 PM ET",
+  "updated_utc": "2026-09-14T23:51:15.816Z",
+  "updated_label": "Sep 14, 2026, 7:51 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 189,
+  "quote_age_min": 231,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-off tone. S&P closed -0.4%, 3/11 sectors higher. Comm Svcs led (+2.2%); Technology lagged (-1.8%). Your book: semis (SMH) -4.8%, INTC -5.6%, NVDA -3.4%.",
   "brief": {
-    "asof": "Sep 14, 2026, 7:09 PM ET",
+    "asof": "Sep 14, 2026, 7:51 PM ET",
     "session": "close",
     "picture": "Risk-off tone. S&P closed -0.4%, 3/11 sectors higher. Comm Svcs led (+2.2%); Technology lagged (-1.8%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg +0.2%) over cyclicals (-0.5%) — a cautious, risk-off tilt.",
@@ -213,7 +213,7 @@
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
-        "headline": "US imposes fresh sanctions on Russia's VTB Bank over alleged Iran ties - reuters.com",
+        "headline": "US imposes fresh sanctions on Russia's VTB Bank over alleged Iran ties - Reuters",
         "source": "Reuters",
         "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPUV9iZ1hvNXptVGtUeEZ2X3Q1bkxtdm93Zm1neUNFdjlKM3Y2eElENzhEbHNpMFRRUXlGaWtUakU1al9wM3gtanR4R05saV9fWXVmNXlOWFUtQkpvRnJBbDdybE5CdVJtUmFRVDdLazdXRGljQUVVa0xpcUEzWHNpUEd5ZEhjOUlQMVMzY2hnamY1endIa0RZbFRlM3pKOUUx?oc=5",
         "tag": "Market"
