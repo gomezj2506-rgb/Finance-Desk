@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-09-15T22:54:47.901Z",
-  "updated_label": "Sep 15, 2026, 6:54 PM ET",
+  "updated_utc": "2026-09-15T23:31:04.875Z",
+  "updated_label": "Sep 15, 2026, 7:31 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 175,
+  "quote_age_min": 211,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-off tone. S&P closed -0.5%, 2/11 sectors higher. Energy led (+2.2%); Cons Disc lagged (-1.7%). Your book: semis (SMH) +0.1%, INTC -0.1%, NVDA +0.6%.",
   "brief": {
-    "asof": "Sep 15, 2026, 6:54 PM ET",
+    "asof": "Sep 15, 2026, 7:31 PM ET",
     "session": "close",
     "picture": "Risk-off tone. S&P closed -0.5%, 2/11 sectors higher. Energy led (+2.2%); Cons Disc lagged (-1.7%).",
     "rotation": "Money leaned toward cyclicals (Tech/Financials/Industrials/Energy avg -0.2%) over defensives (-0.5%) — a risk-on, growth-seeking tilt.",
@@ -213,21 +213,21 @@
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
-        "headline": "Iran war cost hits $38 billion, forecast to rise $3 billion a month, CBO says - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQNEs4SmV2UTYzblAwenVTemk5SWQtMTRPbkpoLTVxaEVrYzBYNDJfX0RrSmVVZVZadlFBVnF0WkJNeGc5czMxVWREeDFtS0dZeGJ2V2tqSVg5VWM5UUFtN1hsMXlPX3g4d1RMbk5BR1oxcVdyYjBIaHg0bFl1SXY1dDMzazVEZlNBOHdCWm8zRno2Vjc1TEJ6ekdnQ25COEVkS3FVNHJmeWEyRVZJd2p3aF80RFlhZmVtREhQbkpIdw?oc=5",
-        "tag": "Market"
-      },
-      {
         "headline": "Best of the Emmy Awards - Reuters",
         "source": "Reuters",
         "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5yNlkzNUF6QXZ2YjkzclJJdWhjUUNoSTVGY1A2SV9QNzI2R3MzUHBfemhjTnRRRHFRcDZzc21hYThRem4wTW1OQ09udGZVaG5HVHNYaDV4TEVFYnpkT2s2Uk5fdzF4c3pDRHpOZWFn?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "Wells Fargo sees improvement in a key metric — plus, Lilly gets praise beyond GLP-1s",
-        "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/09/15/wells-fargo-sees-improvement-in-a-key-metric-plus-lilly-gets-praise-beyond-glp-1s.html",
+        "headline": "Bessent defends Trump economic policies, reveals plans to meet Chinese official - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxORTlaeHpnSkMzSU5ieGJqNEpUTFdaYU8yTzc2OExDcElaWFVFclZyNkVNcThWaFRiM29ZNGhaY3dpWS1RbVh0NUhZczdVLUhLVFNjN3RCRFhZMlVmeU5ibVhCXy14VnItdkpzVHNJZXlxWmhxbzRLX3BjOTFzcE9yRVFteHcwS0Jaa19QaTVPdnh5WDFLcXdvTXBrNldnNVJDd0RvN1NRYllyRWM?oc=5",
+        "tag": "Market"
+      },
+      {
+        "headline": "Iran war cost hits $38 billion, forecast to rise $3 billion a month, CBO says - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQNEs4SmV2UTYzblAwenVTemk5SWQtMTRPbkpoLTVxaEVrYzBYNDJfX0RrSmVVZVZadlFBVnF0WkJNeGc5czMxVWREeDFtS0dZeGJ2V2tqSVg5VWM5UUFtN1hsMXlPX3g4d1RMbk5BR1oxcVdyYjBIaHg0bFl1SXY1dDMzazVEZlNBOHdCWm8zRno2Vjc1TEJ6ekdnQ25COEVkS3FVNHJmeWEyRVZJd2p3aF80RFlhZmVtREhQbkpIdw?oc=5",
         "tag": "Market"
       },
       {
