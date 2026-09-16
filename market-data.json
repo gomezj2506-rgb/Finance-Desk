@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-09-16T22:58:15.717Z",
-  "updated_label": "Sep 16, 2026, 6:58 PM ET",
+  "updated_utc": "2026-09-16T23:38:28.476Z",
+  "updated_label": "Sep 16, 2026, 7:38 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 178,
+  "quote_age_min": 218,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-off tone. S&P closed -0.4%, 2/11 sectors higher. Technology led (+0.1%); Energy lagged (-2.9%). Your book: semis (SMH) +0.6%, INTC +4.0%, NVDA +0.8%.",
   "brief": {
-    "asof": "Sep 16, 2026, 6:58 PM ET",
+    "asof": "Sep 16, 2026, 7:38 PM ET",
     "session": "close",
     "picture": "Risk-off tone. S&P closed -0.4%, 2/11 sectors higher. Technology led (+0.1%); Energy lagged (-2.9%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg -0.3%) over cyclicals (-1.0%) — a cautious, risk-off tilt.",
@@ -213,21 +213,21 @@
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
+        "headline": "US officials met Iran-backed Houthis in Oman over the weekend, sources say - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQNVlvS0o5eGw3QnFsN1NoVTdWbElpWFhDLS14WFpCb0duUUJMYzVoS2VZSHpqQUxQWXVtN0VadTJHNnNhYlNCZmlhMDVJQVl3Y2pqTjQ2bmRuVEdDR3FKY0VGQ1Uxc1pwVzcteUNJSTB0Mm9wZHRIWUdTUmVLTUVsTEpYMFRmN21ENmtrbnZvTm9XZjZsOU5DN2JHWUYtdm5OcFJiUzJzZTVBeUJ3a3NmSEJROEFxekl5RGlMNw?oc=5",
+        "tag": "Market"
+      },
+      {
+        "headline": "US House passes Russia sanctions bill championed by late Senator Graham - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQdGtKVXRwQXN1c3J1bnpHcXNvRzJEbE9DVEVqV3JOQWttNmNhbHR3ekdVNWhKY1VUSHVuUmZvLXJILXNXRWI1bWhpSnJNV1BqUGhESUl0dGFpUUJDVmtvTmZpeV9ZR3F3bUhJZGFfNllUdENsemJHd0xubFBzUy0yanFES0xxX0FPc1p4UHpNQnh6VU1NSmhwOHp1ZHdka0ItUGlKN0NlcE1Id2J1RjVpcUVZLVZlcFZ6bnd1R0FMVQ?oc=5",
+        "tag": "Market"
+      },
+      {
         "headline": "Israel, Morocco agree to upgrade diplomatic ties, Israeli government says - Reuters",
         "source": "Reuters",
         "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNUktRelVFeVlmRUh4NjlTNU5vVFNRZDBsaE9Wd2YybUlQYTNSY0NONXhUMjJEcTJzSnRjaWZNM2pNN0E4YnVyTVdLZVhOX2FmM0l1MXU2SU01NXR2aWw3bC1IY2lZM3BZbzZQQ01kN3loX09KU2x5dTd4RXl6cXU0TUd5eVppY3NSbXpibXBnRmxyeHJyUUtjME5FU2tBaHZyMDB4RXgyQ3E0dnh5X1lZY2oxOWpqQTdCQlJiZFZtYw?oc=5",
-        "tag": "Market"
-      },
-      {
-        "headline": "Top Democrat on US House committee will not support Israel bomb sale - reuters.com",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOYXVjVVhxZXk4MjhZM2JLYzR1cDlpdlg3QVozb1RKX0JOcE9GakdvYjBTckJxMF9WeFpiWUIyNTJVcS1RV2hHRnFrWHlwcDk1a0dDMGY0ZnVBUnBRdFpVc1FGalhCanpuX2xYSjB0ZnlVTi0yNldoQ2plZEtMSTNNQUV6UDRXSDVLdGVOdFN5M2YtMEFDT0Y3UENyTzRhdFByYk84N090MFlVSnYyUklfWWdodE0zZ05yZGlKbTFQQ3d1RjI0MUE?oc=5",
-        "tag": "Market"
-      },
-      {
-        "headline": "Boeing CEO: 737 Max production taking 'a little bit longer' to stabilize than expected",
-        "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/09/16/boeing-ceo-737-max-production.html",
         "tag": "Market"
       },
       {
