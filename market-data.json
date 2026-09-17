@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-09-17T22:51:28.082Z",
-  "updated_label": "Sep 17, 2026, 6:51 PM ET",
+  "updated_utc": "2026-09-17T23:32:19.431Z",
+  "updated_label": "Sep 17, 2026, 7:32 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 171,
+  "quote_age_min": 212,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-on tone. S&P closed +1.1%, 9/11 sectors higher. Technology led (+2.2%); Comm Svcs lagged (-0.6%). Your book: semis (SMH) +2.8%, INTC +7.7%, NVDA +2.5%.",
   "brief": {
-    "asof": "Sep 17, 2026, 6:51 PM ET",
+    "asof": "Sep 17, 2026, 7:32 PM ET",
     "session": "close",
     "picture": "Risk-on tone. S&P closed +1.1%, 9/11 sectors higher. Technology led (+2.2%); Comm Svcs lagged (-0.6%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals +0.6% vs defensives +0.5%, roughly balanced.",
@@ -213,21 +213,21 @@
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
-        "headline": "EXCLUSIVE: China presses Iran to help rein in Houthis after Saudi appeal, sources say - reuters.com",
+        "headline": "US to allow Iranian leaders to attend UN General Assembly - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQMlRxdXlUU25MV1Q5ZThqV29lYjBpb1Y0V2MwV3RqZFNoR25hS2ZUX0VpR0hENmZIMlRPWWxGS1p1WUJmNktPZ0ZMWE8xSGRQYmFOUHkwamNjVTFhZFdpSkUxUEhROGl4Y0Y4X05kcTM5QmxqRXVnRm9hSzNCWGZza2RNX1JqYmJiLUJ3UUFFeHFlZVNQQ2QxbzEtbkF5MzlKSktFV3ZUaEdMdTdOdy1rMU9CYWxlRG81SlM0Zg?oc=5",
+        "tag": "Market"
+      },
+      {
+        "headline": "EXCLUSIVE: China presses Iran to help rein in Houthis after Saudi appeal, sources say - Reuters",
         "source": "Reuters",
         "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNUnJncHUxLTNvV25NTHFxQzVwcnljdzdsTkJCNFNjSlJybF95bFBhcW9DTWV1dnlYQ0prMkI0SmdnNjBrdXNLV0ZNM1pQNW1FcUxuaWpqd3NnRXJ6U2lkQWFqQlR0UVE2X3lYU0RXNXlBdno3QkRkSzB2SEwxUzdYV2NZWlc3SGhZdGRMbUFCVDJZeXZsTy0zOHF4R013c2xyMl8zNmVkaHlFOXM1MmtuZHJRREI3UQ?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "US allies fret over how Trump might play his Taiwan hand with Xi - reuters.com",
+        "headline": "US allies fret over how Trump might play his Taiwan hand with Xi - Reuters",
         "source": "Reuters",
         "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQY3hVM1dFSVFMbUpibXh4OWtYdWFBRnNkN0JhREtSNFZ0R2hVMnN1T0lUTHlneVdReE1kd1YzSENaY2xpWXh5SGVjY09qSXNack9RQkN2VFBYQUxCcE5sUExGNzJxRDJzRXYzX0pZU3NTX3RNOTZ0WEZWZ01oSUp2dHh3SkNZSERMc0tFempuV3RSaXF6OXlGaUhCZGNUZlRvMEhaRWRKcUVMSVN6aVJRcmZ3?oc=5",
-        "tag": "Market"
-      },
-      {
-        "headline": "Impoverished by war in Iran, Afghan migrants return to Taliban rule - reuters.com",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQbUtnR01KbXZwRU1yS09FNXhXdnFRaXRXR1YyaWwyOWFvYWl1VC1MbVJFb1dvVWgxNGVFR0xKV3pCQkNycmVDaUJpVjFLYmt4MTVhSmR5dXRlVU54MWFRTG9LY2V4a1g3d2cyblNlVkU2MjNUTWJXaEY0MFNpNG9uZ3dWMWFEZ0ZIZ1dGMFdQby1jd1A5RzZ2TXNsQlJzdEFER2ZjRHE2SWstblhoVFRWWVhGcXFMZw?oc=5",
         "tag": "Market"
       },
       {
