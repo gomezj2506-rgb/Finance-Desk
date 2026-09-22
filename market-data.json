@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-09-22T22:58:46.594Z",
-  "updated_label": "Sep 22, 2026, 6:58 PM ET",
+  "updated_utc": "2026-09-22T23:35:23.859Z",
+  "updated_label": "Sep 22, 2026, 7:35 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 179,
+  "quote_age_min": 215,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Mixed tone. S&P closed -0.0%, 6/11 sectors higher. Materials led (+1.6%); Financials lagged (-2.0%). Your book: semis (SMH) +1.9%, INTC +1.7%, NVDA +0.7%.",
   "brief": {
-    "asof": "Sep 22, 2026, 6:58 PM ET",
+    "asof": "Sep 22, 2026, 7:35 PM ET",
     "session": "close",
     "picture": "Mixed tone. S&P closed -0.0%, 6/11 sectors higher. Materials led (+1.6%); Financials lagged (-2.0%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg +0.2%) over cyclicals (-0.2%) — a cautious, risk-off tilt.",
@@ -213,7 +213,13 @@
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
-        "headline": "Trump says Iran deal nearing, Tehran offers Hormuz reopening - Reuters",
+        "headline": "Qantas to start selling tickets next year for its New York to Sydney nonstop flight",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/09/22/qantas-flight-new-york-sydney-nonstop.html",
+        "tag": "Market"
+      },
+      {
+        "headline": "Trump threatens to annihilate Iran as diplomats push for deal at UN - Reuters",
         "source": "Reuters",
         "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPMHFVWHVmRkJDV09JMHNSQ2RvNk5zS2NwN3lwZ3lNOFNLd0tUdjZHS09lMUhZdHBCWXZUQ1NJUHh5cUxmYlU4NjNTRGRtWDJ3UkFpb05jS1U2R2huempndzFvVEtqZmV1RjN2cTRJWWYybEpQSkptR2NjLWFySUtUeDdXMmdBd0N4dktqeGN6WjdTOGVfQXZJLVgyX2k1RTlzbDZncmktWlI?oc=5",
         "tag": "Market"
@@ -222,12 +228,6 @@
         "headline": "A top chip stock analyst sees big things for Nvidia, Broadcom. How his case aligns with ours",
         "source": "CNBC",
         "url": "https://www.cnbc.com/2026/09/22/a-top-chip-stock-analyst-sees-big-things-for-nvidia-broadcom-how-his-case-aligns-with-ours.html",
-        "tag": "Market"
-      },
-      {
-        "headline": "Trump warns in UN speech he could 'annihilate' Iran without peace deal - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOOFdkQk9aWHdzT0hrcFhDNDZPSmlwQVBUUm12TGd4SUVPUURUMVo4Y3I0WHZBSTIxdjdKTWZ4WkF3cVUzUnlrWmNrbTA5T21UN3R0Z0JnekdrZm5ReC1ZS2JmUWVQRXRVNzhaYmNucDI5YVh6d2JxeHp5Yi00Y3p2d0loRTY5YXNiWGRHTlJZb1ZiX1paMVh3UU1XVThfUXR2NHF3T0pod3BBS3VpU3AyTDB3?oc=5",
         "tag": "Market"
       },
       {
