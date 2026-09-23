@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-09-23T22:58:03.011Z",
-  "updated_label": "Sep 23, 2026, 6:58 PM ET",
+  "updated_utc": "2026-09-23T23:38:49.670Z",
+  "updated_label": "Sep 23, 2026, 7:38 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 178,
+  "quote_age_min": 219,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-off tone. S&P closed -0.7%, 1/11 sectors higher. Energy led (+1.0%); Utilities lagged (-1.9%). Your book: semis (SMH) -1.0%, INTC -1.0%, NVDA -1.5%.",
   "brief": {
-    "asof": "Sep 23, 2026, 6:58 PM ET",
+    "asof": "Sep 23, 2026, 7:38 PM ET",
     "session": "close",
     "picture": "Risk-off tone. S&P closed -0.7%, 1/11 sectors higher. Energy led (+1.0%); Utilities lagged (-1.9%).",
     "rotation": "Money leaned toward cyclicals (Tech/Financials/Industrials/Energy avg -0.4%) over defensives (-1.1%) — a risk-on, growth-seeking tilt.",
