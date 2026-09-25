@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-09-25T23:19:13.494Z",
-  "updated_label": "Sep 25, 2026, 7:19 PM ET",
+  "updated_utc": "2026-09-25T23:56:09.217Z",
+  "updated_label": "Sep 25, 2026, 7:56 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 199,
+  "quote_age_min": 236,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-on tone. S&P closed +0.5%, 8/11 sectors higher. Industrials led (+0.9%); Comm Svcs lagged (-0.9%). Your book: semis (SMH) +1.0%, INTC -3.4%, NVDA +0.2%.",
   "brief": {
-    "asof": "Sep 25, 2026, 7:19 PM ET",
+    "asof": "Sep 25, 2026, 7:56 PM ET",
     "session": "close",
     "picture": "Risk-on tone. S&P closed +0.5%, 8/11 sectors higher. Industrials led (+0.9%); Comm Svcs lagged (-0.9%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals +0.1% vs defensives +0.3%, roughly balanced.",
@@ -219,15 +219,15 @@
         "tag": "Market"
       },
       {
-        "headline": "Iran will make no nuclear concessions, Iranian official says - Reuters",
+        "headline": "Trump, Xi discuss Middle East war as Iran presses 7-day plan to end fighting - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxORVpYNWQxeFFCcXEzQTZQdkM1LTJpVWc2RHpwOWtxbzV0OHg2aE12UGV1Y2VOQUN4WHdvOVB4YzBGT0ltckk5d0hDZGZUVXk3YWs0WnA5R2xjNmNBbkhHRzNra2pIQVlLa1pNQ29OV1QxQVdSTWJnaWZEYkVaaXJXa3d4cHVvV1o5VGlpWFRjUG9HVTFoMWw4TFZwNlI4aHJwQjU0UVRuZzJISFp0ZU9YQUw4VQ?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOSktoVFV5TmFoZFFlNGJOdHNQbl9ZNWVfOFVvRTN2UXpLMlBhSnZ6ZVZLdFNlRU5CR3RjaHYxWDJRclcyb1lrVzh1WG83MWtmcjRyVnpRdTZIcTdtY01WRlFaVXZ5aWFBSXgzdk9LdzZNdmlQWHJlUmJuci1TSFI1bWRtYXJwYWdEYjBVMHJlVnpYbndpR1lQbllKNkphM0t1SmhXaXNYQmVncDFVOHFJ?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "Iran's Araqchi says now up to US to accept 7-day plan - Reuters",
+        "headline": "Iran will make no nuclear concessions, Iranian official says - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQUmpYaGtLNnJmeGdiOGNJZVNJQVJ0eVNmRzdLNHdQWF9hVkFfZ3FkSmtwamwxUmpkdWJJNmxldmtYckJzUGpFblZsYzVLV19PeFd2ZkFvSmgxUDJZQUF4MUdSQXU4SjFlWmM2WU42clJWNUlVNy1DVkRmY2k3MEJoQkQteWVKdVlBaFNiLWVla3FnTXdHSUdBZGN4eXhNUDJfN2c?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxORVpYNWQxeFFCcXEzQTZQdkM1LTJpVWc2RHpwOWtxbzV0OHg2aE12UGV1Y2VOQUN4WHdvOVB4YzBGT0ltckk5d0hDZGZUVXk3YWs0WnA5R2xjNmNBbkhHRzNra2pIQVlLa1pNQ29OV1QxQVdSTWJnaWZEYkVaaXJXa3d4cHVvV1o5VGlpWFRjUG9HVTFoMWw4TFZwNlI4aHJwQjU0UVRuZzJISFp0ZU9YQUw4VQ?oc=5",
         "tag": "Market"
       },
       {
