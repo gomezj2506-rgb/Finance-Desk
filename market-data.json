@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-09-29T00:23:14.823Z",
-  "updated_label": "Sep 28, 2026, 8:23 PM ET",
+  "updated_utc": "2026-09-29T00:57:53.413Z",
+  "updated_label": "Sep 28, 2026, 8:57 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 263,
+  "quote_age_min": 298,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-off tone. S&P closed -0.7%, 3/11 sectors higher. Health Care led (+0.3%); Comm Svcs lagged (-1.6%). Your book: semis (SMH) -1.1%, INTC -5.7%, NVDA +1.7%.",
   "brief": {
-    "asof": "Sep 28, 2026, 8:23 PM ET",
+    "asof": "Sep 28, 2026, 8:57 PM ET",
     "session": "close",
     "picture": "Risk-off tone. S&P closed -0.7%, 3/11 sectors higher. Health Care led (+0.3%); Comm Svcs lagged (-1.6%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg -0.1%) over cyclicals (-0.9%) — a cautious, risk-off tilt.",
