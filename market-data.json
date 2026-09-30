@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-09-29T23:44:33.327Z",
-  "updated_label": "Sep 29, 2026, 7:44 PM ET",
+  "updated_utc": "2026-09-30T00:23:14.793Z",
+  "updated_label": "Sep 29, 2026, 8:23 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 225,
+  "quote_age_min": 263,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Mixed tone. S&P closed -0.2%, 4/11 sectors higher. Utilities led (+1.2%); Energy lagged (-0.9%). Your book: semis (SMH) +1.1%, INTC -0.1%, NVDA -0.7%.",
   "brief": {
-    "asof": "Sep 29, 2026, 7:44 PM ET",
+    "asof": "Sep 29, 2026, 8:23 PM ET",
     "session": "close",
     "picture": "Mixed tone. S&P closed -0.2%, 4/11 sectors higher. Utilities led (+1.2%); Energy lagged (-0.9%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals -0.2% vs defensives +0.1%, roughly balanced.",
@@ -237,7 +237,7 @@
         "tag": "Your book"
       },
       {
-        "headline": "Eli Lilly Stock Barely Moved Following Viking Therapeutics' Impressive Clinical Results. Here's Why.",
+        "headline": "Schwab's Dividend ETF Has Nearly Quadrupled Its Payout Since 2012",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
