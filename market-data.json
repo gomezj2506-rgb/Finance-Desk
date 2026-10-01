@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-09-30T23:52:47.329Z",
-  "updated_label": "Sep 30, 2026, 7:52 PM ET",
+  "updated_utc": "2026-10-01T00:31:20.222Z",
+  "updated_label": "Sep 30, 2026, 8:31 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 233,
+  "quote_age_min": 271,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Mixed tone. S&P closed -0.2%, 1/11 sectors higher. Technology led (+0.6%); Staples lagged (-1.5%). Your book: semis (SMH) +0.3%, INTC +3.7%, NVDA +0.5%.",
   "brief": {
-    "asof": "Sep 30, 2026, 7:52 PM ET",
+    "asof": "Sep 30, 2026, 8:31 PM ET",
     "session": "close",
     "picture": "Mixed tone. S&P closed -0.2%, 1/11 sectors higher. Technology led (+0.6%); Staples lagged (-1.5%).",
     "rotation": "Money leaned toward cyclicals (Tech/Financials/Industrials/Energy avg -0.5%) over defensives (-1.2%) — a risk-on, growth-seeking tilt.",
@@ -237,7 +237,7 @@
         "tag": "Your book"
       },
       {
-        "headline": "Rivian Stock Is Going to $19 According to This Wall Street Analyst. Here's Why They May Be Right.",
+        "headline": "Warren Buffett's Record: $1,000 Became About $61 Million. Can Greg Abel Keep Compounding It?",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
