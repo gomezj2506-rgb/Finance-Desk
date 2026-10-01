@@ -93,7 +93,7 @@
   .ledger{display:grid; background:var(--panel); border:1px solid var(--line); border-radius:var(--r); overflow:hidden}
   .head,.row{display:grid; align-items:center; gap:12px; padding:10px 14px}
   .apps .head,.apps .row{grid-template-columns:minmax(0,2.3fr) minmax(0,1.05fr) 5.4rem 10.5rem minmax(0,1.7fr) 1rem}
-  .leads .head,.leads .row{grid-template-columns:5.6rem minmax(0,2.5fr) minmax(0,1.3fr) 5rem 15rem}
+  .leads .head,.leads .row{grid-template-columns:5.6rem minmax(0,2.3fr) minmax(0,1.2fr) 4.5rem 19rem}
   .head{border-bottom:1px solid var(--line); background:var(--raised)}
   .item{border-top:1px solid var(--line)}
   .head + .item{border-top:0}
@@ -246,7 +246,7 @@
   const SOURCES = ['12twenty', 'LinkedIn', 'Company Site', 'Career Fair', 'Handshake', 'Referral', 'Simplify', 'Other'];
   const stageClass = s => WATCH.has(s) ? 's-watch' : s === 'Applied' ? 's-work' : LIVE.has(s) ? 's-live' : s === 'Offer' ? 's-won' : 's-lost';
   const BAR = [['Watchlist', s => WATCH.has(s), '--faint'], ['Applied', s => s === 'Applied', '--work'], ['Assessment / interviews', s => LIVE.has(s) && s !== 'Applied', '--amber'], ['Offer', s => s === 'Offer', '--up'], ['Closed', s => DONE.has(s), '--down']];
-  const APP_FILTERS = [['live', 'In play'], ['watch', 'Watchlist'], ['followup', 'Follow-ups due'], ['offer', 'Offers'], ['closed', 'Closed'], ['all', 'All']];
+  const APP_FILTERS = [['live', 'In play'], ['queue', 'Apply queue'], ['watch', 'Watchlist'], ['followup', 'Follow-ups due'], ['offer', 'Offers'], ['closed', 'Closed'], ['all', 'All']];
   const LEAD_FILTERS = [['open', 'Open'], ['strong', 'Strong fit'], ['low', 'Low fit'], ['dismissed', 'Dismissed']];
   const FOLLOW_UP_DAYS = 12;
 
@@ -334,13 +334,15 @@
       const ok = await write(db => db.doc('apps/' + key).set({
         key, company: l.company, role: l.role, location: l.location || '', category: CATEGORIES.includes(l.category) ? l.category : 'Other',
         tier: '', source: SOURCES.includes(l.source) ? l.source : 'Other', stage, deadline: isYMD(l.deadline) ? l.deadline : null, deadline_note: '',
-        applied, followup: applied ? addDays(applied, FOLLOW_UP_DAYS) : null, next: '', contact: '', pay: '', link: l.link || '',
+        applied, followup: applied ? addDays(applied, FOLLOW_UP_DAYS) : null, contact: '', pay: '', link: l.link || '',
         notes: l.why ? `Bot match: ${l.why}` : '', updated: today,
-        history: [{ date: today, stage, note: stage === 'Applied' ? 'Marked applied from a lead' : 'Moved from leads' }],
+        next: stage === 'Applying' ? 'Queued: run the apply skill in Cowork' : '',
+        history: [{ date: today, stage, note: stage === 'Applied' ? 'Marked applied from a lead' : stage === 'Applying' ? 'Queued for the apply skill' : 'Moved from leads' }],
       }));
       if (!ok) return;
     }
-    write(db => db.doc('leads/' + key).update({ status: stage === 'Applied' ? 'applied' : 'tracked' }), stage === 'Applied' ? `${l.company} added as Applied` : `${l.company} added to your tracker`);
+    const msg = stage === 'Applied' ? `${l.company} added as Applied` : stage === 'Applying' ? `${l.company} queued for the apply skill` : `${l.company} added to your tracker`;
+    write(db => db.doc('leads/' + key).update({ status: stage === 'Applied' ? 'applied' : 'tracked' }), msg);
   }
   const setLeadStatus = (key, status, msg) => write(db => db.doc('leads/' + key).update({ status }), msg);
   function removeApp(key) {
@@ -378,6 +380,7 @@
   function appVisible(a) {
     switch (S.appFilter) {
       case 'live': return LIVE.has(a.stage);
+      case 'queue': return a.stage === 'Applying';
       case 'watch': return WATCH.has(a.stage);
       case 'followup': return followupDue(a);
       case 'offer': return a.stage === 'Offer';
@@ -470,7 +473,8 @@
     const link = safeLink(l.link);
     const acts = l.status === 'dismissed'
       ? [h('button', { class: 'btn', type: 'button', disabled: !S.canWrite, onclick: () => setLeadStatus(key, 'new', 'Restored') }, 'Restore')]
-      : [h('button', { class: 'btn primary', type: 'button', disabled: !S.canWrite, onclick: () => leadToApp(key, 'Applied') }, 'I applied'),
+      : [h('button', { class: 'btn primary', type: 'button', disabled: !S.canWrite, onclick: () => leadToApp(key, 'Applying') }, 'Apply for me'),
+         h('button', { class: 'btn', type: 'button', disabled: !S.canWrite, onclick: () => leadToApp(key, 'Applied') }, 'I applied'),
          h('button', { class: 'btn', type: 'button', disabled: !S.canWrite, onclick: () => leadToApp(key, 'Interested') }, 'Track'),
          h('button', { class: 'btn', type: 'button', disabled: !S.canWrite, onclick: () => setLeadStatus(key, 'dismissed', 'Dismissed') }, 'Dismiss')];
     return h('div', { class: 'item' }, h('div', { class: 'row' },

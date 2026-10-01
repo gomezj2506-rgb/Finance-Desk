@@ -32,4 +32,11 @@ phone, Mac or desktop). It only runs when you type it; nothing is scheduled.
   Gmail connector. The cloud environment cannot open LinkedIn itself.
 - SimplifyJobs: a public internship feed on GitHub.
 
+**Filling out applications** happens in Cowork on your computer, not in the
+cloud: it needs your browser, where you are signed in to 12twenty, LinkedIn and
+employer sites. `cowork-apply/SKILL.md` is that skill. It pairs with a private
+`answers.md` built from your resume (never committed here). Queue postings with
+**Apply for me** on the tracker, then tell Cowork "apply to my queue". It fills
+what the answer sheet covers, leaves the rest blank, and stops before Submit.
+
 Tests: `node --test internships/desk.test.js`
