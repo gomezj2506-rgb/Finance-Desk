@@ -1,0 +1,622 @@
+<title>Recruiting Desk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: an order blotter. Key numbers + pipeline bar on top, then one
+     ledger per tab (tracker / leads); rows expand in place, stack on phones.
+     Palette and faces follow The Desk (the Finance Desk hub) so the two read
+     as one set of tools. Dark-first; light mirrors it. */
+  :root{
+    color-scheme:dark;
+    --ground:#07090C; --panel:#0D1217; --raised:#141B22; --line:#1F2A34;
+    --ink:#DCE5E0; --mute:#82918A; --faint:#4A5751;
+    --amber:#F2A93B; --amber-wash:rgba(242,169,59,.12);
+    --up:#2DBE74; --up-wash:rgba(45,190,116,.13);
+    --down:#EF5350; --down-wash:rgba(239,83,80,.12);
+    --work:#5AA9E6; --work-wash:rgba(90,169,230,.13);
+    --f-display:'Space Grotesk',ui-sans-serif,system-ui,sans-serif;
+    --f-body:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+    --f-data:'IBM Plex Mono',ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;
+    --r:8px;
+  }
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      color-scheme:light;
+      --ground:#F3F5F2; --panel:#FFFFFF; --raised:#ECF0EC; --line:#D3DBD5;
+      --ink:#0F1613; --mute:#56665E; --faint:#9AA79F;
+      --amber:#A86508; --amber-wash:rgba(168,101,8,.10);
+      --up:#137443; --up-wash:rgba(19,116,67,.10);
+      --down:#C02B28; --down-wash:rgba(192,43,40,.09);
+      --work:#1D69AA; --work-wash:rgba(29,105,170,.10);
+    }
+  }
+  :root[data-theme="light"]{
+    color-scheme:light;
+    --ground:#F3F5F2; --panel:#FFFFFF; --raised:#ECF0EC; --line:#D3DBD5;
+    --ink:#0F1613; --mute:#56665E; --faint:#9AA79F;
+    --amber:#A86508; --amber-wash:rgba(168,101,8,.10);
+    --up:#137443; --up-wash:rgba(19,116,67,.10);
+    --down:#C02B28; --down-wash:rgba(192,43,40,.09);
+    --work:#1D69AA; --work-wash:rgba(29,105,170,.10);
+  }
+
+  *{box-sizing:border-box}
+  body{background:var(--ground); color:var(--ink); font:15px/1.5 var(--f-body); -webkit-font-smoothing:antialiased}
+  .wrap{max-width:1160px; margin:0 auto; padding-inline:clamp(16px,3vw,28px); padding-block:22px 56px; display:grid; gap:18px}
+  button,input,select,textarea{font:inherit; color:inherit}
+  :focus-visible{outline:2px solid var(--amber); outline-offset:2px; border-radius:4px}
+  .mono{font-family:var(--f-data); font-variant-numeric:tabular-nums}
+  .lbl{font:500 11px/1.2 var(--f-data); letter-spacing:.08em; text-transform:uppercase; color:var(--mute)}
+  a{color:var(--amber); text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* header */
+  .top{display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:12px 24px}
+  .brand{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+  .brand .dot{width:10px; height:10px; border-radius:2px; background:var(--amber); box-shadow:0 0 12px 1px var(--amber-wash)}
+  h1{font:700 clamp(1.45rem,3.2vw,1.9rem)/1.1 var(--f-display); letter-spacing:-.01em; margin:0; text-wrap:balance}
+  .season{font:500 12px var(--f-data); color:var(--amber); border:1px solid var(--amber); border-radius:4px; padding:2px 7px; letter-spacing:.06em}
+  .stamp{display:grid; gap:2px; text-align:right; min-width:0}
+  .stamp .when{font:500 13px var(--f-data)}
+  .stamp .what{font-size:13px; color:var(--mute); max-width:52ch}
+
+  /* key numbers */
+  .pipe{background:var(--panel); border:1px solid var(--line); border-radius:var(--r); padding:16px; display:grid; gap:14px}
+  .keys{display:grid; grid-template-columns:repeat(auto-fit,minmax(128px,1fr)); gap:12px 16px}
+  .key{display:grid; gap:4px; min-width:0}
+  .key .n{font:500 1.6rem/1 var(--f-data); font-variant-numeric:tabular-nums}
+  .key.alert .n{color:var(--down)}
+  .key.warn .n{color:var(--amber)}
+  .bar{display:flex; height:8px; border-radius:4px; overflow:hidden; background:var(--raised)}
+  .bar span{display:block; height:100%}
+  .legend{display:flex; flex-wrap:wrap; gap:4px 14px; font-size:12.5px; color:var(--mute)}
+  .legend span{display:inline-flex; align-items:center; gap:6px}
+  .sw{width:8px; height:8px; border-radius:2px; flex:none; display:inline-block}
+
+  /* tabs + toolbar */
+  .tabs{display:flex; gap:4px; border-bottom:1px solid var(--line)}
+  .tab{background:none; border:0; border-bottom:2px solid transparent; padding:10px 14px 9px; cursor:pointer; font:600 14px var(--f-body); color:var(--mute); display:flex; gap:8px; align-items:center}
+  .tab[aria-selected="true"]{color:var(--ink); border-bottom-color:var(--amber)}
+  .tab .ct{font:500 12px var(--f-data); color:var(--mute); background:var(--raised); border-radius:10px; padding:1px 7px}
+  .tools{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px}
+  .chips{display:flex; flex-wrap:wrap; gap:6px}
+  .chip{background:var(--panel); border:1px solid var(--line); border-radius:999px; padding:4px 12px; font-size:13px; cursor:pointer; color:var(--mute)}
+  .chip[aria-pressed="true"]{color:var(--ink); border-color:var(--amber); background:var(--amber-wash)}
+  .actions{display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+  .btn{background:var(--raised); border:1px solid var(--line); border-radius:6px; padding:6px 12px; font-size:13px; font-weight:500; cursor:pointer}
+  .btn:hover{border-color:var(--faint)}
+  .btn.primary{background:var(--amber); border-color:var(--amber); color:#120C02}
+  .btn:disabled{opacity:.45; cursor:not-allowed}
+
+  /* ledger rows */
+  .ledger{display:grid; background:var(--panel); border:1px solid var(--line); border-radius:var(--r); overflow:hidden}
+  .head,.row{display:grid; align-items:center; gap:12px; padding:10px 14px}
+  .apps .head,.apps .row{grid-template-columns:minmax(0,2.3fr) minmax(0,1.05fr) 5.4rem 10.5rem minmax(0,1.7fr) 1rem}
+  .leads .head,.leads .row{grid-template-columns:5.6rem minmax(0,2.5fr) minmax(0,1.3fr) 5rem 15rem}
+  .head{border-bottom:1px solid var(--line); background:var(--raised)}
+  .item{border-top:1px solid var(--line)}
+  .head + .item{border-top:0}
+  .apps .row{cursor:pointer}
+  .apps .row:hover{background:var(--raised)}
+  .who{display:grid; gap:1px; min-width:0}
+  .who b{font-weight:600; overflow-wrap:anywhere}
+  .who span{color:var(--mute); font-size:13.5px; overflow-wrap:anywhere}
+  .tags{display:grid; gap:3px; justify-items:start; min-width:0}
+  .cat{font-size:13px; color:var(--ink); overflow-wrap:anywhere}
+  .src{font:500 11px var(--f-data); letter-spacing:.04em; color:var(--mute); border:1px solid var(--line); border-radius:4px; padding:1px 6px; white-space:nowrap}
+  .tier{font:500 11px var(--f-data); color:var(--amber); margin-left:6px}
+  .next{display:grid; gap:2px; font-size:13.5px; min-width:0}
+  .next span{color:var(--mute); overflow-wrap:anywhere}
+  .cue{font:500 12px var(--f-data)}
+  .cue.alert{color:var(--down)}
+  .cue.warn{color:var(--amber)}
+  .chev{color:var(--faint); transition:transform .15s}
+  .item.open .chev{transform:rotate(90deg)}
+  @media (prefers-reduced-motion:reduce){.chev{transition:none}}
+
+  select.stage{appearance:none; -webkit-appearance:none; border-radius:999px; padding:3px 26px 3px 10px; font:500 12.5px var(--f-body); cursor:pointer; border:1px solid currentColor; background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%2382918A' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 9px center; max-width:100%}
+  .s-watch{color:var(--mute); background-color:var(--raised)}
+  .s-work{color:var(--work); background-color:var(--work-wash)}
+  .s-live{color:var(--amber); background-color:var(--amber-wash)}
+  .s-won{color:var(--up); background-color:var(--up-wash)}
+  .s-lost{color:var(--down); background-color:var(--down-wash)}
+  select.stage option{color:var(--ink); background:var(--panel)}
+
+  .fit{font:500 11px var(--f-data); letter-spacing:.05em; text-transform:uppercase; padding:3px 8px; border-radius:4px; justify-self:start}
+  .fit.strong{color:var(--up); background:var(--up-wash)}
+  .fit.possible{color:var(--work); background:var(--work-wash)}
+  .fit.low{color:var(--mute); background:var(--raised)}
+  .due{font:500 13px var(--f-data); font-variant-numeric:tabular-nums}
+  .due.soon{color:var(--down)}
+  .due.near{color:var(--amber)}
+  .due.none{color:var(--faint)}
+  .where{color:var(--mute); font-size:13px; overflow-wrap:anywhere}
+  .lead-acts{display:flex; gap:6px; justify-content:flex-end; flex-wrap:wrap}
+  .lead-acts .btn{padding:4px 10px}
+
+  .detail{padding:4px 14px 16px; display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px 18px; background:var(--raised)}
+  .field{display:grid; gap:5px; min-width:0; align-content:start}
+  .field input,.field textarea,.field select{background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:7px 9px; width:100%; min-width:0}
+  .field textarea{min-height:84px; resize:vertical}
+  .wide{grid-column:1/-1}
+  .hist{list-style:none; margin:0; padding:0; display:grid; gap:6px}
+  .hist li{display:grid; grid-template-columns:4.6rem minmax(0,1fr); gap:10px; font-size:13.5px}
+  .hist .d{font:12.5px var(--f-data); color:var(--mute)}
+  .detail-foot{grid-column:1/-1; display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; align-items:center}
+  .confirm{display:flex; gap:8px; align-items:center; font-size:13px; color:var(--down); flex-wrap:wrap}
+
+  .empty{padding:28px 18px; display:grid; gap:6px; justify-items:start}
+  .empty b{font:600 15px var(--f-body)}
+  .empty p{margin:0; color:var(--mute); max-width:62ch}
+  .empty code{font:13px var(--f-data); background:var(--raised); padding:1px 6px; border-radius:4px; color:var(--amber)}
+
+  .add{background:var(--panel); border:1px solid var(--line); border-radius:var(--r); padding:14px 16px}
+  .add form{display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; align-items:end}
+
+  .toast{position:fixed; left:50%; transform:translateX(-50%); bottom:calc(18px + env(safe-area-inset-bottom,0px)); background:var(--ink); color:var(--ground); padding:9px 16px; border-radius:6px; font-size:13.5px; max-width:calc(100% - 32px); box-shadow:0 6px 24px rgba(0,0,0,.35); z-index:5}
+  .ro{font-size:13px; color:var(--mute)}
+  .foot{color:var(--faint); font-size:12.5px; display:flex; flex-wrap:wrap; gap:6px 18px}
+
+  @media (max-width:780px){
+    .stamp{text-align:left}
+    .head{display:none}
+    .apps .row{grid-template-columns:minmax(0,1fr) auto; grid-template-areas:"who stage" "tags tags" "next next"; row-gap:6px}
+    .apps .row .who{grid-area:who}
+    .apps .row .stagewrap{grid-area:stage}
+    .apps .row .tags{grid-area:tags; display:flex; flex-wrap:wrap; gap:6px 10px; align-items:center}
+    .apps .row .next{grid-area:next}
+    .apps .row .chev,.apps .row .applied{display:none}
+    .leads .row{grid-template-columns:auto minmax(0,1fr) auto; grid-template-areas:"fit who due" "where where where" "acts acts acts"; row-gap:8px}
+    .leads .row .fit{grid-area:fit}
+    .leads .row .who{grid-area:who}
+    .leads .row .due{grid-area:due}
+    .leads .row .where{grid-area:where}
+    .leads .row .lead-acts{grid-area:acts; justify-content:flex-start}
+  }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="dot" aria-hidden="true"></span>
+      <h1>Recruiting Desk</h1>
+      <span class="season">SUMMER 2027</span>
+    </div>
+    <div class="stamp" aria-live="polite">
+      <span class="lbl">Last bot run</span>
+      <span class="when mono" id="when">Waiting for the tracker…</span>
+      <span class="what" id="what"></span>
+    </div>
+  </header>
+
+  <section class="pipe" aria-label="Key numbers">
+    <div class="keys" id="keys"></div>
+    <div class="bar" id="bar" aria-hidden="true"></div>
+    <div class="legend" id="legend"></div>
+  </section>
+
+  <nav class="tabs" role="tablist" aria-label="Views">
+    <button class="tab" role="tab" id="tab-apps" aria-selected="true" data-tab="apps">Tracker <span class="ct" id="ct-apps">0</span></button>
+    <button class="tab" role="tab" id="tab-leads" aria-selected="false" data-tab="leads">New leads <span class="ct" id="ct-leads">0</span></button>
+  </nav>
+
+  <div class="tools">
+    <div class="chips" id="chips" role="group" aria-label="Filter"></div>
+    <div class="actions">
+      <span class="ro" id="ro" hidden>View only</span>
+      <button class="btn" id="btn-add" type="button">Add a row</button>
+      <button class="btn" id="btn-xlsx" type="button" hidden>Download Excel</button>
+    </div>
+  </div>
+
+  <section class="add" id="addbox" hidden aria-label="Add a row">
+    <form id="addform">
+      <label class="field"><span class="lbl">Company</span><input id="f-company" required autocomplete="off"></label>
+      <label class="field"><span class="lbl">Role</span><input id="f-role" required autocomplete="off"></label>
+      <label class="field"><span class="lbl">Status</span><select id="f-stage"></select></label>
+      <label class="field"><span class="lbl">Category</span><select id="f-category"></select></label>
+      <label class="field"><span class="lbl">Source</span><select id="f-source"></select></label>
+      <label class="field"><span class="lbl">Fit</span><select id="f-tier"><option value="">—</option><option>Target</option><option>Reach</option><option>Lead</option></select></label>
+      <label class="field"><span class="lbl">Date applied</span><input id="f-applied" type="date"></label>
+      <label class="field"><span class="lbl">Deadline</span><input id="f-deadline" type="date"></label>
+      <label class="field"><span class="lbl">Posting link</span><input id="f-link" type="url" autocomplete="off"></label>
+      <div class="actions"><button class="btn primary" type="submit">Add to tracker</button><button class="btn" type="button" id="add-cancel">Cancel</button></div>
+    </form>
+  </section>
+
+  <section id="list" class="ledger apps" aria-live="polite"></section>
+
+  <footer class="foot">
+    <span>Filled by <span class="mono">/internships</span> in Claude Code from 12twenty, LinkedIn and SimplifyJobs. Edits you make here carry into the next run and the Excel export.</span>
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(() => {
+  // ---- vocabulary (verbatim from the original Internship_Tracker workbook) ----
+  const STAGES = ['Not Open Yet', 'Researching', 'Interested', 'Applying', 'Applied', 'Online Assessment', 'Interviewing', 'Final Round', 'Offer', 'Rejected', 'Withdrawn', 'Closed'];
+  const WATCH = new Set(['Not Open Yet', 'Researching', 'Interested', 'Applying']);
+  const LIVE = new Set(['Applied', 'Online Assessment', 'Interviewing', 'Final Round']);
+  const DONE = new Set(['Rejected', 'Withdrawn', 'Closed']);
+  const HEARD = new Set(['Online Assessment', 'Interviewing', 'Final Round', 'Offer', 'Rejected']);
+  const CATEGORIES = ['Asset Management', 'Wealth Mgmt / Planning', 'Corporate Finance', 'Operations', 'Banking', 'Markets', 'Risk', 'Other'];
+  const SOURCES = ['12twenty', 'LinkedIn', 'Company Site', 'Career Fair', 'Handshake', 'Referral', 'Simplify', 'Other'];
+  const stageClass = s => WATCH.has(s) ? 's-watch' : s === 'Applied' ? 's-work' : LIVE.has(s) ? 's-live' : s === 'Offer' ? 's-won' : 's-lost';
+  const BAR = [['Watchlist', s => WATCH.has(s), '--faint'], ['Applied', s => s === 'Applied', '--work'], ['Assessment / interviews', s => LIVE.has(s) && s !== 'Applied', '--amber'], ['Offer', s => s === 'Offer', '--up'], ['Closed', s => DONE.has(s), '--down']];
+  const APP_FILTERS = [['live', 'In play'], ['watch', 'Watchlist'], ['followup', 'Follow-ups due'], ['offer', 'Offers'], ['closed', 'Closed'], ['all', 'All']];
+  const LEAD_FILTERS = [['open', 'Open'], ['strong', 'Strong fit'], ['low', 'Low fit'], ['dismissed', 'Dismissed']];
+  const FOLLOW_UP_DAYS = 12;
+
+  // Must match keyFor() in internships/desk.js so the page and the bot agree on ids.
+  const COMPANY_NOISE = /\b(inc|llc|llp|l\.?p|p\.?c|ltd|corp|corporation|co|the)\b\.?/gi;
+  const slug = s => String(s || '').toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '')
+    .replace(/&/g, ' and ').replace(/[’']/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const keyFor = (company, role) => {
+    const c = slug(String(company || '').replace(/,?\s*&\s*co\.?\s*$/i, ' ').replace(COMPANY_NOISE, ' '));
+    return `${c}--${slug(role)}`.slice(0, 150).replace(/-+$/, '');
+  };
+
+  const todayET = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(new Date());
+  const dayNum = d => Math.round(Date.parse(d + 'T12:00:00Z') / 86400000);
+  const daysFromToday = d => dayNum(d) - dayNum(todayET());
+  const addDays = (d, n) => { const x = new Date(d + 'T12:00:00Z'); x.setUTCDate(x.getUTCDate() + n); return x.toISOString().slice(0, 10); };
+  const shortDate = d => d ? new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' }) : '—';
+  const isYMD = d => /^\d{4}-\d{2}-\d{2}$/.test(String(d || ''));
+
+  // ---- state ---------------------------------------------------------------
+  const S = {
+    apps: new Map(), leads: new Map(), meta: null,
+    tab: (location.hash === '#leads') ? 'leads' : 'apps',
+    appFilter: 'live', leadFilter: 'open',
+    open: new Set(), confirmDel: null,
+    canWrite: true, db: null, ready: { apps: false, leads: false },
+  };
+  try { const f = JSON.parse(localStorage.getItem('rd-filters') || '{}'); if (APP_FILTERS.some(x => x[0] === f.app)) S.appFilter = f.app; if (LEAD_FILTERS.some(x => x[0] === f.lead)) S.leadFilter = f.lead; } catch (e) {}
+  const remember = () => { try { localStorage.setItem('rd-filters', JSON.stringify({ app: S.appFilter, lead: S.leadFilter })); } catch (e) {} };
+
+  // ---- dom helpers ---------------------------------------------------------
+  const $ = id => document.getElementById(id);
+  function h(tag, attrs, ...kids) {
+    const el = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs || {})) {
+      if (v === null || v === undefined || v === false) continue;
+      if (k === 'class') el.className = v;
+      else if (k === 'text') el.textContent = v;
+      else if (k === 'value') el.value = v;
+      else if (k.startsWith('on')) el.addEventListener(k.slice(2), v);
+      else el.setAttribute(k, v === true ? '' : v);
+    }
+    for (const k of kids.flat()) if (k !== null && k !== undefined && k !== false) el.append(k.nodeType ? k : document.createTextNode(String(k)));
+    return el;
+  }
+  const options = (list, cur) => list.map(v => h('option', { value: v, selected: v === cur }, v || '—'));
+  let toastTimer;
+  function toast(msg) {
+    const t = $('toast'); t.textContent = msg; t.hidden = false;
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, 3600);
+  }
+  const safeLink = u => /^https?:\/\//i.test(String(u || '')) ? u : null;
+
+  // ---- derived flags --------------------------------------------------------
+  const followupDue = a => isYMD(a.followup) && daysFromToday(a.followup) <= 0 && !DONE.has(a.stage) && a.stage !== 'Offer';
+  const deadlineSoon = a => isYMD(a.deadline) && WATCH.has(a.stage) && daysFromToday(a.deadline) >= 0 && daysFromToday(a.deadline) <= 7;
+  const daysSinceApplied = a => isYMD(a.applied) ? -daysFromToday(a.applied) : null;
+  const leadIsOpen = (k, l) => !S.apps.has(k) && l.status !== 'dismissed' && l.status !== 'applied' && l.status !== 'tracked';
+
+  // ---- writes --------------------------------------------------------------
+  async function write(fn, okMsg) {
+    if (!S.db) { toast('The tracker is still connecting. Try again in a moment.'); return false; }
+    if (!S.canWrite) { toast('This copy is view-only.'); return false; }
+    try { await fn(S.db); if (okMsg) toast(okMsg); return true; }
+    catch (e) { toast(`Couldn't save: ${(e && e.message) || 'unknown error'}`); return false; }
+  }
+  function setStage(key, stage) {
+    const a = S.apps.get(key); if (!a || a.stage === stage) return;
+    const today = todayET();
+    const patch = { stage, updated: today, history: (Array.isArray(a.history) ? a.history : []).concat([{ date: today, stage, note: 'Updated on the desk' }]) };
+    if (stage === 'Applied' && !a.applied) { patch.applied = today; patch.followup = addDays(today, FOLLOW_UP_DAYS); }
+    write(db => db.doc('apps/' + key).update(patch), `${a.company}: ${stage}`);
+  }
+  function setField(key, field, value) {
+    const a = S.apps.get(key); if (!a) return;
+    const v = value === '' && ['deadline', 'followup', 'applied'].includes(field) ? null : value;
+    if ((a[field] ?? null) === v || (a[field] || '') === v) return;
+    write(db => db.doc('apps/' + key).update({ [field]: v, updated: todayET() }), 'Saved');
+  }
+  async function leadToApp(key, stage) {
+    const l = S.leads.get(key); if (!l) return;
+    const today = todayET();
+    const applied = stage === 'Applied' ? today : null;
+    if (!S.apps.has(key)) {
+      const ok = await write(db => db.doc('apps/' + key).set({
+        key, company: l.company, role: l.role, location: l.location || '', category: CATEGORIES.includes(l.category) ? l.category : 'Other',
+        tier: '', source: SOURCES.includes(l.source) ? l.source : 'Other', stage, deadline: isYMD(l.deadline) ? l.deadline : null, deadline_note: '',
+        applied, followup: applied ? addDays(applied, FOLLOW_UP_DAYS) : null, next: '', contact: '', pay: '', link: l.link || '',
+        notes: l.why ? `Bot match: ${l.why}` : '', updated: today,
+        history: [{ date: today, stage, note: stage === 'Applied' ? 'Marked applied from a lead' : 'Moved from leads' }],
+      }));
+      if (!ok) return;
+    }
+    write(db => db.doc('leads/' + key).update({ status: stage === 'Applied' ? 'applied' : 'tracked' }), stage === 'Applied' ? `${l.company} added as Applied` : `${l.company} added to your tracker`);
+  }
+  const setLeadStatus = (key, status, msg) => write(db => db.doc('leads/' + key).update({ status }), msg);
+  function removeApp(key) {
+    const a = S.apps.get(key); S.confirmDel = null; S.open.delete(key);
+    write(db => db.doc('apps/' + key).delete(), a ? `Removed ${a.company}` : 'Removed');
+  }
+
+  // ---- key numbers (the old Dashboard tab) -----------------------------------
+  function renderKeys() {
+    const apps = [...S.apps.values()];
+    const submitted = apps.filter(a => isYMD(a.applied) || (!WATCH.has(a.stage) && a.stage !== 'Closed'));
+    const heard = submitted.filter(a => HEARD.has(a.stage)).length;
+    const interviews = apps.filter(a => ['Online Assessment', 'Interviewing', 'Final Round'].includes(a.stage)).length;
+    const offers = apps.filter(a => a.stage === 'Offer').length;
+    const dueApps = apps.filter(deadlineSoon).length;
+    const dueLeads = [...S.leads.entries()].filter(([k, l]) => leadIsOpen(k, l) && l.fit !== 'low' && isYMD(l.deadline) && daysFromToday(l.deadline) >= 0 && daysFromToday(l.deadline) <= 7).length;
+    const follow = apps.filter(followupDue).length;
+    const keys = [
+      ['Companies tracked', new Set(apps.map(a => (a.company || '').toLowerCase())).size, ''],
+      ['Applications submitted', submitted.length, ''],
+      ['Interviews (incl. OA)', interviews, ''],
+      ['Offers', offers, ''],
+      ['Response rate', submitted.length ? Math.round((heard / submitted.length) * 100) + '%' : '—', ''],
+      ['Deadlines ≤ 7 days', dueApps + dueLeads, dueApps + dueLeads ? 'alert' : ''],
+      ['Follow-ups due', follow, follow ? 'warn' : ''],
+    ];
+    $('keys').replaceChildren(...keys.map(([k, n, cls]) => h('div', { class: 'key ' + cls }, h('span', { class: 'lbl', text: k }), h('span', { class: 'n', text: String(n) }))));
+    const total = apps.length;
+    const counts = BAR.map(([label, test, v]) => [label, apps.filter(a => test(a.stage)).length, v]);
+    $('bar').replaceChildren(...(total ? counts.filter(c => c[1]).map(([label, n, v]) => h('span', { style: `width:${(n / total) * 100}%;background:var(${v})`, title: `${label}: ${n}` })) : []));
+    $('legend').replaceChildren(...counts.map(([label, n, v]) => h('span', {}, h('i', { class: 'sw', style: `background:var(${v})` }), `${label} ${n}`)));
+  }
+
+  // ---- tracker rows -----------------------------------------------------------
+  function appVisible(a) {
+    switch (S.appFilter) {
+      case 'live': return LIVE.has(a.stage);
+      case 'watch': return WATCH.has(a.stage);
+      case 'followup': return followupDue(a);
+      case 'offer': return a.stage === 'Offer';
+      case 'closed': return DONE.has(a.stage);
+      default: return true;
+    }
+  }
+  function cueFor(a) {
+    if (deadlineSoon(a)) { const d = daysFromToday(a.deadline); return h('span', { class: 'cue alert', text: d === 0 ? 'Deadline today' : `Deadline in ${d}d` }); }
+    if (followupDue(a)) return h('span', { class: 'cue warn', text: `Follow up (${shortDate(a.followup)})` });
+    const since = daysSinceApplied(a);
+    if (a.stage === 'Applied' && since !== null && since >= 14) return h('span', { class: 'cue warn', text: `${since}d, no reply` });
+    if (WATCH.has(a.stage) && isYMD(a.deadline)) return h('span', { class: 'cue', text: `Due ${shortDate(a.deadline)}` });
+    if (WATCH.has(a.stage) && a.deadline_note) return h('span', { class: 'cue', text: a.deadline_note });
+    return null;
+  }
+  function appRow(key, a) {
+    const isOpen = S.open.has(key);
+    const stage = STAGES.includes(a.stage) ? a.stage : 'Applied';
+    const sel = h('select', { class: `stage ${stageClass(stage)}`, id: 'stage-' + key, 'aria-label': `Status for ${a.company}`, disabled: !S.canWrite,
+      onclick: e => e.stopPropagation(), onkeydown: e => e.stopPropagation(), onchange: e => setStage(key, e.target.value) }, options(STAGES, stage));
+    const row = h('div', { class: 'row', role: 'button', tabindex: '0', 'aria-expanded': String(isOpen),
+      onclick: () => toggle(key), onkeydown: e => { if ((e.key === 'Enter' || e.key === ' ') && e.target === e.currentTarget) { e.preventDefault(); toggle(key); } } },
+      h('div', { class: 'who' }, h('b', {}, a.company || '—', a.tier ? h('span', { class: 'tier', text: a.tier.toUpperCase() }) : null), h('span', { text: a.role || '' })),
+      h('div', { class: 'tags' }, h('span', { class: 'cat', text: a.category || 'Other' }), h('span', { class: 'src', text: a.source || 'Other' })),
+      h('span', { class: 'mono applied', text: isYMD(a.applied) ? shortDate(a.applied) : '—' }),
+      h('div', { class: 'stagewrap' }, sel),
+      h('div', { class: 'next' }, cueFor(a), a.next ? h('span', { text: a.next }) : null),
+      h('span', { class: 'chev', 'aria-hidden': 'true', text: '›' }));
+    const item = h('div', { class: 'item' + (isOpen ? ' open' : '') }, row);
+    if (isOpen) item.append(appDetail(key, a));
+    return item;
+  }
+  function input(key, field, label, a, type = 'text', ph = '') {
+    return h('label', { class: 'field' }, h('span', { class: 'lbl', text: label }),
+      h('input', { id: `${field}-${key}`, type, value: a[field] || '', placeholder: ph, disabled: !S.canWrite, onchange: e => setField(key, field, e.target.value.trim()) }));
+  }
+  function select(key, field, label, a, list) {
+    return h('label', { class: 'field' }, h('span', { class: 'lbl', text: label }),
+      h('select', { id: `${field}-${key}`, disabled: !S.canWrite, onchange: e => setField(key, field, e.target.value) }, options(list, a[field] || '')));
+  }
+  function appDetail(key, a) {
+    const link = safeLink(a.link);
+    const hist = (Array.isArray(a.history) ? a.history : []).slice().reverse();
+    return h('div', { class: 'detail' },
+      input(key, 'next', 'Next step', a, 'text', 'e.g. HireVue due Oct 9'),
+      input(key, 'followup', 'Follow-up date', a, 'date'),
+      input(key, 'deadline', 'Deadline', a, 'date'),
+      input(key, 'deadline_note', 'Deadline note', a, 'text', 'Rolling, Opens ~Oct…'),
+      input(key, 'applied', 'Date applied', a, 'date'),
+      select(key, 'category', 'Category', a, CATEGORIES),
+      select(key, 'tier', 'Fit', a, ['', 'Target', 'Reach', 'Lead']),
+      select(key, 'source', 'Source', a, SOURCES),
+      input(key, 'location', 'Location', a),
+      input(key, 'contact', 'Contact', a, 'text', 'Name, email, where you met'),
+      input(key, 'pay', 'Pay', a),
+      h('label', { class: 'field' }, h('span', { class: 'lbl' }, 'Posting link', link ? h('a', { href: link, target: '_blank', rel: 'noopener', style: 'margin-left:8px;text-transform:none;letter-spacing:0' }, 'open ↗') : null),
+        h('input', { id: 'link-' + key, type: 'url', value: a.link || '', disabled: !S.canWrite, onchange: e => setField(key, 'link', e.target.value.trim()) })),
+      h('label', { class: 'field wide' }, h('span', { class: 'lbl', text: 'Notes' }),
+        h('textarea', { id: 'notes-' + key, disabled: !S.canWrite, placeholder: 'Eligibility, contacts, prep, what they asked', onchange: e => setField(key, 'notes', e.target.value) }, a.notes || '')),
+      h('div', { class: 'field wide' }, h('span', { class: 'lbl', text: 'History' }),
+        hist.length ? h('ul', { class: 'hist' }, hist.map(x => h('li', {}, h('span', { class: 'd', text: shortDate(x.date) }), h('span', {}, x.stage || '', x.note ? ` · ${x.note}` : ''))))
+                    : h('span', { class: 'ro', text: 'No history yet' })),
+      h('div', { class: 'detail-foot' },
+        h('span', { class: 'ro', text: daysSinceApplied(a) !== null ? `${daysSinceApplied(a)} days since applying` : 'Not applied yet' }),
+        S.confirmDel === key
+          ? h('span', { class: 'confirm' }, 'Remove this row?',
+              h('button', { class: 'btn', type: 'button', onclick: () => removeApp(key) }, 'Remove'),
+              h('button', { class: 'btn', type: 'button', onclick: () => { S.confirmDel = null; render(); } }, 'Keep'))
+          : h('button', { class: 'btn', type: 'button', disabled: !S.canWrite, onclick: () => { S.confirmDel = key; render(); } }, 'Remove row')));
+  }
+  function toggle(key) { S.open.has(key) ? S.open.delete(key) : S.open.add(key); S.confirmDel = null; render(); }
+
+  // ---- lead rows ----------------------------------------------------------------
+  function leadVisible(key, l) {
+    switch (S.leadFilter) {
+      case 'open': return leadIsOpen(key, l) && l.fit !== 'low';
+      case 'strong': return leadIsOpen(key, l) && l.fit === 'strong';
+      case 'low': return leadIsOpen(key, l) && l.fit === 'low';
+      case 'dismissed': return l.status === 'dismissed';
+      default: return true;
+    }
+  }
+  function dueCell(deadline) {
+    if (!isYMD(deadline)) return h('span', { class: 'due none', text: 'rolling' });
+    const d = daysFromToday(deadline);
+    return h('span', { class: 'due' + (d <= 3 ? ' soon' : d <= 10 ? ' near' : ''), title: `Deadline ${shortDate(deadline)}`, text: d < 0 ? 'closed' : d === 0 ? 'today' : `${d}d` });
+  }
+  function leadRow(key, l) {
+    const link = safeLink(l.link);
+    const acts = l.status === 'dismissed'
+      ? [h('button', { class: 'btn', type: 'button', disabled: !S.canWrite, onclick: () => setLeadStatus(key, 'new', 'Restored') }, 'Restore')]
+      : [h('button', { class: 'btn primary', type: 'button', disabled: !S.canWrite, onclick: () => leadToApp(key, 'Applied') }, 'I applied'),
+         h('button', { class: 'btn', type: 'button', disabled: !S.canWrite, onclick: () => leadToApp(key, 'Interested') }, 'Track'),
+         h('button', { class: 'btn', type: 'button', disabled: !S.canWrite, onclick: () => setLeadStatus(key, 'dismissed', 'Dismissed') }, 'Dismiss')];
+    return h('div', { class: 'item' }, h('div', { class: 'row' },
+      h('span', { class: `fit ${l.fit || 'low'}`, title: l.why || '', text: l.fit || 'low' }),
+      h('div', { class: 'who' }, h('b', {}, link ? h('a', { href: link, target: '_blank', rel: 'noopener' }, l.company || '—') : (l.company || '—')), h('span', { text: l.role || '' })),
+      h('span', { class: 'where' }, [l.location, l.source].filter(Boolean).join(' · ') || '—', l.why ? h('br') : null, l.why || null),
+      dueCell(l.deadline),
+      h('div', { class: 'lead-acts' }, acts)));
+  }
+
+  // ---- shell -----------------------------------------------------------------------
+  function renderChips() {
+    const list = S.tab === 'apps' ? APP_FILTERS : LEAD_FILTERS;
+    const cur = S.tab === 'apps' ? S.appFilter : S.leadFilter;
+    $('chips').replaceChildren(...list.map(([v, label]) => h('button', { class: 'chip', type: 'button', 'aria-pressed': String(v === cur),
+      onclick: () => { if (S.tab === 'apps') S.appFilter = v; else S.leadFilter = v; S.open.clear(); remember(); render(); } }, label)));
+  }
+  function emptyState(kind) {
+    if (!S.ready[kind]) return h('div', { class: 'empty' }, h('b', { text: 'Loading your pipeline…' }), h('p', { text: 'Rows come from the tracker store and appear here in a moment.' }));
+    const any = kind === 'apps' ? S.apps.size : S.leads.size;
+    if (!any) return h('div', { class: 'empty' },
+      h('b', { text: kind === 'apps' ? 'Your tracker is empty' : 'No leads yet' }),
+      h('p', {}, 'Open Claude Code on the Finance-Desk repo and type ', h('code', { text: '/internships' }),
+        kind === 'apps' ? '. It logs every application confirmation it finds. You can also use Add a row.' : '. It reads your 12twenty digests, LinkedIn alerts and the SimplifyJobs feed and drops matches here.'));
+    return h('div', { class: 'empty' }, h('b', { text: 'Nothing under this filter' }), h('p', { text: 'Pick another filter above.' }));
+  }
+  function render() {
+    renderKeys();
+    $('tab-apps').setAttribute('aria-selected', String(S.tab === 'apps'));
+    $('tab-leads').setAttribute('aria-selected', String(S.tab === 'leads'));
+    $('ct-apps').textContent = String(S.apps.size);
+    $('ct-leads').textContent = String([...S.leads.entries()].filter(([k, l]) => leadIsOpen(k, l) && l.fit !== 'low').length);
+    $('ro').hidden = S.canWrite;
+    $('btn-add').hidden = S.tab !== 'apps' || !S.canWrite;
+    if (S.tab !== 'apps') $('addbox').hidden = true;
+    renderChips();
+
+    const list = $('list');
+    const active = document.activeElement;
+    if (active && list.contains(active) && /^(INPUT|TEXTAREA)$/.test(active.tagName)) return; // never clobber a field mid-edit
+    list.className = 'ledger ' + S.tab;
+    if (S.tab === 'apps') {
+      const order = a => (deadlineSoon(a) ? 0 : followupDue(a) ? 1 : 2);
+      const rows = [...S.apps.entries()].filter(([, a]) => appVisible(a))
+        .sort(([, x], [, y]) => order(x) - order(y) || String(y.updated || '').localeCompare(String(x.updated || '')));
+      list.replaceChildren(...(rows.length
+        ? [h('div', { class: 'head', 'aria-hidden': 'true' }, ['Company · role', 'Category · source', 'Applied', 'Status', 'Next step', ''].map(t => h('span', { class: 'lbl', text: t }))), ...rows.map(([k, a]) => appRow(k, a))]
+        : [emptyState('apps')]));
+    } else {
+      const rows = [...S.leads.entries()].filter(([k, l]) => leadVisible(k, l))
+        .sort(([, x], [, y]) => String(isYMD(x.deadline) ? x.deadline : '9999').localeCompare(String(isYMD(y.deadline) ? y.deadline : '9999')) || (y.score || 0) - (x.score || 0));
+      list.replaceChildren(...(rows.length
+        ? [h('div', { class: 'head', 'aria-hidden': 'true' }, ['Fit', 'Company · role', 'Where · why', 'Due', ''].map(t => h('span', { class: 'lbl', text: t }))), ...rows.map(([k, l]) => leadRow(k, l))]
+        : [emptyState('leads')]));
+    }
+  }
+  function renderMeta() {
+    const m = S.meta;
+    if (!m || !m.last_run) { $('when').textContent = S.db ? 'Not run yet. Type /internships in Claude Code.' : 'Waiting for the tracker…'; $('what').textContent = ''; return; }
+    $('when').textContent = new Date(m.last_run).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York' }) + ' ET';
+    $('what').textContent = m.last_summary || '';
+  }
+
+  // ---- tabs, add form ------------------------------------------------------------
+  document.querySelectorAll('.tab').forEach(b => b.addEventListener('click', () => {
+    S.tab = b.dataset.tab; S.open.clear(); S.confirmDel = null;
+    try { history.replaceState(null, '', '#' + S.tab); } catch (e) {}
+    render();
+  }));
+  $('f-stage').append(...options(STAGES, 'Applied'));
+  $('f-category').append(...options(CATEGORIES, 'Other'));
+  $('f-source').append(...options(SOURCES, 'Company Site'));
+  $('btn-add').addEventListener('click', () => { const box = $('addbox'); box.hidden = !box.hidden; if (!box.hidden) { $('f-applied').value = todayET(); $('f-company').focus(); } });
+  $('add-cancel').addEventListener('click', () => { $('addbox').hidden = true; });
+  $('addform').addEventListener('submit', async e => {
+    e.preventDefault();
+    const company = $('f-company').value.trim(), role = $('f-role').value.trim();
+    if (!company || !role) return;
+    const key = keyFor(company, role);
+    if (S.apps.has(key)) { toast('That row is already in the tracker.'); return; }
+    const stage = $('f-stage').value, source = $('f-source').value, today = todayET();
+    const applied = WATCH.has(stage) ? null : ($('f-applied').value || today);
+    const ok = await write(db => db.doc('apps/' + key).set({
+      key, company, role, location: '', category: $('f-category').value, tier: $('f-tier').value, source, stage,
+      deadline: $('f-deadline').value || null, deadline_note: '', applied, followup: applied ? addDays(applied, FOLLOW_UP_DAYS) : null,
+      next: '', contact: '', pay: '', link: $('f-link').value.trim(), notes: '', updated: today,
+      history: [{ date: today, stage, note: `Added by hand (${source})` }],
+    }), `${company} added`);
+    if (ok) { e.target.reset(); $('addbox').hidden = true; S.appFilter = WATCH.has(stage) ? 'watch' : 'live'; render(); }
+  });
+
+  // ---- Excel export: same columns as the original Tracker tab --------------------
+  let xlsxLoading = null;
+  function loadXLSX() {
+    if (window.XLSX) return Promise.resolve();
+    return xlsxLoading || (xlsxLoading = new Promise((res, rej) => {
+      const s = document.createElement('script');
+      s.src = 'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';
+      s.onload = res; s.onerror = () => { xlsxLoading = null; rej(new Error('the Excel library did not load')); };
+      document.head.append(s);
+    }));
+  }
+  async function exportXlsx(downloads) {
+    const btn = $('btn-xlsx'); btn.disabled = true;
+    try {
+      await loadXLSX();
+      const rank = s => STAGES.indexOf(s);
+      const apps = [...S.apps.values()].sort((a, b) => rank(b.stage) - rank(a.stage) || String(a.company).localeCompare(String(b.company)));
+      const rows = apps.map((a, i) => ({
+        '#': i + 1, Company: a.company, Role: a.role, Location: a.location || '', Category: a.category || '', Fit: a.tier || '',
+        Source: a.source || '', Status: a.stage, Deadline: isYMD(a.deadline) ? a.deadline : (a.deadline_note || ''),
+        'Days Left': isYMD(a.deadline) ? daysFromToday(a.deadline) : '', 'Date Applied': a.applied || '',
+        'Days Since Applied': daysSinceApplied(a) ?? '', 'Next Step': a.next || '', 'Follow-Up Date': a.followup || '',
+        Contact: a.contact || '', Pay: a.pay || '', Link: a.link || '', Notes: a.notes || '' }));
+      const leads = [...S.leads.entries()].filter(([k, l]) => leadIsOpen(k, l)).map(([, l]) => ({
+        Company: l.company, Role: l.role, Fit: l.fit, Why: l.why || '', Deadline: l.deadline || '', Location: l.location || '',
+        Source: l.source, Found: l.found || '', Link: l.link || '' }));
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(rows), 'Tracker');
+      XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(leads), 'New Leads');
+      await downloads.save({ filename: `Internship_Tracker_${todayET()}.xlsx`, data: XLSX.write(wb, { type: 'array', bookType: 'xlsx' }) });
+      toast('Excel file saved');
+    } catch (e) {
+      if (!(e && e.code === 'declined')) toast(`Couldn't build the Excel file: ${(e && e.message) || 'unknown error'}`);
+    } finally { btn.disabled = false; }
+  }
+
+  render(); renderMeta();
+
+  // ---- capabilities ---------------------------------------------------------------
+  (async () => {
+    const claude = window.claude;
+    if (!claude || !claude.use) { $('when').textContent = 'Open this page on claude.ai to load your data'; return; }
+    const [db, user, downloads] = await Promise.all([claude.use('db'), claude.use('user'), claude.use('downloads')]);
+    if (downloads) { const b = $('btn-xlsx'); b.hidden = false; b.addEventListener('click', () => exportXlsx(downloads)); }
+    if (!db) { $('when').textContent = 'Sign in to claude.ai to load your data'; S.ready.apps = S.ready.leads = true; render(); return; }
+    S.db = db;
+    try { if (user && user.can && (await user.can('data.write')) === false) S.canWrite = false; } catch (e) {}
+    const fail = e => toast(`Lost connection to the tracker (${(e && e.code) || 'error'}). Reload to retry.`);
+    db.collection('apps').limit(1000).onSnapshot(snap => { S.apps = new Map(snap.docs.map(d => [d.id, { ...d.data(), key: d.id }])); S.ready.apps = true; render(); }, fail);
+    db.collection('leads').limit(1000).onSnapshot(snap => { S.leads = new Map(snap.docs.map(d => [d.id, { ...d.data(), key: d.id }])); S.ready.leads = true; render(); }, fail);
+    db.doc('meta/state').onSnapshot(d => { S.meta = d.exists ? d.data() : null; renderMeta(); }, fail);
+    renderMeta(); render();
+  })();
+
+  // Redraw once an edit ends, in case snapshots arrived while a field had focus.
+  document.addEventListener('focusout', () => setTimeout(render, 0));
+})();
+</script>
