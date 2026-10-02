@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-10-01T23:54:22.819Z",
-  "updated_label": "Oct 1, 2026, 7:54 PM ET",
+  "updated_utc": "2026-10-02T00:44:07.907Z",
+  "updated_label": "Oct 1, 2026, 8:44 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 234,
+  "quote_age_min": 284,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-on tone. S&P closed +0.2%, 5/11 sectors higher. Energy led (+2.0%); Health Care lagged (-1.3%). Your book: semis (SMH) +1.4%, INTC -0.2%, NVDA +1.1%.",
   "brief": {
-    "asof": "Oct 1, 2026, 7:54 PM ET",
+    "asof": "Oct 1, 2026, 8:44 PM ET",
     "session": "close",
     "picture": "Risk-on tone. S&P closed +0.2%, 5/11 sectors higher. Energy led (+2.0%); Health Care lagged (-1.3%).",
     "rotation": "Money leaned toward cyclicals (Tech/Financials/Industrials/Energy avg +0.4%) over defensives (-0.4%) — a risk-on, growth-seeking tilt.",
@@ -231,13 +231,13 @@
         "tag": "Market"
       },
       {
-        "headline": "Is Marvell Stock Ready For A Slowdown In AI Demand?",
+        "headline": "Intel vs. Taiwan Semiconductor Manufacturing: Which Technology Stock Is a Better Buy in 2026?",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
       },
       {
-        "headline": "What a $3,000 Investment in Walmart Stock Could Be Worth in 1 Year",
+        "headline": "Why Thomson Reuters Stock Topped the Market on Thursday",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
