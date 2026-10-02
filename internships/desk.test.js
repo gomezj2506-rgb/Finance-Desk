@@ -111,3 +111,13 @@ test('appDoc sets a follow-up 12 days out and keeps watchlist rows unapplied', (
   assert.equal(w.deadline_note, 'Opens ~Oct');
   assert.equal(appDoc({ company: 'X', role: 'Y', source: 'Myspace' }, '2026-10-01').source, 'Other');
 });
+
+test('roles outside the commute area drop to low fit unless remote', () => {
+  const far = score(profile, { role: '2027 Asset Management Summer Analyst', locations: ['Chicago, IL'] });
+  assert.equal(far.fit, 'low');
+  assert.match(far.why, /relocation/);
+  assert.equal(score(profile, { role: '2027 Asset Management Summer Analyst', locations: ['Hoboken, NJ'] }).fit, 'strong');
+  assert.notEqual(score(profile, { role: '2027 Asset Management Summer Analyst', locations: ['Remote in USA'] }).fit, 'low');
+  // 12twenty digests carry no location; those stay scored on the role.
+  assert.equal(score(profile, { role: '2027 Asset Management Summer Analyst', locations: [] }).fit, 'strong');
+});

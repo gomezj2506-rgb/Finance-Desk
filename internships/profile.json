@@ -5,9 +5,11 @@
   "degree": "Bachelor's",
 
   "locations": {
-    "home": ["NYC", "New York", "Jersey City", "Newark", "Hoboken", "Morristown", "Princeton", "Stamford", "Greenwich", ", NJ", "New Jersey"],
+    "home": ["NYC", "New York", "Brooklyn", "Jersey City", "Newark", "Hoboken", "Morristown", "Parsippany", "Princeton", "Stamford", "Greenwich", "White Plains", ", NJ", "New Jersey"],
     "remote": ["Remote in USA", "Remote"],
-    "us_only": true
+    "us_only": true,
+    "_require_local": "When true, a posting whose listed locations are all outside `home` and not remote drops to low fit (hidden by default), because Justin only takes roles he can commute to unless they offer relocation help. Feeds rarely say whether they do, so the Cowork apply skill checks the posting itself.",
+    "require_local": true
   },
 
   "roles": [
@@ -39,7 +41,7 @@
     "school": "B.S. Business Administration, Finance major",
     "graduation": "May 2028",
     "recruiting_for": "Summer 2027 (junior-year) internships; check each posting's graduation window covers May 2028",
-    "home_base": "Northern New Jersey; commutes to NYC, Newark, Jersey City, Parsippany, Morristown",
+    "home_base": "Lake Hiawatha / Parsippany, NJ. Will commute anywhere in the NYC / North & Central NJ area (NYC, Hoboken, Jersey City, Newark, Morristown, Princeton). Farther away only if the employer offers relocation or housing assistance",
     "skills": [
       "Excel financial modeling, DCF valuation, pivot tables, charts (Microsoft Office Specialist: Excel Associate)",
       "Bloomberg Market Concepts (BMC) certificate",

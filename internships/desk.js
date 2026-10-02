@@ -141,6 +141,13 @@ function score(profile, { role, company = '', locations = [] }) {
   const locText = locations.join(' | ') + ' ' + role;
   if (profile.locations.home.some(h => locText.includes(h))) { pts += 15; why.push('NY/NJ'); }
   else if (profile.locations.remote.some(r => locText.includes(r))) { pts += 5; why.push('Remote'); }
+  else if (profile.locations.require_local && locations.length) {
+    // Known locations, none commutable: only worth it with relocation help,
+    // which feeds don't report, so park it under low fit with the reason.
+    const fit = 'low';
+    why.push('Outside commute area: check for relocation help');
+    return { score: pts, fit, why: why.join(' · '), excluded: false };
+  }
 
   const fit = pts >= profile.fit.strong ? 'strong' : pts >= profile.fit.possible ? 'possible' : 'low';
   return { score: pts, fit, why: why.join(' · '), excluded: false };

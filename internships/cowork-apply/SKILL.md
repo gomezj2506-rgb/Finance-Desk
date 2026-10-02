@@ -13,6 +13,26 @@ button so the user can review and submit it themselves.
 The facts live in `answers.md` next to this file. Read it before the first
 application. It is the only source for anything you type into a form.
 
+## Location rule (applies to searching and applying)
+
+Justin lives in Lake Hiawatha / Parsippany, NJ (address in `answers.md`).
+A posting qualifies only if one of these is true:
+
+- **Commutable:** New York City, Hoboken, Jersey City, Newark, Morristown,
+  Parsippany, Princeton, or elsewhere in North or Central New Jersey; nearby
+  Westchester or Stamford/Greenwich CT also count. Hybrid in that area is fine.
+- **Remote** within the US.
+- **Farther away, with relocation help:** the posting or the company's
+  internship page says it offers relocation assistance, a relocation stipend,
+  housing, or corporate housing for interns. Quote the line you found.
+
+Otherwise do not fill it. Tell the user "Skipped <company>: <city>, no
+relocation help mentioned", leave the status as Applying, and move on. If the
+location is unclear ("multiple locations", a city list to choose from), pick a
+commutable office when the form lets you; if none is offered, ask the user.
+In LinkedIn search, only add leads that qualify; for far-away ones that say
+they offer relocation, add them and put "relocation offered" in `why`.
+
 ## LinkedIn search ("find LinkedIn internships")
 
 The cloud `/internships` command cannot open LinkedIn, so LinkedIn searching
@@ -32,7 +52,8 @@ happens here, in the user's signed-in browser. Only when the user asks.
    Drop Master's/PhD/MBA, software/engineering, Summer 2028, and non-US roles.
    Fit: **strong** = asset/wealth management, banking/advisory, markets, private
    markets, risk, credit, corporate finance or research analyst program in NY/NJ;
-   **possible** = finance-adjacent or farther away. Skip low fits.
+   **possible** = finance-adjacent. Skip low fits and anything that fails the
+   Location rule.
 4. Write each new one as a lead with `ArtifactData batch` (op `set`, collection
    `leads`, one entry per posting, up to 50). Doc id = company and role joined
    by `--`, each lowercased, `&` → `and`, apostrophes removed, company suffixes
@@ -68,8 +89,9 @@ searches, only when asked, no bulk scrolling or messaging anyone.
 - LinkedIn: open the posting. If it is Easy Apply, fill it the same way and stop
   before the final Submit. If it sends you to the company site, follow it.
 - Check the posting before filling: graduation window must include the
-  graduation date in `answers.md`, and the term must be the one the user is
-  recruiting for. If it does not fit, stop and tell the user why.
+  graduation date in `answers.md`, the term must be the one the user is
+  recruiting for, and the location must pass the Location rule above. If it
+  does not fit, stop and tell the user why.
 
 ## 3. Fill the form
 
