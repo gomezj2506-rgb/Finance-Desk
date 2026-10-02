@@ -28,8 +28,10 @@ phone, Mac or desktop). It only runs when you type it; nothing is scheduled.
 
 - 12twenty: weekly saved-search digests and "Application Confirmation" emails
   in your school Outlook (Microsoft 365 connector).
-- LinkedIn: job-alert and "application was sent" emails, read through the
-  Gmail connector. The cloud environment cannot open LinkedIn itself.
+- LinkedIn: the cloud environment cannot open LinkedIn, so the Cowork skill
+  searches it in your signed-in browser ("find LinkedIn internships") and adds
+  matches as leads. LinkedIn alert and "application was sent" emails are also
+  read through the Gmail connector once it has read access.
 - SimplifyJobs: a public internship feed on GitHub.
 
 **Filling out applications** happens in Cowork on your computer, not in the
