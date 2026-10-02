@@ -98,9 +98,30 @@ searches, only when asked, no bulk scrolling or messaging anyone.
 - Leave the filled form open in its tab and tell the user, briefly:
   company and role, the tab, what you filled, what you left blank, and any
   drafted answers to check.
-- When the user says it is submitted, open the tracker, find the row, and set
-  its status to **Applied** (the page fills in the date and a follow-up 12 days
-  out). Then move to the next posting in the queue.
+- When the user says it is submitted (or the site shows a "submitted" /
+  "thank you for applying" confirmation), record it in **both** places before
+  moving on. An application is not done until both are updated.
+  1. **Tracker (the desk).** `ArtifactData get` collection `apps`, doc id = the
+     row's key (same id rule as LinkedIn search). Then `update` with
+     `if_version`: `stage: "Applied"`, `applied` and `updated` = today
+     (YYYY-MM-DD), `followup` = today + 12 days, `next: "Watch email for next
+     steps"`, and `history` = the old history plus
+     `{date: today, stage: "Applied", note: "Submitted via <site>"}`. If no row
+     exists (an application the user named directly), `set` a new one with those
+     fields plus company, role, source, link, category and `tier: ""`. If the
+     posting is also in `leads`, `update` that lead to `status: "applied"`.
+     If the tool fails, set the status to Applied on the tracker page instead.
+  2. **Excel.** Open `Internship_Tracker.xlsx` in the user's Cowork folder
+     (ask where it is the first time if you can't find it). On the **Tracker**
+     tab find the row by Company + Role; set **Status** = Applied, **Date
+     Applied** = today, **Follow-Up Date** = today + 12, **Next Step** = "Watch
+     email for next steps". If there is no row, add one under the last filled
+     row with #, Company, Role, Location, Category, Source, Status, Date
+     Applied, Follow-Up Date and Link, and copy the Days Left / Days Since
+     Applied formulas from the row above. Keep every other cell, formula and
+     format as it is, and save.
+  Then say "Logged: <company> – Applied on the desk and in Excel" and move to
+  the next posting in the queue.
 
 ## If something breaks
 
