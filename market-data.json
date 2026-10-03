@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-10-02T23:48:57.933Z",
-  "updated_label": "Oct 2, 2026, 7:48 PM ET",
+  "updated_utc": "2026-10-03T00:26:45.004Z",
+  "updated_label": "Oct 2, 2026, 8:26 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 229,
+  "quote_age_min": 267,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-on tone. S&P closed +0.7%, 10/11 sectors higher. Cons Disc led (+1.1%); Health Care lagged (-0.0%). Your book: semis (SMH) +2.1%, INTC -0.6%, NVDA +1.3%.",
   "brief": {
-    "asof": "Oct 2, 2026, 7:48 PM ET",
+    "asof": "Oct 2, 2026, 8:26 PM ET",
     "session": "close",
     "picture": "Risk-on tone. S&P closed +0.7%, 10/11 sectors higher. Cons Disc led (+1.1%); Health Care lagged (-0.0%).",
     "rotation": "Money leaned toward cyclicals (Tech/Financials/Industrials/Energy avg +0.6%) over defensives (+0.2%) — a risk-on, growth-seeking tilt.",
@@ -237,7 +237,7 @@
         "tag": "Your book"
       },
       {
-        "headline": "The Copper Shortage Is Real, and It Is the Metal AI Can't Live Without. Here's the Best Way to Invest.",
+        "headline": "Why IDT Stock Was a Massive Winner This Week",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
