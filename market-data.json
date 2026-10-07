@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-10-06T23:50:22.646Z",
-  "updated_label": "Oct 6, 2026, 7:50 PM ET",
+  "updated_utc": "2026-10-07T00:38:53.321Z",
+  "updated_label": "Oct 6, 2026, 8:38 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 230,
+  "quote_age_min": 279,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Mixed tone. S&P closed +0.5%, 9/11 sectors higher. Utilities led (+3.0%); Health Care lagged (-0.2%). Your book: semis (SMH) -0.2%, INTC -3.2%, NVDA +0.1%.",
   "brief": {
-    "asof": "Oct 6, 2026, 7:50 PM ET",
+    "asof": "Oct 6, 2026, 8:38 PM ET",
     "session": "close",
     "picture": "Mixed tone. S&P closed +0.5%, 9/11 sectors higher. Utilities led (+3.0%); Health Care lagged (-0.2%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg +1.2%) over cyclicals (+0.5%) — a cautious, risk-off tilt.",
@@ -219,15 +219,15 @@
         "tag": "Market"
       },
       {
-        "headline": "Yemeni government fighters shown driving vehicles over Houthi opponents - Reuters",
+        "headline": "Transcript of US Vice President Vance interview in Alaska - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNdTUtR05NTWVJVFBWcjJmSVZRb0RuVXl6Zk5ocVBacHBIMm1yeWo2VWQ4U2ZqNVFPcTFqeExXUjFyMlpONkU5blQyekxfbGpwM3ZBay05dFU4WkRqZ3lIcmw3VG9UQ3NxSWczQU9qMjFRbHV3QVd3LXl3ZElxaHVRMkFVdHVfajl5SV81YkF1X1ZYX0ZNbW0yMFdjUWFnY3JTLXhZd1gzSU5pNTR5MU1mT0RneVlsLU1uaVdEd1lSRnd0M19Yd1JF?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPN285Y1hMSlNId3o1Zi1tSmI5U0NfUVMtUDRlWVh2QVZZVG5QRlg1MmxzU1BHdno3VE1GMXBSeFpab1ZyTHlkdzNucXc4UWJSUmpSV01kN2RNMi1VZW0tb3g5QjFWMk5jS2pETmdualpUWTNYRm82R3d2UUdEX21FR0cyeU1kWjhvYWlHZnVYS0xMQUVvZzg5Zld4TXo?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "US Senator Murphy says Pentagon denied him access to US base in Qatar - Reuters",
+        "headline": "EXCLUSIVE: In interview, US Vice President Vance says Iran must cut nuclear enrichment to end war - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNMkNYTFZmdFZrdzNHWDNNVHZNMmJCWWtHVHc5OHFzbWhLNHNKY19HdXlZUUhwZTRUQ2E3TlVKSjBMV1p5RVRyOTc1OWZ1M2RMMmRrN09GcUgtNUlQQjA1UGV0dUl4UXNSeTdxLTN4eUw0d3lwQ2VqVWg3T0ZSbVVSZUVxR0Z2UVBvU1I1Nm9BTkIxRWlpNzNYQnlfRDBKZ0RTak02YmxZWlVoekFO?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNQ3R3RzJuRF9NSlo0bWNMaGY3dTdUbXRmSU1BMml2V2RLd0sxazNvVUNRdXpHa21Ebk4tVWtLeHZXMG5xM2ZUVG1aTEJDU0FRWnRHZnozTHQxdVRjeTJvbXRKNzFpNG1wR3RqVDlKMXpXY09hYlFKVlF4RW5uQjJJMXhKOEt3c0ZLWE4tbWZlQW5hUnRnckxmaU1mU0R0SWwzRGNXdGo0ZTVTUXBlSHlfakN1Yw?oc=5",
         "tag": "Market"
       },
       {
@@ -237,7 +237,7 @@
         "tag": "Your book"
       },
       {
-        "headline": "Forget SMH: BlackRock’s Chip Fund Beat It by 22.43 Points Over the Past Year",
+        "headline": "SPCX Stock Slips After-Hours As SpaceX Reportedly Seeks $40B For Nvidia Chips",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
