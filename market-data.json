@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-10-08T00:13:27.064Z",
-  "updated_label": "Oct 7, 2026, 8:13 PM ET",
+  "updated_utc": "2026-10-08T00:57:20.197Z",
+  "updated_label": "Oct 7, 2026, 8:57 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 253,
+  "quote_age_min": 297,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-off tone. S&P closed -0.2%, 1/11 sectors higher. Health Care led (+1.0%); Industrials lagged (-2.2%). Your book: semis (SMH) -1.2%, INTC +0.6%, NVDA -0.7%.",
   "brief": {
-    "asof": "Oct 7, 2026, 8:13 PM ET",
+    "asof": "Oct 7, 2026, 8:57 PM ET",
     "session": "close",
     "picture": "Risk-off tone. S&P closed -0.2%, 1/11 sectors higher. Health Care led (+1.0%); Industrials lagged (-2.2%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg -0.1%) over cyclicals (-0.8%) — a cautious, risk-off tilt.",
@@ -231,13 +231,13 @@
         "tag": "Market"
       },
       {
-        "headline": "Visual Computing - Global Strategic Business Report: Capitalize on 19.2% CAGR as the Market Surges to US$78.4B by 2030; Benchmark Intel, Arm, Clarifai, Imagination Technologies and Leela AI",
+        "headline": "SK Hynix’s Memory Division Reportedly Picks Banks For Its US IPO Next Year",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
       },
       {
-        "headline": "Why Veeco Instruments Stock Crushed it Last Month",
+        "headline": "Why PJT Partners Stock Withered on Wednesday",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
