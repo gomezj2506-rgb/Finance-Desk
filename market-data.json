@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-10-09T00:24:29.918Z",
-  "updated_label": "Oct 8, 2026, 8:24 PM ET",
+  "updated_utc": "2026-10-09T01:11:24.749Z",
+  "updated_label": "Oct 8, 2026, 9:11 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 264,
+  "quote_age_min": 311,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Mixed tone — positive breadth masked by megacap weakness. S&P closed -0.4%, 8/11 sectors higher. Energy led (+3.0%); Technology lagged (-1.8%). Your book: semis (SMH) -2.8%, INTC -5.3%, NVDA -2.9%.",
   "brief": {
-    "asof": "Oct 8, 2026, 8:24 PM ET",
+    "asof": "Oct 8, 2026, 9:11 PM ET",
     "session": "close",
     "picture": "Mixed tone — positive breadth masked by megacap weakness. S&P closed -0.4%, 8/11 sectors higher. Energy led (+3.0%); Technology lagged (-1.8%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals +0.6% vs defensives +0.6%, roughly balanced.",
@@ -237,7 +237,7 @@
         "tag": "Your book"
       },
       {
-        "headline": "Why Buy-and-Hold Investors Are Switching From QQQ to This Lower-Fee Alternative",
+        "headline": "TSMC's $46.7 billion quarter leaves 1 question for investors",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
