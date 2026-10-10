@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-10-10T00:03:32.640Z",
-  "updated_label": "Oct 9, 2026, 8:03 PM ET",
+  "updated_utc": "2026-10-10T00:45:53.134Z",
+  "updated_label": "Oct 9, 2026, 8:45 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 244,
+  "quote_age_min": 286,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-on tone. S&P closed +0.6%, 8/11 sectors higher. Real Estate led (+1.9%); Comm Svcs lagged (-1.5%). Your book: semis (SMH) -0.6%, INTC -2.2%, NVDA -0.5%.",
   "brief": {
-    "asof": "Oct 9, 2026, 8:03 PM ET",
+    "asof": "Oct 9, 2026, 8:45 PM ET",
     "session": "close",
     "picture": "Risk-on tone. S&P closed +0.6%, 8/11 sectors higher. Real Estate led (+1.9%); Comm Svcs lagged (-1.5%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg +1.1%) over cyclicals (+0.2%) — a cautious, risk-off tilt.",
@@ -231,13 +231,13 @@
         "tag": "Market"
       },
       {
-        "headline": "Management Raised the Bar For NVIDIA Stock; Does The Chart Agree?",
+        "headline": "Should Qualcomm Stock Holders Look At First Solar Instead?",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
       },
       {
-        "headline": "Netflix Is Reportedly Cutting 5% of Its Staff. Its 2022 Layoffs Came Days After the Stock Bottomed.",
+        "headline": "Why Quanta Services Stock Flew Higher on Friday",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
