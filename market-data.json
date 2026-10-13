@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-10-13T02:02:17.728Z",
-  "updated_label": "Oct 12, 2026, 10:02 PM ET",
+  "updated_utc": "2026-10-13T02:33:30.031Z",
+  "updated_label": "Oct 12, 2026, 10:33 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 362,
+  "quote_age_min": 394,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Mixed tone. S&P closed -0.1%, 7/11 sectors higher. Energy led (+1.4%); Technology lagged (-1.2%). Your book: semis (SMH) -2.0%, INTC -3.2%, NVDA -1.3%.",
   "brief": {
-    "asof": "Oct 12, 2026, 10:02 PM ET",
+    "asof": "Oct 12, 2026, 10:33 PM ET",
     "session": "close",
     "picture": "Mixed tone. S&P closed -0.1%, 7/11 sectors higher. Energy led (+1.4%); Technology lagged (-1.2%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg +0.8%) over cyclicals (+0.2%) — a cautious, risk-off tilt.",
@@ -231,13 +231,13 @@
         "tag": "Market"
       },
       {
-        "headline": "Entegris, Intel, KLA Corporation, Lam Research, and Microchip Technology Shares Are Falling, What You Need To Know",
+        "headline": "SNDK, MU, INTC, AMD, SKHY: Chip Stocks Extend Slide As AI Funding Concerns, China Competition Weigh On Sector",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
       },
       {
-        "headline": "Why Harmony Biosciences Stock Got Mashed on Monday",
+        "headline": "Microsoft Now Has 3 Generations of Its Own AI Chips. Nvidia Is Still the Chip Stock to Buy.",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
