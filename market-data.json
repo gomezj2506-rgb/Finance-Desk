@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-10-13T23:44:44.442Z",
-  "updated_label": "Oct 13, 2026, 7:44 PM ET",
+  "updated_utc": "2026-10-14T00:16:12.368Z",
+  "updated_label": "Oct 13, 2026, 8:16 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 225,
+  "quote_age_min": 256,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Mixed tone. S&P closed -0.0%, 5/11 sectors higher. Energy led (+1.8%); Health Care lagged (-1.4%). Your book: semis (SMH) -0.5%, INTC +1.4%, NVDA +1.0%.",
   "brief": {
-    "asof": "Oct 13, 2026, 7:44 PM ET",
+    "asof": "Oct 13, 2026, 8:16 PM ET",
     "session": "close",
     "picture": "Mixed tone. S&P closed -0.0%, 5/11 sectors higher. Energy led (+1.8%); Health Care lagged (-1.4%).",
     "rotation": "Money leaned toward cyclicals (Tech/Financials/Industrials/Energy avg +0.4%) over defensives (-0.3%) — a risk-on, growth-seeking tilt.",
@@ -212,6 +212,12 @@
     "week": "Past 5 sessions: Technology closed lower in 4 of 5 (-2.8% cumulative), semis -7.0%. On the week, Energy leads (+5.4%) and Technology trails (-2.8%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
+      {
+        "headline": "BofA fined $1.2 billion by US government for failing to police suspicious activity - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOdlFNN0pWVFc2UEQ3a2ViakktenQxdzQwRm9FMFh4azdJOC1jM3FQUDBCbGxmdmw3UUNyWmt3OEhxV1JtVWQzeTFlY3RZZURYc3VZazU2aURrUXBsXzdYS3pDQ2o0aTdhemI0WDgzeTJncUUxZ05ZdEZrYXJidXNNYV9ScGIyTENZeklySS1wRnFLNWpkYTRadkxOQjVLNVpVX00zMTg0WXNScE91MFVITFVYRldudzN4UTFWQjhPTlV1VjlGZ0FqcQ?oc=5",
+        "tag": "Market"
+      },
       {
         "headline": "Saudi Aramco administrative building attacked, limited fire reported - Reuters",
         "source": "Reuters",
@@ -222,12 +228,6 @@
         "headline": "In Yemen's Taiz, shelling worsens and prices spiral - Reuters",
         "source": "Reuters",
         "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNN2FlSHhCeHdBNFJVdTB4TndzdEgweWtZcktCbmVrOTRpOGNzRXVlLUplRUFqX0QzU1dCcjJQX3hHdVVFeHdHOWVjM0o1VG5FcXdwSGE2Y0pFRmpBb19lbml2T3FqY0x4VEs0NThJdFJRZVAteGlvRjhkRE1JUm0xdEZZaTE0akRfbjhQb1d4RHluWHRHeVdyZWg4MnY?oc=5",
-        "tag": "Market"
-      },
-      {
-        "headline": "United Airlines is making it harder to reach its top frequent flyer status in 2027",
-        "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/10/13/united-flight-segments-earn-elite-status.html",
         "tag": "Market"
       },
       {
