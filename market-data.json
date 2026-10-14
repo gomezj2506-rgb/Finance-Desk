@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-10-14T23:15:55.225Z",
-  "updated_label": "Oct 14, 2026, 7:15 PM ET",
+  "updated_utc": "2026-10-14T23:54:06.886Z",
+  "updated_label": "Oct 14, 2026, 7:54 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 196,
+  "quote_age_min": 234,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-off tone. S&P closed -1.1%, 3/11 sectors higher. Health Care led (+2.5%); Technology lagged (-3.0%). Your book: semis (SMH) -4.0%, INTC -4.6%, NVDA -3.2%.",
   "brief": {
-    "asof": "Oct 14, 2026, 7:15 PM ET",
+    "asof": "Oct 14, 2026, 7:54 PM ET",
     "session": "close",
     "picture": "Risk-off tone. S&P closed -1.1%, 3/11 sectors higher. Health Care led (+2.5%); Technology lagged (-3.0%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg +0.9%) over cyclicals (-0.9%) — a cautious, risk-off tilt.",
@@ -212,6 +212,12 @@
     "week": "Past 5 sessions: Technology closed lower in 4 of 5 (-5.4% cumulative), semis -9.6%. On the week, Energy leads (+6.7%) and Technology trails (-5.4%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
+      {
+        "headline": "Russia's Lavrov, China's Wang discuss cooperation, Ukraine, Iran at Asia security meeting - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQRWd0VGluQkdsUm1GUWdkQlFINnM3NzFGUEpBSGZYMEtuOEVUdWpPOWY2d3Fxc0Q3OFI4TE95YUVWWFFXaklaTHQtZFRlMlgxWWtTc2hTaHJRejhueS1SOXMxVjRUZXZyYUNWbTNldlNMQTFtUzdzV2g3c2lhNG9ucjd6MWVVdjQ4OFctWnZGcXRmdzZsNVhKU2xNYTVJTzk4NkM3R2ctRm9aZFE3ZFNCa1VsYl9qRXdGOHFpSGRB?oc=5",
+        "tag": "Market"
+      },
       {
         "headline": "US inflation heats up in September; Fed rate hike this month back on table - Reuters",
         "source": "Reuters",
@@ -222,12 +228,6 @@
         "headline": "Ohio's working-class voters rethink support for Trump and the Republican Party - Reuters",
         "source": "Reuters",
         "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQWno4ZFd2QmdMeXRMUWg2dk1IVGg1VmJ5U19nZVVaZFBueWhMT05PWFZLNnYxZktyVXB4cTlJeGxXdDBROURCazNsN2ZtcnNVcU5MbElLWUhrUklEVjJJcE4zaGFiRXhnVEV6N1ZhRUZlVGpld2pRWm8zNVlJdTJ5UmFYbkl5VXlyeGpOR1RDYXk2SnhiS05RYzJHbUlnaWxxVmU0SDdiR0NaMTFRaTZz?oc=5",
-        "tag": "Market"
-      },
-      {
-        "headline": "Yemen's Houthis vow more attacks on Saudi airports, oil facilities after Aramco HQ hit - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNV3VzaTd1VDVxNXczQ2FRa2FsXzdOV0Y5ZlFoaUthcVJhUnlFMHROUUMtWWZzUGZNWFd5WVNZbnJyZ3A4azRaUzNabVQ1U2ZMMmNYTzM1R2ZoeDF5dVQ0Q3FldDNEMW5lVC1oaVQ3Rmdaei01eS1GaFVla0prYUVZeEtJZlBZV2hoUm8yVTJNR3RYSXlhZTBPVWswNmdTWE5nclRiSldzUE91cXNZbzRGZzVOSFpMX294VWs3UlFpV2Q1Z09xTnl4Rw?oc=5",
         "tag": "Market"
       },
       {
