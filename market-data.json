@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-10-15T23:05:10.332Z",
-  "updated_label": "Oct 15, 2026, 7:05 PM ET",
+  "updated_utc": "2026-10-15T23:39:39.640Z",
+  "updated_label": "Oct 15, 2026, 7:39 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 185,
+  "quote_age_min": 220,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-on tone. S&P closed +0.3%, 8/11 sectors higher. Health Care led (+1.9%); Energy lagged (-1.6%). Your book: semis (SMH) -1.0%, INTC -2.8%, NVDA -1.8%.",
   "brief": {
-    "asof": "Oct 15, 2026, 7:05 PM ET",
+    "asof": "Oct 15, 2026, 7:39 PM ET",
     "session": "close",
     "picture": "Risk-on tone. S&P closed +0.3%, 8/11 sectors higher. Health Care led (+1.9%); Energy lagged (-1.6%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals +0.7% vs defensives +0.9%, roughly balanced.",
