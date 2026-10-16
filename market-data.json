@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-10-16T22:52:31.648Z",
-  "updated_label": "Oct 16, 2026, 6:52 PM ET",
+  "updated_utc": "2026-10-16T23:32:37.687Z",
+  "updated_label": "Oct 16, 2026, 7:32 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 173,
+  "quote_age_min": 213,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-off tone. S&P closed -1.1%, 6/11 sectors higher. Energy led (+2.5%); Technology lagged (-3.0%). Your book: semis (SMH) -3.4%, INTC -5.8%, NVDA -1.4%.",
   "brief": {
-    "asof": "Oct 16, 2026, 6:52 PM ET",
+    "asof": "Oct 16, 2026, 7:32 PM ET",
     "session": "close",
     "picture": "Risk-off tone. S&P closed -1.1%, 6/11 sectors higher. Energy led (+2.5%); Technology lagged (-3.0%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg +0.6%) over cyclicals (-0.3%) — a cautious, risk-off tilt.",
@@ -219,15 +219,15 @@
         "tag": "Market"
       },
       {
-        "headline": "US solicits exchange of up to 17 million barrels of oil from strategic reserve - Reuters",
+        "headline": "Missiles hit Aden airport as Saudi-led coalition intercepts missile headed for Yanbu - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQeFNXdnRkamV3Q2plZzU5UHl3LUlPa2hxTVY1VTA5dXU2UXUxWG5DekxOY0ZrWlNobFBDNTRQR2xrTHRZbEJMZUd1dzRQSUd0ZmQ1TDRtTE9YcmRoRVEzUkhrQjhUX01DVk8zdU5saFJEc1NDUWFXcFhsbmFZRlQ0b1FGdm9nTnFGSDAwWUxVMDVJeHZXalROYmNNdlVJLWxxaEloOWtLWUsxOWlzbTFmSWhHMHVaRGM?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPelJ6OUp1VFpwTmJ0Qm85TzRUS2ppU0swVFMydlJuTDZiS1Q1V2R6M1N4bmpfeTZ0aWNqd29XbGdDMm9IVllmLTZUazAxQWFzX3lsVlJBbHI4TVRfQVFrZlk5MkNqVzVCMU5XYkFwM3Fyb0pkbDk0bGo5N1dwQWJMMEo5aEhIeXpaS1J5TkRLVFZTem93Rl9rM2trUHZlaDQwSzVIQTB4UG1xelRQSU5wZ2I4X1N1V0VPUElsWHBIYVZvckhpYk9RZVhZaw?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "Why did CoreWeave stock get crushed this week? Look to this corner of the debt market for clues",
-        "source": "CNBC",
-        "url": "https://www.cnbc.com/investingclub/2026/10/16/coreweave-credit-default-swaps.html",
+        "headline": "US solicits exchange of up to 17 million barrels of oil from strategic reserve - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQeFNXdnRkamV3Q2plZzU5UHl3LUlPa2hxTVY1VTA5dXU2UXUxWG5DekxOY0ZrWlNobFBDNTRQR2xrTHRZbEJMZUd1dzRQSUd0ZmQ1TDRtTE9YcmRoRVEzUkhrQjhUX01DVk8zdU5saFJEc1NDUWFXcFhsbmFZRlQ0b1FGdm9nTnFGSDAwWUxVMDVJeHZXalROYmNNdlVJLWxxaEloOWtLWUsxOWlzbTFmSWhHMHVaRGM?oc=5",
         "tag": "Market"
       },
       {
