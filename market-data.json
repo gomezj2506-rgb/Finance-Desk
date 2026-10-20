@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-10-19T23:44:12.266Z",
-  "updated_label": "Oct 19, 2026, 7:44 PM ET",
+  "updated_utc": "2026-10-20T00:17:45.532Z",
+  "updated_label": "Oct 19, 2026, 8:17 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 224,
+  "quote_age_min": 258,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Mixed tone — index held up by megacaps despite weak breadth. S&P closed +0.4%, 3/11 sectors higher. Cons Disc led (+1.8%); Utilities lagged (-2.0%). Your book: semis (SMH) +1.6%, INTC +2.4%, NVDA +1.4%.",
   "brief": {
-    "asof": "Oct 19, 2026, 7:44 PM ET",
+    "asof": "Oct 19, 2026, 8:17 PM ET",
     "session": "close",
     "picture": "Mixed tone — index held up by megacaps despite weak breadth. S&P closed +0.4%, 3/11 sectors higher. Cons Disc led (+1.8%); Utilities lagged (-2.0%).",
     "rotation": "Money leaned toward cyclicals (Tech/Financials/Industrials/Energy avg +0.1%) over defensives (-1.1%) — a risk-on, growth-seeking tilt.",
@@ -231,7 +231,7 @@
         "tag": "Market"
       },
       {
-        "headline": "Applied Materials, Lam Research, Marvell Technology, Micron, and Semtech Shares Skyrocket, What You Need To Know",
+        "headline": "Did Foundry Win Just Shift Intel (INTC) Investment Narrative?",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
