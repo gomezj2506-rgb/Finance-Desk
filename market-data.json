@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-10-20T23:12:18.996Z",
-  "updated_label": "Oct 20, 2026, 7:12 PM ET",
+  "updated_utc": "2026-10-20T23:50:27.753Z",
+  "updated_label": "Oct 20, 2026, 7:50 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 192,
+  "quote_age_min": 230,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-on tone. S&P closed +0.3%, 10/11 sectors higher. Health Care led (+2.4%); Technology lagged (-0.3%). Your book: semis (SMH) -0.4%, INTC -0.4%, NVDA -0.3%.",
   "brief": {
-    "asof": "Oct 20, 2026, 7:12 PM ET",
+    "asof": "Oct 20, 2026, 7:50 PM ET",
     "session": "close",
     "picture": "Risk-on tone. S&P closed +0.3%, 10/11 sectors higher. Health Care led (+2.4%); Technology lagged (-0.3%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg +1.5%) over cyclicals (+0.4%) — a cautious, risk-off tilt.",
@@ -225,9 +225,9 @@
         "tag": "Market"
       },
       {
-        "headline": "Iran's Nournews says Qatari delegation arrives in Tehran - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOMWFOdG1rbGRYNW1JcmtDLVJnd09ZU1BzblphekFRZ0hROHJVbzN2T29JbGxrSFJRMUxOclBoYjdaRXJvQV9zZmpRV0pfZFVLZjhmaUhfWDVVTTNYNDVGZVJ4NWhqQ0NFNFdQdm9KalNkcTBOTzdRRW54dER2Z0VlM1dLWWo1a1RETU1SYmFCRXJHTll4eU51bUZyNUVEQy1IV2swTGIydXJzQQ?oc=5",
+        "headline": "Obsessed with CoreWeave and the AI trade? You're missing out on some great stocks",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/investingclub/2026/10/20/obsessed-with-the-ai-trade-youre-missing-out-on-some-great-stocks.html",
         "tag": "Market"
       },
       {
