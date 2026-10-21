@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-10-21T23:22:45.623Z",
-  "updated_label": "Oct 21, 2026, 7:22 PM ET",
+  "updated_utc": "2026-10-21T23:59:17.144Z",
+  "updated_label": "Oct 21, 2026, 7:59 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 203,
+  "quote_age_min": 239,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-on tone. S&P closed +0.5%, 6/11 sectors higher. Technology led (+1.7%); Comm Svcs lagged (-1.1%). Your book: semis (SMH) +1.9%, INTC +1.4%, NVDA +2.5%.",
   "brief": {
-    "asof": "Oct 21, 2026, 7:22 PM ET",
+    "asof": "Oct 21, 2026, 7:59 PM ET",
     "session": "close",
     "picture": "Risk-on tone. S&P closed +0.5%, 6/11 sectors higher. Technology led (+1.7%); Comm Svcs lagged (-1.1%).",
     "rotation": "Money leaned toward cyclicals (Tech/Financials/Industrials/Energy avg +0.4%) over defensives (-0.4%) — a risk-on, growth-seeking tilt.",
