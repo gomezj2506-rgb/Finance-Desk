@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-10-22T23:24:35.371Z",
-  "updated_label": "Oct 22, 2026, 7:24 PM ET",
+  "updated_utc": "2026-10-22T23:58:09.165Z",
+  "updated_label": "Oct 22, 2026, 7:58 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 205,
+  "quote_age_min": 238,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-off tone. S&P closed -1.2%, 6/11 sectors higher. Staples led (+3.3%); Technology lagged (-3.3%). Your book: semis (SMH) -6.0%, INTC -8.0%, NVDA -4.4%.",
   "brief": {
-    "asof": "Oct 22, 2026, 7:24 PM ET",
+    "asof": "Oct 22, 2026, 7:58 PM ET",
     "session": "close",
     "picture": "Risk-off tone. S&P closed -1.2%, 6/11 sectors higher. Staples led (+3.3%); Technology lagged (-3.3%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg +1.9%) over cyclicals (-0.7%) — a cautious, risk-off tilt.",
