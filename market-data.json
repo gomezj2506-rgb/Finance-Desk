@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-10-23T23:10:07.063Z",
-  "updated_label": "Oct 23, 2026, 7:10 PM ET",
+  "updated_utc": "2026-10-23T23:50:41.286Z",
+  "updated_label": "Oct 23, 2026, 7:50 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 190,
+  "quote_age_min": 231,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Mixed tone. S&P closed -0.5%, 3/11 sectors higher. Energy led (+2.6%); Staples lagged (-1.9%). Your book: semis (SMH) +0.7%, INTC +1.7%, NVDA -0.6%.",
   "brief": {
-    "asof": "Oct 23, 2026, 7:10 PM ET",
+    "asof": "Oct 23, 2026, 7:50 PM ET",
     "session": "close",
     "picture": "Mixed tone. S&P closed -0.5%, 3/11 sectors higher. Energy led (+2.6%); Staples lagged (-1.9%).",
     "rotation": "Money leaned toward cyclicals (Tech/Financials/Industrials/Energy avg -0.5%) over defensives (-0.9%) — a risk-on, growth-seeking tilt.",
@@ -225,9 +225,9 @@
         "tag": "Market"
       },
       {
-        "headline": "Trump says US will 'take care of Cuba' on its way back from Iran - Reuters",
+        "headline": "In Florida, Trump vows to deal with Cuba after Iran settled - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNSi0yX09qbUQwUnFtemR0RURPc1hNMXpkYmF5cXN2NmVuUEZRQ0NFS1AtMXVlT2gtTDNocWthM0xBS2NrTndlYXNIWnhoQy1CdjJsODBOU0V3RHFSZkRKb0FBOUtGUVJEMlhGTHdtR1UyTXhLWDR1SktFcjlCUm5BSGdkREhaa3NzNEY2VXc0dGxXM25XNW1XNVRjX3dCekNhRDNLMw?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOaW1UZUdScXEwTWVUNUJxcDkyWmV1TDREckM1RnRCTFR4VjBuVmk2Vm9OVF83d2FLdTdnSGN2N0FGNURpVXJKbzR4bWI3b05TY3pPWGgzRnZvX2N4SEQ4cmw3blpTZktVMXd4UDlFeWpFcG9jX1FJcTN3OW1WVW5UTnFfQ3BqdHRwNFAzOGRsc1Nyc0N6TENyVDJaeW9ZSExlSl9adExjYmQ?oc=5",
         "tag": "Market"
       },
       {
