@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-10-26T23:55:11.702Z",
-  "updated_label": "Oct 26, 2026, 7:55 PM ET",
+  "updated_utc": "2026-10-27T00:23:32.148Z",
+  "updated_label": "Oct 26, 2026, 8:23 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 235,
+  "quote_age_min": 264,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-on tone. S&P closed +0.7%, 7/11 sectors higher. Technology led (+1.7%); Comm Svcs lagged (-1.6%). Your book: semis (SMH) +2.7%, INTC +4.0%, NVDA +2.4%.",
   "brief": {
-    "asof": "Oct 26, 2026, 7:55 PM ET",
+    "asof": "Oct 26, 2026, 8:23 PM ET",
     "session": "close",
     "picture": "Risk-on tone. S&P closed +0.7%, 7/11 sectors higher. Technology led (+1.7%); Comm Svcs lagged (-1.6%).",
     "rotation": "Money leaned toward cyclicals (Tech/Financials/Industrials/Energy avg +0.5%) over defensives (+0.0%) — a risk-on, growth-seeking tilt.",
@@ -212,6 +212,12 @@
     "week": "Past 5 sessions: Technology closed lower in 2 of 5 (+0.2% cumulative), semis -1.2%. On the week, Utilities leads (+2.9%) and Comm Svcs trails (-5.7%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
+      {
+        "headline": "Netanyahu touts Trump endorsement on eve of vote, suggests they may restart war on Iran - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQUUluTlhFbGtJMWMtZ09ieVhSblh2b0Y4cWpleDVwWUVfUWVyanZIOHFhenFqaWRYZ0U0cEd6MFVjQk5xSXZkWjJNRmM4ZWdPa01KTHBRRjVHRnJPRWtlbGRwWFBNOFJnQ3F5Z2JZbjVFVE5ERUxDdmozN0FPUjRkaUpVNGIwRUFTVXhROU95dC1wby0wX2xzTlg2ODlZeDR2cmM3bHFFaHItbGJ6X3gxT2lwX0FONW11aGtoeWFXQmhmc00tWnlQZEhHQQ?oc=5",
+        "tag": "Market"
+      },
       {
         "headline": "JetBlue posts bigger loss on fuel costs, but CEO says margins improving",
         "source": "CNBC",
@@ -225,19 +231,13 @@
         "tag": "Market"
       },
       {
-        "headline": "Anthropic's IPO puts power in the hands of founders, giving everyday shareholders little voice",
-        "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/10/26/anthropic-ipo-founder-voting-control.html",
-        "tag": "Market"
-      },
-      {
-        "headline": "Tech Earnings Are the Market’s Biggest Story This Week: Here’s Why Microsoft, Amazon, Intel, SanDisk, and Alphabet Will Drive the Stock Market’s Next Move",
+        "headline": "Intel Deepens Quantum Ambitions With Acquisition of Software Startup Classiq",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
       },
       {
-        "headline": "Boost Run stock surges on AI infrastructure deployment",
+        "headline": "SpaceX's Adjusted Earnings Quadrupled in Q3. Is the Stock Heading Back to $200?",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
