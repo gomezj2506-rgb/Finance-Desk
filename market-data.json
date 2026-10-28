@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-10-27T23:47:35.527Z",
-  "updated_label": "Oct 27, 2026, 7:47 PM ET",
+  "updated_utc": "2026-10-28T00:28:45.337Z",
+  "updated_label": "Oct 27, 2026, 8:28 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 228,
+  "quote_age_min": 269,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-on tone. S&P closed +0.6%, 5/11 sectors higher. Technology led (+1.7%); Energy lagged (-2.1%). Your book: semis (SMH) +3.0%, INTC +3.6%, NVDA +0.9%.",
   "brief": {
-    "asof": "Oct 27, 2026, 7:47 PM ET",
+    "asof": "Oct 27, 2026, 8:28 PM ET",
     "session": "close",
     "picture": "Risk-on tone. S&P closed +0.6%, 5/11 sectors higher. Technology led (+1.7%); Energy lagged (-2.1%).",
     "rotation": "Money leaned toward cyclicals (Tech/Financials/Industrials/Energy avg +0.2%) over defensives (-0.3%) — a risk-on, growth-seeking tilt.",
@@ -231,13 +231,13 @@
         "tag": "Market"
       },
       {
-        "headline": "Most Active S&P 500 Stocks in Oct. 27 Session",
-        "source": "ChartMill",
+        "headline": "Intel, Microchip Technology, Marvell Technology, onsemi, and Seagate stocks trade up, what you need to know",
+        "source": "Yahoo",
         "url": "",
         "tag": "Your book"
       },
       {
-        "headline": "Nvidia’s New $3 Billion AI Bet Is on One of Its Own Customers",
+        "headline": "Nvidia Stock Is 10% Below Its Record. Does Anthropic's IPO Filing Make It a Buy?",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
