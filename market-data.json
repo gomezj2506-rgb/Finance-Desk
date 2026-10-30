@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-10-29T23:57:31.819Z",
-  "updated_label": "Oct 29, 2026, 7:57 PM ET",
+  "updated_utc": "2026-10-30T00:54:21.184Z",
+  "updated_label": "Oct 29, 2026, 8:54 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 238,
+  "quote_age_min": 294,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Mixed tone — positive breadth masked by megacap weakness. S&P closed -0.4%, 9/11 sectors higher. Health Care led (+2.4%); Comm Svcs lagged (-1.9%). Your book: semis (SMH) -1.1%, INTC -3.6%, NVDA -0.8%.",
   "brief": {
-    "asof": "Oct 29, 2026, 7:57 PM ET",
+    "asof": "Oct 29, 2026, 8:54 PM ET",
     "session": "close",
     "picture": "Mixed tone — positive breadth masked by megacap weakness. S&P closed -0.4%, 9/11 sectors higher. Health Care led (+2.4%); Comm Svcs lagged (-1.9%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg +1.9%) over cyclicals (+0.3%) — a cautious, risk-off tilt.",
@@ -231,13 +231,13 @@
         "tag": "Market"
       },
       {
-        "headline": "After-Hours S&P 500 Movers: Mondelez and FedEx Freight Gain, Intel and Reddit Fall",
-        "source": "ChartMill",
+        "headline": "What Intel (INTC) Said on Its Q3 Earnings Call",
+        "source": "Yahoo",
         "url": "",
         "tag": "Your book"
       },
       {
-        "headline": "Stock Market Today, Oct. 29: Marvell Falls on Lumentum Acquisition Talks",
+        "headline": "Micron Is Trading for Less Than 6 Times Forward Earnings. Here's Why That's a Sign to Buy.",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
