@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-10-30T23:50:09.515Z",
-  "updated_label": "Oct 30, 2026, 7:50 PM ET",
+  "updated_utc": "2026-10-31T00:43:12.914Z",
+  "updated_label": "Oct 30, 2026, 8:43 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 230,
+  "quote_age_min": 283,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-off tone. S&P closed -1.8%, 6/11 sectors higher. Energy led (+1.9%); Technology lagged (-4.9%). Your book: semis (SMH) -7.0%, INTC -28.6%, NVDA -4.2%.",
   "brief": {
-    "asof": "Oct 30, 2026, 7:50 PM ET",
+    "asof": "Oct 30, 2026, 8:43 PM ET",
     "session": "close",
     "picture": "Risk-off tone. S&P closed -1.8%, 6/11 sectors higher. Energy led (+1.9%); Technology lagged (-4.9%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg +0.7%) over cyclicals (-1.0%) — a cautious, risk-off tilt.",
@@ -225,19 +225,19 @@
         "tag": "Market"
       },
       {
-        "headline": "Zelenskiy says he will head to Turkey for talks - Reuters",
+        "headline": "Saudi-led coalition says it downs Houthi drone over Medina; Houthis deny attack - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNRWljSFJQVC1OSUJ4aXNyN3ljMFF1cG5WY1BVR19xcDhvS1RBS3BrNjR4SF9WN2VCemo3VTRyTmo0LXAtNVF6Mi1KRS1YWktnWkNpSkg3S2lKbC1qY2owR3d0cjUxNVFrOTVMd3FId3FnNE13WGd0amUtd0Z0QVgzWXJXOEtXaFhTR0pfcG5jWE5WT2Y0TWgxTlVR?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPdTZlcVd4TG9tTWJjN0dRNEZ4enV5NHc1bGpzWnZjSjVwcGhuM3M3V2pERWNoNW9QLVFzTE9uVXhJb1lBOWFmMEhCRVZNeFdZX0ZFR21LcnlTLTRwemdlTzZ2OHlidndqVEJKaXJEMDRuVEo1V0xMVlpwWVF3LWVOTmJuOHAyTG9RTFhhUW9mcXVRR0N2dXJxQVRqdVVQQnZqdHFRdVdiZ1dvVzFrWWhHai1JSFhsdzhVcjlCU05IVXg?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "Apple overtakes Nvidia to become world’s most valuable company amid tech selloff",
+        "headline": "Why Arm Holdings Stock Plummeted by Nearly 10% Today",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
       },
       {
-        "headline": "Elon Musk Says Neoclouds Face a \"Guppy Level\" Death. SpaceX Just Borrowed $40 Billion to Make Sure It Isn't One.",
+        "headline": "Is Intel Stock a Buy After Its Post-Earnings Plunge?",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
