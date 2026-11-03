@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-11-03T02:21:42.883Z",
-  "updated_label": "Nov 2, 2026, 9:21 PM ET",
+  "updated_utc": "2026-11-03T02:53:40.479Z",
+  "updated_label": "Nov 2, 2026, 9:53 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 322,
+  "quote_age_min": 354,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Mixed tone — positive breadth masked by megacap weakness. S&P closed -0.5%, 8/11 sectors higher. Cons Disc led (+2.4%); Energy lagged (-4.0%). Your book: semis (SMH) -2.7%, INTC -8.8%, NVDA -1.3%.",
   "brief": {
-    "asof": "Nov 2, 2026, 9:21 PM ET",
+    "asof": "Nov 2, 2026, 9:53 PM ET",
     "session": "close",
     "picture": "Mixed tone — positive breadth masked by megacap weakness. S&P closed -0.5%, 8/11 sectors higher. Cons Disc led (+2.4%); Energy lagged (-4.0%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg +0.8%) over cyclicals (+0.1%) — a cautious, risk-off tilt.",
