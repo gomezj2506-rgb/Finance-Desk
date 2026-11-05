@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-11-05T00:54:33.977Z",
-  "updated_label": "Nov 4, 2026, 7:54 PM ET",
+  "updated_utc": "2026-11-05T01:26:41.445Z",
+  "updated_label": "Nov 4, 2026, 8:26 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 235,
+  "quote_age_min": 267,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-on tone. S&P closed +1.7%, 8/11 sectors higher. Cons Disc led (+4.3%); Energy lagged (-4.7%). Your book: semis (SMH) -2.7%, INTC -3.8%, NVDA -3.2%.",
   "brief": {
-    "asof": "Nov 4, 2026, 7:54 PM ET",
+    "asof": "Nov 4, 2026, 8:26 PM ET",
     "session": "close",
     "picture": "Risk-on tone. S&P closed +1.7%, 8/11 sectors higher. Cons Disc led (+4.3%); Energy lagged (-4.7%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg +2.5%) over cyclicals (+1.1%) — a cautious, risk-off tilt.",
@@ -219,15 +219,15 @@
         "tag": "Market"
       },
       {
-        "headline": "Republicans call for Trump to change course after midterm drubbing - Reuters",
+        "headline": "Trump says Hegseth doing 'a very good job' as questions swirl about his future - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQamFhVEozSjRLb3lJNlFlTTZ4dmtZbjBGdTJHOGNXdmZqXzh6VGhqN3Z2czQ5VUdTaE5KeTMwdHNtUWhVRldhb2hhbGJMNUhDR3NfbF9sOWYyWHVFZHdPeU43OElBMzhnQnQzenpkdzJlQWVya0tMQUhaV1pPN1UwWlVlMXZpMXQxa191LVN5SEZSdWh5T21jcXRycHpOUkI5ZWhhZm4xSktCQnRfRnFhcDZn?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOYTEzMDVoRDFiSGh1VHBhVGVTV2JlZ2g3dVk0a2VCMjNVdENMQkQ1bk5vVDA5OHBIS0daTVVfeUJWYnpZdzdBMld1VXZPTGdBdVRScG4xSlpKWHRScXpOcFhFS2MxbzZ6OGF2OHNwSXBEczh3b2doemhkSHFKWFFxZjZDWVpHVFVheFhXcWYxS0tyYlVBbS00dnl3aDlLYTd5MEx4MVMzdHl1TWJ0OHo4dF9aeWRhU3JPOWc?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "Explainer: How the Democratic sweep could change US energy policy - Reuters",
+        "headline": "Republicans call for Trump to change course after midterm drubbing - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPTVlEaW9lb05hT0RtOW5tUnZ1Yk5RUXV0aU5sTFlodXZ6T3dnVWdkUHpqdm45VU5mYlZIT1dFcmdCRmo1UmwxUHljMnMzX2w2S3lkMXdHQy1ZZFhCTlkyTTYzejluSF9GdXFoSEdnN0E3NjlSd0xWWEo1NEhzR1VNLWN1U21OamxGS2V6Nk5uTjZjWXAyVHNTVUhCdTJhRGRzR29Tcg?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQamFhVEozSjRLb3lJNlFlTTZ4dmtZbjBGdTJHOGNXdmZqXzh6VGhqN3Z2czQ5VUdTaE5KeTMwdHNtUWhVRldhb2hhbGJMNUhDR3NfbF9sOWYyWHVFZHdPeU43OElBMzhnQnQzenpkdzJlQWVya0tMQUhaV1pPN1UwWlVlMXZpMXQxa191LVN5SEZSdWh5T21jcXRycHpOUkI5ZWhhZm4xSktCQnRfRnFhcDZn?oc=5",
         "tag": "Market"
       },
       {
