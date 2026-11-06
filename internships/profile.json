@@ -1,0 +1,55 @@
+{
+  "_readme": "What the internship scanner looks for. Edit freely: role groups add points when their words appear in a job title, `avoid` subtracts, `exclude` drops the posting outright. Fit tiers: strong >= fit.strong, possible >= fit.possible, anything lower is 'low'. This repo is public, so keep anything private (GPA, contact info) out of this file.",
+
+  "seasons": ["Summer 2027"],
+  "degree": "Bachelor's",
+
+  "locations": {
+    "home": ["NYC", "New York", "Brooklyn", "Jersey City", "Newark", "Hoboken", "Morristown", "Parsippany", "Princeton", "Stamford", "Greenwich", "White Plains", ", NJ", "New Jersey"],
+    "remote": ["Remote in USA", "Remote"],
+    "us_only": true,
+    "_require_local": "When true, a posting whose listed locations are all outside `home` and not remote drops to low fit (hidden by default), because Justin only takes roles he can commute to unless they offer relocation help. Feeds rarely say whether they do, so the Cowork apply skill checks the posting itself.",
+    "require_local": true
+  },
+
+  "roles": [
+    { "label": "Asset & wealth mgmt", "weight": 30, "match": ["asset management", "wealth management", "private client", "private wealth", "financial planning", "individual markets", "investment management", "portfolio", "investments", "client management", "relationship management", "distribution"] },
+    { "label": "Banking & advisory",  "weight": 30, "match": ["investment banking", "m&a", "capital advisory", "private capital", "restructuring", "coverage", "advisory", "corporate banking", "commercial banking", "commercial &"] },
+    { "label": "Markets",             "weight": 25, "match": ["sales & trading", "sales and trading", "global markets", "capital markets", "trading", "sales rotation", " sales", "fixed income", "equities"] },
+    { "label": "Private markets",     "weight": 25, "match": ["private equity", "private credit", "private markets", "real estate"] },
+    { "label": "Risk",                "weight": 20, "match": ["risk"] },
+    { "label": "Credit & structured", "weight": 20, "match": ["structured finance", "credit", "securitization", "underwriting"] },
+    { "label": "Corporate finance",   "weight": 20, "match": ["finance", "fp&a", "treasury", "financial analyst", "corporate development", "business management"] },
+    { "label": "Research",            "weight": 20, "match": ["equity research", "investment research", "research analyst", "investment strategy"] },
+    { "label": "Operations",          "weight": 15, "match": ["operations"] },
+    { "label": "Analyst program",     "weight": 15, "match": ["summer analyst", "analyst program", "analyst intern", "summer internship"] },
+    { "label": "Spanish",             "weight": 10, "match": ["spanish", "bilingual", "latam", "latin america", "hispanic"] }
+  ],
+
+  "avoid": [
+    { "match": ["quantitative", "quant ", "data science", "data analyst", "technology", "platform", "systems"], "weight": -20 },
+    { "match": ["assurance", "audit", "tax"], "weight": -15 },
+    { "match": ["co-op", "winter", "spring", "fall", "2028"], "weight": -10 }
+  ],
+
+  "exclude": ["summer 2028", "2028 summer", "engineer", "developer", "hardware", "firmware", "machine learning", "phd", "ph.d", "master's", "masters", "master’s", "mba"],
+
+  "fit": { "strong": 45, "possible": 25 },
+
+  "student": {
+    "_note": "Context for Claude when it judges fit and eligibility. Public file: no GPA, phone or email here.",
+    "school": "B.S. Business Administration, Finance major",
+    "graduation": "May 2028",
+    "recruiting_for": "Summer 2027 (junior-year) internships; check each posting's graduation window covers May 2028",
+    "home_base": "Lake Hiawatha / Parsippany, NJ. Will commute anywhere in the NYC / North & Central NJ area (NYC, Hoboken, Jersey City, Newark, Morristown, Princeton). Farther away only if the employer offers relocation or housing assistance",
+    "skills": [
+      "Excel financial modeling, DCF valuation, pivot tables, charts (Microsoft Office Specialist: Excel Associate)",
+      "Bloomberg Market Concepts (BMC) certificate",
+      "Equity research: NVIDIA FY2024 10-K revenue-by-segment analysis",
+      "Portfolio management and asset allocation in a personal brokerage account, benchmarked vs. S&P 500 and Nasdaq",
+      "PowerPoint, Google Sheets, budgeting and variance analysis",
+      "Client-facing operations: front-of-house coordinator at a fine-dining restaurant",
+      "Spanish: fluent, written and verbal"
+    ]
+  }
+}
