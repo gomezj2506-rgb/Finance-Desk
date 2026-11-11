@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-11-11T00:40:31.220Z",
-  "updated_label": "Nov 10, 2026, 7:40 PM ET",
+  "updated_utc": "2026-11-11T01:12:57.354Z",
+  "updated_label": "Nov 10, 2026, 8:12 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 221,
+  "quote_age_min": 253,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-off tone. S&P closed -0.4%, 5/11 sectors higher. Financials led (+0.5%); Technology lagged (-1.2%). Your book: semis (SMH) -0.8%, INTC -2.1%, NVDA -5.5%.",
   "brief": {
-    "asof": "Nov 10, 2026, 7:40 PM ET",
+    "asof": "Nov 10, 2026, 8:12 PM ET",
     "session": "close",
     "picture": "Risk-off tone. S&P closed -0.4%, 5/11 sectors higher. Financials led (+0.5%); Technology lagged (-1.2%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals -0.0% vs defensives +0.0%, roughly balanced.",
