@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-11-13T01:06:27.981Z",
-  "updated_label": "Nov 12, 2026, 8:06 PM ET",
+  "updated_utc": "2026-11-13T01:47:50.432Z",
+  "updated_label": "Nov 12, 2026, 8:47 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 246,
+  "quote_age_min": 288,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-off tone. S&P closed -0.4%, 1/11 sectors higher. Energy led (+1.5%); Materials lagged (-1.3%). Your book: semis (SMH) -1.0%, INTC -2.1%, NVDA -4.3%.",
   "brief": {
-    "asof": "Nov 12, 2026, 8:06 PM ET",
+    "asof": "Nov 12, 2026, 8:47 PM ET",
     "session": "close",
     "picture": "Risk-off tone. S&P closed -0.4%, 1/11 sectors higher. Energy led (+1.5%); Materials lagged (-1.3%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals -0.4% vs defensives -0.4%, roughly balanced.",
@@ -212,6 +212,12 @@
     "week": "Past 5 sessions: Technology closed lower in 2 of 5 (+7.0% cumulative), semis +12.1%. On the week, Technology leads (+7.0%) and Staples trails (-0.2%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
+      {
+        "headline": "Microsoft outage drags on for hours, disrupting Outlook, Teams for thousands - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPQWpWeUZnbllhcFk4WktZS0s3T1N6T3k3Vnhhd3pfSE9SWF9iRmRIQUljdHZXN0UtWS1uZS1rbUNZSlVPd1NXLXRtVUVtc3NQNTgxMVFMWjVnT3pPb09EX1g1YUx3WkF2VHk0bUMwWlhkRHdpT0JFRE5SQ3pQRkdmSnpUOHNXLUo1dXNSY3lFdkpSdU5laDdwSlhWRDVnNjBFcUh2Y0FwMXNldE8tSFpPaw?oc=5",
+        "tag": "Market"
+      },
       {
         "headline": "COMMENTARY: Just like the US, Iran has squandered its good options to end the war - Reuters",
         "source": "Reuters",
@@ -222,12 +228,6 @@
         "headline": "Without Jensen Huang, Nvidia's organizational structure isn't 'built to last,' management expert says",
         "source": "CNBC",
         "url": "https://www.cnbc.com/make-it/2026/11/12/nvidia-jensen-huang-management-structure.html",
-        "tag": "Market"
-      },
-      {
-        "headline": "Cerebras surges 13% after beating on quarterly revenue and announcing Microsoft deal",
-        "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/11/12/cerebras-systems-cbrs-q3-earnings-report-2026.html",
         "tag": "Market"
       },
       {
