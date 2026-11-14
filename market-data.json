@@ -1,44 +1,44 @@
 {
-  "updated_utc": "2026-11-13T01:47:50.432Z",
-  "updated_label": "Nov 12, 2026, 8:47 PM ET",
+  "updated_utc": "2026-11-14T00:53:46.086Z",
+  "updated_label": "Nov 13, 2026, 7:53 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 288,
+  "quote_age_min": 234,
   "stale": false,
   "source": "Finnhub",
   "indices": [
     {
       "sym": "SPY",
       "name": "S&P 500",
-      "price": 757.12,
-      "change": -2.69,
-      "pct": -0.354,
-      "ts": 1794517200
+      "price": 754.37,
+      "change": -2.75,
+      "pct": -0.3632,
+      "ts": 1794603600
     },
     {
       "sym": "QQQ",
       "name": "Nasdaq 100",
-      "price": 688.17,
-      "change": -2.21,
-      "pct": -0.3201,
-      "ts": 1794517200
+      "price": 679.89,
+      "change": -8.28,
+      "pct": -1.2032,
+      "ts": 1794603600
     },
     {
       "sym": "DIA",
       "name": "Dow Jones",
-      "price": 522.47,
-      "change": -1.97,
-      "pct": -0.3756,
-      "ts": 1794517200
+      "price": 523.15,
+      "change": 0.68,
+      "pct": 0.1302,
+      "ts": 1794603600
     },
     {
       "sym": "IWM",
       "name": "Russell 2000",
-      "price": 278.44,
-      "change": -4.65,
-      "pct": -1.6426,
-      "ts": 1794517200
+      "price": 277.54,
+      "change": -0.9,
+      "pct": -0.3232,
+      "ts": 1794603600
     }
   ],
   "sectors": [
@@ -46,198 +46,198 @@
       "sym": "XLK",
       "name": "Technology",
       "kind": "cyclical",
-      "price": 173.77,
-      "change": -0.59,
-      "pct": -0.3384,
-      "ts": 1794517200
+      "price": 170.28,
+      "change": -3.49,
+      "pct": -2.0084,
+      "ts": 1794603600
     },
     {
       "sym": "SMH",
       "name": "Semiconductors",
       "kind": "cyclical",
       "theme": true,
-      "price": 501.73,
-      "change": -5.23,
-      "pct": -1.0316,
-      "ts": 1794517200
+      "price": 486.75,
+      "change": -14.98,
+      "pct": -2.9857,
+      "ts": 1794603600
     },
     {
       "sym": "XLC",
       "name": "Comm Svcs",
       "kind": "cyclical",
-      "price": 107.56,
-      "change": -1.04,
-      "pct": -0.9576,
-      "ts": 1794517200
+      "price": 108.69,
+      "change": 1.13,
+      "pct": 1.0506,
+      "ts": 1794603600
     },
     {
       "sym": "XLY",
       "name": "Cons Disc",
       "kind": "cyclical",
-      "price": 120.46,
-      "change": -0.53,
-      "pct": -0.4381,
-      "ts": 1794517200
+      "price": 119.98,
+      "change": -0.48,
+      "pct": -0.3985,
+      "ts": 1794603600
     },
     {
       "sym": "XLF",
       "name": "Financials",
       "kind": "cyclical",
-      "price": 58.21,
-      "change": -0.42,
-      "pct": -0.7164,
-      "ts": 1794517200
+      "price": 58.68,
+      "change": 0.47,
+      "pct": 0.8074,
+      "ts": 1794603600
     },
     {
       "sym": "XLI",
       "name": "Industrials",
       "kind": "cyclical",
-      "price": 169.44,
-      "change": -1.53,
-      "pct": -0.8949,
-      "ts": 1794517200
+      "price": 168.78,
+      "change": -0.66,
+      "pct": -0.3895,
+      "ts": 1794603600
     },
     {
       "sym": "XLB",
       "name": "Materials",
       "kind": "cyclical",
-      "price": 52.34,
-      "change": -0.68,
-      "pct": -1.2825,
-      "ts": 1794517200
+      "price": 52.23,
+      "change": -0.11,
+      "pct": -0.2102,
+      "ts": 1794603600
     },
     {
       "sym": "XLE",
       "name": "Energy",
       "kind": "cyclical",
-      "price": 64.33,
-      "change": 0.96,
-      "pct": 1.5149,
-      "ts": 1794517200
+      "price": 64.96,
+      "change": 0.63,
+      "pct": 0.9793,
+      "ts": 1794603600
     },
     {
       "sym": "XLV",
       "name": "Health Care",
       "kind": "defensive",
-      "price": 187.83,
-      "change": -1.12,
-      "pct": -0.5927,
-      "ts": 1794517200
+      "price": 188.85,
+      "change": 1.02,
+      "pct": 0.543,
+      "ts": 1794603600
     },
     {
       "sym": "XLP",
       "name": "Staples",
       "kind": "defensive",
-      "price": 91.06,
-      "change": -0.39,
-      "pct": -0.4265,
-      "ts": 1794517200
+      "price": 92.35,
+      "change": 1.29,
+      "pct": 1.4166,
+      "ts": 1794603600
     },
     {
       "sym": "XLU",
       "name": "Utilities",
       "kind": "defensive",
-      "price": 43.81,
-      "change": -0.01,
-      "pct": -0.0228,
-      "ts": 1794517200
+      "price": 44.04,
+      "change": 0.23,
+      "pct": 0.525,
+      "ts": 1794603600
     },
     {
       "sym": "XLRE",
       "name": "Real Estate",
       "kind": "defensive",
-      "price": 44.36,
-      "change": -0.23,
-      "pct": -0.5158,
-      "ts": 1794517200
+      "price": 44.37,
+      "change": 0.01,
+      "pct": 0.0225,
+      "ts": 1794603600
     }
   ],
   "holdings": [
     {
       "sym": "INTC",
       "name": "Intel",
-      "price": 61.2,
-      "change": -1.3,
-      "pct": -2.08,
-      "ts": 1794517200
+      "price": 59.66,
+      "change": -1.54,
+      "pct": -2.5163,
+      "ts": 1794603600
     },
     {
       "sym": "NVDA",
       "name": "Nvidia",
-      "price": 166.19,
-      "change": -7.54,
-      "pct": -4.3401,
-      "ts": 1794517200
+      "price": 162.85,
+      "change": -3.34,
+      "pct": -2.0097,
+      "ts": 1794603600
     },
     {
       "sym": "GOOGL",
       "name": "Alphabet",
-      "price": 298.7,
-      "change": 5.25,
-      "pct": 1.7891,
-      "ts": 1794517200
+      "price": 295.77,
+      "change": -2.93,
+      "pct": -0.9809,
+      "ts": 1794603600
     },
     {
       "sym": "URA",
       "name": "Uranium ETF",
-      "price": 32.36,
-      "change": -1.28,
-      "pct": -3.805,
-      "ts": 1794517200
+      "price": 31.84,
+      "change": -0.52,
+      "pct": -1.6069,
+      "ts": 1794603600
     },
     {
       "sym": "VOO",
       "name": "S&P 500 ETF",
-      "price": 696,
-      "change": -2.35,
-      "pct": -0.3365,
-      "ts": 1794517200
+      "price": 693.38,
+      "change": -2.62,
+      "pct": -0.3764,
+      "ts": 1794603600
     }
   ],
   "oil": {
     "sym": "USO",
     "name": "Oil (USO)",
-    "price": 146.07,
-    "change": 4.6,
-    "pct": 3.2516,
-    "ts": 1794517200
+    "price": 145.58,
+    "change": -0.49,
+    "pct": -0.3355,
+    "ts": 1794603600
   },
-  "narrative": "Risk-off tone. S&P closed -0.4%, 1/11 sectors higher. Energy led (+1.5%); Materials lagged (-1.3%). Your book: semis (SMH) -1.0%, INTC -2.1%, NVDA -4.3%.",
+  "narrative": "Risk-off tone. S&P closed -0.4%, 6/11 sectors higher. Staples led (+1.4%); Technology lagged (-2.0%). Your book: semis (SMH) -3.0%, INTC -2.5%, NVDA -2.0%.",
   "brief": {
-    "asof": "Nov 12, 2026, 8:47 PM ET",
+    "asof": "Nov 13, 2026, 7:53 PM ET",
     "session": "close",
-    "picture": "Risk-off tone. S&P closed -0.4%, 1/11 sectors higher. Energy led (+1.5%); Materials lagged (-1.3%).",
-    "rotation": "No clear defensive/cyclical rotation — cyclicals -0.4% vs defensives -0.4%, roughly balanced.",
-    "book": "Your book: semis (SMH) -1.0%, INTC -2.1%, NVDA -4.3%.",
-    "week": "Past 5 sessions: Technology closed lower in 2 of 5 (+7.0% cumulative), semis +12.1%. On the week, Technology leads (+7.0%) and Staples trails (-0.2%).",
+    "picture": "Risk-off tone. S&P closed -0.4%, 6/11 sectors higher. Staples led (+1.4%); Technology lagged (-2.0%).",
+    "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg +0.6%) over cyclicals (-0.0%) — a cautious, risk-off tilt.",
+    "book": "Your book: semis (SMH) -3.0%, INTC -2.5%, NVDA -2.0%.",
+    "week": "Past 5 sessions: Technology closed lower in 3 of 5 (+3.4% cumulative), semis +4.9%. On the week, Energy leads (+5.4%) and Materials trails (+0.5%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
-        "headline": "Microsoft outage drags on for hours, disrupting Outlook, Teams for thousands - Reuters",
+        "headline": "Latin Grammy Awards: The fashion, moments, winners and performances - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPQWpWeUZnbllhcFk4WktZS0s3T1N6T3k3Vnhhd3pfSE9SWF9iRmRIQUljdHZXN0UtWS1uZS1rbUNZSlVPd1NXLXRtVUVtc3NQNTgxMVFMWjVnT3pPb09EX1g1YUx3WkF2VHk0bUMwWlhkRHdpT0JFRE5SQ3pQRkdmSnpUOHNXLUo1dXNSY3lFdkpSdU5laDdwSlhWRDVnNjBFcUh2Y0FwMXNldE8tSFpPaw?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQLUdWNjJsc1BWTC1ycV83cEN2S3d0Z3hoaW9Cc3FmTVN6dkJpUXpZNDdOSVI1MUh2ZjB6WVdmQ0pFN1I5anRJaXhXeUQ3a3dRT1Y0Qm9GU0ladWhHdmxsQjNpZXNZMTc4YmM3YjBRYXJiV25teHBCSG1IdC1hTTV4SlNjampqR0NfZlVSZ3Zja1h5ZE5fMkZZLVdjQlZkc3dKY0RR?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "COMMENTARY: Just like the US, Iran has squandered its good options to end the war - Reuters",
+        "headline": "US Air Force responds to suspected drone activity over UK airbase - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNbjNkU1dtRi1ZR0lyQmplWGZON1QwakF5Wk82UzhRSzR6ZlJfVFlpTkJLWEVBdGFsc21GbEVNMURkRDhaWm9tRHhwZGhUclFxXzdzUlZUU0VUYi10U1MtVzF5djhHNFVCSEhUa1dMN0pvWjktV2JQVGJTa01lSl9lM1RkY1RGdmJmOWVGUkd6MUw2WjBDZ0NPQ3pfYzh2ZXkwNDF3YXppNlBIcEhIUWlQcVhoZXpEOUZpNXYzZHVrdlVybVYz?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPTkFnODI2ZmFiRTJzS3N4eXI5TzJqbXpFV3lUM29neFFnSFJJOVlQcDNZR3B3MmczQWlTNDA4ZE13bXpQcm9yQXdROXIzWjBCRnZHNzhwQkxldWtuREJ2Q1BvOFEzcTZRN2tpQkxwb3dCLUtvdzZiUEsxbGNvXzVmWTUzMTVvdHl5cjZBX2Y1VTJzZlFjUnZrMjFrVWZXTWltM1hoSkxDMThmdDdEckQ1NVJMbTE0dXFQYXJMM3NEVQ?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "Without Jensen Huang, Nvidia's organizational structure isn't 'built to last,' management expert says",
-        "source": "CNBC",
-        "url": "https://www.cnbc.com/make-it/2026/11/12/nvidia-jensen-huang-management-structure.html",
+        "headline": "US grounds flights nationwide after air traffic control communications outage - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPTTdvYllmb0pHUXVJVGNLUmFZb2I0WXpjZENubU52NW1nQlFJa1E4c3ZNTGhseUdiUzl0ZXJWa0pOSnR1ZDlRQk9FTHZlaWkyT0hLM1J3OW5tVUhIb0o4OWN5bDVVakF5T3lIanR1SVVMSkctSDlpb2loMWI2MENuWEIxTmhTcy1kZXdqSlRrdi1NMHlFSGtPRWEzdUFrMWR1c2wwNk9rRUUwOGpzajM0N1h2MndWVU9MYngyMVdudw?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "Why Are Advanced Micro Devices (AMD) Shares Drawing Fresh AI Attention?",
+        "headline": "Why Intel Stock Slumped Today",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
       },
       {
-        "headline": "Nvidia Stock Shock Puts These AI Infrastructure Chip Shares In Focus",
+        "headline": "S&P 500, Dow, Nasdaq End Lower Amid Nvidia Turmoil, But Record Best Week Since August —  SPCX, NVDA, ARM, AZN In Focus",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
