@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-11-17T02:56:51.173Z",
-  "updated_label": "Nov 16, 2026, 9:56 PM ET",
+  "updated_utc": "2026-11-17T03:46:34.190Z",
+  "updated_label": "Nov 16, 2026, 10:46 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 357,
+  "quote_age_min": 407,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-off tone. S&P closed -1.9%, 2/11 sectors higher. Staples led (+0.3%); Technology lagged (-3.2%). Your book: semis (SMH) -5.1%, INTC -7.0%, NVDA -4.1%.",
   "brief": {
-    "asof": "Nov 16, 2026, 9:56 PM ET",
+    "asof": "Nov 16, 2026, 10:46 PM ET",
     "session": "close",
     "picture": "Risk-off tone. S&P closed -1.9%, 2/11 sectors higher. Staples led (+0.3%); Technology lagged (-3.2%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg -0.1%) over cyclicals (-1.8%) — a cautious, risk-off tilt.",
@@ -213,15 +213,15 @@
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
-        "headline": "Oil slips on supply surplus outlook despite Gulf tensions - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPQm40d1ZiR2k1S1RxaFdvQzJVYmRJUE1rcnNLZkEyRkZzbk5KZjlqWl9sZW9MUFB2OHpwdGZzT3duNzVnMnNaMEJMYkFKWndKTWE1OWNtd0hLcWRtSmVVYU5JaTBlNXZuT2t0V1AzVHdXVEhPMWt5QnhXakxpWkxiQk50ZEt0UGtXT3RpeXdiNEY0UXBqeXk2RGVHYURMNzJzNm13Zldtbm8tQQ?oc=5",
-        "tag": "Market"
-      },
-      {
         "headline": "Celebrity style at the Governors Awards - Reuters",
         "source": "Reuters",
         "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPZWpxQXhYUjlmNXV4eUZfdWFvZmFqc2xMdW9PZU1oR0JKN29mVFRQci1JQXFvbzF4VWZCTDV4ZzJPTnVlVU01a2JpajlaYnVEYTRadlJIWGFKSTBrdnJ0bWxqSW0tQnprZ3VfSVFHVFJveG5YbEpKTGFLN1VwdGZqOUZlNA?oc=5",
+        "tag": "Market"
+      },
+      {
+        "headline": "Oil slips on supply surplus outlook despite Gulf tensions - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPQm40d1ZiR2k1S1RxaFdvQzJVYmRJUE1rcnNLZkEyRkZzbk5KZjlqWl9sZW9MUFB2OHpwdGZzT3duNzVnMnNaMEJMYkFKWndKTWE1OWNtd0hLcWRtSmVVYU5JaTBlNXZuT2t0V1AzVHdXVEhPMWt5QnhXakxpWkxiQk50ZEt0UGtXT3RpeXdiNEY0UXBqeXk2RGVHYURMNzJzNm13Zldtbm8tQQ?oc=5",
         "tag": "Market"
       },
       {
