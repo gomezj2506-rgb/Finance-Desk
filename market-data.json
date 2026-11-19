@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-11-19T01:53:27.081Z",
-  "updated_label": "Nov 18, 2026, 8:53 PM ET",
+  "updated_utc": "2026-11-19T02:30:52.411Z",
+  "updated_label": "Nov 18, 2026, 9:30 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 293,
+  "quote_age_min": 331,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Mixed tone. S&P closed -0.3%, 5/11 sectors higher. Cons Disc led (+1.8%); Energy lagged (-3.3%). Your book: semis (SMH) -0.1%, INTC -0.9%, NVDA -2.9%.",
   "brief": {
-    "asof": "Nov 18, 2026, 8:53 PM ET",
+    "asof": "Nov 18, 2026, 9:30 PM ET",
     "session": "close",
     "picture": "Mixed tone. S&P closed -0.3%, 5/11 sectors higher. Cons Disc led (+1.8%); Energy lagged (-3.3%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals -0.4% vs defensives -0.5%, roughly balanced.",
@@ -237,7 +237,7 @@
         "tag": "Your book"
       },
       {
-        "headline": "‘Nvidia’s turmoil has me spooked’: Should I sell my stocks and buy real estate — or ride out the storm?",
+        "headline": "Anthropic Prices IPO at $83 a Share, Raising $81.3 Billion in Largest Listing on Record",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
