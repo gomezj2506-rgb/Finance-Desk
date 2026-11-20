@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-11-20T01:46:56.180Z",
-  "updated_label": "Nov 19, 2026, 8:46 PM ET",
+  "updated_utc": "2026-11-20T02:15:58.206Z",
+  "updated_label": "Nov 19, 2026, 9:15 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 287,
+  "quote_age_min": 316,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-off tone. S&P closed -2.0%, 0/11 sectors higher. Energy led (-0.7%); Cons Disc lagged (-2.8%). Your book: semis (SMH) -2.6%, INTC +1.9%, NVDA -3.3%.",
   "brief": {
-    "asof": "Nov 19, 2026, 8:46 PM ET",
+    "asof": "Nov 19, 2026, 9:15 PM ET",
     "session": "close",
     "picture": "Risk-off tone. S&P closed -2.0%, 0/11 sectors higher. Energy led (-0.7%); Cons Disc lagged (-2.8%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg -1.6%) over cyclicals (-1.9%) — a cautious, risk-off tilt.",
@@ -237,7 +237,7 @@
         "tag": "Your book"
       },
       {
-        "headline": "Dow Jones Futures: Techs Slide, Anthropic Retreats After Ugly Market Reversal To New Lows",
+        "headline": "History Says This Brilliant ETF Could Help You Turn $500 Per Month Into $784,100 While Barely Lifting a Finger.",
         "source": "Yahoo",
         "url": "",
         "tag": "Your book"
