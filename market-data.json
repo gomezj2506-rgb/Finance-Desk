@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-11-21T01:32:39.385Z",
-  "updated_label": "Nov 20, 2026, 8:32 PM ET",
+  "updated_utc": "2026-11-21T02:10:00.905Z",
+  "updated_label": "Nov 20, 2026, 9:10 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 273,
+  "quote_age_min": 310,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Risk-off tone. S&P closed -3.6%, 1/11 sectors higher. Staples led (+0.7%); Technology lagged (-7.3%). Your book: semis (SMH) -10.6%, INTC -8.0%, NVDA -14.0%.",
   "brief": {
-    "asof": "Nov 20, 2026, 8:32 PM ET",
+    "asof": "Nov 20, 2026, 9:10 PM ET",
     "session": "close",
     "picture": "Risk-off tone. S&P closed -3.6%, 1/11 sectors higher. Staples led (+0.7%); Technology lagged (-7.3%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg -0.3%) over cyclicals (-2.9%) — a cautious, risk-off tilt.",
@@ -219,15 +219,15 @@
         "tag": "Market"
       },
       {
-        "headline": "EXCLUSIVE: Nvidia's accounting is a focus of US SEC investigation, sources say - Reuters",
+        "headline": "Saudi Arabia says it intercepts three Houthi missiles targeting Riyadh - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPMzlPdFVTT2cyVkhmMFVKNWZ1MnpNT0NLcURnblg4THMwUWNuYTRBLWUxU0ZSSUR5bk1zNnBmVlhIUjByNkN6TzVBNC1uaXQxM0dwY2FkMzZQdm00a0xyMXo3NFNpSUNPdERZWU82aGZLa0lNZHpMOXVnVDBVQW9lMmNrWEVRczVYS1Racm1NNlNERDBJeTFJRG1pZVRfTC1LTy1pNjhpVzRaeGRrY25kSzQ1aDNUUQ?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOZEM0V09PMzNwMW5Eck5aSWVqWU02QzZsOHlJdHZrUHh1VDNOUFZIc1ZBbWJWOG9RX0ljdlpoMUhfX3o3QzQwNlJSUzRIbXhDbTBtZ0VEV0VtUWZCOUlwczJCQXVEN3hDN0x5TVVVZ1NaWm9LT3BPWTNsTHZicmpGOEM3bHhNa0VvQTJ0UzQ1NERFR1diOXdvYXlnUk9QeHMtaEw4MHFGR0VHTV9KZHpsT0hjZTQ?oc=5",
         "tag": "Market"
       },
       {
-        "headline": "UK finds fix for fridge and freezer vulnerability after European hacks - Reuters",
+        "headline": "US Treasury sanctions Iranian 'trustees' collecting oil revenues - Reuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxORVlPYjE2cEpJQjlLNzNNcjVjRnI3LUxkcnE5UVJBak9QOTlPUXR2S1htU3BEUWxfM0RfUmo2QVVfX0g3cXpzTjdUSFNRMERVR0FKUVJ4T21TYUhUU2d3bE9tV2hpaGo1bUxqc25WR0VYWFl0Z0UxZDBiMGM3RUdYODlURmFxYnVvcm9KTXVhZWdObGl0bTZfNENXTTlhdG9ibzVNX1hCOFpkQ1k?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQV3NtX0JqMFVBeHBVcTdlV1ZTaXRRMUhnLV9YWmR3VEZqUHVwbFlnOTlFTlZtTTExbUhTNzBsWXR6YTNYQmdMdVg4VGJuTTRYR19wSHhSZUJaTlRxWWpFT0o3SGgzb2JrOXY4b2xMd3cxQ2VlbGZPUzFGU2hJNFJLLTV6YlZLdmlGbUNaY19jMDdMLXVLTGRiT2ZfR2dMY0JuNzc0UzE0akxlelRNNl9sYzhLMkFwczA?oc=5",
         "tag": "Market"
       },
       {
