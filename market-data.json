@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-11-24T04:48:44.018Z",
-  "updated_label": "Nov 23, 2026, 11:48 PM ET",
-  "session": "close",
-  "stamp_prefix": "AT CLOSE ·",
-  "status_pill": "CLOSE",
-  "quote_age_min": 469,
+  "updated_utc": "2026-11-24T05:17:27.220Z",
+  "updated_label": "Nov 24, 2026, 12:17 AM ET",
+  "session": "prior_close",
+  "stamp_prefix": "LAST CLOSE ·",
+  "status_pill": "LAST CLOSE",
+  "quote_age_min": 497,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -202,32 +202,32 @@
     "pct": -4.4904,
     "ts": 1795467600
   },
-  "narrative": "Risk-on tone. S&P closed +4.7%, 9/11 sectors higher. Technology led (+9.0%); Energy lagged (-1.1%). Your book: semis (SMH) +15.0%, INTC +16.3%, NVDA +31.5%.",
+  "narrative": "Risk-on tone (last session). S&P closed +4.7%, 9/11 sectors higher. Technology led (+9.0%); Energy lagged (-1.1%). Your book: semis (SMH) +15.0%, INTC +16.3%, NVDA +31.5%.",
   "brief": {
-    "asof": "Nov 23, 2026, 11:48 PM ET",
-    "session": "close",
-    "picture": "Risk-on tone. S&P closed +4.7%, 9/11 sectors higher. Technology led (+9.0%); Energy lagged (-1.1%).",
+    "asof": "Nov 24, 2026, 12:17 AM ET",
+    "session": "prior_close",
+    "picture": "Risk-on tone (last session). S&P closed +4.7%, 9/11 sectors higher. Technology led (+9.0%); Energy lagged (-1.1%).",
     "rotation": "Money leaned toward cyclicals (Tech/Financials/Industrials/Energy avg +3.5%) over defensives (+0.9%) — a risk-on, growth-seeking tilt.",
     "book": "Your book: semis (SMH) +15.0%, INTC +16.3%, NVDA +31.5%.",
     "week": "Past 5 sessions: Technology closed lower in 3 of 5 (-1.4% cumulative), semis -0.4%. On the week, Cons Disc leads (-1.0%) and Energy trails (-6.0%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
       {
+        "headline": "Oil holds near three-month low as rising supply offsets Hormuz threat - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQMDQ4RU9qMFd6TWl0WkFDUGVsdk5Gb3Q1dURMcjcwbGxUV3ItdjhZUGdQUTBZOVUyZEZlRzdmSEtjM3EwQTNUam1nRVZNdXFRbmNfeHhpUnNVQjNPbjNyOGtSZHVnNEZmbnpJdC1VdVA5X25rWndhMnZqemNGVWdVU1Y5OE8ybExyT2xLelF6dnZsNkM0OU55b1dKc1NuNF9sWkVGSGZJaUNxLXc4eEdGZTl3LUtFTDFuUUE?oc=5",
+        "tag": "Market"
+      },
+      {
+        "headline": "Israeli airstrike kills at least three Palestinians in southern Gaza, medics say - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNQzdHQ2gzSWhrMmF1X2lxVWVyTVdvQXg1QTVjcUJ6bXVxd0htbC1qSV9HbGg1aU4xdzlwaE41TlNWd3dDRng2NllYN1BMaktmX1JaU1A2RURQa0h5OHlBMS15Um1vRVlIVjRmY3F5RVhJXy1IWUpPbTJGNG4zV3ZJOHp6NTE3UG1wUUJDeWJJbVlUSEpBcHE0bF94UHhNT0ZpVVVIUWdscUZXSDJFT3QxZHQyaU45bGdDTnVmTEhjQnM4UUpLX0E?oc=5",
+        "tag": "Market"
+      },
+      {
         "headline": "US eyes Iran as possible culprit in dozens of new cyberattacks against ships, WSJ reports - Reuters",
         "source": "Reuters",
         "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNVjR1WG9RTVdfSTNnS1RTOWcwVlhpeGMtaUdMZGVIU1I0ZWt1ZlhtQ2F1ODJZOEwxVzB2ZHBYNDIxMkEtdjdMY1Z2X050QjY2VjYwR1VmTDZSbWxiQTNwZ09nZTRHYzdweXEzajYxcnZxTUp3eWdSdEtvX2RMTllnY205N3VoTlJnTEQtOEYySEVHNDZMa0p5bHdPWG9KTUw1Zzg3VnZuVEVGV3czanhjQUJxdDNqTXFvMXlZT1k4bmlQYkJfYXUya0lsbzRoUQ?oc=5",
-        "tag": "Market"
-      },
-      {
-        "headline": "CrowdStrike CEO defends Zscaler acquisition, calls it a 'winning combination'",
-        "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/11/23/crowdstrike-zscaler-deal-ceo-george-kurtz.html",
-        "tag": "Market"
-      },
-      {
-        "headline": "South Korea briefly scrambles fighter jets, issues warning after Russia aircraft fly off coast - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPVnMyeTNTLWNPT1JoWVRGdTZmb2hnVi1USk9WNldKUVNfVWkzRk5RSjI5UlVIYkprbnEtOFplWGdpd2JoWmtZeEVZQTF6TGJJU0tEZXhsYVVNaHl1OVlfOF9sc3lHUUdzNXBpeHNqUTF0ZXY2VTcxbHEwbHluRF9sR3N0WnR1T3R1cmRKa1FDSnpOeGJwVVIyN0NhYmF4QmlyZHZjT2JNXzB4ZlY1cTJRNVZtTTluY3lYbmd0TEtlXzA3WUZwTVk3Uw?oc=5",
         "tag": "Market"
       },
       {
