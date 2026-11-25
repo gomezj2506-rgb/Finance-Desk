@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-11-25T03:33:35.274Z",
-  "updated_label": "Nov 24, 2026, 10:33 PM ET",
+  "updated_utc": "2026-11-25T04:08:15.019Z",
+  "updated_label": "Nov 24, 2026, 11:08 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 394,
+  "quote_age_min": 428,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Mixed tone — positive breadth masked by megacap weakness. S&P closed -0.5%, 9/11 sectors higher. Health Care led (+3.0%); Technology lagged (-3.3%). Your book: semis (SMH) -7.3%, INTC -8.1%, NVDA -5.9%.",
   "brief": {
-    "asof": "Nov 24, 2026, 10:33 PM ET",
+    "asof": "Nov 24, 2026, 11:08 PM ET",
     "session": "close",
     "picture": "Mixed tone — positive breadth masked by megacap weakness. S&P closed -0.5%, 9/11 sectors higher. Health Care led (+3.0%); Technology lagged (-3.3%).",
     "rotation": "Money leaned toward defensives (Staples/Utilities/Health/Real Estate avg +1.5%) over cyclicals (+0.0%) — a cautious, risk-off tilt.",
