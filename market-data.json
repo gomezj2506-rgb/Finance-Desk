@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-11-26T02:52:30.690Z",
-  "updated_label": "Nov 25, 2026, 9:52 PM ET",
+  "updated_utc": "2026-11-26T03:30:46.059Z",
+  "updated_label": "Nov 25, 2026, 10:30 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 353,
+  "quote_age_min": 391,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Mixed tone — positive breadth masked by megacap weakness. S&P closed -0.3%, 8/11 sectors higher. Materials led (+2.1%); Technology lagged (-0.8%). Your book: semis (SMH) -1.0%, INTC -0.6%, NVDA -3.9%.",
   "brief": {
-    "asof": "Nov 25, 2026, 9:52 PM ET",
+    "asof": "Nov 25, 2026, 10:30 PM ET",
     "session": "close",
     "picture": "Mixed tone — positive breadth masked by megacap weakness. S&P closed -0.3%, 8/11 sectors higher. Materials led (+2.1%); Technology lagged (-0.8%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals +0.6% vs defensives +0.3%, roughly balanced.",
@@ -212,6 +212,12 @@
     "week": "Past 5 sessions: Technology closed lower in 4 of 5 (-4.9% cumulative), semis -8.1%. On the week, Materials leads (+1.5%) and Technology trails (-4.9%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
+      {
+        "headline": "S&P warns Nvidia credit rating could be cut over 'rising' management and governance risk",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/11/26/nvidia-market-governance-risk.html",
+        "tag": "Market"
+      },
       {
         "headline": "US airlines face higher costs from proposed Embraer duty - Reuters",
         "source": "Reuters",
@@ -222,12 +228,6 @@
         "headline": "EXCLUSIVE: Billionaire Boehly signs US-backed share swap deal to buy Lukoil global assets - Reuters",
         "source": "Reuters",
         "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQM05VWXNudnhTWW1BY2VFUHpZRzdNSjU4TG1Ob3NYZTRKM0tNUWNGQmxyNEp6NW0yTEJWaTZabF9UNW9CUUZTclBhaGpnQmZ6WVRZTVhqS3dpOTBsZEtaOGZnMzFPQlR5MDRpZThJNmU0cXc5Q0trMDNhdWtxVjV4V1lMYzYyR1RHU0lBNDdWZDlzOWxBN1J1Wm0xWlJkNEVMaVNXUXdQcTRuUHlvczlnMTd1VGRWQQ?oc=5",
-        "tag": "Market"
-      },
-      {
-        "headline": "Russian forces hit Kyiv with ballistic missiles, mayor says - Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOOUhrdXc0NFhybXpCcmF1VjM2RlFseVBqOW0xdXJBQlZWT0w5TmZRTjFTbEpjWTVlZHBmMHZMQ0tVcm5OMnk5RjhKWklxQlFfY1hDQTB4dmZNQWwwd2tLb0xLNGRNbUpNXzNCZGw0Sm1fNlhkSEUzNUZvQ2hkVHNOMGhOOFJlSnZJcXQ4UldFb01FY2J2YmpLUW1NTi1rWnRBb3c?oc=5",
         "tag": "Market"
       },
       {
