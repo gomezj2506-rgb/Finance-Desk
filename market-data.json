@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-11-27T02:52:12.677Z",
-  "updated_label": "Nov 26, 2026, 9:52 PM ET",
+  "updated_utc": "2026-11-27T03:36:33.990Z",
+  "updated_label": "Nov 26, 2026, 10:36 PM ET",
   "session": "close",
   "stamp_prefix": "AT CLOSE ·",
   "status_pill": "CLOSE",
-  "quote_age_min": 1792,
+  "quote_age_min": 1837,
   "stale": false,
   "source": "Finnhub",
   "indices": [
@@ -204,7 +204,7 @@
   },
   "narrative": "Mixed tone — positive breadth masked by megacap weakness. S&P closed -0.3%, 8/11 sectors higher. Materials led (+2.1%); Technology lagged (-0.8%). Your book: semis (SMH) -1.0%, INTC -0.6%, NVDA -3.9%.",
   "brief": {
-    "asof": "Nov 26, 2026, 9:52 PM ET",
+    "asof": "Nov 26, 2026, 10:36 PM ET",
     "session": "close",
     "picture": "Mixed tone — positive breadth masked by megacap weakness. S&P closed -0.3%, 8/11 sectors higher. Materials led (+2.1%); Technology lagged (-0.8%).",
     "rotation": "No clear defensive/cyclical rotation — cyclicals +0.6% vs defensives +0.3%, roughly balanced.",
@@ -212,6 +212,24 @@
     "week": "Past 5 sessions: Technology closed lower in 4 of 5 (-3.9% cumulative), semis -6.5%. On the week, Materials leads (+5.8%) and Technology trails (-3.9%).",
     "watch": "Ahead: watch scheduled macro prints (CPI/PPI, jobs, FOMC) and megacap tech earnings — the swing factors for your semis.",
     "headlines": [
+      {
+        "headline": "Brent trades near month's high as Mideast conflict threatens supply - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPTzVQVzE5aGdzbGVhNEUtVl94M0V3RjN5Rks4UDU0U0plazFDcjFnUTBMMHBvdk9BRzFaVHljSXk1ZFdzSjlRTVRXNGZ0cnRyUWRRbFJaRjBsVWNFbDZqSnQ0cHo0TW5fRDlwMWlKWDI3V2ROcnlXczVET1RqSXR6UGtZSTZ0OTQtY1YwaG1yYTRwQnZ6TW43azNGNTFqMmpkNFhtbVJwRnVkVERhR1NnSlFIMzExZw?oc=5",
+        "tag": "Market"
+      },
+      {
+        "headline": "Hamas weighs response after Israel kills 10 people in Gaza - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNNzFiM29KUVhvZHZUYTV1SWtlLXNYbXg3ZzRodFVmanZkNzJsczZ4UldfRkNkSW1fVDhMaTFYOW9ETUxXaXFKcktCTThoYnBYS21mVjQxYkNWM19MR1h0WHNSdjlGenRTNkExU2RKU0ZKNUhCRWR0OVU2VmFqTUJHeE5QMVNybDE4Qk1WTmp5VGgyWDV0NjhaM3h4Ulp1bWZDUThnSlI0TFMwMnQzNk5KQnZXVTRCUUxvc2FLbmlDYVREeHpwOUpV?oc=5",
+        "tag": "Market"
+      },
+      {
+        "headline": "Attack on Saudi Aramco's Jazan refinery kills worker, halts some operations - Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxORnNINWJlUzU0bDVSQ1Z5TWhtZTl1dzVxa01lbWhiMTg0bjBKZzQtbld6RmpIQ3NOSkctT29wTmdmR3VCcHpMbzdBQUdQSU0wVWItQU1COHhCS1BzYnpoOTJsRzl2TWp0aVNNZWVpZVFhS2cwWXVtNnA0bzRfUXNTRTJRTEVHem5BY2V2SURxZG9Vb3VkT3FNa1RuR3RfZWJQUE15WTdGaVFudnJaeVJIdVhXdE9PcWFuY2c?oc=5",
+        "tag": "Market"
+      },
       {
         "headline": "Intel (INTC) Faces Lawsuit And AI Selloff As Fair Value Debate Gets Harder",
         "source": "Yahoo",
